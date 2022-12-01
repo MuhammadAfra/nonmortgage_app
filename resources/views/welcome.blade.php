@@ -8,5 +8,6 @@
 </head>
 <body>
     <h1>testt</h1>
+    <a href="{{ route('logout') }}">logout</a>
 </body>
 </html>
