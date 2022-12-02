@@ -24,13 +24,13 @@ class LoginController extends Controller
             'password.required' => 'Input Password!',
         ]);
 
-        $infologin = [
+        $infologin = [ 
             'email' => $request->email,
             'password' => $request->password,
         ];
 
         if(Auth::attempt($infologin)){
-            return view('welcome');
+            return redirect('/dashboard');
         }else{
             return redirect('/')->withErrors('Username atau Password Salah!');
         }

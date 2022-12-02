@@ -20,7 +20,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="#"><b>Reliance</b></a>
+            <h5 href="#"><b>ReFi </b>- NonMortgage</h5>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -28,7 +28,8 @@
                 @if(Session::has('errors'))
                 <div class="alert alert-danger">{{ Session::get('errors')->first() }}</div>
                 @endif
-                <p class="login-box-msg">Sign in to start your session</p>
+                <img style="width: 100%; height: 125px; padding: 25px;" src="{{ asset('img/reliance_logo.png') }}" alt="">
+                <p class="login-box-msg">Login</p>
 
                 <form action="{{ route('login') }}" method="post">
                     @csrf
@@ -55,6 +56,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     <div class="row">
+                        <div class="col-8"></div>
                         <!-- /.col -->
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
