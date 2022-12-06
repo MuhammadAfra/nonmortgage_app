@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>ReFi - Nonmortgage</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="{{ asset('Template/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('Template/plugins/summernote/summernote-bs4.min.css') }}">
+      <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('Template/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Template/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('Template/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -42,14 +46,14 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                  <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
             </ul>
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link" role="button" data-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-user"></i>
                     </a>
                     <div class="dropdown-menu">
@@ -68,7 +72,7 @@
             </a>
 
             <!-- Sidebar -->
-            <div class="sidebar">
+            <div class="sidebar px-1">
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -88,9 +92,9 @@
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview ml-2">
+                            <ul class="nav nav-treeview ml-1">
                                 <li class="nav-item">
-                                    <a href="{{ url('master_suku_bunga') }}"" class="nav-link">
+                                    <a href="{{ url('master_suku_bunga') }}" class="nav-link {{ 'master_suku_bunga' == request()->path() ? 'active' : '' }}">
                                         <p>Master Suku Bunga</p>
                                     </a>
                                 </li>
@@ -124,16 +128,6 @@
                                         <p>Master Skema Pembiayaan</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <p>Master Collateral</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <p>Master Collateral Sub</p>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -153,14 +147,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ url('product') }}" class="nav-link {{ 'product' == request()->path() ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-handshake"></i>
                                 <p>
                                     Product
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ml-1">
                             <a href="#" class="nav-link">
                                 <i class="fas fa-handshake"></i>
                                 <p>
@@ -168,16 +162,62 @@
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview ml-2">
+                            <ul class="nav nav-treeview ml-1">
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <p>Collateral Utama</p>
+                                        <p>
+                                            Collateral Utama
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
                                     </a>
+                                    <ul class="nav nav-treeview ml-1">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Kendaraan Bermotor</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Kendaraan Bermobil</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Rumah / Tanah</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Inventori</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Invoice</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Corporate Guarantee</a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <p>Collateal Tambahan</p>
+                                        <p>
+                                            Collateral Tambahan
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
                                     </a>
+                                    <ul class="nav nav-treeview ml-1">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Kendaraan Bermotor</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Kendaraan Bermobil</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Rumah / Tanah</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Inventori</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Invoice</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Corporate Guarantee</a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </li>
@@ -191,16 +231,16 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <div class="content-header">
+            <div class="content-header pb-0">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">@yield('title') <span style="color: #959595; font-size: 20px">@yield('subtitle')</span></h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item">@yield('page')</li>
+                                <li class="breadcrumb-item active">@yield('subtitle')</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -231,39 +271,41 @@
 
     <!-- jQuery -->
     <script src="{{ asset('Template/plugins/jquery/jquery.min.js') }}"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="{{ asset('Template/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
-
-    </script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('Template/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- ChartJS -->
-    <script src="{{ asset('Template/plugins/chart.js/Chart.min.js') }}"></script>
-    <!-- Sparkline -->
-    <script src="{{ asset('Template/plugins/sparklines/sparkline.js') }}"></script>
-    <!-- JQVMap -->
-    <script src="{{ asset('Template/plugins/jqvmap/jquery.vmap.min.js') }}"></script>
-    <script src="{{ asset('Template/plugins/jqvmap/maps/jquery.vmap.usa.js') }}"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="{{ asset('Template/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-    <!-- daterangepicker -->
-    <script src="{{ asset('Template/plugins/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('Template/plugins/daterangepicker/daterangepicker.js') }}"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('Template/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-    <!-- Summernote -->
-    <script src="{{ asset('Template/plugins/summernote/summernote-bs4.min.js') }}"></script>
-    <!-- overlayScrollbars -->
-    <script src="{{ asset('Template/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="{{ asset('Template/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('Template/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('Template/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('Template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('Template/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('Template/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('Template/plugins/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('Template/plugins/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('Template/plugins/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('Template/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('Template/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('Template/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('Template/dist/js/adminlte.js') }}"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('Template/dist/js/demo.js') }}"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ asset('Template/dist/js/pages/dashboard.js') }}"></script>
+    <script src="{{ asset('Template/dist/js/adminlte.min.js') }}"></script>
+    <!-- Page specific script -->
+    <script>
+    $(function () {
+        $("#example1").DataTable({
+        "responsive": false, "lengthChange": false, "autoWidth": false,
+        "buttons": ["excel", "pdf"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+        });
+    });
+    </script>
 </body>
 
 </html>
