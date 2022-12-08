@@ -131,7 +131,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ url('partner') }}" class="nav-link {{ 'partner' == request()->path() ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-handshake"></i>
                                 <p>
                                     Partner
@@ -139,7 +139,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ url('debitur') }}" class="nav-link {{ 'debitur' == request()->path() ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-handshake"></i>
                                 <p>
                                     Debitur
@@ -172,22 +172,22 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Kendaraan Bermotor</a>
+                                            <a href="#" class="nav-link">1. Kendaraan Bermotor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Kendaraan Bermobil</a>
+                                            <a href="#" class="nav-link">2. Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Rumah / Tanah</a>
+                                            <a href="#" class="nav-link">3. Rumah / Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Inventori</a>
+                                            <a href="#" class="nav-link">4. Inventori</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Invoice</a>
+                                            <a href="#" class="nav-link">5. Invoice</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Corporate Guarantee</a>
+                                            <a href="#" class="nav-link">6. Corporate Guarantee</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -200,22 +200,22 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Kendaraan Bermotor</a>
+                                            <a href="#" class="nav-link">1. Kendaraan Bermotor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Kendaraan Bermobil</a>
+                                            <a href="#" class="nav-link">2. Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Rumah / Tanah</a>
+                                            <a href="#" class="nav-link">3. Rumah / Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Inventori</a>
+                                            <a href="#" class="nav-link">4. Inventori</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Invoice</a>
+                                            <a href="#" class="nav-link">5. Invoice</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">Corporate Guarantee</a>
+                                            <a href="#" class="nav-link">6. Corporate Guarantee</a>
                                         </li>
                                     </ul>
                                 </li>

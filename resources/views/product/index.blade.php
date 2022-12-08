@@ -67,7 +67,7 @@ Home
                     <td>pola pembayaran no fields</td>
                     <td>{{ $item->BIAYA_ADMINISTRASI }}</td>
                     <td>{{ $item->BIAYA_ASSURANSI }}</td>
-                    <td>{{ $item->BIAYA_PROVINSI }}</td>
+                    <td>{{ $item->BIAYA_PROVISI }}</td>
                     <td>{{ $item->BIAYA_LAIN_LAIN }}</td>
                 </tr>
                 @endforeach

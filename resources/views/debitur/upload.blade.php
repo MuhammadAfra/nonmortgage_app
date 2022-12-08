@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('title')
-    Product
+    Debitur
 @endsection
 
 @section('subtitle')
@@ -8,7 +8,7 @@
 @endsection
 
 @section('page')
-    <a href="{{ url('product') }}">Product</a>
+    <a href="{{ url('debitur') }}">Debitur</a>
 @endsection
 
 @section('content')
@@ -22,7 +22,7 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-8">
                 <button class="btn btn-primary" type="submit">Upload</button>
-                <a href="{{ url('product') }}" class="btn btn-default">Cancel</a>
+                <a href="{{ url('debitur') }}" class="btn btn-default">Cancel</a>
             </div>
         </div>
     </form>
