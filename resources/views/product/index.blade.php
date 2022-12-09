@@ -57,14 +57,14 @@ Home
                             </form>
                         </div>
                     </td>
-                    <td>{{ $item->PARTNER_ID }}</td>
-                    <td>{{ $item->DEBITUR_ID }}</td>
-                    <td>{{ $item->NAMA_DEBITUR }}</td>
+                    <td>{{ $item->partner->id }}</td>
+                    <td>{{ $item->debitur->id }}</td>
+                    <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->KONVEN_SYARIAH }}</td>
                     <td>{{ $item->NILAI_PEMBIAYAAN_POKOK_MAXIMUM }}</td>
-                    <td>suku bunga no fields</td>
+                    <td>{{ $item->suku_bunga->Suku_Bunga }}</td>
                     <td>{{ $item->Jangka_Waktu_Maximum }}</td>
-                    <td>pola pembayaran no fields</td>
+                    <td>{{ $item->pola_pembayaran->Pola_Pembayaran }}</td>
                     <td>{{ $item->BIAYA_ADMINISTRASI }}</td>
                     <td>{{ $item->BIAYA_ASSURANSI }}</td>
                     <td>{{ $item->BIAYA_PROVISI }}</td>

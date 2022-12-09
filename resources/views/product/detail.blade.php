@@ -15,28 +15,32 @@ Detail
 <div class="card">
     <div class="card-body">
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Partner ID</label></div>
-            <div class="col-sm-8">: {{ $dataproduct->PARTNER_ID }}</div>
+            <div class="col-sm-4"><label>Partner</label></div>
+            <div class="col-sm-8">: {{ $dataproduct->partner->NAMA_PERUSAHAAN }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Debitur ID</label></div>
-            <div class="col-sm-8">: {{ $dataproduct->DEBITUR_ID }}</div>
+            <div class="col-sm-4"><label>Debitur</label></div>
+            <div class="col-sm-8">: {{ $dataproduct->debitur->NAMA_DEBITUR }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Konven / Syariah</label></div>
             <div class="col-sm-8">: {{ $dataproduct->KONVEN_SYARIAH }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nama Debitur</label></div>
-            <div class="col-sm-8">: {{ $dataproduct->NAMA_DEBITUR }}</div>
-        </div>
-        <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Pembiayaan Pokok Maximum</label></div>
             <div class="col-sm-8">: {{ $dataproduct->NILAI_PEMBIAYAAN_POKOK_MAXIMUM }}</div>
         </div>
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Suku Bunga</label></div>
+            <div class="col-sm-8">: {{ $dataproduct->suku_bunga->Suku_Bunga }}</div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>Jangka Waktu Maksimum</label></div>
             <div class="col-sm-8">: {{ $dataproduct->Jangka_Waktu_Maximum }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Pola Pembayaran</label></div>
+            <div class="col-sm-8">: {{ $dataproduct->pola_pembayaran->Pola_Pembayaran }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Administrasi</label></div>

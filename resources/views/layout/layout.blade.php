@@ -305,6 +305,7 @@
         "responsive": true,
         });
     });
+    
     </script>
 </body>
 

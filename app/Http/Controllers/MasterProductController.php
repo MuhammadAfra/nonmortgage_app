@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Partner;
+use App\Models\Master_Product;
 use Illuminate\Http\Request;
 
-class PartnerController extends Controller
+class MasterProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        $partner = Partner::all();
-        return view('partner.index', compact('partner'));
+        //
     }
 
     /**
@@ -42,10 +41,10 @@ class PartnerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Partner  $partner
+     * @param  \App\Models\Master_Product  $master_Product
      * @return \Illuminate\Http\Response
      */
-    public function show(Partner $partner)
+    public function show(Master_Product $master_Product)
     {
         //
     }
@@ -53,10 +52,10 @@ class PartnerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Partner  $partner
+     * @param  \App\Models\Master_Product  $master_Product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Partner $partner)
+    public function edit(Master_Product $master_Product)
     {
         //
     }
@@ -65,10 +64,10 @@ class PartnerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Partner  $partner
+     * @param  \App\Models\Master_Product  $master_Product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Partner $partner)
+    public function update(Request $request, Master_Product $master_Product)
     {
         //
     }
@@ -76,10 +75,10 @@ class PartnerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Partner  $partner
+     * @param  \App\Models\Master_Product  $master_Product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Partner $partner)
+    public function destroy(Master_Product $master_Product)
     {
         //
     }

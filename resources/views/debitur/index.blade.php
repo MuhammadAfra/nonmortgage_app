@@ -28,6 +28,7 @@ Home
                 <tr class="text-center">
                     <th>No</th>
                     <th>Action</th>
+                    <th>Nama Debitur</th>
                     <th>Tanggal Lahir</th>
                     <th>No KTP</th>
                     <th>No NPWP</th>
@@ -66,6 +67,7 @@ Home
                             </form>
                         </div>
                     </td>
+                    <td>{{ $item->NAMA_DEBITUR }}</td>
                     <td>{{ $item->TANGGAL_LAHIR }}</td>
                     <td>{{ $item->NO_KTP }}</td>
                     <td>{{ $item->NO_NPWP }}</td>

@@ -10,6 +10,7 @@ class Debitur extends Model
     use HasFactory;
     protected $table = 'debitur';
     protected $fillable = [
+        'NAMA_DEBITUR',
         'TANGGAL_LAHIR',
         'NO_KTP',
         'NO_NPWP',
@@ -33,4 +34,9 @@ class Debitur extends Model
         'DOWN_PAYMENT_CUSTOMER',
     ];
     public $timestamps = false;
+
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

@@ -38,6 +38,7 @@ class DebiturController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            'NAMA_DEBITUR' => 'required',
             'TANGGAL_LAHIR' => 'required',
             'NO_KTP' => 'required',
             'NO_NPWP' => 'required',
@@ -61,6 +62,7 @@ class DebiturController extends Controller
             ]);
 
         Debitur::create([
+            'NAMA_DEBITUR' => $request->NAMA_DEBITUR,
             'TANGGAL_LAHIR' => $request->TANGGAL_LAHIR,
             'NO_KTP' => $request->NO_KTP,
             'NO_NPWP' => $request->NO_NPWP,
@@ -122,6 +124,7 @@ class DebiturController extends Controller
     {
         $debitur = Debitur::findorfail($id);
         $debitur->update([
+            'NAMA_DEBITUR' => $request->NAMA_DEBITUR,
             'TANGGAL_LAHIR' => $request->TANGGAL_LAHIR,
             'NO_KTP' => $request->NO_KTP,
             'NO_NPWP' => $request->NO_NPWP,

@@ -20,6 +20,7 @@ class AkunSeeder extends Seeder
             'id' => '1',
             'name' => 'admin',
             'email' => 'admin@gmail.com',
+            'level' => 'admin',
             'password' => Hash::make('12345')
         ]);
     }

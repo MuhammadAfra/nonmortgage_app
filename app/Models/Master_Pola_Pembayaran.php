@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Master_Suku_Bunga extends Model
+class Master_Pola_Pembayaran extends Model
 {
     use HasFactory;
-    protected $table = 'master_suku_bunga';
+    protected $table = 'master_pola_pembayaran';
     protected $guarded = [];
 
     public function product()
