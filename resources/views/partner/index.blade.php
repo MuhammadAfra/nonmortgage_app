@@ -51,7 +51,7 @@ Home
                     <th>In House Financial Statement Current Year</th>
                     <th>Bank Statement Last 3 Years</th>
                     <th>Financial Projection For Next 3-5 Years</th>
-                    <th>Darft Template Agree End User</th>
+                    <th>Draft Template Agree End User</th>
                     <th>Contoh Risk Acceptance Criteria</th>
                     <th>NDA Document</th>
                     <th>Status</th>

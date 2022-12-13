@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class isLogout
+class cekLevel
 {
     /**
      * Handle an incoming request.
@@ -14,11 +14,11 @@ class isLogout
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, ...$levels)
     {
-        $response = $next($request);
-        return $response->header('Cache-Control','nocache, no-store, max-age=0, must-revalidate')
-        ->header('Pragma','no-cache')
-        ->header('Expires','Fri, 01 Jan 1990 00:00:00 GMT');;
+        if(in_array($request->user()->level, $levels)){
+            return $next($request);
+        }
+        return redirect('/');
     }
 }

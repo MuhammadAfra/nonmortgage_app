@@ -13,10 +13,13 @@ Home
 @endsection
 
 @section('content')
+
+@if (auth()->user()->level == "Admin")                            
 <div class="d-flex pb-3">
     <a href="{{ url('product/create') }}" class="btn btn-success my-2">Create New</a>
     <a href="{{ url('/upload_product') }}" class="btn btn-secondary my-2 ml-2">Upload File</a>
 </div>
+@endif
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">List Product</h3>
@@ -27,7 +30,9 @@ Home
             <thead>
                 <tr class="text-center">
                     <th>No</th>
+                    @if (auth()->user()->level == "Admin")        
                     <th>Action</th>
+                    @endif
                     <th>Partner ID</th>
                     <th>Debitur ID</th>
                     <th>Nama Debitur</th>
@@ -46,6 +51,7 @@ Home
                 @foreach ($dataproduct as $item)             
                 <tr >
                     <td class="text-center">{{ $loop->iteration }}</td>
+                    @if (auth()->user()->level == "Admin")                            
                     <td class="d-flex" style="justify-content: center">
                         <div><a href="{{ url('product/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                         <div><a href="{{ url('product/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
@@ -56,6 +62,7 @@ Home
                                 <button type="submit" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
                             </form>
                         </div>
+                    @endif
                     </td>
                     <td>{{ $item->partner->id }}</td>
                     <td>{{ $item->debitur->id }}</td>

@@ -14,7 +14,8 @@ class MasterPolaPembayaranController extends Controller
      */
     public function index()
     {
-        //
+        $polaPembayaran = Master_Pola_Pembayaran::all();
+        return view('master.pola_pembayaran.index', compact('polaPembayaran'));
     }
 
     /**

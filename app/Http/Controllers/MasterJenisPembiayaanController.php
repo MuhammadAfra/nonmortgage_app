@@ -14,7 +14,8 @@ class MasterJenisPembiayaanController extends Controller
      */
     public function index()
     {
-        //
+        $jenisPembiayaan = Master_Jenis_Pembiayaan::all();
+        return view('master.jenis_pembiayaan.index', compact('jenisPembiayaan'));
     }
 
     /**

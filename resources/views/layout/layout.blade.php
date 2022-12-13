@@ -53,8 +53,9 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link" role="button" data-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user"></i>
+                    <a class="nav-link d-flex" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <p>halo, {{ Auth::user()->name }}</p>
+                        <i class="fas fa-user ml-1"></i>
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
@@ -99,32 +100,32 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ url('master_pola_pembayaran') }}" class="nav-link {{ 'master_pola_pembayaran' == request()->path() ? 'active' : '' }}">
                                         <p>Master Pola Pembayaran</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ url('master_product') }}" class="nav-link {{ 'master_product' == request()->path() ? 'active' : '' }}">
                                         <p>Master Product</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ url('master_sektor_ekonomi') }}" class="nav-link {{ 'master_sektor_ekonomi' == request()->path() ? 'active' : '' }}">
                                         <p>Master Sektor Ekonomi</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ url('master_jenis_product') }}" class="nav-link {{ 'master_jenis_product' == request()->path() ? 'active' : '' }}">
                                         <p>Master Jenis Product</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ url('master_jenis_pembiayaan') }}" class="nav-link {{ 'master_jenis_pembiayaan' == request()->path() ? 'active' : '' }}">
                                         <p>Master Jenis Pembiayaan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ url('master_skema_pembiayaan') }}" class="nav-link {{ 'master_skema_pembiayaan' == request()->path() ? 'active' : '' }}">
                                         <p>Master Skema Pembiayaan</p>
                                     </a>
                                 </li>
@@ -221,6 +222,16 @@
                                 </li>
                             </ul>
                         </li>
+                        @if (auth()->user()->level == "Admin") 
+                        <li class="nav-item">
+                            <a href="{{ url('users') }}" class="nav-link {{ 'users' == request()->path() ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    User Management
+                                </p>
+                            </a>
+                        </li>
+                        @endif
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -295,6 +306,22 @@
         "responsive": false, "lengthChange": false, "autoWidth": false,
         "buttons": ["excel", "pdf"]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+        });
+    });
+
+    $(function () {
+        $("#user").DataTable({
+        "responsive": false, "lengthChange": false, "autoWidth": false,
+        "buttons": ["excel", "pdf"]
+        }).buttons().container().appendTo('#user_wrapper .col-md-6:eq(0)');
         $('#example2').DataTable({
         "paging": true,
         "lengthChange": false,

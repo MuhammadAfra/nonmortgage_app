@@ -20,6 +20,7 @@ class Partner extends Model
         'AKTE_PERUBAHAN_ANGGARAN_DASAR',
         'SIUP',
         'TDP',
+        'NPWP',
         'Nama_Direktur_Utama',
         'No_HP_Dirut',
         'Nama_Direktur1',
@@ -42,4 +43,11 @@ class Partner extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function master_product()
+    {
+        return $this->belongsTo(Master_Product::class, 'DETIL_PRODUCT_PROFILE');
+    }
+
+    public $timestamps = false;
 }

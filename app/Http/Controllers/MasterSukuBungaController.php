@@ -14,7 +14,8 @@ class MasterSukuBungaController extends Controller
      */
     public function index()
     {
-        return view('master.suku_bunga.index');
+        $sukuBunga = Master_Suku_Bunga::all();
+        return view('master.suku_bunga.index', compact('sukuBunga'));
     }
 
     /**

@@ -44,13 +44,13 @@
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Konven / Syariah <span class="text-danger">*</span></label></div>
-            <div class="col-sm-4 row">
+            <div class="col-sm-4 row pl-3">
                 <div class="d-flex">
                     <input type="radio" value="Konvensional" style="width: 15px" name="KONVEN_SYARIAH" class="form-control">
                     <p class="my-auto mx-2" style="font-weight: 600">Konvensional</p>
                 </div>
                 <div class=" d-flex">
-                    <input type="radio" value="syariah" style="width: 15px" name="KONVEN_SYARIAH" class="form-control">
+                    <input type="radio" value="Syariah" style="width: 15px" name="KONVEN_SYARIAH" class="form-control">
                     <p class="my-auto mx-2" style="font-weight: 600">Syariah</p>
                 </div>
                 @error('KONVEN_SYARIAH')

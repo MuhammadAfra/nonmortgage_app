@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Master_Skema_Pembiayaan;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class MasterSkemaPembiayaanController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class MasterSkemaPembiayaanController extends Controller
      */
     public function index()
     {
-        $skemaPembiayaan = Master_Skema_Pembiayaan::all();
-        return view('master.skema_pembiayaan.index', compact('skemaPembiayaan'));
+        $dataUser = User::all();
+        return view('users.index', compact('dataUser'));
     }
 
     /**
@@ -25,7 +26,7 @@ class MasterSkemaPembiayaanController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -36,16 +37,31 @@ class MasterSkemaPembiayaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $val = $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'level' => 'required',
+            'password' => 'required',
+        ],[
+            'name' => 'Input Name!',
+            'email' => 'Input Email!',
+            'level' => 'Input Level',
+            'password' => 'Input Password!',
+        ]);
+
+        $val['password'] = Hash::make($val['password']);
+
+        User::create($val);
+        return redirect('users');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Master_Skema_Pembiayaan  $master_Skema_Pembiayaan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Master_Skema_Pembiayaan $master_Skema_Pembiayaan)
+    public function show($id)
     {
         //
     }
@@ -53,10 +69,10 @@ class MasterSkemaPembiayaanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Master_Skema_Pembiayaan  $master_Skema_Pembiayaan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Master_Skema_Pembiayaan $master_Skema_Pembiayaan)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +81,10 @@ class MasterSkemaPembiayaanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Master_Skema_Pembiayaan  $master_Skema_Pembiayaan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Master_Skema_Pembiayaan $master_Skema_Pembiayaan)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +92,10 @@ class MasterSkemaPembiayaanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Master_Skema_Pembiayaan  $master_Skema_Pembiayaan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Master_Skema_Pembiayaan $master_Skema_Pembiayaan)
+    public function destroy($id)
     {
         //
     }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -16,12 +17,29 @@ class AkunSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'id' => '1',
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'level' => 'admin',
-            'password' => Hash::make('12345')
-        ]);
+        $users = [
+            [
+                'name' => 'Admin 1',
+                'level' => 'Admin',
+                'email' => 'admin1@reliance.com',
+                'password' => bcrypt('relianceadmin1'),
+            ],
+            [
+                'name' => 'Admin 2',
+                'level' => 'Admin',
+                'email' => 'admin2@reliance.com',
+                'password' => bcrypt('relianceadmin2'),
+            ],
+            [
+                'name' => 'User 1',
+                'level' => 'User',
+                'email' => 'user@gmail.com',
+                'password' => bcrypt('userreliance'),
+            ]
+        ];
+
+        foreach ($users as $key => $value){
+            User::create($value);
+        }
     }
 }

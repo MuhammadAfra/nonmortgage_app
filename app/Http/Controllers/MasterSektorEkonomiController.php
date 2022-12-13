@@ -14,7 +14,8 @@ class MasterSektorEkonomiController extends Controller
      */
     public function index()
     {
-        //
+        $sektorEkonomi = Master_Sektor_Ekonomi::all();
+        return view('master.sektor_ekonomi.index', compact('sektorEkonomi'));
     }
 
     /**
