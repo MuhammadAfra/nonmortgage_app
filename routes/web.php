@@ -56,7 +56,8 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::get('/upload_partner', [PartnerController::class, 'upload'])->name('upload_partner');
         Route::post('/upload_save', [PartnerController::class, 'upload_save'])->name('upload_save');
         Route::group(['middleware' => ['auth', 'cekLevel:Admin']], function(){
-            Route::resource('users', UserController::class);
+        // user management
+        Route::resource('users', UserController::class);
         });
     });
 });
