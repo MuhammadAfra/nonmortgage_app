@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login to ReFi - NonMortgage App</title>
-
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon_reli.ico')}}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -20,7 +20,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <h5 href="#"><b>ReFi </b>- NonMortgage</h5>
+            <h5 href="#"><b>ReFi </b>- NonMortgage Application</h5>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -29,7 +29,7 @@
                 <div class="alert alert-danger">{{ Session::get('errors')->first() }}</div>
                 @endif
                 <img style="width: 100%; height: 125px; padding: 25px;" src="{{ asset('img/reliance_logo.png') }}" alt="">
-                <p class="login-box-msg">Login</p>
+                <p class="login-box-msg"><b>Login</b></p>
 
                 <form action="{{ route('login') }}" method="post">
                     @csrf

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ReFi - Nonmortgage</title>
-
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon_reli.ico')}}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -38,7 +38,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center bg-white">
-            <img class="animation__shake" src="{{ asset('img/reliance_logo.png') }}" alt="logoreliance" height="100" width="300">
+            <img class="animation__shake" src="{{ asset('img/reliance_loader.jpg') }}" alt="logoreliance" height="75" width="75">
         </div>
 
         <!-- Navbar -->
@@ -54,7 +54,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link d-flex" role="button" data-toggle="dropdown" aria-expanded="false">
-                        <p>halo, {{ Auth::user()->name }}</p>
+                        <p>Halo, &nbsp;{{ Auth::user()->name }}</p>
                         <i class="fas fa-user ml-1"></i>
                     </a>
                     <div class="dropdown-menu">
@@ -69,7 +69,8 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="/dashboard" class="brand-link">
-                <span class="brand-text font-weight-light">RELIANCE FINANCE</span>
+                <i><img src="{{ asset('img/reliance_sidebar.png') }}" width="35" height="35" ></i>
+                <span class="brand-text font-weight-light text-center">&nbsp;&nbsp;&nbsp;Non Mortgage</span>
             </a>
 
             <!-- Sidebar -->
@@ -159,7 +160,7 @@
                             <a href="#" class="nav-link">
                                 <i class="fas fa-handshake"></i>
                                 <p>
-                                    Collateral
+                                     &nbsp;&nbsp;Collateral
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -179,7 +180,7 @@
                                             <a href="#" class="nav-link">2. Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">3. Rumah / Tanah</a>
+                                            <a href="#" class="nav-link">3. Rumah/Tanah</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="#" class="nav-link">4. Inventori</a>
@@ -207,7 +208,7 @@
                                             <a href="#" class="nav-link">2. Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">3. Rumah / Tanah</a>
+                                            <a href="#" class="nav-link">3. Rumah/Tanah</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="#" class="nav-link">4. Inventori</a>
@@ -304,7 +305,7 @@
     $(function () {
         $("#example1").DataTable({
         "responsive": false, "lengthChange": false, "autoWidth": false,
-        "buttons": ["excel", "pdf"]
+        "buttons": ["excel", "pdf"],
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         $('#example2').DataTable({
         "paging": true,
