@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('title')
-    Product
+    User Management
 @endsection
 
 @section('subtitle')
@@ -8,7 +8,7 @@
 @endsection
 
 @section('page')
-    <a href="{{ url('users') }}">Product</a>
+    <a href="{{ url('users') }}">User Management</a>
 @endsection
 
 @section('content')

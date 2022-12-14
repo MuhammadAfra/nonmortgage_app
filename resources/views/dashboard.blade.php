@@ -1,4 +1,4 @@
 @extends('layout.layout')
 @section('content')
-    <h1>ini dashboard</h1>
+    <h1>Dashboard</h1>
 @endsection
