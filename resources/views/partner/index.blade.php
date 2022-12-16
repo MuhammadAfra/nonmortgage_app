@@ -8,15 +8,24 @@ Partner
 Home
 @endsection
 
-@section('page')
-    <a href="{{ url('partner') }}">Partner</a>
-@endsection
+@if (auth()->user()->level == "Admin")
+    @section('page')
+        <a href="{{ url('partner') }}">Partner</a>
+    @endsection
+@elseif(auth()->user()->level == "User")
+    @section('page')
+    <a href="{{ url('/index_partner') }}">Partner</a>
+    @endsection
+@endif
 
 @section('content')
+
+@if (auth()->user()->level == "Admin")
 <div class="d-flex pb-3">
     <a href="{{ url('partner/create') }}" class="btn btn-success my-2">Create New</a>
     <a href="{{ url('/upload_partner') }}" class="btn btn-secondary my-2 ml-2">Upload File</a>
 </div>
+@endif
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">List Partner</h3>
@@ -27,7 +36,9 @@ Home
             <thead>
                 <tr class="text-center">
                     <th>No</th>
+                    @if (auth()->user()->level == "Admin")
                     <th>Action</th>
+                    @endif
                     <th>Nama Perusahaan</th>
                     <th>Alamat Perusahaan</th>
                     <th>Status Bahan Hukum</th>
@@ -61,6 +72,7 @@ Home
                 @foreach ($partner as $item)             
                 <tr >
                     <td class="text-center">{{ $loop->iteration }}</td>
+                    @if (auth()->user()->level == "Admin")
                     <td class="d-flex" style="justify-content: center">
                         <div><a href="{{ url('partner/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                         <div><a href="{{ url('partner/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
@@ -72,6 +84,7 @@ Home
                             </form>
                         </div>
                     </td>
+                    @endif
                     <td>{{ $item->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->ALAMAT_PERUSAHAAN }}</td>
                     <td>{{ $item->STATUS_BADAN_HUKUM }}</td>

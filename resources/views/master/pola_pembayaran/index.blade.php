@@ -7,13 +7,23 @@ Master Pola Pembayaran
 Home
 @endsection
 
-@section('page')
-    <a href="{{ url('master_pola_pembayaran') }}">Master Pola Pembayaran</a>
-@endsection
+@if (auth()->user()->level == "Admin")
+    @section('page')
+        <a href="{{ url('master_pola_pembayaran') }}">Master Pola Pembayaran</a>
+    @endsection
+@elseif(auth()->user()->level == "User")
+    @section('page')
+    <a href="{{ url('/pola_pembayaran') }}">Master Pola Pembayaran</a>
+    @endsection
+@endif
+
 @section('content')
+
+@if (auth()->user()->level == "Admin")
 <div class="d-flex pb-3">
     <a href="{{ url('master_pola_pembayaran/create') }}" class="btn btn-success my-2">Create New</a>
 </div>
+@endif
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">List Pola Pembayaran</h3>
@@ -24,7 +34,9 @@ Home
             <thead>
                 <tr>
                     <th>No</th>
+                    @if (auth()->user()->level == "Admin")
                     <th>Action</th>
+                    @endif
                     <th>Pola Pembayaran</th>
                     <th>Nilai Pola Pembayaran</th>
                 </tr>
@@ -33,6 +45,7 @@ Home
                 @foreach ($polaPembayaran as $item)                    
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        @if (auth()->user()->level == "Admin")
                         <td class="d-flex" style="justify-content: center">
                             <div><a href="{{ url('master_pola_pembayaran/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                             <div><a href="{{ url('master_pola_pembayaran/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
@@ -44,6 +57,7 @@ Home
                                 </form>
                             </div>
                         </td>
+                        @endif
                         <td>{{ $item->Pola_Pembayaran }}</td>
                         <td>{{ $item->Nilai_Pola_Pembayaran }}</td>
                     </tr>

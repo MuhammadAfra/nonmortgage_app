@@ -25,7 +25,7 @@ class MasterProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('master.master_product.create');
     }
 
     /**
@@ -36,7 +36,17 @@ class MasterProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'product' => 'required'
+        ],[
+            'product' => 'Input Product!'
+        ]);
+
+        Master_Product::create([
+            'product' => $request->product
+        ]);
+
+        return redirect('master_product');
     }
 
     /**
@@ -45,9 +55,10 @@ class MasterProductController extends Controller
      * @param  \App\Models\Master_Product  $master_Product
      * @return \Illuminate\Http\Response
      */
-    public function show(Master_Product $master_Product)
+    public function show($id)
     {
-        //
+        $product = Master_Product::findorfail($id);
+        return view('master.master_product.detail', compact('product'));
     }
 
     /**
@@ -56,9 +67,10 @@ class MasterProductController extends Controller
      * @param  \App\Models\Master_Product  $master_Product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Master_Product $master_Product)
+    public function edit($id)
     {
-        //
+        $product = Master_Product::findorfail($id);
+        return view('master.master_product.edit', compact('product'));
     }
 
     /**
@@ -68,9 +80,20 @@ class MasterProductController extends Controller
      * @param  \App\Models\Master_Product  $master_Product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Master_Product $master_Product)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'product' => 'required'
+        ],[
+            'product' => 'Input Product!'
+        ]);
+
+        $product = Master_Product::findorfail($id);
+        $product->update([
+            'product' => $request->product
+        ]);
+
+        return redirect('master_product');
     }
 
     /**
@@ -79,8 +102,11 @@ class MasterProductController extends Controller
      * @param  \App\Models\Master_Product  $master_Product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Master_Product $master_Product)
+    public function destroy($id)
     {
-        //
+        $product = Master_Product::findorfail($id);
+        $product->delete();
+
+        return redirect('master_product');
     }
 }

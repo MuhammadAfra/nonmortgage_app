@@ -122,6 +122,30 @@ class DebiturController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'NAMA_DEBITUR' => 'required',
+            'TANGGAL_LAHIR' => 'required',
+            'NO_KTP' => 'required',
+            'NO_NPWP' => 'required',
+            'ALAMAT_CUSTOMER' => 'required',
+            'PROVINSI' => 'required',
+            'KABUPATEN_KOTA' => 'required',
+            'KELURAHAN' => 'required',
+            'KODE_POS' => 'required',
+            'NAMA_PERUSAHAAN' => 'required',
+            'BIDANG_USAHA' => 'required',
+            'SUB_BIDANG_USAHA' => 'required',
+            'LAMA_USAHA' => 'required',
+            'JABATAN' => 'required',
+            'TANGGUNGAN' => 'required',
+            'INCOME_BULAN' => 'required',
+            'SUPOUSE_INCOME_BULAN' => 'required',
+            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1' => 'required',
+            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2' => 'required',
+            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3' => 'required',
+            'APAKAH_ADA_DP' => 'required',
+            ]);
+            
         $debitur = Debitur::findorfail($id);
         $debitur->update([
             'NAMA_DEBITUR' => $request->NAMA_DEBITUR,

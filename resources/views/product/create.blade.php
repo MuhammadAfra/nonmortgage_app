@@ -45,15 +45,13 @@
         <div class="row pb-3">
             <div class="col-sm-4"><label>Konven / Syariah <span class="text-danger">*</span></label></div>
             <div class="col-sm-4 row pl-3">
+                @foreach ($jp as $item)    
                 <div class="d-flex">
-                    <input type="radio" value="Konvensional" style="width: 15px" name="KONVEN_SYARIAH" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">Konvensional</p>
+                    <input type="radio" value="{{ $item->id }}" style="width: 15px" name="KONVEN_SYARIAH_ID" class="form-control">
+                    <p class="my-auto mx-2" style="font-weight: 600">{{ $item->Product }}</p>
                 </div>
-                <div class=" d-flex">
-                    <input type="radio" value="Syariah" style="width: 15px" name="KONVEN_SYARIAH" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">Syariah</p>
-                </div>
-                @error('KONVEN_SYARIAH')
+                @endforeach
+                @error('KONVEN_SYARIAH_ID')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>

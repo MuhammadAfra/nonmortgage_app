@@ -76,6 +76,7 @@
             <div class="sidebar px-1">
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
+                    @if (auth()->user()->level == "Admin")
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -222,7 +223,6 @@
                                 </li>
                             </ul>
                         </li>
-                        @if (auth()->user()->level == "Admin") 
                         <li class="nav-item">
                             <a href="{{ url('users') }}" class="nav-link {{ 'users' == request()->path() ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-users"></i>
@@ -231,8 +231,155 @@
                                 </p>
                             </a>
                         </li>
-                        @endif
                     </ul>
+                    @elseif(auth()->user()->level == "User")
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                        <li class="nav-item">
+                            <a href="/dashboard" class="nav-link {{ 'dashboard' == request()->path() ? 'active' : '' }}">
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <p>
+                                    Master
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-1">
+                                <li class="nav-item">
+                                    <a href="{{ url('suku_bunga') }}" class="nav-link {{ 'suku_bunga' == request()->path() ? 'active' : '' }}">
+                                        <p>Master Suku Bunga</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('/pola_pembayaran') }}" class="nav-link {{ '/pola_pembayaran' == request()->path() ? 'active' : '' }}">
+                                        <p>Master Pola Pembayaran</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('/masterProduct') }}" class="nav-link {{ '/masterProduct' == request()->path() ? 'active' : '' }}">
+                                        <p>Master Product</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('/sektor_ekonomi') }}" class="nav-link {{ '/sektor_ekonomi' == request()->path() ? 'active' : '' }}">
+                                        <p>Master Sektor Ekonomi</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('/jenis_product') }}" class="nav-link {{ '/jenis_product' == request()->path() ? 'active' : '' }}">
+                                        <p>Master Jenis Product</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('/jenis_pembiayaan') }}" class="nav-link {{ '/jenis_pembiayaan' == request()->path() ? 'active' : '' }}">
+                                        <p>Master Jenis Pembiayaan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('/skema_pembiayaan') }}" class="nav-link {{ '/skema_pembiayaan' == request()->path() ? 'active' : '' }}">
+                                        <p>Master Skema Pembiayaan</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/index_partner') }}" class="nav-link {{ '/index_partner' == request()->path() ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-handshake"></i>
+                                <p>
+                                    Partner
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/index_debitur') }}" class="nav-link {{ '/index_debitur' == request()->path() ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-handshake"></i>
+                                <p>
+                                    Debitur
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/index_product') }}" class="nav-link {{ '/index_product' == request()->path() ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-handshake"></i>
+                                <p>
+                                    Product
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item ml-1">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-handshake"></i>
+                                <p>
+                                    Collateral
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ml-1">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <p>
+                                            Collateral Utama
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview ml-1">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">1. Kendaraan Bermotor</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">2. Kendaraan Bermobil</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">3. Rumah / Tanah</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">4. Inventori</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">5. Invoice</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">6. Corporate Guarantee</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <p>
+                                            Collateral Tambahan
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview ml-1">
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">1. Kendaraan Bermotor</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">2. Kendaraan Bermobil</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">3. Rumah / Tanah</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">4. Inventori</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">5. Invoice</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">6. Corporate Guarantee</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>

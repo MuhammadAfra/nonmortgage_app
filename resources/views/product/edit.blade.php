@@ -40,14 +40,12 @@
         <div class="row pb-3">
             <div class="col-sm-4"><label>Konven / Syariah</label></div>
             <div class="col-sm-4 d-flex">
+                @foreach ($jp as $item)    
                 <div class="d-flex">
-                    <input type="radio" value="Konvensional" {{ ($dataproduct->KONVEN_SYARIAH == "Konvensional")? "checked" : "" }} style="width: 15px" name="KONVEN_SYARIAH" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">Konvensional</p>
+                    <input type="radio" value="{{ $item->id }}" {{ ($dataproduct->KONVEN_SYARIAH_ID == $item->id)? "checked" : "" }} style="width: 15px" name="KONVEN_SYARIAH_ID" class="form-control">
+                    <p class="my-auto mx-2" style="font-weight: 600">{{ $item->Product }}</p>
                 </div>
-                <div class=" d-flex">
-                    <input type="radio" value="Syariah" {{ ($dataproduct->KONVEN_SYARIAH == "Syariah")? "checked" : "" }} style="width: 15px" name="KONVEN_SYARIAH" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">Syariah</p>
-                </div>
+                @endforeach
             </div>
         </div>
         <div class="row pb-3">
@@ -99,7 +97,7 @@
         <div class="row pb-3">
             <div class="col-sm-4"></div>
             <div class="col-sm-8">
-                <button class="btn btn-primary" type="submit">Edit</button>
+                <button class="btn btn-warning text-white" type="submit">Edit</button>
                 <a href="{{ url('product') }}" class="btn btn-default">Cancel</a>
             </div>
         </div>

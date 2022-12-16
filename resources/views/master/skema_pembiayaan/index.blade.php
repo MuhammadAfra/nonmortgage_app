@@ -26,10 +26,10 @@ Home
                     <th>No</th>
                     <th>Action</th>
                     <th>Skema Pembiayaan</th>
-                    <th>Id Product</th>
-                    <th>Id Jenis Pembiayaan</th>
-                    <th>Konvensional / Syariah</th>
+                    {{-- <th>Id Jenis Pembiayaan</th> --}}
                     <th>Jenis Pembiayaan</th>
+                    {{-- <th>Id Product</th> --}}
+                    <th>Jenis Product</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,10 +48,10 @@ Home
                             </div>
                         </td>
                         <td>{{ $item->skema_pembiayaan }}</td>
-                        <td>{{ $item->id_produk }}</td>
-                        <td>{{ $item->id_jenis_pembiayaan }}</td>
-                        <td>{{ $item->Konvensional_Syariah }}</td>
-                        <td>{{ $item->jenis_pembiayaan }}</td>
+                        {{-- <td>{{ $item->jenis->id }}</td> --}}
+                        <td>{{ $item->jenis->jenis_pembiayaan }}</td>
+                        {{-- <td>{{ $item->jenis->jenis_product->id }}</td> --}}
+                        <td>{{ $item->jenis->jenis_product->Product }}</td>
                     </tr>
                 @endforeach
         </table>

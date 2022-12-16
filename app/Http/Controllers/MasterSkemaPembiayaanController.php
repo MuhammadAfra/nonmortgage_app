@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Master_Jenis_Pembiayaan;
 use App\Models\Master_Skema_Pembiayaan;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class MasterSkemaPembiayaanController extends Controller
      */
     public function create()
     {
-        //
+        $jp = Master_Jenis_Pembiayaan::all();
+        return view('master.skema_pembiayaan.create', compact('jp'));
     }
 
     /**
@@ -36,7 +38,20 @@ class MasterSkemaPembiayaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'skema_pembiayaan' => 'required',
+            'id_jenis_pembiayaan' => 'required'
+        ],[
+            'skema_pembiayaan' => 'Input Skema Pembiayaan!',
+            'id_jenis_pembiayaan' => 'required'
+        ]);
+
+        Master_Skema_Pembiayaan::create([
+            'skema_pembiayaan' => $request->skema_pembiayaan,
+            'id_jenis_pembiayaan' => $request->id_jenis_pembiayaan,
+        ]);
+
+        return redirect('master_skema_pembiayaan');
     }
 
     /**
@@ -45,9 +60,10 @@ class MasterSkemaPembiayaanController extends Controller
      * @param  \App\Models\Master_Skema_Pembiayaan  $master_Skema_Pembiayaan
      * @return \Illuminate\Http\Response
      */
-    public function show(Master_Skema_Pembiayaan $master_Skema_Pembiayaan)
+    public function show($id)
     {
-        //
+        $skemaPembiayaan = Master_Skema_Pembiayaan::findorfail($id);
+        return view('master.skema_pembiayaan.detail', compact('skemaPembiayaan'));
     }
 
     /**
@@ -56,9 +72,11 @@ class MasterSkemaPembiayaanController extends Controller
      * @param  \App\Models\Master_Skema_Pembiayaan  $master_Skema_Pembiayaan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Master_Skema_Pembiayaan $master_Skema_Pembiayaan)
+    public function edit($id)
     {
-        //
+        $jp = Master_Jenis_Pembiayaan::all();
+        $skemaPembiayaan = Master_Skema_Pembiayaan::findorfail($id);
+        return view('master.skema_pembiayaan.edit', compact('skemaPembiayaan','jp'));
     }
 
     /**
@@ -68,19 +86,34 @@ class MasterSkemaPembiayaanController extends Controller
      * @param  \App\Models\Master_Skema_Pembiayaan  $master_Skema_Pembiayaan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Master_Skema_Pembiayaan $master_Skema_Pembiayaan)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $this->validate($request, [
+            'skema_pembiayaan' => 'required',
+            'id_jenis_pembiayaan' => 'required'
+        ],[
+            'skema_pembiayaan' => 'Input Skema Pembiayaan!',
+            'id_jenis_pembiayaan' => 'required'
+        ]);
 
+        $sp = Master_Skema_Pembiayaan::findorfail($id);
+        $sp->update([
+            'skema_pembiayaan' => $request->skema_pembiayaan,
+            'id_jenis_pembiayaan' => $request->id_jenis_pembiayaan
+        ]);
+
+        return redirect('master_skema_pembiayaan');
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Master_Skema_Pembiayaan  $master_Skema_Pembiayaan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Master_Skema_Pembiayaan $master_Skema_Pembiayaan)
+    public function destroy($id)
     {
-        //
+        $sp = Master_Skema_Pembiayaan::findorfail($id);
+        $sp->delete();
+        return redirect('master_skema_pembiayaan');
     }
 }

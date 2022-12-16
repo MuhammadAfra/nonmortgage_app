@@ -8,15 +8,24 @@ Debitur
 Home
 @endsection
 
-@section('page')
-    <a href="{{ url('debitur') }}">Debitur</a>
-@endsection
+@if (auth()->user()->level == "Admin")
+    @section('page')
+        <a href="{{ url('debitur') }}">Debitur</a>
+    @endsection
+@elseif(auth()->user()->level == "User")
+    @section('page')
+    <a href="{{ url('/index_debitur') }}">Debitur</a>
+    @endsection
+@endif
 
 @section('content')
+
+@if (auth()->user()->level == "Admin")
 <div class="d-flex pb-3">
     <a href="{{ url('debitur/create') }}" class="btn btn-success my-2">Create New</a>
     <a href="{{ url('/upload_debitur') }}" class="btn btn-secondary my-2 ml-2">Upload File</a>
 </div>
+@endif
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">List Debitur</h3>
@@ -27,7 +36,9 @@ Home
             <thead>
                 <tr class="text-center">
                     <th>No</th>
+                    @if (auth()->user()->level == "Admin")
                     <th>Action</th>
+                    @endif
                     <th>Nama Debitur</th>
                     <th>Tanggal Lahir</th>
                     <th>No KTP</th>
@@ -56,6 +67,7 @@ Home
                 @foreach ($debitur as $item)             
                 <tr >
                     <td class="text-center">{{ $loop->iteration }}</td>
+                    @if (auth()->user()->level == "Admin")
                     <td class="d-flex" style="justify-content: center">
                         <div><a href="{{ url('debitur/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                         <div><a href="{{ url('debitur/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
@@ -67,6 +79,7 @@ Home
                             </form>
                         </div>
                     </td>
+                    @endif
                     <td>{{ $item->NAMA_DEBITUR }}</td>
                     <td>{{ $item->TANGGAL_LAHIR }}</td>
                     <td>{{ $item->NO_KTP }}</td>

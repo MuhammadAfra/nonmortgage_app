@@ -8,9 +8,15 @@ Product
 Home
 @endsection
 
-@section('page')
-    <a href="{{ url('product') }}">Product</a>
-@endsection
+@if (auth()->user()->level == "Admin")
+    @section('page')
+        <a href="{{ url('product') }}">Product</a>
+    @endsection
+@elseif(auth()->user()->level == "User")
+    @section('page')
+    <a href="{{ url('/index_product') }}">Product</a>
+    @endsection
+@endif
 
 @section('content')
 
@@ -20,6 +26,7 @@ Home
     <a href="{{ url('/upload_product') }}" class="btn btn-secondary my-2 ml-2">Upload File</a>
 </div>
 @endif
+
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">List Product</h3>
@@ -34,6 +41,7 @@ Home
                     <th>Action</th>
                     @endif
                     <th>Partner ID</th>
+                    <th>Partner</th>
                     <th>Debitur ID</th>
                     <th>Nama Debitur</th>
                     <th>Konven / Syariah</th>
@@ -65,9 +73,10 @@ Home
                     @endif
                     </td>
                     <td>{{ $item->partner->id }}</td>
+                    <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->debitur->id }}</td>
                     <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
-                    <td>{{ $item->KONVEN_SYARIAH }}</td>
+                    <td>{{ $item->jenis_product->Product }}</td>
                     <td>{{ $item->NILAI_PEMBIAYAAN_POKOK_MAXIMUM }}</td>
                     <td>{{ $item->suku_bunga->Suku_Bunga }}</td>
                     <td>{{ $item->Jangka_Waktu_Maximum }}</td>

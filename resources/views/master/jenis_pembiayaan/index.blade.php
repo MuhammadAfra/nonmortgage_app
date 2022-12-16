@@ -46,8 +46,8 @@ Home
                             </div>
                         </td>
                         <td>{{ $item->jenis_pembiayaan }}</td>
-                        <td>{{ $item->id_produk }}</td>
-                        <td>{{ $item->Konvensional_syariah }}</td>
+                        <td>{{ $item->jenis_product->id }}</td>
+                        <td>{{ $item->jenis_product->Product }}</td>
                     </tr>
                 @endforeach
         </table>

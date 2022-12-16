@@ -24,7 +24,7 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Konven / Syariah</label></div>
-            <div class="col-sm-8">: {{ $dataproduct->KONVEN_SYARIAH }}</div>
+            <div class="col-sm-8">: {{ $dataproduct->jenis_product->Product }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Pembiayaan Pokok Maximum</label></div>

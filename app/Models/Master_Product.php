@@ -9,6 +9,9 @@ class Master_Product extends Model
 {
     use HasFactory;
     protected $table = 'master_product';
+    protected $fillable = ['product'];
+
+    public $timestamps = false;
 
     public function partner()
     {
