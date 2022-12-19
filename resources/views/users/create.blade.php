@@ -18,7 +18,7 @@
             <div class="col-sm-4"><label>Name <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
                 <input type="text" name="name" class="form-control" style="width: 300px; height: 30px;">
-                @error('DEBITUR_ID')
+                @error('name')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
@@ -52,6 +52,15 @@
             <div class="col-sm-4"><label>Password <span class="text-danger">*</span></div>
             <div class="col-sm-8">
                 <input type="password" name="password" class="form-control" style="width: 300px; height: 30px;">
+                @error('password')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Confirm Password <span class="text-danger">*</span></div>
+            <div class="col-sm-8">
+                <input type="password" name="password_confirmation" class="form-control" style="width: 300px; height: 30px;">
                 @error('password')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror

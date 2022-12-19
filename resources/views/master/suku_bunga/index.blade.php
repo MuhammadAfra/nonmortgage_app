@@ -7,9 +7,16 @@ Master Suku Bunga
 Home
 @endsection
 
-@section('page')
-    <a href="{{ url('master_suku_bunga') }}">Master Suku Bunga</a>
-@endsection
+@if (auth()->user()->level == "Admin")
+    @section('page')
+        <a href="{{ url('master_suku_bunga') }}">Master Suku Bunga</a>
+    @endsection
+@elseif(auth()->user()->level == "User")
+    @section('page')
+    <a href="{{ url('/suku_bunga') }}">Master Suku Bunga</a>
+    @endsection
+@endif
+
 @section('content')
 
 @if (auth()->user()->level == "Admin")                            

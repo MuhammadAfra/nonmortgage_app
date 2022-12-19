@@ -9,7 +9,11 @@ class Master_Suku_Bunga extends Model
 {
     use HasFactory;
     protected $table = 'master_suku_bunga';
-    protected $guarded = [];
+    protected $fillable = [
+        'Suku_Bunga', 'Nilai_Suku_Bunga'
+    ];
+
+    public $timestamps = false;
 
     public function product()
     {

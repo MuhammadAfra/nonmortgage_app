@@ -13,7 +13,7 @@ class Product extends Model
         'id',
         'PARTNER_ID',
         'DEBITUR_ID',
-        'KONVEN_SYARIAH',
+        'KONVEN_SYARIAH_ID',
         'NAMA_DEBITUR',
         'NILAI_PEMBIAYAAN_POKOK_MAXIMUM',
         'SUKU_BUNGA_ID',
@@ -48,5 +48,11 @@ class Product extends Model
     public function partner()
     {
         return $this->belongsTo(Partner::class, 'PARTNER_ID');
+    }
+
+    // GET DATA JENIS PRODUCT
+    public function jenis_product()
+    {
+        return $this->belongsTo(Master_Jenis_Product::class, 'KONVEN_SYARIAH_ID');
     }
 }

@@ -20,7 +20,7 @@ Home
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <table id="user" class="table table-bordered table-striped table-responsive">
+        <table id="user" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>No</th>
@@ -37,12 +37,7 @@ Home
                         <td class="d-flex" style="justify-content: center">
                             <div><a href="{{ url('users/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                             <div><a href="{{ url('users/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
-                            <div>
-                                <form action="{{ url('users',$item->id) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
-                                </form>
+                            <div><a class="btn btn-danger btn-sm text-whitedelete" data-toggle="modal" data-target="#modal-delete" data-id="{{ $item->id }}"><i class="fa fa-trash" aria-hidden="true"></i></a>
                             </div>
                         </td>
                         <td>{{ $item->name }}</td>
@@ -54,4 +49,35 @@ Home
     </div>
     <!-- /.card-body -->
 </div>
+<!-- Modal -->
+<div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Apakah Anda yakin akan menghapus? 
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                <form action="{{ url('users',$item->id) }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-danger text-white">Ya</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).on('click', '.delete', function() {
+            let id = $(this).attr('data-id');
+            $('#id-destroy').val(id);
+        });
+</script>
 @endsection

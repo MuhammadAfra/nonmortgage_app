@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Master_Jenis_Pembiayaan;
+use App\Models\Master_Jenis_Product;
 use Illuminate\Http\Request;
 
 class MasterJenisPembiayaanController extends Controller
@@ -14,7 +15,7 @@ class MasterJenisPembiayaanController extends Controller
      */
     public function index()
     {
-        $jenisPembiayaan = Master_Jenis_Pembiayaan::all();
+        $jenisPembiayaan = Master_Jenis_Pembiayaan::with('jenis_product')->get();
         return view('master.jenis_pembiayaan.index', compact('jenisPembiayaan'));
     }
 
@@ -25,7 +26,8 @@ class MasterJenisPembiayaanController extends Controller
      */
     public function create()
     {
-        //
+        $jenisProduct = Master_Jenis_Product::all();
+        return view('master.jenis_pembiayaan.create', compact('jenisProduct'));
     }
 
     /**
@@ -36,7 +38,17 @@ class MasterJenisPembiayaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'jenis_pembiayaan' => 'required',
+            'id_product' => 'required'
+        ]);
+
+        Master_Jenis_Pembiayaan::create([
+            'jenis_pembiayaan' => $request->jenis_pembiayaan,
+            'id_product' => $request->id_product
+        ]);
+
+        return redirect('master_jenis_pembiayaan');
     }
 
     /**
@@ -45,9 +57,10 @@ class MasterJenisPembiayaanController extends Controller
      * @param  \App\Models\Master_Jenis_Pembiayaan  $master_Jenis_Pembiayaan
      * @return \Illuminate\Http\Response
      */
-    public function show(Master_Jenis_Pembiayaan $master_Jenis_Pembiayaan)
+    public function show($id)
     {
-        //
+        $jenisPembiayaan = Master_Jenis_Pembiayaan::findorfail($id);
+        return view('master.jenis_pembiayaan.detail', compact('jenisPembiayaan'));
     }
 
     /**
@@ -56,9 +69,11 @@ class MasterJenisPembiayaanController extends Controller
      * @param  \App\Models\Master_Jenis_Pembiayaan  $master_Jenis_Pembiayaan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Master_Jenis_Pembiayaan $master_Jenis_Pembiayaan)
+    public function edit($id)
     {
-        //
+        $jenisProduct = Master_Jenis_Product::all();
+        $jenisPembiayaan = Master_Jenis_Pembiayaan::findorfail($id);
+        return view('master.jenis_pembiayaan.edit', compact('jenisPembiayaan', 'jenisProduct'));
     }
 
     /**
@@ -68,9 +83,20 @@ class MasterJenisPembiayaanController extends Controller
      * @param  \App\Models\Master_Jenis_Pembiayaan  $master_Jenis_Pembiayaan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Master_Jenis_Pembiayaan $master_Jenis_Pembiayaan)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'jenis_pembiayaan' => 'required',
+            'id_product' => 'required'
+        ]);
+
+        $jenisPembiayaan = Master_Jenis_Pembiayaan::findorfail($id);
+        $jenisPembiayaan->update([
+            'jenis_pembiayaan' => $request->jenis_pembiayaan,
+            'id_product' => $request->id_product,
+        ]);
+
+        return redirect('master_jenis_pembiayaan');
     }
 
     /**
@@ -79,8 +105,11 @@ class MasterJenisPembiayaanController extends Controller
      * @param  \App\Models\Master_Jenis_Pembiayaan  $master_Jenis_Pembiayaan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Master_Jenis_Pembiayaan $master_Jenis_Pembiayaan)
+    public function destroy($id)
     {
-        //
+        $jenisPembiayaan = Master_Jenis_Pembiayaan::findorfail($id);
+        $jenisPembiayaan->delete();
+
+        return redirect('master_jenis_pembiayaan');
     }
 }
