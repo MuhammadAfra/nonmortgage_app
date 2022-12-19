@@ -7,9 +7,16 @@ Master Jenis Product
 Home
 @endsection
 
-@section('page')
-    <a href="{{ url('master_jenis_product') }}">Master Jenis Product</a>
-@endsection
+@if (auth()->user()->level == "Admin")
+    @section('page')
+        <a href="{{ url('master_jenis_product') }}">Master Jenis Product</a>
+    @endsection
+@elseif(auth()->user()->level == "User")
+    @section('page')
+    <a href="{{ url('/jenis_product') }}">Master Jenis Product</a>
+    @endsection
+@endif
+
 @section('content')
 <div class="d-flex pb-3">
     <a href="{{ url('master_jenis_product/create') }}" class="btn btn-success my-2">Create New</a>
@@ -24,7 +31,9 @@ Home
             <thead>
                 <tr>
                     <th style="width: 100px;">No</th>
+                    @if (auth()->user()->level ==  "Admin")
                     <th style="width: 200px;">Action</th>
+                    @endif
                     <th>Jenis Product</th>
                 </tr>
             </thead>
@@ -32,6 +41,7 @@ Home
                 @foreach ($jenisProduct as $item)                    
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        @if (auth()->user()->level == "Admin")
                         <td class="d-flex" style="justify-content: center">
                             <div><a href="{{ url('master_jenis_product/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                             <div><a href="{{ url('master_jenis_product/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
@@ -43,6 +53,7 @@ Home
                                 </form>
                             </div>
                         </td>
+                        @endif
                         <td>{{ $item->Product }}</td>
                     </tr>
                 @endforeach

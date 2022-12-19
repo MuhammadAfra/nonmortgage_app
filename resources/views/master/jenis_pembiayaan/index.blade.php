@@ -7,9 +7,16 @@ Master Jenis Pembiayaan
 Home
 @endsection
 
-@section('page')
-    <a href="{{ url('master_jenis_pembiayaan') }}">Master Jenis Pembiayaan</a>
-@endsection
+@if (auth()->user()->level == "Admin")
+    @section('page')
+        <a href="{{ url('master_jenis_pembiayaan') }}">Master Jenis Pembiayaan</a>
+    @endsection
+@elseif(auth()->user()->level == "User")
+    @section('page')
+    <a href="{{ url('/jenis_pembiayaan') }}">Master Jenis Pembiayaan</a>
+    @endsection
+@endif
+
 @section('content')
 <div class="d-flex pb-3">
     <a href="{{ url('master_jenis_pembiayaan/create') }}" class="btn btn-success my-2">Create New</a>
@@ -24,7 +31,9 @@ Home
             <thead>
                 <tr>
                     <th>No</th>
+                    @if (auth()->user()->level == "Admin")
                     <th>Action</th>
+                    @endif
                     <th>Jenis Pembiayaan</th>
                     <th>Id Product</th>
                     <th>Konvensional / Syariah</th>
@@ -34,6 +43,7 @@ Home
                 @foreach ($jenisPembiayaan as $item)                    
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        @if (auth()->user()->level == "Admin")
                         <td class="d-flex" style="justify-content: center">
                             <div><a href="{{ url('master_jenis_pembiayaan/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                             <div><a href="{{ url('master_jenis_pembiayaan/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
@@ -45,6 +55,7 @@ Home
                                 </form>
                             </div>
                         </td>
+                        @endif
                         <td>{{ $item->jenis_pembiayaan }}</td>
                         <td>{{ $item->jenis_product->id }}</td>
                         <td>{{ $item->jenis_product->Product }}</td>
