@@ -19,7 +19,7 @@
             <div class="col-sm-8">: {{ $sektorEkonomi->Sandi_Turunan }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Labe;</label></div>
+            <div class="col-sm-4"><label>Label</label></div>
             <div class="col-sm-8">: {{ $sektorEkonomi->Label }}</div>
         </div>
         <div class="row pb-3">
@@ -27,7 +27,7 @@
             <div class="col-sm-8">: {{ $sektorEkonomi->Sandi_Utama }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Labe;</label></div>
+            <div class="col-sm-4"><label>Label</label></div>
             <div class="col-sm-8">: {{ $sektorEkonomi->Label_Utama }}</div>
         </div>
         <div class="row pb-3">

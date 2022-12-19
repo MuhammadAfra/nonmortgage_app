@@ -15,11 +15,11 @@
 <div class="card">
     <div class="card-body">
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Name</label></div>
+            <div class="col-sm-4"><label>Suku Bunga</label></div>
             <div class="col-sm-8">: {{ $sukuBunga->Suku_Bunga }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Email</label></div>
+            <div class="col-sm-4"><label>Nilai Suku Bunga</label></div>
             <div class="col-sm-8">: {{ $sukuBunga->Nilai_Suku_Bunga }}</div>
         </div>
         <div class="row pb-3">

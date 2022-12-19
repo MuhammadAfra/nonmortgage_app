@@ -1,10 +1,6 @@
 @extends('layout.layout')
 @section('title')
-<<<<<<< HEAD
-    Skema Pembiayaan
-=======
     Master Skema Pembiayaan
->>>>>>> dev
 @endsection
 
 @section('subtitle')

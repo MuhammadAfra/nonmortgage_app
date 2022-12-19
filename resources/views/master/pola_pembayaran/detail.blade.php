@@ -15,11 +15,11 @@
 <div class="card">
     <div class="card-body">
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Name</label></div>
+            <div class="col-sm-4"><label>Pola Pembayaran</label></div>
             <div class="col-sm-8">: {{ $polaPembayaran->Pola_Pembayaran }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Email</label></div>
+            <div class="col-sm-4"><label>Nilai Pola Pembayaran</label></div>
             <div class="col-sm-8">: {{ $polaPembayaran->Nilai_Pola_Pembayaran }}</div>
         </div>
         <div class="row pb-3">
