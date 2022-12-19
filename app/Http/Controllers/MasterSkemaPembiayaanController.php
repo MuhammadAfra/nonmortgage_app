@@ -25,7 +25,10 @@ class MasterSkemaPembiayaanController extends Controller
      */
     public function create()
     {
-        //
+        
+        $skemaPembiayaan1 = Master_Skema_Pembiayaan::all()->unique('Konvensional_Syariah');
+        $skemaPembiayaan2 = Master_Skema_Pembiayaan::all()->unique('jenis_pembiayaan');
+        return view('master.skema_pembiayaan.create', compact('skemaPembiayaan1', 'skemaPembiayaan2'));
     }
 
     /**
