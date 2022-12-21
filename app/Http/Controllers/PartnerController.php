@@ -26,8 +26,8 @@ class PartnerController extends Controller
      */
     public function create()
     {
-        // $prod = Master_Product::all();
-        // return view('partner.create', compact('prod'));
+        $prod = Master_Product::all();
+        return view('partner.create', compact('prod'));
     }
 
     /**
