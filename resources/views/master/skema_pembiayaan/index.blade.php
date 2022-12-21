@@ -18,9 +18,11 @@ Home
 @endif
 
 @section('content')
+@if (auth()->user()->level == "Admin")    
 <div class="d-flex pb-3">
     <a href="{{ url('master_skema_pembiayaan/create') }}" class="btn btn-success my-2">Create New</a>
 </div>
+@endif
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">List Skema Pembiayaan</h3>

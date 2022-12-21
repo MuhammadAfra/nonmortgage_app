@@ -10,7 +10,7 @@ class Master_Suku_Bunga extends Model
     use HasFactory;
     protected $table = 'master_suku_bunga';
     protected $fillable = [
-        'Suku_Bunga', 'Nilai_Suku_Bunga'
+        'Suku_Bunga', 'Nilai_Suku_Bunga', 'konven_syariah_id'
     ];
 
     public $timestamps = false;
@@ -18,5 +18,10 @@ class Master_Suku_Bunga extends Model
     public function product()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function jp()
+    {
+        return $this->belongsTo(Master_Jenis_Product::class, 'konven_syariah_id');
     }
 }

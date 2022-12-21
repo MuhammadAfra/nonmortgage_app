@@ -90,17 +90,17 @@ Home
                     <td>{{ $item->STATUS_BADAN_HUKUM }}</td>
                     <td>{{ $item->AKTE_PENDIRIAN }}</td>
                     <td>{{ $item->COMPANY_PROFILE }}</td>
-                    <td>{{ $item->DETIL_PRODUCT_PROFILE }}</td>
+                    <td>{{ $item->master_product->nama_product }}</td>
                     <td>{{ $item->AKTE_PERUBAHAN_ANGGARAN_DASAR }}</td>
                     <td>{{ $item->SIUP }}</td>
                     <td>{{ $item->TDP }}</td>
                     <td>{{ $item->NPWP }}</td>
                     <td>{{ $item->Nama_Direktur_Utama }}</td>
-                    <td>{{ $item->No_HP_Dirut }}</td>
+                    <td>{{ $item->No_Identitas_Direktur_Utama }}</td>
                     <td>{{ $item->Nama_Direktur1 }}</td>
-                    <td>{{ $item->No_HP_Direktur1 }}</td>
+                    <td>{{ $item->No_Identitas_Direktur1 }}</td>
                     <td>{{ $item->Nama_Direktur_2 }}</td>
-                    <td>{{ $item->No_HP_Direktur2 }}</td>
+                    <td>{{ $item->No_Identitas_Direktur2 }}</td>
                     <td>{{ $item->MODAL_PENDIRIAN }}</td>
                     <td>{{ $item->MODAL_PERUBAHAN_TERAKHIR }}</td>
                     <td>no fields</td>
@@ -111,7 +111,7 @@ Home
                     <td>{{ $item->DRAFT_TEMPLATE_AGREEMENT_END_USER }}</td>
                     <td>{{ $item->CONTOH_RISK_ACCEPTANCE_CRITERIA }}</td>
                     <td>{{ $item->NDA_DOCUMENT }}</td>
-                    <td>{{ $item->status }}</td>
+                    <td>{{ $item->Status }}</td>
                 </tr>
                 @endforeach
             </tbody>

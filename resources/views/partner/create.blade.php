@@ -44,8 +44,12 @@
                     <p class="my-auto mx-2" style="font-weight: 600">CV</p>
                 </div>
                 <div class=" d-flex">
-                    <input type="radio" value="PN" style="width: 15px" name="STATUS_BADAN_HUKUM" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">PN</p>
+                    <input type="radio" value="Firma" style="width: 15px" name="STATUS_BADAN_HUKUM" class="form-control">
+                    <p class="my-auto mx-2" style="font-weight: 600">Firma</p>
+                </div>
+                <div class=" d-flex">
+                    <input type="radio" value="Lainnya" style="width: 15px" name="STATUS_BADAN_HUKUM" class="form-control">
+                    <p class="my-auto mx-2" style="font-weight: 600">Lainnya</p>
                 </div>
                 @error('STATUS_BADAN_HUKUM')
                     <p class="text-danger">{{ $message }}</p>
@@ -80,21 +84,11 @@
         <div class="row pb-3">
             <div class="col-sm-4"><label>Detail Product File <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                {{-- <select name="DETIL_PRODUCT_PROFILE" class="form-control py-0" style="width: 250px; height: 30px;">
-                    <option></option>
-                    @foreach ($prod as $item)
-                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->product }}</option>
-                    @endforeach
-                </select>
-                <button class="btn bg-white text-center p-0 py-1" type="button" data-toggle="modal" data-target="#exampleModal" style="height: 30px; width: 30px; border: 1px solid #ced4da"><p>+</p></button>
-                @error('DETIL_PRODUCT_PROFILE')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror --}}
                 <div class="input-group" style="width: 300px; height: 38px;">
                     <select class="custom-select"  name="DETIL_PRODUCT_PROFILE">
                         <option></option>
                         @foreach ($prod as $item)
-                            <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->product }}</option>
+                            <option value="{{ $item->id }}">{{ $item->id_master_product }} - {{ $item->nama_product }}</option>
                         @endforeach
                     </select>
                     <div class="input-group-append">
@@ -346,19 +340,39 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+            <form action="{{ route('add_product') }}" method="POST">
+                @csrf
+                <div class="row pb-3">
+                    <div class="col-sm-4"><label>ID Product <span class="text-danger">*</span></label></div>
+                    <div class="col-sm-8">
+                        <input type="text" name="id_master_product" class="form-control" style="width: 300px; height: 30px;">
+                        @error('id_master_product')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-sm-4"><label>Nama Product <span class="text-danger">*</span></label></div>
+                    <div class="col-sm-8">
+                        <input type="text" name="nama_product" class="form-control" style="width: 300px; height: 30px;">
+                        @error('nama_product')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
       </div>
     </div>
   </div>
-@endsection
+    @endsection

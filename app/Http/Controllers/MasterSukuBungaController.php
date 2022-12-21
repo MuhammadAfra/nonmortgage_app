@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Master_Jenis_Product;
 use App\Models\Master_Suku_Bunga;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class MasterSukuBungaController extends Controller
      */
     public function index()
     {
-        $sukuBunga = Master_Suku_Bunga::all();
+        $sukuBunga = Master_Suku_Bunga::get();
         return view('master.suku_bunga.index', compact('sukuBunga'));
     }
 
@@ -25,7 +26,8 @@ class MasterSukuBungaController extends Controller
      */
     public function create()
     {
-        return view('master.suku_bunga.create');
+        $jp = Master_Jenis_Product::all();
+        return view('master.suku_bunga.create', compact('jp'));
     }
 
     /**
@@ -39,14 +41,17 @@ class MasterSukuBungaController extends Controller
         $this->validate($request, [
             'Suku_Bunga' => 'required',
             'Nilai_Suku_Bunga' => 'required',
+            'konven_syariah_id' => 'required'
         ],[
             'Suku_Bunga' => 'Input Suku Bunga',
             'Nilai_Suku_Bunga' => 'Input Nilai Suku Bunga',
+            'konven_syariah_id' => 'Input Tipe Suku Bunga!'
         ]);
 
         Master_Suku_Bunga::create([
             'Suku_Bunga' => $request->Suku_Bunga,
             'Nilai_Suku_Bunga' => $request->Nilai_Suku_Bunga,
+            'konven_syariah_id' => $request->konven_syariah_id,
         ]);
 
         return redirect('master_suku_bunga');
@@ -73,7 +78,8 @@ class MasterSukuBungaController extends Controller
     public function edit($id)
     {
         $sukuBunga = Master_Suku_Bunga::findorfail($id);
-        return view('master.suku_bunga.edit', compact('sukuBunga'));
+        $jp = Master_Jenis_Product::all();
+        return view('master.suku_bunga.edit', compact('sukuBunga','jp'));
     }
 
     /**
@@ -88,15 +94,18 @@ class MasterSukuBungaController extends Controller
         $this->validate($request, [
             'Suku_Bunga' => 'required',
             'Nilai_Suku_Bunga' => 'required',
+            'konven_syariah_id' => 'required'
         ],[
             'Suku_Bunga' => 'Input Suku Bunga',
             'Nilai_Suku_Bunga' => 'Input Nilai Suku Bunga',
+            'konven_syariah_id' => 'Input Tipe Suku Bunga!'
         ]);
 
         $sukuBunga = Master_Suku_Bunga::findorfail($id);
         $sukuBunga->update([
             'Suku_Bunga' => $request->Suku_Bunga,
             'Nilai_Suku_Bunga' => $request->Nilai_Suku_Bunga,
+            'konven_syariah_id' => $request->konven_syariah_id,
         ]);
         
         return redirect('master_suku_bunga');

@@ -58,7 +58,7 @@ Home
                             </div>
                         </td>
                         @endif
-                        <td>{{ $item->Suku_Bunga }}</td>
+                        <td>{{ $item->Suku_Bunga }} {{ $item->jp->Product }}</td>
                         <td>{{ $item->Nilai_Suku_Bunga }}</td>
                     </tr>
                 @endforeach

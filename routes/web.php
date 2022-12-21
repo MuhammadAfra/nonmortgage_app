@@ -55,6 +55,7 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::resource('partner', PartnerController::class);
         Route::get('/upload_partner', [PartnerController::class, 'upload'])->name('upload_partner');
         Route::post('/upload_save', [PartnerController::class, 'upload_save'])->name('upload_save');
+        Route::post('/add_product', [PartnerController::class, 'add_product'])->name('add_product');
         // user management
         Route::resource('users', UserController::class);
     });

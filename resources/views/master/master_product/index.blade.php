@@ -38,7 +38,8 @@ Home
                     @if (auth()->user()->level == "Admin")
                     <th style="width: 200px;">Action</th>
                     @endif
-                    <th>Product</th>
+                    <th>ID Product</th>
+                    <th>Nama Product</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,7 +59,8 @@ Home
                             </div>
                         </td>
                         @endif
-                        <td>{{ $item->product }}</td>
+                        <td>{{ $item->id_master_product }}</td>
+                        <td>{{ $item->nama_product }}</td>
                     </tr>
                 @endforeach
         </table>

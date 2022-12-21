@@ -24,6 +24,20 @@
             </div>
         </div>
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Konvensional / Syariah <span class="text-danger">*</span></label></div>
+            <div class="col-sm-4 row pl-3">
+                @foreach ($jp as $item)    
+                <div class="d-flex">
+                    <input type="radio" value="{{ $item->id }}" style="width: 15px" name="konven_syariah_id" class="form-control">
+                    <p class="my-auto mx-2" style="font-weight: 600">{{ $item->Product }}</p>
+                </div>
+                @endforeach
+                @error('konven_syariah_id')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Suku Bunga <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
                 <input type="number" name="Nilai_Suku_Bunga" class="form-control" style="width: 300px; height: 30px;">

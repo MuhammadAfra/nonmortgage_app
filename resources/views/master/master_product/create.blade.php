@@ -15,10 +15,19 @@
     <form action="{{ url('master_product') }}" method="POST">
         @csrf
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Product <span class="text-danger">*</span></label></div>
+            <div class="col-sm-4"><label>ID Product <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                <input type="text" name="product" class="form-control" style="width: 300px; height: 30px;">
-                @error('product')
+                <input type="text" name="id_master_product" class="form-control" style="width: 300px; height: 30px;">
+                @error('id_master_product')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nama Product <span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+                <input type="text" name="nama_product" class="form-control" style="width: 300px; height: 30px;">
+                @error('nama_product')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>

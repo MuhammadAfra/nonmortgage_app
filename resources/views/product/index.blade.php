@@ -40,9 +40,9 @@ Home
                     @if (auth()->user()->level == "Admin")        
                     <th>Action</th>
                     @endif
-                    <th>Partner ID</th>
+                    {{-- <th>Partner ID</th> --}}
                     <th>Partner</th>
-                    <th>Debitur ID</th>
+                    {{-- <th>Debitur ID</th> --}}
                     <th>Debitur</th>
                     <th>Jenis Product</th>
                     <th>Nilai Pembiayaan Pokok Maximum</th>
@@ -73,9 +73,9 @@ Home
                         </div>
                     @endif
                     </td>
-                    <td>{{ $item->partner->id }}</td>
+                    {{-- <td>{{ $item->partner->id }}</td> --}}
                     <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
-                    <td>{{ $item->debitur->id }}</td>
+                    {{-- <td>{{ $item->debitur->id }}</td> --}}
                     <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->jenis_product->Product }}</td>
                     <td>{{ $item->NILAI_PEMBIAYAAN_POKOK_MAXIMUM }}</td>

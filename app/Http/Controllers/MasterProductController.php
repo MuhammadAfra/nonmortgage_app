@@ -37,13 +37,16 @@ class MasterProductController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'product' => 'required'
+            'id_master_product' => 'required',
+            'nama_product' => 'required'
         ],[
-            'product' => 'Input Product!'
+            'id_master_product' => 'Input Product!',
+            'nama_product' => 'Input Product!'
         ]);
 
         Master_Product::create([
-            'product' => $request->product
+            'id_master_product' => $request->id_master_product,
+            'nama_product' => $request->nama_product
         ]);
 
         return redirect('master_product');

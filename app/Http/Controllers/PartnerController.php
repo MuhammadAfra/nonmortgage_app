@@ -15,7 +15,7 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        $partner = Partner::all();
+        $partner = Partner::get();
         return view('partner.index', compact('partner'));
     }
 
@@ -50,11 +50,11 @@ class PartnerController extends Controller
             'TDP' => 'required|file|image|mimes:doc,docx,PDF,pdf,jpg,jpeg,png',
             'NPWP' => 'required|file|image|mimes:doc,docx,PDF,pdf,jpg,jpeg,png',
             'Nama_Direktur_Utama' => 'required',
-            'No_HP_Dirut' => 'required',
+            'No_Identitas_Direktur_Utama' => 'required',
             'Nama_Direktur1' => 'required',
-            'No_HP_Direktur1' => 'required',
+            'No_Identitas_Direktur1' => 'required',
             'Nama_Direktur_2' => 'required',
-            'No_HP_Direktur2' => 'required',
+            'No_Identitas_Direktur2' => 'required',
             'MODAL_PENDIRIAN' => 'required|file|image|mimes:doc,docx,PDF,pdf,jpg,jpeg,png',
             'MODAL_PERUBAHAN_TERAKHIR' => 'required|file|image|mimes:doc,docx,PDF,pdf,jpg,jpeg,png',
             'AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS' => 'required|file|image|mimes:doc,docx,PDF,pdf,jpg,jpeg,png',
@@ -64,7 +64,7 @@ class PartnerController extends Controller
             'CONTOH_RISK_ACCEPTANCE_CRITERIA' => 'required|file|image|mimes:doc,docx,PDF,pdf,jpg,jpeg,png',
             'NDA_DOCUMENT' => 'required|file|image|mimes:doc,docx,PDF,pdf,jpg,jpeg,png',
             'DRAFT_TEMPLATE_AGREEMENT_END_USER' => 'required|file|image|mimes:doc,docx,PDF,pdf,jpg,jpeg,png',
-            'status' => 'required',
+            'Status' => 'required',
         ],[
             'NAMA_PERUSAHAAN' => 'Input Nama Perusahaan!',
             'ALAMAT_PERUSAHAAN' => 'Input Alamat Perusahaan!',
@@ -77,11 +77,11 @@ class PartnerController extends Controller
             'TDP' => 'Input TDP!',
             'NPWP' => 'Input NPWP!',
             'Nama_Direktur_Utama' => 'Input Nama Direktur!',
-            'No_HP_Dirut' => 'Input No HP!',
+            'No_Identitas_Direktur_Utama' => 'Input No HP!',
             'Nama_Direktur1' => 'Input Nama Direktur 1!',
-            'No_HP_Direktur1' => 'Input No HP!',
+            'No_Identitas_Direktur1' => 'Input No HP!',
             'Nama_Direktur_2' => 'Input Nama Direktur 2!',
-            'No_HP_Direktur2' => 'Input No HP!',
+            'No_Identitas_Direktur2' => 'Input No HP!',
             'MODAL_PENDIRIAN' => 'Input Modal Pendirian!',
             'MODAL_PERUBAHAN_TERAKHIR' => 'Input Modal Perubahan!',
             'AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS' => 'Input Audited Financial Statement!',
@@ -91,83 +91,83 @@ class PartnerController extends Controller
             'CONTOH_RISK_ACCEPTANCE_CRITERIA' => 'Input Risk Acceptance!',
             'NDA_DOCUMENT' => 'Input NDA DOCUMENT!',
             'DRAFT_TEMPLATE_AGREEMENT_END_USER' => 'Input Draft Template Agreement!',
-            'status' => 'Input Status!',
+            'Status' => 'Input Status!',
         ]);
 
         // upload file akte pendirian
-        $akte_pendirian = $request->AKTE_PENDIRIAN;
+        $akte_pendirian = $request->file('AKTE_PENDIRIAN');
         $nama_akte_pendirian = $akte_pendirian->getClientOriginalName();
-        $akte_pendirian->move(public_path().'/data_file'.$nama_akte_pendirian);
+        $akte_pendirian->move('data_file', $akte_pendirian->getClientOriginalName());
 
         // upload file akte pendirian
-        $company_profile = $request->COMPANY_PROFILE;
+        $company_profile = $request->file('COMPANY_PROFILE');
         $nama_company_profile = $company_profile->getClientOriginalName();
-        $company_profile->move(public_path().'/data_file'.$nama_company_profile);
+        $company_profile->move('data_file', $company_profile->getClientOriginalName());
 
         // upload file akte pendirian
-        $akte_perubahan = $request->AKTE_PERUBAHAN_ANGGARAN_DASAR;
+        $akte_perubahan = $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR');
         $nama_akte_perubahan = $akte_perubahan->getClientOriginalName();
-        $akte_perubahan->move(public_path().'/data_file'.$nama_akte_perubahan);
+        $akte_perubahan->move('data_file', $akte_perubahan->getClientOriginalName());
 
         // upload file akte pendirian
-        $siup = $request->SIUP;
+        $siup = $request->file('SIUP');
         $nama_siup = $siup->getClientOriginalName();
-        $siup->move(public_path().'/data_file'.$nama_akte_perubahan);
+        $siup->move('data_file', $siup->getClientOriginalName());
 
         // upload file akte pendirian
-        $tdp = $request->TDP;
+        $tdp = $request->file('TDP');
         $nama_tdp = $tdp->getClientOriginalName();
-        $tdp->move(public_path().'/data_file'.$nama_akte_perubahan);
+        $tdp->move('data_file', $tdp->getClientOriginalName());
         
         // upload file akte pendirian
-        $npwp = $request->NPWP;
+        $npwp = $request->file('NPWP');
         $nama_npwp = $npwp->getClientOriginalName();
-        $npwp->move(public_path().'/data_file'.$nama_akte_perubahan);
+        $npwp->move('data_file', $npwp->getClientOriginalName());
 
         // upload file akte pendirian
-        $modal_pendirian = $request->MODAL_PENDIRIAN;
+        $modal_pendirian = $request->file('MODAL_PENDIRIAN');
         $nama_modal_pendirian = $modal_pendirian->getClientOriginalName();
-        $modal_pendirian->move(public_path().'/data_file'.$nama_akte_perubahan);
+        $modal_pendirian->move('data_file', $modal_pendirian->getClientOriginalName());
 
         // upload file akte pendirian
-        $modal_perubahan = $request->MODAL_PERUBAHAN_TERAKHIR;
+        $modal_perubahan = $request->file('MODAL_PERUBAHAN_TERAKHIR');
         $nama_modal_perubahan = $modal_perubahan->getClientOriginalName();
-        $modal_perubahan->move(public_path().'/data_file'.$nama_akte_perubahan);
+        $modal_perubahan->move('data_file', $modal_perubahan->getClientOriginalName());
 
         // upload file akte pendirian
-        $audited_financial = $request->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS;
+        $audited_financial = $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS');
         $nama_audited_financial = $audited_financial->getClientOriginalName();
-        $audited_financial->move(public_path().'/data_file'.$nama_akte_perubahan);
+        $audited_financial->move('data_file', $audited_financial->getClientOriginalName());
 
         // upload file akte pendirian
-        $in_house = $request->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR;
+        $in_house = $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR');
         $nama_in_house = $in_house->getClientOriginalName();
-        $in_house->move(public_path().'/data_file'.$nama_akte_perubahan);
+        $in_house->move('data_file', $in_house->getClientOriginalName());
 
         // upload file akte pendirian
-        $bank_statement = $request->BANK_STATEMENT_LAST_3_MONTHS;
+        $bank_statement = $request->file('BANK_STATEMENT_LAST_3_MONTHS');
         $nama_bank_statement = $bank_statement->getClientOriginalName();
-        $bank_statement->move(public_path().'/data_file'.$nama_akte_perubahan);
+        $bank_statement->move('data_file', $bank_statement->getClientOriginalName());
 
         // upload file akte pendirian
-        $financial_projection = $request->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS;
+        $financial_projection = $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS');
         $nama_financial_projection = $financial_projection->getClientOriginalName();
-        $financial_projection->move(public_path().'/data_file'.$nama_akte_perubahan);
+        $financial_projection->move('data_file', $financial_projection->getClientOriginalName());
 
         // upload file akte pendirian
-        $risk_acc = $request->CONTOH_RISK_ACCEPTANCE_CRITERIA;
+        $risk_acc = $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA');
         $nama_risk_acc = $risk_acc->getClientOriginalName();
-        $risk_acc->move(public_path().'/data_file'.$nama_akte_perubahan);
+        $risk_acc->move('data_file', $risk_acc->getClientOriginalName());
 
         // upload file akte pendirian
-        $nda_doc = $request->NDA_DOCUMENT;
+        $nda_doc = $request->file('NDA_DOCUMENT');
         $nama_nda_doc = $nda_doc->getClientOriginalName();
-        $nda_doc->move(public_path().'/data_file'.$nama_akte_perubahan);
+        $nda_doc->move('data_file', $nda_doc->getClientOriginalName());
 
         // upload file akte pendirian
-        $draft_template = $request->DRAFT_TEMPLATE_AGREEMENT_END_USER;
+        $draft_template = $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER');
         $nama_draft_template = $draft_template->getClientOriginalName();
-        $draft_template->move(public_path().'/data_file'.$nama_akte_perubahan);
+        $draft_template->move('data_file', $draft_template->getClientOriginalName());
 
         Partner::create([
             'NAMA_PERUSAHAAN' => $request->NAMA_PERUSAHAAN,
@@ -181,11 +181,11 @@ class PartnerController extends Controller
             'TDP' => $nama_tdp,
             'NPWP' => $nama_npwp,
             'Nama_Direktur_Utama' => $request->Nama_Direktur_Utama,
-            'No_HP_Dirut' => $request->No_HP_Dirut,
+            'No_Identitas_Direktur_Utama' => $request->No_Identitas_Direktur_Utama,
             'Nama_Direktur1' => $request->Nama_Direktur1,
-            'No_HP_Direktur1' => $request->No_HP_Direktur1,
+            'No_Identitas_Direktur1' => $request->No_Identitas_Direktur1,
             'Nama_Direktur_2' => $request->Nama_Direktur_2,
-            'No_HP_Direktur2' => $request->No_HP_Direktur2,
+            'No_Identitas_Direktur2' => $request->No_Identitas_Direktur2,
             'MODAL_PENDIRIAN' => $nama_modal_pendirian,
             'MODAL_PERUBAHAN_TERAKHIR' => $nama_modal_perubahan,
             'AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS' => $nama_audited_financial,
@@ -195,11 +195,29 @@ class PartnerController extends Controller
             'CONTOH_RISK_ACCEPTANCE_CRITERIA' => $nama_risk_acc,
             'NDA_DOCUMENT' => $nama_nda_doc,
             'DRAFT_TEMPLATE_AGREEMENT_END_USER' => $nama_draft_template,
-            'status' => $request->status,
+            'Status' => $request->Status,
         ]);
 
         return redirect('partner');
 
+    }
+
+    public function add_product(Request $request)
+    {
+        $this->validate($request, [
+            'id_master_product' => 'required',
+            'nama_product' => 'required'
+        ],[
+            'id_master_product' => 'Input Product!',
+            'nama_product' => 'Input Product!'
+        ]);
+
+        Master_Product::create([
+            'id_master_product' => $request->id_master_product,
+            'nama_product' => $request->nama_product
+        ]);
+
+        return redirect('partner/create');
     }
 
     /**

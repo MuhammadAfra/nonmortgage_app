@@ -27,4 +27,9 @@ class Master_Jenis_Product extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function sukuBunga()
+    {
+        return $this->hasMany(Master_Suku_Bunga::class);
+    }
 }
