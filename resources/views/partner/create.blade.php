@@ -209,7 +209,7 @@
             <div class="col-sm-8">
                 <div class="custom-file" style="width: 500px; height: 30px;">
                     <input type="file" class="custom-file-input" name="MODAL_PENDIRIAN" >
-                    <label class="custom-file-label"></label>
+                    <label class="custom-file-label">Choose file</label>
                   </div>
                 @error('MODAL_PENDIRIAN')
                     <p class="text-danger">{{ $message }}</p>

@@ -12,8 +12,9 @@
 @endsection
 
 @section('content')
-    <form action="{{ url('master_skema_pembiayaan') }}" method="POST">
+    <form action="{{ url('master_skema_pembiayaan', $skemaPembiayaan->id) }}" method="POST">
         @csrf
+        @method('PUT')
         <div class="row pb-3">
             <div class="col-sm-4"><label>Skema Pembiayaan <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">

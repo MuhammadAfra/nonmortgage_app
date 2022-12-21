@@ -43,8 +43,8 @@ Home
                     <th>Partner ID</th>
                     <th>Partner</th>
                     <th>Debitur ID</th>
-                    <th>Nama Debitur</th>
-                    <th>Konven / Syariah</th>
+                    <th>Debitur</th>
+                    <th>Jenis Product</th>
                     <th>Nilai Pembiayaan Pokok Maximum</th>
                     <th>Suku Bunga</th>
                     <th>Jangka Waktu Maximum</th>
@@ -53,6 +53,7 @@ Home
                     <th>Biaya Asuransi</th>
                     <th>Biaya Provinsi</th>
                     <th>Biaya Lain Lain</th>
+                    {{-- <th>File</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -85,6 +86,7 @@ Home
                     <td>{{ $item->BIAYA_ASSURANSI }}</td>
                     <td>{{ $item->BIAYA_PROVISI }}</td>
                     <td>{{ $item->BIAYA_LAIN_LAIN }}</td>
+                    {{-- <td>{{ $item->upload }}</td> --}}
                 </tr>
                 @endforeach
             </tbody>

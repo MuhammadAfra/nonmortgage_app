@@ -26,7 +26,7 @@ class DebiturController extends Controller
      */
     public function create()
     {
-        // return view('debitur.create');
+        return view('debitur.create');
     }
 
     /**
@@ -97,8 +97,8 @@ class DebiturController extends Controller
      */
     public function show($id)
     {
-        // $debitur = Debitur::findorfail($id);
-        // return view('debitur.detail', compact('debitur'));
+        $debitur = Debitur::findorfail($id);
+        return view('debitur.detail', compact('debitur'));
     }
 
     /**
@@ -109,8 +109,8 @@ class DebiturController extends Controller
      */
     public function edit($id)
     {
-        // $debitur = Debitur::findorfail($id);
-        // return view('debitur.edit', compact('debitur'));
+        $debitur = Debitur::findorfail($id);
+        return view('debitur.edit', compact('debitur'));
     }
 
     /**
@@ -183,14 +183,14 @@ class DebiturController extends Controller
      */
     public function destroy($id)
     {
-        // $debitur = Debitur::findorfail($id);
-        // $debitur->delete();
+        $debitur = Debitur::findorfail($id);
+        $debitur->delete();
 
-        // return redirect('debitur');
+        return redirect('debitur');
     }
 
-    // public function upload()
-    // {
-    //     return view('debitur.upload');
-    // }
+    public function upload()
+    {
+        return view('debitur.upload');
+    }
 }
