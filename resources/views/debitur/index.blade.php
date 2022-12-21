@@ -95,13 +95,13 @@ Home
                     <td>{{ $item->LAMA_USAHA }}</td>
                     <td>{{ $item->JABATAN }}</td>
                     <td>{{ $item->TANGGUNGAN }}</td>
-                    <td>{{ $item->INCOME_BULAN }}</td>
-                    <td>{{ $item->SUPOUSE_INCOME_BULAN }}</td>
-                    <td>{{ $item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1 }}</td>
-                    <td>{{ $item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2 }}</td>
-                    <td>{{ $item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3 }}</td>
+                    <td>{{ number_format($item->INCOME_BULAN) }}</td>
+                    <td>{{ number_format($item->SUPOUSE_INCOME_BULAN) }}</td>
+                    <td>{{ number_format($item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1) }}</td>
+                    <td>{{ number_format($item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2) }}</td>
+                    <td>{{ number_format($item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3) }}</td>
                     <td>{{ $item->APAKAH_ADA_DP }}</td>
-                    <td>{{ $item->DOWN_PAYMENT_CUSTOMER }}</td>
+                    <td>{{ number_format($item->DOWN_PAYMENT_CUSTOMER) }}</td>
                 </tr>
                 @endforeach
             </tbody>

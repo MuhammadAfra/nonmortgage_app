@@ -78,14 +78,14 @@ Home
                     <td>{{ $item->debitur->id }}</td>
                     <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->jenis_product->Product }}</td>
-                    <td>{{ $item->NILAI_PEMBIAYAAN_POKOK_MAXIMUM }}</td>
+                    <td>{{  number_format($item->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}</td>
                     <td>{{ $item->suku_bunga->Suku_Bunga }}</td>
                     <td>{{ $item->Jangka_Waktu_Maximum }}</td>
                     <td>{{ $item->pola_pembayaran->Pola_Pembayaran }}</td>
-                    <td>{{ $item->BIAYA_ADMINISTRASI }}</td>
-                    <td>{{ $item->BIAYA_ASSURANSI }}</td>
-                    <td>{{ $item->BIAYA_PROVISI }}</td>
-                    <td>{{ $item->BIAYA_LAIN_LAIN }}</td>
+                    <td>{{  number_format($item->BIAYA_ADMINISTRASI) }}</td>
+                    <td>{{  number_format($item->BIAYA_ASSURANSI) }}</td>
+                    <td>{{  number_format($item->BIAYA_PROVISI) }}</td>
+                    <td>{{  number_format($item->BIAYA_LAIN_LAIN) }}</td>
                     {{-- <td>{{ $item->upload }}</td> --}}
                 </tr>
                 @endforeach
