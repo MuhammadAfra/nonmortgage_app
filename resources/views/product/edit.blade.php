@@ -56,9 +56,9 @@
             <div class="col-sm-4"><label>Suku Bunga</label></div>
             <div class="col-sm-8">
                 <select name="SUKU_BUNGA_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                    <option value="{{ $dataproduct->SUKU_BUNGA_ID }}">{{ $dataproduct->suku_bunga->id }} - {{ $dataproduct->suku_bunga->Suku_Bunga }}</option>
+                    <option value="{{ $dataproduct->SUKU_BUNGA_ID }}">{{ $dataproduct->suku_bunga->id }} - {{ $dataproduct->suku_bunga->Suku_Bunga }} {{ $dataproduct->suku_bunga->jp->Product }}</option>
                     @foreach ($bunga as $item)
-                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->Suku_Bunga }}</option>
+                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->Suku_Bunga }} {{ $item->jp->Product }}</option>
                     @endforeach
                 </select>   
             </div>

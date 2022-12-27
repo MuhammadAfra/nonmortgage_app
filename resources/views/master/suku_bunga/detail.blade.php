@@ -19,6 +19,13 @@
             <div class="col-sm-8">: {{ $sukuBunga->Suku_Bunga }}</div>
         </div>
         <div class="row pb-3">
+<<<<<<< HEAD
+=======
+            <div class="col-sm-4"><label>Konvensional / Syariah</label></div>
+            <div class="col-sm-8">: {{ $sukuBunga->jp->Product }}</div>
+        </div>
+        <div class="row pb-3">
+>>>>>>> dev
             <div class="col-sm-4"><label>Nilai Suku Bunga</label></div>
             <div class="col-sm-8">: {{ $sukuBunga->Nilai_Suku_Bunga }}</div>
         </div>

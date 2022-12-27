@@ -15,8 +15,12 @@
 <div class="card">
     <div class="card-body">
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Product</label></div>
-            <div class="col-sm-8">: {{ $product->product }}</div>
+            <div class="col-sm-4"><label>ID Product</label></div>
+            <div class="col-sm-8">: {{ $product->id_master_product }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nama Product</label></div>
+            <div class="col-sm-8">: {{ $product->nama_product }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"></div>

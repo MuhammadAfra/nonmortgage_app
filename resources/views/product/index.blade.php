@@ -40,9 +40,9 @@ Home
                     @if (auth()->user()->level == "Admin")        
                     <th>Action</th>
                     @endif
-                    <th>Partner ID</th>
+                    {{-- <th>Partner ID</th> --}}
                     <th>Partner</th>
-                    <th>Debitur ID</th>
+                    {{-- <th>Debitur ID</th> --}}
                     <th>Debitur</th>
                     <th>Jenis Product</th>
                     <th>Nilai Pembiayaan Pokok Maximum</th>
@@ -73,13 +73,13 @@ Home
                         </div>
                     @endif
                     </td>
-                    <td>{{ $item->partner->id }}</td>
+                    {{-- <td>{{ $item->partner->id }}</td> --}}
                     <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
-                    <td>{{ $item->debitur->id }}</td>
+                    {{-- <td>{{ $item->debitur->id }}</td> --}}
                     <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->jenis_product->Product }}</td>
-                    <td>{{  number_format($item->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}</td>
-                    <td>{{ $item->suku_bunga->Suku_Bunga }}</td>
+                    <td>{{ $item->NILAI_PEMBIAYAAN_POKOK_MAXIMUM }}</td>
+                    <td>{{ $item->suku_bunga->Suku_Bunga }} {{ $item->suku_bunga->jp->Product }}</td>
                     <td>{{ $item->Jangka_Waktu_Maximum }}</td>
                     <td>{{ $item->pola_pembayaran->Pola_Pembayaran }}</td>
                     <td>{{  number_format($item->BIAYA_ADMINISTRASI) }}</td>

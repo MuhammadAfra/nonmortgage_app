@@ -36,7 +36,9 @@ class ProductController extends Controller
         $pola = Master_Pola_Pembayaran::all();
         $partner = Partner::all();
         $jp = Master_Jenis_Product::all();
-        return view('product.create', compact('deb','bunga','pola','partner','jp'));
+        $konven = Product::select('*')->where('konven_syariah_id', '=', '1')->get();
+        $syariah = Product::select('*')->where('konven_syariah_id', '=', '2')->get();
+        return view('product.create', compact('deb','bunga','pola','partner','jp','konven','syariah'));
     }
 
     /**

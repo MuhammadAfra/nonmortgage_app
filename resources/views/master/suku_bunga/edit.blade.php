@@ -25,6 +25,17 @@
             </div>
         </div>
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Konvensional / Syariah</label></div>
+            <div class="col-sm-4 d-flex">
+                @foreach ($jp as $item)    
+                <div class="d-flex">
+                    <input type="radio" value="{{ $item->id }}" {{ ($sukuBunga->konven_syariah_id == $item->id)? "checked" : "" }} style="width: 15px" name="konven_syariah_id" class="form-control">
+                    <p class="my-auto mx-2" style="font-weight: 600">{{ $item->Product }}</p>
+                </div>
+                @endforeach
+            </div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Suku Bunga <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
                 <input type="number" name="Nilai_Suku_Bunga" value="{{ $sukuBunga->Nilai_Suku_Bunga }}" class="form-control" style="width: 300px; height: 30px;">

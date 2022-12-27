@@ -32,7 +32,7 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Suku Bunga</label></div>
-            <div class="col-sm-8">: {{ $dataproduct->suku_bunga->Suku_Bunga }}</div>
+            <div class="col-sm-8">: {{ $dataproduct->suku_bunga->Suku_Bunga }} {{ $dataproduct->suku_bunga->jp->Product }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jangka Waktu Maksimum</label></div>

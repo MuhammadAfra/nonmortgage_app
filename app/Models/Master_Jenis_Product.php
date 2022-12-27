@@ -25,6 +25,11 @@ class Master_Jenis_Product extends Model
 
     public function product()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasManyThrough(Product::class, Master_Suku_Bunga::class, 'SUKU_BUNGA_ID', 'konven_syariah_id ');
+    }
+
+    public function sukuBunga()
+    {
+        return $this->hasMany(Master_Suku_Bunga::class);
     }
 }

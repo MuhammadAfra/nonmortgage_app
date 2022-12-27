@@ -9,7 +9,9 @@ class Master_Product extends Model
 {
     use HasFactory;
     protected $table = 'master_product';
-    protected $fillable = ['product'];
+    protected $fillable = [
+        'id_master_product', 'nama_product'
+    ];
 
     public $timestamps = false;
 

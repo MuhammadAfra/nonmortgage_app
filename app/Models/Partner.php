@@ -22,11 +22,11 @@ class Partner extends Model
         'TDP',
         'NPWP',
         'Nama_Direktur_Utama',
-        'No_HP_Dirut',
+        'No_Identitas_Direktur_Utama',
         'Nama_Direktur1',
-        'No_HP_Direktur1',
+        'No_Identitas_Direktur1',   
         'Nama_Direktur_2',
-        'No_HP_Direktur2',
+        'No_Identitas_Direktur2',
         'MODAL_PENDIRIAN',
         'MODAL_PERUBAHAN_TERAKHIR',
         'AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS',
@@ -36,7 +36,7 @@ class Partner extends Model
         'DRAFT_TEMPLATE_AGREEMENT_END_USER',
         'CONTOH_RISK_ACCEPTANCE_CRITERIA',
         'NDA_DOCUMENT',
-        'status',
+        'Status',
     ];
     
     public function product()
