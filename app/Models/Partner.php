@@ -24,7 +24,7 @@ class Partner extends Model
         'Nama_Direktur_Utama',
         'No_Identitas_Direktur_Utama',
         'Nama_Direktur1',
-        'No_Identitas_Direktur1',
+        'No_Identitas_Direktur1',   
         'Nama_Direktur_2',
         'No_Identitas_Direktur2',
         'MODAL_PENDIRIAN',

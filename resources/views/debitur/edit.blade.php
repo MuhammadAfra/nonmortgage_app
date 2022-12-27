@@ -16,6 +16,10 @@
         @csrf
         @method('PUT')
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Nama Debitur <span class="text-danger">*</span></label></div>
+            <div class="col-sm-8"><input type="text" value="{{ $debitur->NAMA_DEBITUR }}" name="NAMA_DEBITUR" class="form-control" style="width: 300px; height: 30px;"></div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>Tanggal Lahir <span class="text-danger">*</span></label></div>
             <div class="col-sm-8"><input type="date" value="{{ $debitur->TANGGAL_LAHIR }}" name="TANGGAL_LAHIR" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
@@ -25,7 +29,7 @@
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>No NPWP</label> <span class="text-danger">*</span></div>
-            <div class="col-sm-8"><input type="number" value="{{ $debitur->NO_NPWP }}" name="NO_NPWP" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" value="{{ $debitur->NO_NPWP }}" name="NO_NPWP" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Alamat <span class="text-danger">*</span></div>
