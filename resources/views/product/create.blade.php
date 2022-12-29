@@ -43,21 +43,21 @@
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Konvensional / Syariah <span class="text-danger">*</span></label></div>
+            <div class="col-sm-4"><label>Jenis Product <span class="text-danger">*</span></label></div>
             <div class="col-sm-4 row pl-3">
-                @foreach ($jp as $item)    
-                <div class="d-flex">
-                    <input type="radio" value="{{ $item->id }}" style="width: 15px" name="KONVEN_SYARIAH_ID" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">{{ $item->Product }}</p>
-                </div>
-                @endforeach
-                @error('KONVEN_SYARIAH_ID')
+                <select name="MASTER_PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+                    <option>-----</option>
+                    @foreach ($master_product as $item)
+                        <option value="{{ $item->id }}">{{ $item->id_master_product }} - {{ $item->nama_product }}</option>
+                    @endforeach
+                </select>
+                @error('MASTER_PRODUCT_ID')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nilai Pembiayaan <br> Pokok Maximum <span class="text-danger">*</span></div>
+            <div class="col-sm-4"><label>Nilai Pembiayaan / <br> Pokok Maximum <span class="text-danger">*</span></div>
             <div class="col-sm-8">
                 <input type="text" name="NILAI_PEMBIAYAAN_POKOK_MAXIMUM" placeholder="Nilai Pembiayaan Pokok Maximum" class="form-control number-separator" style="width: 300px; height: 30px;">
                 @error('NILAI_PEMBIAYAAN_POKOK_MAXIMUM')
@@ -83,7 +83,7 @@
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Jangka Waktu <br> Maksimum <span class="text-danger">*</span></label></div>
+            <div class="col-sm-4"><label>Jangka Waktu <br> Maksimum (Bulan) <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
                 <input type="text" name="Jangka_Waktu_Maximum" placeholder="Jangka Waktu Maksimum" class="form-control number-separator" style="width: 300px; height: 30px;">
                 @error('Jangka_Waktu_Maximum')

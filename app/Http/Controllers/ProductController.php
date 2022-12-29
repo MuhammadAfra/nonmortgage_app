@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Debitur;
 use App\Models\Master_Jenis_Product;
 use App\Models\Master_Pola_Pembayaran;
+use App\Models\Master_Product;
 use App\Models\Master_Suku_Bunga;
 use App\Models\Partner;
 use App\Models\Product;
@@ -38,7 +39,8 @@ class ProductController extends Controller
         $jp = Master_Jenis_Product::all();
         $konven = Product::select('*')->where('konven_syariah_id', '=', '1')->get();
         $syariah = Product::select('*')->where('konven_syariah_id', '=', '2')->get();
-        return view('product.create', compact('deb','bunga','pola','partner','jp','konven','syariah'));
+        $master_product = Master_Product::all();
+        return view('product.create', compact('deb','bunga','pola','partner','jp','konven','syariah', 'master_product'));
     }
 
     /**
@@ -110,7 +112,8 @@ class ProductController extends Controller
         $pola = Master_Pola_Pembayaran::all();
         $partner = Partner::all();
         $jp = Master_Jenis_Product::all();
-        return view('product.edit', compact('deb','bunga','pola','partner','dataproduct','jp'));
+        $master_product = Master_Product::all();
+        return view('product.edit', compact('deb','bunga','pola','partner','dataproduct','jp', 'master_product'));
     }
 
     /**

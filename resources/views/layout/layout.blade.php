@@ -134,7 +134,8 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('partner') }}" class="nav-link {{ 'partner' == request()->path() ? 'active' : '' }}">
+                            {{-- <a href="{{ url('partner') }}" class="nav-link {{ 'partner' == request()->path() ? 'active' : '' }}"> --}}
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-handshake"></i>
                                 <p>
                                     Partner
@@ -142,7 +143,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('debitur') }}" class="nav-link {{ 'debitur' == request()->path() ? 'active' : '' }}">
+                            {{-- <a href="{{ url('debitur') }}" class="nav-link {{ 'debitur' == request()->path() ? 'active' : '' }}"> --}}
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-handshake"></i>
                                 <p>
                                     Debitur
