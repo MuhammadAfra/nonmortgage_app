@@ -45,9 +45,10 @@ Home
                     {{-- <th>Debitur ID</th> --}}
                     <th>Debitur</th>
                     <th>Jenis Product</th>
-                    <th>Nilai Pembiayaan Pokok Maximum</th>
-                    <th>Suku Bunga</th>
-                    <th>Jangka Waktu Maximum</th>
+                    <th>Nilai Pembiayaan / Pokok Maximum</th>
+                    <th>Suku Bunga Flat (%)</th>
+                    <th>Suku Bunga Effective (%)</th>
+                    <th>Jangka Waktu Maximum (Bulan)</th>
                     <th>Pola Pembayaran</th>
                     <th>Biaya Administrasi</th>
                     <th>Biaya Asuransi</th>
@@ -78,14 +79,15 @@ Home
                     {{-- <td>{{ $item->debitur->id }}</td> --}}
                     <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->jenis_product->Product }}</td>
-                    <td>Rp. {{ number_format($item->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}</td>
-                    <td>{{ $item->suku_bunga->Suku_Bunga }} {{ $item->suku_bunga->jp->Product }}</td>
+                    <td>Rp{{ number_format($item->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}</td>
+                    <td>{{ $item->Suku_Bunga_Flat }}</td>
+                    <td>{{ $item->Suku_Bunga_Effective }}</td>
                     <td>{{ $item->Jangka_Waktu_Maximum }}</td>
                     <td>{{ $item->pola_pembayaran->Pola_Pembayaran }}</td>
-                    <td>Rp. {{ number_format($item->BIAYA_ADMINISTRASI) }}</td>
-                    <td>Rp. {{ number_format($item->BIAYA_ASSURANSI) }}</td>
-                    <td>Rp. {{ number_format($item->BIAYA_PROVISI) }}</td>
-                    <td>Rp. {{ number_format($item->BIAYA_LAIN_LAIN) }}</td>
+                    <td>Rp{{ number_format($item->BIAYA_ADMINISTRASI) }}</td>
+                    <td>Rp{{ number_format($item->BIAYA_ASSURANSI) }}</td>
+                    <td>Rp{{ number_format($item->BIAYA_PROVISI) }}</td>
+                    <td>Rp{{ number_format($item->BIAYA_LAIN_LAIN) }}</td>
                     {{-- <td>{{ $item->upload }}</td> --}}
                 </tr>
                 @endforeach

@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Konven / Syariah</label></div>
+            <div class="col-sm-4"><label>Jenis Product</label></div>
             <div class="col-sm-4 d-flex">
                 @foreach ($jp as $item)    
                 <div class="d-flex">
@@ -53,18 +53,19 @@
             <div class="col-sm-8"><input type="text" name="NILAI_PEMBIAYAAN_POKOK_MAXIMUM" value="{{ number_format($dataproduct->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Suku Bunga</label></div>
+            <div class="col-sm-4"><label>Suku Bunga Flat (%)</label></div>
             <div class="col-sm-8">
-                <select name="SUKU_BUNGA_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                    <option value="{{ $dataproduct->SUKU_BUNGA_ID }}">{{ $dataproduct->suku_bunga->id }} - {{ $dataproduct->suku_bunga->Suku_Bunga }} {{ $dataproduct->suku_bunga->jp->Product }}</option>
-                    @foreach ($bunga as $item)
-                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->Suku_Bunga }} {{ $item->jp->Product }}</option>
-                    @endforeach
-                </select>   
+                <input type="number" name="Suku_Bunga_Flat" value="{{ $dataproduct->Suku_Bunga_Flat }}" class="form-control" style="width: 300px; height: 30px;">
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Jangka Waktu <br> Maksimum</label></div>
+            <div class="col-sm-4"><label>Suku Bunga Effective (%)</label></div>
+            <div class="col-sm-8">
+                <input type="number" name="Suku_Bunga_Effective" value="{{ $dataproduct->Suku_Bunga_Effective }}" class="form-control" style="width: 300px; height: 30px;">
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Jangka Waktu <br> Maksimum (Bulan)</label></div>
             <div class="col-sm-8"><input type="number" name="Jangka_Waktu_Maximum" value="{{ $dataproduct->Jangka_Waktu_Maximum }}" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">

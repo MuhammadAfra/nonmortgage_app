@@ -66,17 +66,18 @@
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Suku Bunga <span class="text-danger">*</span></label></div>
-            <div class="col-sm-8">
-                <select name="SUKU_BUNGA_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                    <option>-----</option>
-                    @foreach ($bunga->where('konven_syariah_id', 1) as $item)
-                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->Suku_Bunga }} {{ $item->jp->Product }}</option>
-                    @endforeach
-                    @foreach ($bunga->where('konven_syariah_id', 2) as $item)
-                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->Suku_Bunga }} {{ $item->jp->Product }}</option>
-                    @endforeach
-                </select>
+            <div class="col-sm-4"><label>Suku Bunga Flat (%)<span class="text-danger">*</span></label></div>
+            <div class="col-sm-4">
+                 <input type="text" name="Suku_Bunga_Flat" placeholder="Suka Bunga Flat (%)" class="form-control number-separator" style="width: 300px; height: 30px;">
+                @error('SUKU_BUNGA_ID')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+        </div>
+         <div class="row pb-3">
+            <div class="col-sm-4"><label>Suku Bunga Effective (%)<span class="text-danger">*</span></label></div>
+            <div class="col-sm-4">
+                 <input type="text" name="Suku_Bunga_Effective" placeholder="Suka Bunga Effective (%)" class="form-control number-separator" style="width: 300px; height: 30px;">
                 @error('SUKU_BUNGA_ID')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
