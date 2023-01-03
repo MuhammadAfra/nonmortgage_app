@@ -181,10 +181,10 @@
                                             <a href="{{ url('collateral_mobil') }}" class="nav-link">2. Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_rumah_land') }}" class="nav-link">3. Rumah / Tanah</a>
+                                            <a href="{{ url('collateral_rumah') }}" class="nav-link">3. Rumah / Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_inventori') }}" class="nav-link">4. Inventori</a>
+                                            <a href="{{ url('collateral_inven') }}" class="nav-link">4. Inventori</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ url('collateral_invoice') }}" class="nav-link">5. Invoice</a>
