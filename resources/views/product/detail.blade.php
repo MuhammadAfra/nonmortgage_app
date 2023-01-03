@@ -31,8 +31,12 @@ Detail
             <div class="col-sm-8">: {{ $dataproduct->NILAI_PEMBIAYAAN_POKOK_MAXIMUM }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Suku Bunga</label></div>
-            <div class="col-sm-8">: {{ $dataproduct->suku_bunga->Suku_Bunga }} {{ $dataproduct->suku_bunga->jp->Product }}</div>
+            <div class="col-sm-4"><label>Suku Bunga Flat</label></div>
+            <div class="col-sm-8">: {{ $dataproduct->SUKU_BUNGA_FLAT }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Suku Bunga Effective</label></div>
+            <div class="col-sm-8">: {{ $dataproduct->SUKU_BUNGA_EFFECTIVE }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jangka Waktu Maksimum</label></div>
