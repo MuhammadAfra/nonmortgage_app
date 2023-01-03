@@ -43,15 +43,15 @@
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Konvensional / Syariah <span class="text-danger">*</span></label></div>
-            <div class="col-sm-4 row pl-3">
-                @foreach ($jp as $item)    
-                <div class="d-flex">
-                    <input type="radio" value="{{ $item->id }}" style="width: 15px" name="KONVEN_SYARIAH_ID" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">{{ $item->Product }}</p>
-                </div>
-                @endforeach
-                @error('KONVEN_SYARIAH_ID')
+            <div class="col-sm-4"><label>Jenis Product <span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+                <select name="M_PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+                    <option>-----</option>
+                    @foreach ($prod as $item)
+                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->nama_product }}</option>
+                    @endforeach
+                </select>
+                @error('M_PRODUCT_ID')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
@@ -66,18 +66,19 @@
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Suku Bunga <span class="text-danger">*</span></label></div>
+            <div class="col-sm-4"><label>Suku Bunga Flat <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                <select name="SUKU_BUNGA_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                    <option>-----</option>
-                    @foreach ($bunga->where('konven_syariah_id', 1) as $item)
-                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->Suku_Bunga }} {{ $item->jp->Product }}</option>
-                    @endforeach
-                    @foreach ($bunga->where('konven_syariah_id', 2) as $item)
-                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->Suku_Bunga }} {{ $item->jp->Product }}</option>
-                    @endforeach
-                </select>
-                @error('SUKU_BUNGA_ID')
+                <input type="number" name="SUKU_BUNGA_FLAT" placeholder="Suku Bunga Flat" class="form-control" style="width: 300px; height: 30px;">
+                @error('SUKU_BUNGA_FLAT')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Suku Bunga Effective <span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+                <input type="number" name="SUKU_BUNGA_EFFECTIVE" placeholder="Suku Bunga Effective" class="form-control" style="width: 300px; height: 30px;">
+                @error('SUKU_BUNGA_EFFECTIVE')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
@@ -107,7 +108,7 @@
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Administrasi</label></div>
-            <div class="col-sm-8"><input type="number" placeholder="Biaya Administras" name="BIAYA_ADMINISTRASI" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="number" placeholder="Biaya Administrasi" name="BIAYA_ADMINISTRASI" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Asuransi</label></div>

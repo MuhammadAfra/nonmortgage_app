@@ -18,5 +18,10 @@ class Master_Product extends Model
     public function partner()
     {
         return $this->hasMany(Partner::class);
+    
+    }
+    public function product()
+    {
+        return $this->hasMany(Product::class);
     }
 }

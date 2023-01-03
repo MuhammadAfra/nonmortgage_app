@@ -23,8 +23,8 @@ Detail
             <div class="col-sm-8">: {{ $dataproduct->debitur->NAMA_DEBITUR }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Konven / Syariah</label></div>
-            <div class="col-sm-8">: {{ $dataproduct->jenis_product->Product }}</div>
+            <div class="col-sm-4"><label>Jenis Product</label></div>
+            <div class="col-sm-8">: {{ $dataproduct->m_product->id }} - {{ $dataproduct->m_product->nama_product }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Pembiayaan Pokok Maximum</label></div>

@@ -36,12 +36,21 @@ class Partner extends Model
         'DRAFT_TEMPLATE_AGREEMENT_END_USER',
         'CONTOH_RISK_ACCEPTANCE_CRITERIA',
         'NDA_DOCUMENT',
+        'Jenis_Assuransi',
+        'Nama_Perusahaan_Assuransi',
+        'Persen_Assuransi',
+        'Nilai_Assuransi_Rupiah',
         'Status',
     ];
     
     public function product()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function product_colls()
+    {
+        return $this->hasManyThrough(Collateral_Motor::class, Product::class, 'product_id', 'PARTNER_ID');
     }
 
     public function master_product()

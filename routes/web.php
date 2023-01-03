@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CollateralMobilController;
+use App\Http\Controllers\CollateralMotorController;
+use App\Http\Controllers\CollateralUtamaController;
 use App\Http\Controllers\DebiturController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -72,6 +75,24 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::get('/upload_partner', [PartnerController::class, 'upload'])->name('upload_partner');
         Route::post('/upload_save', [PartnerController::class, 'upload_save'])->name('upload_save');
         Route::post('/add_product', [PartnerController::class, 'add_product'])->name('add_product');
+
+        // collateral utama - motor
+        Route::resource('collateral_motor', CollateralMotorController::class);
+
+        // collateral utama - mobil
+        Route::resource('collateral_mobil', CollateralMobilController::class);
+
+        // collateral utama - rumah
+        Route::get('/collUtama_rumah', [CollateralUtamaController::class, 'rumah'])->name('collUtama_rumah');
+
+        // collateral utama - inventori
+        Route::get('/collUtama_inventori', [CollateralUtamaController::class, 'inventori'])->name('collUtama_inventori');
+
+        // collateral utama - invoice
+        Route::get('/collUtama_invoice', [CollateralUtamaController::class, 'invoice'])->name('collUtama_invoice');
+
+        // collateral utama - corporate gurantee
+        Route::get('/collUtama_corporate', [CollateralUtamaController::class, 'mobil'])->name('collUtama_mobil');
         // user management
         Route::resource('users', UserController::class);
     });

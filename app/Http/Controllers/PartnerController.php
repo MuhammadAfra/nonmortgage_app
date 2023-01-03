@@ -66,6 +66,10 @@ class PartnerController extends Controller
             'CONTOH_RISK_ACCEPTANCE_CRITERIA' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
             'NDA_DOCUMENT' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
             'DRAFT_TEMPLATE_AGREEMENT_END_USER' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
+            'Jenis_Assuransi' => 'required',
+            'Nama_Perusahaan_Assuransi' => 'required',
+            'Persen_Assuransi' => 'required',
+            'Nilai_Assuransi_Rupiah' => 'required',
             'Status' => 'required',
         ]);
 
@@ -187,6 +191,10 @@ class PartnerController extends Controller
             'DRAFT_TEMPLATE_AGREEMENT_END_USER' => $nama_draft,
             'CONTOH_RISK_ACCEPTANCE_CRITERIA' => $nama_risk_acc,
             'NDA_DOCUMENT' => $nama_nda_doc,
+            'Jenis_Assuransi' => $request->Jenis_Assuransi,
+            'Nama_Perusahaan_Assuransi' => $request->Nama_Perusahaan_Assuransi,
+            'Persen_Assuransi' => $request->Persen_Assuransi,
+            'Nilai_Assuransi_Rupiah' => $request->Nilai_Assuransi_Rupiah,
             'Status' => $request->Status
         ]);
 
@@ -277,6 +285,10 @@ class PartnerController extends Controller
             // 'CONTOH_RISK_ACCEPTANCE_CRITERIA' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
             // 'NDA_DOCUMENT' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
             // 'DRAFT_TEMPLATE_AGREEMENT_END_USER' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
+            'Jenis_Assuransi' => 'required',
+            'Nama_Perusahaan_Assuransi' => 'required',
+            'Persen_Assuransi' => 'required',
+            'Nilai_Assuransi_Rupiah' => 'required',
             'Status' => 'required',
         ]);
 

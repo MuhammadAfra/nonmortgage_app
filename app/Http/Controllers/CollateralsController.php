@@ -2,24 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Collateral_Utama;
 use App\Models\Collaterals;
-use App\Models\Product;
 use Illuminate\Http\Request;
 
-class CollateralUtamaController extends Controller
+class CollateralsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function rumah()
+    public function index()
     {
-        $rumah = Collateral_Utama::select('product_id', 'Nilai_House_Land', 'No_Shm_No_Hgb', 'Luas', 'Atas_Nama', 'Alamat', 'Nilai_Appraisal', 'Status')
-        ->where('Nilai_House_Land', '>=', '1')->get();
-        return view('collateral_utama.rumah.index', compact('rumah'));
+        //
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -44,10 +41,10 @@ class CollateralUtamaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Collateral_Utama  $collateral_Utama
+     * @param  \App\Models\Collaterals  $collaterals
      * @return \Illuminate\Http\Response
      */
-    public function show(Collateral_Utama $collateral_Utama)
+    public function show(Collaterals $collaterals)
     {
         //
     }
@@ -55,10 +52,10 @@ class CollateralUtamaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Collateral_Utama  $collateral_Utama
+     * @param  \App\Models\Collaterals  $collaterals
      * @return \Illuminate\Http\Response
      */
-    public function edit(Collateral_Utama $collateral_Utama)
+    public function edit(Collaterals $collaterals)
     {
         //
     }
@@ -67,10 +64,10 @@ class CollateralUtamaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Collateral_Utama  $collateral_Utama
+     * @param  \App\Models\Collaterals  $collaterals
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Collateral_Utama $collateral_Utama)
+    public function update(Request $request, Collaterals $collaterals)
     {
         //
     }
@@ -78,10 +75,10 @@ class CollateralUtamaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Collateral_Utama  $collateral_Utama
+     * @param  \App\Models\Collaterals  $collaterals
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Collateral_Utama $collateral_Utama)
+    public function destroy(Collaterals $collaterals)
     {
         //
     }

@@ -13,10 +13,11 @@ class Product extends Model
         'id',
         'PARTNER_ID',
         'DEBITUR_ID',
-        'KONVEN_SYARIAH_ID',
+        'M_PRODUCT_ID',
         'NAMA_DEBITUR',
         'NILAI_PEMBIAYAAN_POKOK_MAXIMUM',
-        'SUKU_BUNGA_ID',
+        'SUKU_BUNGA_FLAT',
+        'SUKU_BUNGA_EFFECTIVE',
         'Jangka_Waktu_Maximum',
         'POLA_PEMBAYARAN_ID',
         'BIAYA_ADMINISTRASI',
@@ -32,12 +33,6 @@ class Product extends Model
         return $this->belongsTo(Debitur::class, 'DEBITUR_ID');
     }
 
-    // GET DATA MASTER SUKU BUNGA
-    public function suku_bunga()
-    {
-        return $this->belongsTo(Master_Suku_Bunga::class, 'SUKU_BUNGA_ID');
-    }
-
     // GET DATA MASTER POLA PEMBAYARAN
     public function pola_pembayaran()
     {
@@ -51,8 +46,8 @@ class Product extends Model
     }
 
     // GET DATA JENIS PRODUCT
-    public function jenis_product()
+    public function m_product()
     {
-        return $this->belongsTo(Master_Jenis_Product::class, 'KONVEN_SYARIAH_ID');
+        return $this->belongsTo(Master_Product::class, 'M_PRODUCT_ID');
     }
 }

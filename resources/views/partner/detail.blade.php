@@ -115,6 +115,22 @@ Detail
             <div class="col-sm-8">: {{ $partner->NDA_DOCUMENT }}</div>
         </div>
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Jenis Asuransi</label></div>
+            <div class="col-sm-8">: {{ $partner->Jenis_Assuransi }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nama Perusahaan Asuransi</label></div>
+            <div class="col-sm-8">: {{ $partner->Nama_Perusahaan_Assuransi }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Persen Assuransi</label></div>
+            <div class="col-sm-8">: {{ $partner->Persen_Assuransi }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nilai Assuransi Rupiah</label></div>
+            <div class="col-sm-8">: {{ $partner->Nilai_Assuransi_Rupiah }}</div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>Status</label></div>
             <div class="col-sm-8">: {{ $partner->Status }}</div>
         </div>

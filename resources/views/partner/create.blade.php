@@ -315,6 +315,42 @@ Add
         </div>
     </div>
     <div class="row pb-3">
+        <div class="col-sm-4"><label>Jenis Asuransi<span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <input type="text" name="Jenis_Assuransi" class="form-control" style="width: 300px; height: 30px;">
+            @error('Jenis_Assuransi')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Nama Perusahaan Asuransi<span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <input type="text" name="Nama_Perusahaan_Assuransi" class="form-control" style="width: 300px; height: 30px;">
+            @error('Nama_Perusahaan_Assuransi')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Persen Asuransi<span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <input type="text" name="Persen_Assuransi" class="form-control" style="width: 300px; height: 30px;">
+            @error('Persen_Assuransi')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Nilai Asuransi Rupiah<span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <input type="text" name="Nilai_Assuransi_Rupiah" class="form-control" style="width: 300px; height: 30px;">
+            @error('Nilai_Assuransi_Rupiah')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+    </div>
+    <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <input type="text" name="Status" class="form-control" style="width: 300px; height: 30px;">

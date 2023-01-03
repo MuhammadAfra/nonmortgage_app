@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Debitur;
 use App\Models\Master_Jenis_Product;
 use App\Models\Master_Pola_Pembayaran;
+use App\Models\Master_Product;
 use App\Models\Master_Suku_Bunga;
 use App\Models\Partner;
 use App\Models\Product;
@@ -32,13 +33,11 @@ class ProductController extends Controller
     public function create()
     {
         $deb = Debitur::all();
-        $bunga = Master_Suku_Bunga::all();
+        // $bunga = Master_Suku_Bunga::all();
         $pola = Master_Pola_Pembayaran::all();
         $partner = Partner::all();
-        $jp = Master_Jenis_Product::all();
-        $konven = Product::select('*')->where('konven_syariah_id', '=', '1')->get();
-        $syariah = Product::select('*')->where('konven_syariah_id', '=', '2')->get();
-        return view('product.create', compact('deb','bunga','pola','partner','jp','konven','syariah'));
+        $prod = Master_Product::all();
+        return view('product.create', compact('deb','pola','partner','prod'));
     }
 
     /**
@@ -52,32 +51,36 @@ class ProductController extends Controller
         $this->validate($request,[
             'PARTNER_ID' => 'required',
             'DEBITUR_ID' => 'required',
-            'KONVEN_SYARIAH_ID' => 'required',
+            'M_PRODUCT_ID' => 'required',
             'NILAI_PEMBIAYAAN_POKOK_MAXIMUM' => 'required',
             'Jangka_Waktu_Maximum' => 'required',
-            'SUKU_BUNGA_ID' => 'required',
+            'SUKU_BUNGA_FLAT' => 'required',
+            'SUKU_BUNGA_EFFECTIVE' => 'required',
             'POLA_PEMBAYARAN_ID' => 'required',
         ],[
             'PARTNER_ID.required' => 'Input Partner ID!',
             'DEBITUR_ID.required' => 'Input Debitur ID!',
-            'KONVEN_SYARIAH_ID.required' => 'Input Konven / Syariah!',
+            'M_PRODUCT_ID.required' => 'Input Konven / Syariah!',
             'NILAI_PEMBIAYAAN_POKOK_MAXIMUM.required' => 'Input Nilai Pembiayaan!',
             'Jangka_Waktu_Maximum.required' => 'Input Jangka Waktu!',
-            'SUKU_BUNGA_ID.required' => 'Input Suku Bunga!',
+            'SUKU_BUNGA_FLAT.required' => 'Input Suku Bunga!',
+            'SUKU_BUNGA_EFFECTIVE.required' => 'Input Suku Bunga!',
             'POLA_PEMBAYARAN_ID.required' => 'Input Pola Pembayaran!',
         ]);
 
         Product::create([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
-            'KONVEN_SYARIAH_ID' => $request->KONVEN_SYARIAH_ID,
+            'M_PRODUCT_ID' => $request->M_PRODUCT_ID,
             'NILAI_PEMBIAYAAN_POKOK_MAXIMUM' => $request->NILAI_PEMBIAYAAN_POKOK_MAXIMUM,
             'Jangka_Waktu_Maximum' => $request->Jangka_Waktu_Maximum,
             'BIAYA_ADMINISTRASI' => $request->BIAYA_ADMINISTRASI,
             'BIAYA_ASSURANSI' => $request->BIAYA_ASSURANSI,
             'BIAYA_PROVISI' => $request->BIAYA_PROVISI,
             'BIAYA_LAIN_LAIN' => $request->BIAYA_LAIN_LAIN,
-            'SUKU_BUNGA_ID' => $request->SUKU_BUNGA_ID,
+            'SUKU_BUNGA_FLAT' => $request->SUKU_BUNGA_FLAT,
+            'SUKU_BUNGA_FLAT' => $request->SUKU_BUNGA_FLAT,
+            'SUKU_BUNGA_EFFECTIVE' => $request->SUKU_BUNGA_EFFECTIVE,
             'POLA_PEMBAYARAN_ID' => $request->POLA_PEMBAYARAN_ID,
             ]);
 
@@ -106,11 +109,11 @@ class ProductController extends Controller
     {
         $dataproduct = Product::findorfail($id);
         $deb = Debitur::all();
-        $bunga = Master_Suku_Bunga::all();
+        // $bunga = Master_Suku_Bunga::all();
         $pola = Master_Pola_Pembayaran::all();
         $partner = Partner::all();
-        $jp = Master_Jenis_Product::all();
-        return view('product.edit', compact('deb','bunga','pola','partner','dataproduct','jp'));
+        $prod = Master_Product::all();
+        return view('product.edit', compact('deb','pola','partner','dataproduct','prod'));
     }
 
     /**
@@ -125,18 +128,20 @@ class ProductController extends Controller
         $this->validate($request,[
             'PARTNER_ID' => 'required',
             'DEBITUR_ID' => 'required',
-            'KONVEN_SYARIAH_ID' => 'required',
+            'M_PRODUCT_ID' => 'required',
             'NILAI_PEMBIAYAAN_POKOK_MAXIMUM' => 'required',
             'Jangka_Waktu_Maximum' => 'required',
-            'SUKU_BUNGA_ID' => 'required',
+            'SUKU_BUNGA_FLAT' => 'required',
+            'SUKU_BUNGA_EFFECTIVE' => 'required',
             'POLA_PEMBAYARAN_ID' => 'required',
         ],[
             'PARTNER_ID.required' => 'Input Partner ID!',
             'DEBITUR_ID.required' => 'Input Debitur ID!',
-            'KONVEN_SYARIAH_ID.required' => 'Input Konven / Syariah!',
+            'M_PRODUCT_ID.required' => 'Input Konven / Syariah!',
             'NILAI_PEMBIAYAAN_POKOK_MAXIMUM.required' => 'Input Nilai Pembiayaan!',
             'Jangka_Waktu_Maximum.required' => 'Input Jangka Waktu!',
-            'SUKU_BUNGA_ID.required' => 'Input Suku Bunga!',
+            'SUKU_BUNGA_FLAT.required' => 'Input Suku Bunga!',
+            'SUKU_BUNGA_EFFECTIVE.required' => 'Input Suku Bunga!',
             'POLA_PEMBAYARAN_ID.required' => 'Input Pola Pembayaran!',
         ]);
 
@@ -144,14 +149,16 @@ class ProductController extends Controller
         $dataproduct->update([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
-            'KONVEN_SYARIAH_ID' => $request->KONVEN_SYARIAH_ID,
+            'M_PRODUCT_ID' => $request->M_PRODUCT_ID,
             'NILAI_PEMBIAYAAN_POKOK_MAXIMUM' => $request->NILAI_PEMBIAYAAN_POKOK_MAXIMUM,
             'Jangka_Waktu_Maximum' => $request->Jangka_Waktu_Maximum,
             'BIAYA_ADMINISTRASI' => $request->BIAYA_ADMINISTRASI,
             'BIAYA_ASSURANSI' => $request->BIAYA_ASSURANSI,
             'BIAYA_PROVISI' => $request->BIAYA_PROVISI,
             'BIAYA_LAIN_LAIN' => $request->BIAYA_LAIN_LAIN,
-            'SUKU_BUNGA_ID' => $request->SUKU_BUNGA_ID,
+            'SUKU_BUNGA_FLAT' => $request->SUKU_BUNGA_FLAT,
+            'SUKU_BUNGA_FLAT' => $request->SUKU_BUNGA_FLAT,
+            'SUKU_BUNGA_EFFECTIVE' => $request->SUKU_BUNGA_EFFECTIVE,
             'POLA_PEMBAYARAN_ID' => $request->POLA_PEMBAYARAN_ID,
         ]);
         return redirect('product');

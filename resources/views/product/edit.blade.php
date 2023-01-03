@@ -38,14 +38,14 @@
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Konven / Syariah</label></div>
-            <div class="col-sm-4 d-flex">
-                @foreach ($jp as $item)    
-                <div class="d-flex">
-                    <input type="radio" value="{{ $item->id }}" {{ ($dataproduct->KONVEN_SYARIAH_ID == $item->id)? "checked" : "" }} style="width: 15px" name="KONVEN_SYARIAH_ID" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">{{ $item->Product }}</p>
-                </div>
-                @endforeach
+            <div class="col-sm-4"><label>Jenis Producy</label></div>
+            <div class="col-sm-8">
+                <select name="M_PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+                    <option value="{{ $dataproduct->M_PRODUCT_ID }}">{{ $dataproduct->m_product->id }} - {{ $dataproduct->m_product->nama_product }}</option>
+                    @foreach ($prod as $item)
+                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->nama_product }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <div class="row pb-3">
