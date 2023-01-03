@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Master_Jenis_Product;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class MasterJenisProductController extends Controller
@@ -25,7 +26,7 @@ class MasterJenisProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('master.jenis_product.create');
     }
 
     /**
@@ -36,7 +37,17 @@ class MasterJenisProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'Product' => 'required'
+        ],[
+            'Product' => 'Input Jenis Product'
+        ]);
+
+        Master_Jenis_Product::create([
+            'Product' => $request->Product
+        ]);
+
+        return redirect('master_jenis_product');
     }
 
     /**
@@ -45,9 +56,10 @@ class MasterJenisProductController extends Controller
      * @param  \App\Models\Master_Jenis_Product  $master_Jenis_Product
      * @return \Illuminate\Http\Response
      */
-    public function show(Master_Jenis_Product $master_Jenis_Product)
+    public function show($id)
     {
-        //
+        $jenisProduct = Master_Jenis_Product::findorfail($id);
+        return view('master.jenis_product.detail', compact('jenisProduct'));
     }
 
     /**
@@ -56,9 +68,10 @@ class MasterJenisProductController extends Controller
      * @param  \App\Models\Master_Jenis_Product  $master_Jenis_Product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Master_Jenis_Product $master_Jenis_Product)
+    public function edit($id)
     {
-        //
+        $jenisProduct = Master_Jenis_Product::findorfail($id);
+        return view('master.jenis_product.edit', compact('jenisProduct'));
     }
 
     /**
@@ -68,9 +81,20 @@ class MasterJenisProductController extends Controller
      * @param  \App\Models\Master_Jenis_Product  $master_Jenis_Product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Master_Jenis_Product $master_Jenis_Product)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'Product' => 'required'
+        ],[
+            'Product' => 'Input Jenis Product'
+        ]);
+
+        $jenisProduct = Master_Jenis_Product::findorfail($id);
+        $jenisProduct->update([
+            'Product' => $request->Product
+        ]);
+
+        return redirect('master_jenis_product');
     }
 
     /**
@@ -79,8 +103,11 @@ class MasterJenisProductController extends Controller
      * @param  \App\Models\Master_Jenis_Product  $master_Jenis_Product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Master_Jenis_Product $master_Jenis_Product)
+    public function destroy($id)
     {
-        //
+        $jenisProduct = Master_Jenis_Product::findorfail($id);
+        $jenisProduct->delete();
+
+        return redirect('master_jenis_product');
     }
 }

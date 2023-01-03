@@ -39,4 +39,9 @@ class Debitur extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function product_colls()
+    {
+        return $this->hasManyThrough(Collateral_Motor::class, Product::class, 'debitur_id', 'DEBITUR_ID');
+    }
 }

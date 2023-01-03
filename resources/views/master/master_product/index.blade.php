@@ -7,13 +7,24 @@ Master Product
 Home
 @endsection
 
-@section('page')
-    <a href="{{ url('master_product') }}">Master Product</a>
-@endsection
+@if (auth()->user()->level == "Admin")
+    @section('page')
+        <a href="{{ url('master_product') }}">Master Product</a>
+    @endsection
+@elseif(auth()->user()->level == "User")
+    @section('page')
+    <a href="{{ url('/master_product') }}">Master Product</a>
+    @endsection
+@endif
+
 @section('content')
+
+@if (auth()->user()->level == "Admin")    
 <div class="d-flex pb-3">
     <a href="{{ url('master_product/create') }}" class="btn btn-success my-2">Create New</a>
 </div>
+@endif
+
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">List Product</h3>
@@ -24,14 +35,18 @@ Home
             <thead>
                 <tr>
                     <th style="width: 100px;">No</th>
+                    @if (auth()->user()->level == "Admin")
                     <th style="width: 200px;">Action</th>
-                    <th>Product</th>
+                    @endif
+                    <th>ID Product</th>
+                    <th>Nama Product</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($product as $item)                    
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        @if (auth()->user()->level == "Admin")
                         <td class="d-flex" style="justify-content: center">
                             <div><a href="{{ url('master_product/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                             <div><a href="{{ url('master_product/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
@@ -43,7 +58,9 @@ Home
                                 </form>
                             </div>
                         </td>
-                        <td>{{ $item->product }}</td>
+                        @endif
+                        <td>{{ $item->id_master_product }}</td>
+                        <td>{{ $item->nama_product }}</td>
                     </tr>
                 @endforeach
         </table>

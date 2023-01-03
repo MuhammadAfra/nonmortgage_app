@@ -18,7 +18,7 @@
             <div class="col-sm-4"><label>Partner ID <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
                 <select name="PARTNER_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                    <option></option>
+                    <option>-----</option>
                     @foreach ($partner as $item)
                         <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->NAMA_PERUSAHAAN }}</option>
                     @endforeach
@@ -32,7 +32,7 @@
             <div class="col-sm-4"><label>Debitur ID <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
                 <select name="DEBITUR_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                    <option></option>
+                    <option>-----</option>
                     @foreach ($deb as $item)
                         <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->NAMA_DEBITUR }}</option>
                     @endforeach
@@ -43,17 +43,15 @@
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Konven / Syariah <span class="text-danger">*</span></label></div>
-            <div class="col-sm-4 row pl-3">
-                <div class="d-flex">
-                    <input type="radio" value="Konvensional" style="width: 15px" name="KONVEN_SYARIAH" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">Konvensional</p>
-                </div>
-                <div class=" d-flex">
-                    <input type="radio" value="Syariah" style="width: 15px" name="KONVEN_SYARIAH" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">Syariah</p>
-                </div>
-                @error('KONVEN_SYARIAH')
+            <div class="col-sm-4"><label>Jenis Product <span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+                <select name="M_PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+                    <option>-----</option>
+                    @foreach ($prod as $item)
+                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->nama_product }}</option>
+                    @endforeach
+                </select>
+                @error('M_PRODUCT_ID')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
@@ -61,22 +59,26 @@
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Pembiayaan <br> Pokok Maximum <span class="text-danger">*</span></div>
             <div class="col-sm-8">
-                <input type="number" name="NILAI_PEMBIAYAAN_POKOK_MAXIMUM" class="form-control" style="width: 300px; height: 30px;">
+                <input type="number" name="NILAI_PEMBIAYAAN_POKOK_MAXIMUM" placeholder="Nilai Pembiayaan Pokok Maximum" class="form-control" style="width: 300px; height: 30px;">
                 @error('NILAI_PEMBIAYAAN_POKOK_MAXIMUM')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Suku Bunga <span class="text-danger">*</span></label></div>
+            <div class="col-sm-4"><label>Suku Bunga Flat <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                <select name="SUKU_BUNGA_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                    <option></option>
-                    @foreach ($bunga as $item)
-                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->Suku_Bunga }}</option>
-                    @endforeach
-                </select>
-                @error('SUKU_BUNGA_ID')
+                <input type="number" name="SUKU_BUNGA_FLAT" placeholder="Suku Bunga Flat" class="form-control" style="width: 300px; height: 30px;">
+                @error('SUKU_BUNGA_FLAT')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Suku Bunga Effective <span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+                <input type="number" name="SUKU_BUNGA_EFFECTIVE" placeholder="Suku Bunga Effective" class="form-control" style="width: 300px; height: 30px;">
+                @error('SUKU_BUNGA_EFFECTIVE')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
@@ -84,7 +86,7 @@
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jangka Waktu <br> Maksimum <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                <input type="number" name="Jangka_Waktu_Maximum" class="form-control" style="width: 300px; height: 30px;">
+                <input type="number" name="Jangka_Waktu_Maximum" placeholder="Jangka Waktu Maksimum" class="form-control" style="width: 300px; height: 30px;">
                 @error('Jangka_Waktu_Maximum')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
@@ -94,7 +96,7 @@
             <div class="col-sm-4"><label>Pola Pembayaran <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
                 <select name="POLA_PEMBAYARAN_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                    <option></option>
+                    <option>-----</option>
                     @foreach ($pola as $item)
                         <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->Pola_Pembayaran }}</option>
                     @endforeach
@@ -106,19 +108,19 @@
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Administrasi</label></div>
-            <div class="col-sm-8"><input type="number" name="BIAYA_ADMINISTRASI" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="number" placeholder="Biaya Administrasi" name="BIAYA_ADMINISTRASI" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Asuransi</label></div>
-            <div class="col-sm-8"><input type="number" name="BIAYA_ASSURANSI" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="number" placeholder="Biaya Asuransi" name="BIAYA_ASSURANSI" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Provinsi</label></div>
-            <div class="col-sm-8"><input type="number" name="BIAYA_PROVISI" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="number" placeholder="Biaya Provinsi" name="BIAYA_PROVISI" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Lain Lain</label></div>
-            <div class="col-sm-8"><input type="number" name="BIAYA_LAIN_LAIN" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="number" placeholder="Biaya Lain Lain" name="BIAYA_LAIN_LAIN" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"></div>

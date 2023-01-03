@@ -25,7 +25,7 @@ class MasterPolaPembayaranController extends Controller
      */
     public function create()
     {
-        //
+        return view('master.pola_pembayaran.create');
     }
 
     /**
@@ -36,7 +36,20 @@ class MasterPolaPembayaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'Pola_Pembayaran' => 'required',
+            'Nilai_Pola_Pembayaran' => 'required',
+        ],[
+            'Pola_Pembayaran' => 'Input Pola Pembayaran!',
+            'Nilai_Pola_Pembayaran' => 'Input Nilai Pola Pembayaran1',
+        ]);
+
+        Master_Pola_Pembayaran::create([
+            'Pola_Pembayaran' => $request->Pola_Pembayaran,
+            'Nilai_Pola_Pembayaran' => $request->Nilai_Pola_Pembayaran,
+        ]);
+
+        return redirect('master_pola_pembayaran');
     }
 
     /**
@@ -45,9 +58,10 @@ class MasterPolaPembayaranController extends Controller
      * @param  \App\Models\Master_Pola_Pembayaran  $master_Pola_Pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function show(Master_Pola_Pembayaran $master_Pola_Pembayaran)
+    public function show($id)
     {
-        //
+        $polaPembayaran = Master_Pola_Pembayaran::findorfail($id);
+        return view('master.pola_pembayaran.detail', compact('polaPembayaran'));
     }
 
     /**
@@ -56,9 +70,10 @@ class MasterPolaPembayaranController extends Controller
      * @param  \App\Models\Master_Pola_Pembayaran  $master_Pola_Pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function edit(Master_Pola_Pembayaran $master_Pola_Pembayaran)
+    public function edit($id)
     {
-        //
+        $polaPembayaran = Master_Pola_Pembayaran::findorfail($id);
+        return view('master.pola_pembayaran.edit', compact('polaPembayaran'));
     }
 
     /**
@@ -68,9 +83,23 @@ class MasterPolaPembayaranController extends Controller
      * @param  \App\Models\Master_Pola_Pembayaran  $master_Pola_Pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Master_Pola_Pembayaran $master_Pola_Pembayaran)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'Pola_Pembayaran' => 'required',
+            'Nilai_Pola_Pembayaran' => 'required',
+        ],[
+            'Pola_Pembayaran' => 'Input Pola Pembayaran!',
+            'Nilai_Pola_Pembayaran' => 'Input Nilai Pola Pembayaran1',
+        ]);
+
+        $polaPembayaran = Master_Pola_Pembayaran::findorfail($id);
+        $polaPembayaran->update([
+            'Pola_Pembayaran' => $request->Pola_Pembayaran,
+            'Nilai_Pola_Pembayaran' => $request->Nilai_Pola_Pembayaran,
+        ]);
+        
+        return redirect('master_pola_pembayaran');
     }
 
     /**
@@ -79,8 +108,10 @@ class MasterPolaPembayaranController extends Controller
      * @param  \App\Models\Master_Pola_Pembayaran  $master_Pola_Pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Master_Pola_Pembayaran $master_Pola_Pembayaran)
+    public function destroy($id)
     {
-        //
+        $polaPembayaran = Master_Pola_Pembayaran::findorfail($id);
+        $polaPembayaran->delete();
+        return redirect('master_pola_pembayaran');
     }
 }

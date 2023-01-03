@@ -23,16 +23,20 @@ Detail
             <div class="col-sm-8">: {{ $dataproduct->debitur->NAMA_DEBITUR }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Konven / Syariah</label></div>
-            <div class="col-sm-8">: {{ $dataproduct->KONVEN_SYARIAH }}</div>
+            <div class="col-sm-4"><label>Jenis Product</label></div>
+            <div class="col-sm-8">: {{ $dataproduct->m_product->id }} - {{ $dataproduct->m_product->nama_product }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Pembiayaan Pokok Maximum</label></div>
             <div class="col-sm-8">: {{ $dataproduct->NILAI_PEMBIAYAAN_POKOK_MAXIMUM }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Suku Bunga</label></div>
-            <div class="col-sm-8">: {{ $dataproduct->suku_bunga->Suku_Bunga }}</div>
+            <div class="col-sm-4"><label>Suku Bunga Flat</label></div>
+            <div class="col-sm-8">: {{ $dataproduct->SUKU_BUNGA_FLAT }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Suku Bunga Effective</label></div>
+            <div class="col-sm-8">: {{ $dataproduct->SUKU_BUNGA_EFFECTIVE }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jangka Waktu Maksimum</label></div>

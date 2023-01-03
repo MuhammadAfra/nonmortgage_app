@@ -25,7 +25,7 @@ class MasterSektorEkonomiController extends Controller
      */
     public function create()
     {
-        //
+        return view('master.sektor_ekonomi.create');
     }
 
     /**
@@ -36,7 +36,26 @@ class MasterSektorEkonomiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'Sandi_Turunan' => 'required',
+            'Label' => 'required',
+            'Sandi_Utama' => 'required',
+            'Label_Utama' => 'required',
+        ],[
+            'Sandi_Turunan' => 'Input Sandi Turunan!',
+            'Label' => 'Input Label!',
+            'Sandi_Utama' => 'Input Sandi Utama!',
+            'Label_Utama' => 'Input Label Sandi Utama!',
+        ]);
+
+        Master_Sektor_Ekonomi::create([
+            'Sandi_Turunan' => $request->Sandi_Turunan,
+            'Label' => $request->Label,
+            'Sandi_Utama' => $request->Sandi_Utama,
+            'Label_Utama' => $request->Label_Utama,
+        ]);
+
+        return redirect('master_sektor_ekonomi');
     }
 
     /**
@@ -45,9 +64,10 @@ class MasterSektorEkonomiController extends Controller
      * @param  \App\Models\Master_Sektor_Ekonomi  $master_Sektor_Ekonomi
      * @return \Illuminate\Http\Response
      */
-    public function show(Master_Sektor_Ekonomi $master_Sektor_Ekonomi)
+    public function show($id)
     {
-        //
+        $sektorEkonomi = Master_Sektor_Ekonomi::findorfail($id);
+        return view('master.sektor_ekonomi.detail', compact('sektorEkonomi'));
     }
 
     /**
@@ -56,9 +76,10 @@ class MasterSektorEkonomiController extends Controller
      * @param  \App\Models\Master_Sektor_Ekonomi  $master_Sektor_Ekonomi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Master_Sektor_Ekonomi $master_Sektor_Ekonomi)
+    public function edit($id)
     {
-        //
+        $sektorEkonomi = Master_Sektor_Ekonomi::findorfail($id);
+        return view('master.sektor_ekonomi.edit', compact('sektorEkonomi'));
     }
 
     /**
@@ -68,9 +89,29 @@ class MasterSektorEkonomiController extends Controller
      * @param  \App\Models\Master_Sektor_Ekonomi  $master_Sektor_Ekonomi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Master_Sektor_Ekonomi $master_Sektor_Ekonomi)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'Sandi_Turunan' => 'required',
+            'Label' => 'required',
+            'Sandi_Utama' => 'required',
+            'Label_Utama' => 'required',
+        ],[
+            'Sandi_Turunan' => 'Input Sandi Turunan!',
+            'Label' => 'Input Label!',
+            'Sandi_Utama' => 'Input Sandi Utama!',
+            'Label_Utama' => 'Input Label Sandi Utama!',
+        ]);
+
+        $sektorEkonomi = Master_Sektor_Ekonomi::findorfail($id);
+        $sektorEkonomi->update([
+            'Sandi_Turunan' => $request->Sandi_Turunan,
+            'Label' => $request->Label,
+            'Sandi_Utama' => $request->Sandi_Utama,
+            'Label_Utama' => $request->Label_Utama,
+        ]);
+
+        return redirect('master_sektor_ekonomi');
     }
 
     /**
@@ -79,8 +120,11 @@ class MasterSektorEkonomiController extends Controller
      * @param  \App\Models\Master_Sektor_Ekonomi  $master_Sektor_Ekonomi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Master_Sektor_Ekonomi $master_Sektor_Ekonomi)
+    public function destroy($id)
     {
-        //
+        $sektorEkonomi = Master_Sektor_Ekonomi::findorfail($id);
+        $sektorEkonomi->delete();
+
+        return redirect('master_sektor_ekonomi');
     }
 }

@@ -28,7 +28,7 @@
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>No NPWP</label> <span class="text-danger">*</span></div>
-            <div class="col-sm-8"><input type="number" name="NO_NPWP" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" name="NO_NPWP" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Alamat <span class="text-danger">*</span></div>

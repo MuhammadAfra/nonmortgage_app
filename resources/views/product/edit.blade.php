@@ -38,16 +38,14 @@
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Konven / Syariah</label></div>
-            <div class="col-sm-4 d-flex">
-                <div class="d-flex">
-                    <input type="radio" value="Konvensional" {{ ($dataproduct->KONVEN_SYARIAH == "Konvensional")? "checked" : "" }} style="width: 15px" name="KONVEN_SYARIAH" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">Konvensional</p>
-                </div>
-                <div class=" d-flex">
-                    <input type="radio" value="Syariah" {{ ($dataproduct->KONVEN_SYARIAH == "Syariah")? "checked" : "" }} style="width: 15px" name="KONVEN_SYARIAH" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">Syariah</p>
-                </div>
+            <div class="col-sm-4"><label>Jenis Product</label></div>
+            <div class="col-sm-8">
+                <select name="M_PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+                    <option value="{{ $dataproduct->M_PRODUCT_ID }}">{{ $dataproduct->m_product->id }} - {{ $dataproduct->m_product->nama_product }}</option>
+                    @foreach ($prod as $item)
+                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->nama_product }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <div class="row pb-3">
@@ -55,14 +53,21 @@
             <div class="col-sm-8"><input type="number" name="NILAI_PEMBIAYAAN_POKOK_MAXIMUM" value="{{ $dataproduct->NILAI_PEMBIAYAAN_POKOK_MAXIMUM }}" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Suku Bunga</label></div>
+            <div class="col-sm-4"><label>Suku Bunga Flat <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                <select name="SUKU_BUNGA_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                    <option value="{{ $dataproduct->SUKU_BUNGA_ID }}">{{ $dataproduct->suku_bunga->id }} - {{ $dataproduct->suku_bunga->Suku_Bunga }}</option>
-                    @foreach ($bunga as $item)
-                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->Suku_Bunga }}</option>
-                    @endforeach
-                </select>   
+                <input type="number" name="SUKU_BUNGA_FLAT" value="{{ $dataproduct->SUKU_BUNGA_FLAT }}" placeholder="Suku Bunga Flat" class="form-control" style="width: 300px; height: 30px;">
+                @error('SUKU_BUNGA_FLAT')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Suku Bunga Effective <span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+                <input type="number" name="SUKU_BUNGA_EFFECTIVE" value="{{ $dataproduct->SUKU_BUNGA_EFFECTIVE }}" placeholder="Suku Bunga Effective" class="form-control" style="width: 300px; height: 30px;">
+                @error('SUKU_BUNGA_EFFECTIVE')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
         </div>
         <div class="row pb-3">
@@ -99,7 +104,7 @@
         <div class="row pb-3">
             <div class="col-sm-4"></div>
             <div class="col-sm-8">
-                <button class="btn btn-primary" type="submit">Edit</button>
+                <button class="btn btn-warning text-white" type="submit">Edit</button>
                 <a href="{{ url('product') }}" class="btn btn-default">Cancel</a>
             </div>
         </div>

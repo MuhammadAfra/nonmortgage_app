@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Collateral_Utama extends Model
 {
-    use HasFactory;
+    protected $table = 'collaterals';
+    protected $guarded = [];
+    public $timestamps = false;
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id');
+    }
 }

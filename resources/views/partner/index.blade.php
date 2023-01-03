@@ -8,15 +8,24 @@ Partner
 Home
 @endsection
 
-@section('page')
-    <a href="{{ url('partner') }}">Partner</a>
-@endsection
+@if (auth()->user()->level == "Admin")
+    @section('page')
+        <a href="{{ url('partner') }}">Partner</a>
+    @endsection
+@elseif(auth()->user()->level == "User")
+    @section('page')
+    <a href="{{ url('/index_partner') }}">Partner</a>
+    @endsection
+@endif
 
 @section('content')
+
+@if (auth()->user()->level == "Admin")
 <div class="d-flex pb-3">
     <a href="{{ url('partner/create') }}" class="btn btn-success my-2">Create New</a>
     <a href="{{ url('/upload_partner') }}" class="btn btn-secondary my-2 ml-2">Upload File</a>
 </div>
+@endif
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">List Partner</h3>
@@ -27,7 +36,9 @@ Home
             <thead>
                 <tr class="text-center">
                     <th>No</th>
+                    @if (auth()->user()->level == "Admin")
                     <th>Action</th>
+                    @endif
                     <th>Nama Perusahaan</th>
                     <th>Alamat Perusahaan</th>
                     <th>Status Bahan Hukum</th>
@@ -54,6 +65,10 @@ Home
                     <th>Draft Template Agree End User</th>
                     <th>Contoh Risk Acceptance Criteria</th>
                     <th>NDA Document</th>
+                    <th>Jenis Asuransi</th>
+                    <th>Nama Perusahaan Asuransi</th>
+                    <th>Persen Asuransi</th>
+                    <th>Nilai Asuransi Rupiah</th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -61,6 +76,7 @@ Home
                 @foreach ($partner as $item)             
                 <tr >
                     <td class="text-center">{{ $loop->iteration }}</td>
+                    @if (auth()->user()->level == "Admin")
                     <td class="d-flex" style="justify-content: center">
                         <div><a href="{{ url('partner/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                         <div><a href="{{ url('partner/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
@@ -72,22 +88,23 @@ Home
                             </form>
                         </div>
                     </td>
+                    @endif
                     <td>{{ $item->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->ALAMAT_PERUSAHAAN }}</td>
                     <td>{{ $item->STATUS_BADAN_HUKUM }}</td>
                     <td>{{ $item->AKTE_PENDIRIAN }}</td>
                     <td>{{ $item->COMPANY_PROFILE }}</td>
-                    <td>{{ $item->DETIL_PRODUCT_PROFILE }}</td>
+                    <td>{{ $item->master_product->nama_product }}</td>
                     <td>{{ $item->AKTE_PERUBAHAN_ANGGARAN_DASAR }}</td>
                     <td>{{ $item->SIUP }}</td>
                     <td>{{ $item->TDP }}</td>
                     <td>{{ $item->NPWP }}</td>
                     <td>{{ $item->Nama_Direktur_Utama }}</td>
-                    <td>{{ $item->No_HP_Dirut }}</td>
+                    <td>{{ $item->No_Identitas_Direktur_Utama }}</td>
                     <td>{{ $item->Nama_Direktur1 }}</td>
-                    <td>{{ $item->No_HP_Direktur1 }}</td>
+                    <td>{{ $item->No_Identitas_Direktur1 }}</td>
                     <td>{{ $item->Nama_Direktur_2 }}</td>
-                    <td>{{ $item->No_HP_Direktur2 }}</td>
+                    <td>{{ $item->No_Identitas_Direktur2 }}</td>
                     <td>{{ $item->MODAL_PENDIRIAN }}</td>
                     <td>{{ $item->MODAL_PERUBAHAN_TERAKHIR }}</td>
                     <td>no fields</td>
@@ -98,7 +115,11 @@ Home
                     <td>{{ $item->DRAFT_TEMPLATE_AGREEMENT_END_USER }}</td>
                     <td>{{ $item->CONTOH_RISK_ACCEPTANCE_CRITERIA }}</td>
                     <td>{{ $item->NDA_DOCUMENT }}</td>
-                    <td>{{ $item->status }}</td>
+                    <td>{{ $item->Jenis_Assuransi }}</td>
+                    <td>{{ $item->Nama_Perusahaan_Assuransi }}</td>
+                    <td>{{ $item->Persen_Assuransi }}</td>
+                    <td>{{ $item->Nilai_Assuransi_Rupiah }}</td>
+                    <td>{{ $item->Status }}</td>
                 </tr>
                 @endforeach
             </tbody>

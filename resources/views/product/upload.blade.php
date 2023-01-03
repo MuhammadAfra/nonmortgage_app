@@ -16,7 +16,15 @@
         @csrf
         <div class="row pb-3">
             <div class="col-sm-4"><label>Upload File <span class="text-danger">*</span></label></div>
-            <div class="col-sm-8"><input type="file" class="form-control" style="width: 300px; height: 45px;"></div>
+            <div class="col-sm-8">
+                <div class="custom-file" style="width: 500px; height: 30px;">
+                    <input type="file" class="custom-file-input" name="MODAL_PENDIRIAN" >
+                    <label class="custom-file-label">Choose file</label>
+                  </div>
+                @error('MODAL_PENDIRIAN')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>        
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"></div>

@@ -7,13 +7,24 @@ Master Sektor Ekonomi
 Home
 @endsection
 
-@section('page')
-    <a href="{{ url('master_sektor_ekonomi') }}">Master Sektor Ekonomi</a>
-@endsection
+@if (auth()->user()->level == "Admin")
+    @section('page')
+        <a href="{{ url('master_sektor_ekonomi') }}">Master Sektor Ekonomi</a>
+    @endsection
+@elseif(auth()->user()->level == "User")
+    @section('page')
+    <a href="{{ url('/sektor_ekonomi') }}">Master Sektor Ekonomi</a>
+    @endsection
+@endif
+
 @section('content')
+
+@if (auth()->user()->level == "Admin")    
 <div class="d-flex pb-3">
     <a href="{{ url('master_sektor_ekonomi/create') }}" class="btn btn-success my-2">Create New</a>
 </div>
+@endif
+
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">List Sektor Ekonomi</h3>
@@ -24,7 +35,9 @@ Home
             <thead>
                 <tr>
                     <th>No</th>
+                    @if (auth()->user()->level == "Admin")
                     <th>Action</th>
+                    @endif
                     <th>Sandi Turunan</th>
                     <th>Label</th>
                     <th>Sandi Utama</th>
@@ -35,6 +48,7 @@ Home
                 @foreach ($sektorEkonomi as $item)                    
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        @if (auth()->user()->level == "Admin")
                         <td class="d-flex" style="justify-content: center">
                             <div><a href="{{ url('master_sektor_ekonomi/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                             <div><a href="{{ url('master_sektor_ekonomi/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
@@ -46,6 +60,7 @@ Home
                                 </form>
                             </div>
                         </td>
+                        @endif
                         <td>{{ $item->Sandi_Turunan }}</td>
                         <td>{{ $item->Label }}</td>
                         <td>{{ $item->Sandi_Utama }}</td>

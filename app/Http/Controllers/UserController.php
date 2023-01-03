@@ -41,7 +41,7 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required',
             'level' => 'required',
-            'password' => 'required',
+            'password' => 'required|confirmed|min:6',
         ],[
             'name' => 'Input Name!',
             'email' => 'Input Email!',
@@ -63,7 +63,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $dataUser = User::findorfail($id);
+        return view('users.detail', compact('dataUser'));
     }
 
     /**
@@ -72,9 +73,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $users = $user;
+        return view('users.edit', compact('users'));
     }
 
     /**
@@ -84,9 +86,29 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'level' => 'required',
+            'current_password' => 'required|min:6',
+            'password' => 'nullable|confirmed|min:6',
+        ],[
+            'name' => 'Input Name!',
+            'email' => 'Input Email!',
+            'level' => 'Input Level',
+            'password' => 'Input Password!',
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if($request->current_password){
+            $user->password = Hash::make($request->password);
+        }
+        $user->level = $request->level;
+        $user->save();
+        return redirect('users');
     }
 
     /**
@@ -95,8 +117,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect('users');
     }
 }

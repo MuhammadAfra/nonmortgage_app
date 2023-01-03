@@ -9,7 +9,12 @@ class Master_Pola_Pembayaran extends Model
 {
     use HasFactory;
     protected $table = 'master_pola_pembayaran';
-    protected $guarded = [];
+    protected $fillable = [
+        'Pola_Pembayaran',
+        'Nilai_Pola_Pembayaran'
+    ];
+
+    public $timestamps = false;
 
     public function product()
     {
