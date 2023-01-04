@@ -142,7 +142,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('debitur') }}" class="nav-link {{ 'debitur' == request()->path() ? 'active' : '' }}">
+                            <a href="{{ url('#') }}" class="nav-link {{ 'debitur' == request()->path() ? 'active' : '' }}">
+                            {{-- <a href="{{ url('debitur') }}" class="nav-link {{ 'debitur' == request()->path() ? 'active' : '' }}"> --}}
                                 <i class="nav-icon fas fa-handshake"></i>
                                 <p>
                                     Debitur
@@ -175,10 +176,10 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_motor') }}" class="nav-link">1. Kendaraan Bermotor</a>
+                                            <a href="#" class="nav-link">1. Kendaraan Bermotor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_mobil') }}" class="nav-link">2. Kendaraan Bermobil</a>
+                                            <a href="#" class="nav-link">2. Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ url('collateral_rumah_land') }}" class="nav-link">3. Rumah / Tanah</a>

@@ -159,7 +159,7 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nomor HP Direktur Utama <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nomor Identitas Direktur Utama <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <input type="number" name="No_Identitas_Direktur_Utama" value="{{ $partner->No_Identitas_Direktur_Utama }}" class="form-control"
                 style="width: 300px; height: 30px;">
@@ -178,7 +178,7 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nomor HP Direktur 1 <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nomor Identitas Direktur 1 <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <input type="number" name="No_Identitas_Direktur1" value="{{ $partner->No_Identitas_Direktur1 }}" class="form-control" style="width: 300px; height: 30px;">
             @error('No_Identitas_Direktur1')
@@ -196,7 +196,7 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nomor HP Direktur 2 <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nomor Identitas Direktur 2 <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <input type="number" name="No_Identitas_Direktur2" value="{{ $partner->No_Identitas_Direktur2 }}" class="form-control" style="width: 300px; height: 30px;">
             @error('No_Identitas_Direktur2')
