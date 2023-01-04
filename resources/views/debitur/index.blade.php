@@ -22,8 +22,16 @@ Home
 
 @if (auth()->user()->level == "Admin")
 <div class="d-flex pb-3">
-    <a href="{{ url('debitur/create') }}" class="btn btn-success my-2">Create New</a>
-    <a href="{{ url('/upload_debitur') }}" class="btn btn-secondary my-2 ml-2">Upload File</a>
+    <a href="{{ url('debitur/create') }}" class="btn btn-success my-2 mx-2">Create New</a>
+    <button type="button" class="btn btn-primary btn-md my-2" style="height: 38px" type="button" data-toggle="modal"
+    data-target="#impormodal">Impor Data</button>
+</div>
+@endif
+{{-- notifikasi sukses --}}
+@if ($sukses = Session::get('sukses'))
+<div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button> 
+    <strong>{{ $sukses }}</strong>
 </div>
 @endif
 <div class="card">
@@ -46,6 +54,7 @@ Home
                     <th>Alamat</th>
                     <th>Provinsi</th>
                     <th>Kabupaten / Kota</th>
+                    <th>Kecamatan</th>
                     <th>Kelurahan</th>
                     <th>Kode Pos</th>
                     <th>Nama Perusahaan</th>
@@ -87,6 +96,7 @@ Home
                     <td>{{ $item->ALAMAT_CUSTOMER }}</td>
                     <td>{{ $item->PROVINSI }}</td>
                     <td>{{ $item->KABUPATEN_KOTA }}</td>
+                    <td>{{ $item->KECAMATAN }}</td>
                     <td>{{ $item->KELURAHAN }}</td>
                     <td>{{ $item->KODE_POS }}</td>
                     <td>{{ $item->NAMA_PERUSAHAAN }}</td>
@@ -108,5 +118,36 @@ Home
         </table>
     </div>
     <!-- /.card-body -->
+</div>
+<!-- Modal -->
+<div class="modal fade" id="impormodal" tabindex="-1" aria-labelledby="impormodalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="impormodalLabel">Impor Data From Excel</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ url('/debitur_import') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row pb-3">
+                        <div class="col-sm-4"><label>Upload File <span class="text-danger">*</span></label></div>
+                        <div class="col-sm-8">
+                            <div class="custom-file" style="width: 300px; height: 30px; cursor: pointer;">
+                                <input type="file" class="custom-file-input" name="file">
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+            </form>
+        </div>
+    </div>
 </div>
 @endsection

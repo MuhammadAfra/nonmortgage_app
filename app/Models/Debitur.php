@@ -17,6 +17,7 @@ class Debitur extends Model
         'ALAMAT_CUSTOMER',
         'PROVINSI',
         'KABUPATEN_KOTA',
+        'KECAMATAN',
         'KELURAHAN',
         'KODE_POS',
         'NAMA_PERUSAHAAN',
@@ -43,5 +44,10 @@ class Debitur extends Model
     public function product_colls()
     {
         return $this->hasManyThrough(Collateral_Motor::class, Product::class, 'debitur_id', 'DEBITUR_ID');
+    }
+
+    public function product_colls_mobil()
+    {
+        return $this->hasManyThrough(Collateral_Mobil::class, Product::class, 'debitur_id', 'DEBITUR_ID');
     }
 }

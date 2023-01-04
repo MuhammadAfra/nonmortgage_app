@@ -44,6 +44,10 @@
             <div class="col-sm-8"><input type="text" value="{{ $debitur->KABUPATEN_KOTA }}" name="KABUPATEN_KOTA" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Kecamatan <span class="text-danger">*</span></label></div>
+            <div class="col-sm-8"><input type="rext" value="{{ $debitur->KECAMATAN }}" name="KECAMATAN" class="form-control" style="width: 300px; height: 30px;"></div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>Kelurahan <span class="text-danger">*</span></label></div>
             <div class="col-sm-8"><input type="rext" value="{{ $debitur->KELURAHAN }}" name="KELURAHAN" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
@@ -100,11 +104,11 @@
             <div class="col-sm-4"><label>Apakah Ada DP?</label></div>
             <div class="col-sm-4 d-flex">
                 <div class="d-flex">
-                    <input type="radio" value="Ya" {{ ($debitur->APAKAH_ADA_DP == "Ya")? "checked" : "" }} style="width: 15px" name="APAKAH_ADA_DP" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">Ya</p>
+                    <input type="radio" value="YA" {{ ($debitur->APAKAH_ADA_DP == "YA")? "checked" : "" }} style="width: 15px" name="APAKAH_ADA_DP" class="form-control">
+                    <p class="my-auto mx-2" style="font-weight: 600">YA</p>
                 </div>
                 <div class=" d-flex">
-                    <input type="radio" value="No" {{ ($debitur->APAKAH_ADA_DP == "No")? "checked" : "" }} style="width: 15px" name="APAKAH_ADA_DP" class="form-control">
+                    <input type="radio" value="NO" {{ ($debitur->APAKAH_ADA_DP == "NO")? "checked" : "" }} style="width: 15px" name="APAKAH_ADA_DP" class="form-control">
                     <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
                 </div>
             </div>

@@ -22,8 +22,9 @@ Home
 
 @if (auth()->user()->level == "Admin")
 <div class="d-flex pb-3">
-    <a href="{{ url('partner/create') }}" class="btn btn-success my-2">Create New</a>
-    <a href="{{ url('/upload_partner') }}" class="btn btn-secondary my-2 ml-2">Upload File</a>
+    <a href="{{ url('partner/create') }}" class="btn btn-success my-2 mx-2">Create New</a>
+    <button type="button" class="btn btn-primary btn-md my-2" style="height: 38px" type="button" data-toggle="modal"
+    data-target="#impormodal">Impor Data</button>
 </div>
 @endif
 <div class="card">
