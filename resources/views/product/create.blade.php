@@ -108,19 +108,19 @@
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Administrasi</label></div>
-            <div class="col-sm-8"><input type="number" placeholder="Biaya Administrasi" name="BIAYA_ADMINISTRASI" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" placeholder="Biaya Administrasi" name="BIAYA_ADMINISTRASI" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Asuransi</label></div>
-            <div class="col-sm-8"><input type="number" placeholder="Biaya Asuransi" name="BIAYA_ASSURANSI" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" placeholder="Biaya Asuransi" name="BIAYA_ASSURANSI" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Biaya Provinsi</label></div>
-            <div class="col-sm-8"><input type="number" placeholder="Biaya Provinsi" name="BIAYA_PROVISI" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-4"><label>Biaya Provisi</label></div>
+            <div class="col-sm-8"><input type="text" placeholder="Biaya Provinsi" name="BIAYA_PROVISI" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Lain Lain</label></div>
-            <div class="col-sm-8"><input type="number" placeholder="Biaya Lain Lain" name="BIAYA_LAIN_LAIN" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" placeholder="Biaya Lain Lain" name="BIAYA_LAIN_LAIN" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"></div>
