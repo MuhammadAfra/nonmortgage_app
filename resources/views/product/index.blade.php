@@ -25,7 +25,7 @@ Home
     <a href="{{ url('product/create') }}" class="btn btn-success my-2 mx-2">Create New</a>
     {{-- <a href="{{ url('/upload_product') }}" class="btn btn-secondary my-2 ml-2">Upload File</a> --}}
     <button type="button" class="btn btn-primary btn-md my-2" style="height: 38px" type="button" data-toggle="modal"
-    data-target="#impormodal">Impor Data</button>
+    data-target="#impormodal">Import Data</button>
 </div>
 @endif
 
@@ -98,7 +98,7 @@ Home
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="impormodalLabel">Impor Data From Excel</h5>
+                <h5 class="modal-title" id="impormodalLabel">Import Data From Excel</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
