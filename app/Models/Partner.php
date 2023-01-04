@@ -50,7 +50,7 @@ class Partner extends Model
 
     public function product_colls()
     {
-        return $this->hasManyThrough(Collateral_Motor::class, Product::class, 'product_id', 'PARTNER_ID');
+        return $this->hasManyThrough(Collateral_Motor::class, Collateral_Invoice::class, Product::class, 'product_id', 'PARTNER_ID');
     }
 
     public function master_product()
