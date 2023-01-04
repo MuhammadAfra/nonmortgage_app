@@ -353,9 +353,14 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Status" class="form-control" style="width: 300px; height: 30px;">
+            <select name="Status" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option>-----</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Reject">Reject</option>
+            </select>
             @error('Status')
-            <p class="text-danger">{{ $message }}</p>
+                <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>

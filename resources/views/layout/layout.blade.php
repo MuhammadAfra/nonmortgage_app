@@ -446,6 +446,7 @@
     <script src="{{ asset('Template/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('Template/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('Template/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+    <script src="{{ asset('Template/plugins/separator-number/js/number-separator.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('Template/dist/js/adminlte.min.js') }}"></script>
     <!-- Page specific script -->

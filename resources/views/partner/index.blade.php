@@ -50,11 +50,11 @@ Home
                     <th>TDP</th>
                     <th>NPWP</th>
                     <th>Nama Direktur Utama</th>
-                    <th>Nomor HP Identitas Direktur Utama</th>
+                    <th>Nomor Identitas Direktur Utama</th>
                     <th>Nama Direktur 1</th>
-                    <th>Nomor HP Identitas Direktur 1</th>
+                    <th>Nomor Identitas Direktur 1</th>
                     <th>Nama Direktur 2</th>
-                    <th>Nomor HP Identitas Direktur 2</th>
+                    <th>Nomor Identitas Direktur 2</th>
                     <th>Modal Pendirian</th>
                     <th>Modal Perubahan Terakhir</th>
                     <th>Audited Financial Statement Current Year</th>

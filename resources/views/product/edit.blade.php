@@ -50,7 +50,7 @@
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Pembiayaan /<br> Pokok Maximum (Rp)</div>
-            <div class="col-sm-8"><input type="text" name="NILAI_PEMBIAYAAN_POKOK_MAXIMUM" value="{{ number_format($dataproduct->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" name="NILAI_PEMBIAYAAN_POKOK_MAXIMUM" value="{{ number_format($dataproduct->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Suku Bunga Flat (%)</span></label></div>
@@ -87,19 +87,19 @@
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Administrasi (Rp)</label></div>
-            <div class="col-sm-8"><input type="text" name="BIAYA_ADMINISTRASI" value="{{ number_format($dataproduct->BIAYA_ADMINISTRASI) }}" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" name="BIAYA_ADMINISTRASI" value="{{ number_format($dataproduct->BIAYA_ADMINISTRASI) }}" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Asuransi (Rp)</label></div>
-            <div class="col-sm-8"><input type="text" name="BIAYA_ASSURANSI" class="form-control" value="{{ number_format($dataproduct->BIAYA_ASSURANSI) }}" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" name="BIAYA_ASSURANSI"  value="{{ number_format($dataproduct->BIAYA_ASSURANSI) }}" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Provisi (Rp)</label></div>
-            <div class="col-sm-8"><input type="text" name="BIAYA_PROVISI" value="{{ number_format($dataproduct->BIAYA_PROVISI) }}" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" name="BIAYA_PROVISI" value="{{ number_format($dataproduct->BIAYA_PROVISI) }}" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Lain Lain (Rp)</label></div>
-            <div class="col-sm-8"><input type="text" name="BIAYA_LAIN_LAIN" value="{{ number_format($dataproduct->BIAYA_LAIN_LAIN) }}" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" name="BIAYA_LAIN_LAIN" value="{{ number_format($dataproduct->BIAYA_LAIN_LAIN) }}" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"></div>
