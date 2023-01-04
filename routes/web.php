@@ -1,24 +1,24 @@
 <?php
 
-use App\Http\Controllers\CollateralMobilController;
-use App\Http\Controllers\CollateralMotorController;
-use App\Http\Controllers\CollateralUtamaController;
-use App\Http\Controllers\CollateralInvoiceController;
-use App\Http\Controllers\CollateralCorporateController;
-use App\Http\Controllers\DebiturController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MasterJenisPembiayaanController;
-use App\Http\Controllers\MasterJenisProductController;
-use App\Http\Controllers\MasterPolaPembayaranController;
-use App\Http\Controllers\MasterProductController;
-use App\Http\Controllers\MasterSektorEkonomiController;
-use App\Http\Controllers\MasterSkemaPembiayaanController;
-use App\Http\Controllers\MasterSukuBungaController;
+use App\Http\Controllers\DebiturController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\MasterProductController;
+use App\Http\Controllers\CollateralMobilController;
+use App\Http\Controllers\CollateralMotorController;
+use App\Http\Controllers\CollateralRumahController;
+use App\Http\Controllers\CollateralUtamaController;
+use App\Http\Controllers\MasterSukuBungaController;
+use App\Http\Controllers\MasterJenisProductController;
+use App\Http\Controllers\CollateralInventoryController;
+use App\Http\Controllers\MasterSektorEkonomiController;
+use App\Http\Controllers\MasterPolaPembayaranController;
+use App\Http\Controllers\MasterJenisPembiayaanController;
+use App\Http\Controllers\MasterSkemaPembiayaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +80,12 @@ Route::group(['middleware' => ['PreventBack']], function(){
 
         // collateral utama - motor
         Route::resource('collateral_motor', CollateralMotorController::class);
+
+        // collateral utama - inven
+        Route::resource('collateral_inven', CollateralInventoryController::class);
+
+        // collateral utama - rumah
+        Route::resource('collateral_rumah', CollateralRumahController::class);
 
         // collateral utama - mobil
         Route::resource('collateral_mobil', CollateralMobilController::class);
