@@ -68,5 +68,10 @@ class Partner extends Model
         return $this->belongsTo(Master_Product::class, 'DETIL_PRODUCT_PROFILE');
     }
 
+    public function product_colls_mobil()
+    {
+        return $this->hasManyThrough(Collateral_Mobil::class, Product::class, 'product_id', 'PARTNER_ID');
+    }
+
     public $timestamps = false;
 }

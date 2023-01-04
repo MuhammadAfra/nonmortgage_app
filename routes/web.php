@@ -13,7 +13,9 @@ use App\Http\Controllers\CollateralMotorController;
 use App\Http\Controllers\CollateralRumahController;
 use App\Http\Controllers\CollateralUtamaController;
 use App\Http\Controllers\MasterSukuBungaController;
+use App\Http\Controllers\CollateralInvoiceController;
 use App\Http\Controllers\MasterJenisProductController;
+use App\Http\Controllers\CollateralCorporateController;
 use App\Http\Controllers\CollateralInventoryController;
 use App\Http\Controllers\MasterSektorEkonomiController;
 use App\Http\Controllers\MasterPolaPembayaranController;
@@ -64,18 +66,16 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::resource('master_jenis_product', MasterJenisProductController::class);
         Route::resource('master_jenis_pembiayaan', MasterJenisPembiayaanController::class);
         Route::resource('master_skema_pembiayaan', MasterSkemaPembiayaanController::class);
+
         // product
         Route::resource('product', ProductController::class);
-        Route::get('/upload_product', [ProductController::class, 'upload'])->name('upload_product');
-        Route::post('/upload_save', [ProductController::class, 'upload_save'])->name('upload_save');
+
         // debitur
         Route::resource('debitur', DebiturController::class);
-        Route::get('/upload_debitur', [DebiturController::class, 'upload'])->name('upload_debitur');
-        Route::post('/upload_save', [DebiturController::class, 'upload_save'])->name('upload_save');
+        Route::post('/debitur_import', [DebiturController::class, 'import'])->name('debitur_import');
+
         // partner
         Route::resource('partner', PartnerController::class);
-        Route::get('/upload_partner', [PartnerController::class, 'upload'])->name('upload_partner');
-        Route::post('/upload_save', [PartnerController::class, 'upload_save'])->name('upload_save');
         Route::post('/add_product', [PartnerController::class, 'add_product'])->name('add_product');
 
         // collateral utama - motor

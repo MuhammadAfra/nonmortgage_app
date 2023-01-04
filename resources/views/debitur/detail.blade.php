@@ -35,6 +35,10 @@ Detail
             <div class="col-sm-8">: {{ $debitur->KABUPATEN_KOTA }}</div>
         </div>
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Kecamatan</label></div>
+            <div class="col-sm-8">: {{ $debitur->KECAMATAN }}</div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>Kelurahan</label></div>
             <div class="col-sm-8">: {{ $debitur->KELURAHAN }}</div>
         </div>

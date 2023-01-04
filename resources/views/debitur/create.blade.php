@@ -43,8 +43,12 @@
             <div class="col-sm-8"><input type="text" name="KABUPATEN_KOTA" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Kecamatan <span class="text-danger">*</span></label></div>
+            <div class="col-sm-8"><input type="text" name="KECAMATAN" class="form-control" style="width: 300px; height: 30px;"></div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>Kelurahan <span class="text-danger">*</span></label></div>
-            <div class="col-sm-8"><input type="rext" name="KELURAHAN" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" name="KELURAHAN" class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Kode Pos <span class="text-danger">*</span></label></div>
@@ -99,11 +103,11 @@
             <div class="col-sm-4"><label>Apakah Ada DP?</label></div>
             <div class="col-sm-4 d-flex">
                 <div class="d-flex">
-                    <input type="radio" value="Ya" style="width: 15px" name="APAKAH_ADA_DP" class="form-control">
+                    <input type="radio" value="YA" style="width: 15px" name="APAKAH_ADA_DP" class="form-control">
                     <p class="my-auto mx-2" style="font-weight: 600">Ya</p>
                 </div>
                 <div class=" d-flex">
-                    <input type="radio" value="No" style="width: 15px" name="APAKAH_ADA_DP" class="form-control">
+                    <input type="radio" value="NO" style="width: 15px" name="APAKAH_ADA_DP" class="form-control">
                     <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
                 </div>
             </div>

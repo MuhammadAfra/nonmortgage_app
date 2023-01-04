@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Debitur;
 use Illuminate\Http\Request;
-use Symfony\Component\ErrorHandler\Debug;
+use App\Imports\DebiturImport;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Session;
 
 class DebiturController extends Controller
 {
@@ -45,6 +47,7 @@ class DebiturController extends Controller
             'ALAMAT_CUSTOMER' => 'required',
             'PROVINSI' => 'required',
             'KABUPATEN_KOTA' => 'required',
+            'KECAMATAN' => 'required',
             'KELURAHAN' => 'required',
             'KODE_POS' => 'required',
             'NAMA_PERUSAHAAN' => 'required',
@@ -70,6 +73,7 @@ class DebiturController extends Controller
             'PROVINSI' => $request->PROVINSI,
             'KELURAHAN' => $request->KELURAHAN,
             'KABUPATEN_KOTA' => $request->KABUPATEN_KOTA,
+            'KECAMATAN' => $request->KECAMATAN,
             'KODE_POS' => $request->KODE_POS,
             'NAMA_PERUSAHAAN' => $request->NAMA_PERUSAHAAN,
             'BIDANG_USAHA' => $request->BIDANG_USAHA,
@@ -130,6 +134,7 @@ class DebiturController extends Controller
             'ALAMAT_CUSTOMER' => 'required',
             'PROVINSI' => 'required',
             'KABUPATEN_KOTA' => 'required',
+            'KECAMATAN' => 'required',
             'KELURAHAN' => 'required',
             'KODE_POS' => 'required',
             'NAMA_PERUSAHAAN' => 'required',
@@ -156,6 +161,7 @@ class DebiturController extends Controller
             'PROVINSI' => $request->PROVINSI,
             'KELURAHAN' => $request->KELURAHAN,
             'KABUPATEN_KOTA' => $request->KABUPATEN_KOTA,
+            'KECAMATAN' => $request->KECAMATAN,
             'KODE_POS' => $request->KODE_POS,
             'NAMA_PERUSAHAAN' => $request->NAMA_PERUSAHAAN,
             'BIDANG_USAHA' => $request->BIDANG_USAHA,
@@ -189,8 +195,19 @@ class DebiturController extends Controller
         return redirect('debitur');
     }
 
-    public function upload()
+    public function import(Request $request)
     {
-        return view('debitur.upload');
+        $this->validate($request, [
+			'file' => 'required|mimes:csv,xls,xlsx'
+		]);
+
+        $file = $request->file('file');
+        $nama_file = $file->getClientOriginalName();
+        $file->move('data_file',$nama_file);
+
+        Excel::import(new DebiturImport, public_path('/data_file/'.$nama_file));
+
+        Session::flash('sukses','Data Debitur Berhasil Diimport!');
+        return redirect('debitur');
     }
 }

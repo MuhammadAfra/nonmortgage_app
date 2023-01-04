@@ -352,7 +352,7 @@ class PartnerController extends Controller
         }
 
         if($request->hasFile('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS'))
-        {
+        {   
             $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->move('data_file/', $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->getClientOriginalName());
             $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS = $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->getClientOriginalName();
             $partner->save();

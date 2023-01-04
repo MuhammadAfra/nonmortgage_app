@@ -177,9 +177,4 @@ class ProductController extends Controller
 
         return redirect('product');
     }
-
-    public function upload()
-    {
-        return view('product.upload');
-    }
 }
