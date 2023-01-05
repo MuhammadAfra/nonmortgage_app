@@ -21,6 +21,9 @@ use App\Http\Controllers\MasterSektorEkonomiController;
 use App\Http\Controllers\MasterPolaPembayaranController;
 use App\Http\Controllers\MasterJenisPembiayaanController;
 use App\Http\Controllers\MasterSkemaPembiayaanController;
+use App\Http\Controllers\CollateralMobilTambahanController;
+use App\Http\Controllers\CollateralMotorTambahanController;
+use App\Http\Controllers\CollateralCorporateTambahanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,24 +80,28 @@ Route::group(['middleware' => ['PreventBack']], function(){
         // partner
         Route::resource('partner', PartnerController::class);
         Route::post('/add_product', [PartnerController::class, 'add_product'])->name('add_product');
+        Route::post('/partner_import', [PartnerController::class, 'import'])->name('partner_import');
 
-        // collateral utama - motor
+        // collateral motor
         Route::resource('collateral_motor', CollateralMotorController::class);
+        Route::resource('collateral_motor_tambahan', CollateralMotorTambahanController::class);
 
-        // collateral utama - inven
+        // collateral inven
         Route::resource('collateral_inven', CollateralInventoryController::class);
 
-        // collateral utama - rumah
+        // collateral rumah
         Route::resource('collateral_rumah', CollateralRumahController::class);
 
-        // collateral utama - mobil
+        // collateral mobil
         Route::resource('collateral_mobil', CollateralMobilController::class);
+        Route::resource('collateral_mobil_tambahan', CollateralMobilTambahanController::class);
 
-        // collateral utama - invoice
+        // collateral invoice
         Route::resource('collateral_invoice', CollateralInvoiceController::class);
 
-        // collateral utama - corporate
+        // collateral corporate
         Route::resource('collateral_corporate', CollateralCorporateController::class);
+        Route::resource('collateral_corporate_tambahan', CollateralCorporateTambahanController::class);
 
         // user management
         Route::resource('users', UserController::class);
@@ -115,5 +122,19 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::get('/index_debitur', [DebiturController::class, 'index'])->name('index_debitur');
         // partner
         Route::get('/index_partner', [PartnerController::class, 'index'])->name('index_partner');
+        // collaterals utama
+        Route::get('/colls_motor_utama', [CollateralMotorController::class, 'index'])->name('colls_motor_utama');
+        Route::get('/colls_mobil_utama', [CollateralMobilController::class, 'index'])->name('colls_mobil_utama');
+        Route::get('/colls_rumah_utama', [CollateralRumahController::class, 'index'])->name('colls_rumah_utama');
+        Route::get('/colls_inven_utama', [CollateralInventoryController::class, 'index'])->name('colls_inven_utama');
+        Route::get('/colls_invoice_utama', [CollateralInvoiceController::class, 'index'])->name('colls_invoice_utama');
+        Route::get('/colls_corporate_utama', [CollateralCorporateController::class, 'index'])->name('colls_corporate_utama');
+        // collaterals tambahan
+        Route::get('/colls_motor_tambahan', [CollateralMotorTambahanController::class, 'index'])->name('colls_motor_tambahan');
+        Route::get('/colls_mobil_tambahan', [CollateralMobilTambahanController::class, 'index'])->name('colls_mobil_tambahan');
+        Route::get('/colls_rumah_tambahan', [CollateralRumahTambahanController::class, 'index'])->name('colls_rumah_tambahan');
+        Route::get('/colls_inven_tambahan', [CollateralInventoryTambahanController::class, 'index'])->name('colls_inven_tambahan');
+        Route::get('/colls_invoice_tambahan', [CollateralInvoiceTambahanController::class, 'index'])->name('colls_invoice_tambahan');
+        Route::get('/colls_corporate_tambahan', [CollateralCorporateTambahanController::class, 'index'])->name('colls_corporate_tambahan');
     });
 });

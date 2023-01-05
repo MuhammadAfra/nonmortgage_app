@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('content')
 @section('title')
-Collateral Utama - Kendaraan Bermotor
+Collateral Tambahan - Kendaraan Bermotor
 @endsection
 
 @section('subtitle')
@@ -10,11 +10,11 @@ Home
 
 @if (auth()->user()->level == "Admin")
     @section('page')
-        <a href="{{ url('collateral_motor') }}">Collateral Utama - Kendaraan Bermotor</a>
+        <a href="{{ url('collateral_motor_tambahan') }}">Collateral Tambahan - Kendaraan Bermotor</a>
     @endsection
 @elseif(auth()->user()->level == "User")
     @section('page')
-    <a href="#">Collateral Utama - Kendaraan Bermotor</a>
+    <a href="#">Collateral Tambahan - Kendaraan Bermotor</a>
     @endsection
 @endif
 
@@ -22,7 +22,7 @@ Home
 
 @if (auth()->user()->level == "Admin")
 <div class="d-flex pb-3">
-    <a href="{{ url('collateral_motor/create') }}" class="btn btn-success my-2">Create New</a>
+    <a href="{{ url('collateral_motor_tambahan/create') }}" class="btn btn-success my-2">Create New</a>
 </div>
 @endif
 <div class="card">
@@ -47,7 +47,6 @@ Home
                     <th>Model</th>
                     <th>Jenis Motor</th>
                     <th>Nama di BKPB</th>
-                    {{-- <th>Alamat di BKPB</th> --}}
                     <th>No Frame</th>
                     <th>No Engine</th>
                     <th>No Polisi</th>
@@ -63,10 +62,10 @@ Home
                     <td class="text-center">{{ $loop->iteration }}</td>
                     @if (auth()->user()->level == "Admin")
                     <td class="d-flex" style="justify-content: center">
-                        <div><a href="{{ url('collateral_motor/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
-                        <div><a href="{{ url('collateral_motor/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
+                        <div><a href="{{ url('collateral_motor_tambahan/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
+                        <div><a href="{{ url('collateral_motor_tambahan/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
                         <div>
-                            <form action="{{ url('collateral_motor',$item->id) }}" method="POST">
+                            <form action="{{ url('collateral_motor_tambahan',$item->id) }}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
@@ -76,21 +75,20 @@ Home
                     @endif
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
-                    <td>{{ $item->Counter_Motor }}</td>
-                    <td>{{ $item->Nilai_Motor_Vehicle }}</td>
-                    <td>{{ $item->Merk }}</td>
-                    <td>{{ $item->Type }}</td>
-                    <td>{{ $item->Model }}</td>
-                    <td>{{ $item->Jenis_Motor_Sport_Listrik }}</td>
-                    <td>{{ $item->Nama_Di_Bpkb }}</td>
-                    {{-- <td>{{ $item->Alamat_Di_Bpkb }}</td> --}}
-                    <td>{{ $item->No_Frame }}</td>
-                    <td>{{ $item->No_Engine }}</td>
-                    <td>{{ $item->No_Polisi }}</td>
-                    <td>{{ $item->Colour }}</td>
-                    <td>{{ $item->Tahun }}</td>
-                    <td>{{ $item->Silinder }}</td>
-                    <td>{{ $item->Status }}</td>
+                    <td>{{ $item->Counter_Motor_Tambahan }}</td>
+                    <td>{{ $item->Nilai_Motor_Vehicle_Tambahan }}</td>
+                    <td>{{ $item->Merk_Tambahan }}</td>
+                    <td>{{ $item->Type_Tambahan }}</td>
+                    <td>{{ $item->Model_Tambahan }}</td>
+                    <td>{{ $item->Jenis_Motor_Sport_Listrik_Tambahan }}</td>
+                    <td>{{ $item->Nama_Di_Bpkb_Tambahan }}</td>
+                    <td>{{ $item->No_Frame_Tambahan }}</td>
+                    <td>{{ $item->No_Engine_Tambahan }}</td>
+                    <td>{{ $item->No_Polisi_Tambahan }}</td>
+                    <td>{{ $item->Colour_Tambahan }}</td>
+                    <td>{{ $item->Tahun_Tambahan }}</td>
+                    <td>{{ $item->Silinder_Tambahan }}</td>
+                    <td>{{ $item->Status_Tambahan }}</td>
                 </tr>
                 @endforeach
             </tbody>

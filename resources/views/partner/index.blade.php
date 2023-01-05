@@ -27,6 +27,13 @@ Home
     data-target="#impormodal">Impor Data</button>
 </div>
 @endif
+{{-- notifikasi sukses --}}
+@if ($sukses = Session::get('sukses'))
+<div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button> 
+    <strong>{{ $sukses }}</strong>
+</div>
+@endif
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">List Partner</h3>
@@ -127,5 +134,36 @@ Home
         </table>
     </div>
     <!-- /.card-body -->
+</div>
+<!-- Modal -->
+<div class="modal fade" id="impormodal" tabindex="-1" aria-labelledby="impormodalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="impormodalLabel">Impor Data From Excel</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ url('/partner_import') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row pb-3">
+                        <div class="col-sm-4"><label>Upload File <span class="text-danger">*</span></label></div>
+                        <div class="col-sm-8">
+                            <div class="custom-file" style="width: 300px; height: 30px; cursor: pointer;">
+                                <input type="file" class="custom-file-input" name="file">
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+            </form>
+        </div>
+    </div>
 </div>
 @endsection

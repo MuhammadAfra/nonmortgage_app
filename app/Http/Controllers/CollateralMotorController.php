@@ -96,7 +96,7 @@ class CollateralMotorController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'id',
+            // 'id',
             'PRODUCT_ID',
             'Nilai_Motor_Vehicle',
             'Merk',
