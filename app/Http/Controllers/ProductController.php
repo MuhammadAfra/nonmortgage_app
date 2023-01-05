@@ -11,6 +11,9 @@ use App\Models\Partner;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Symfony\Component\ErrorHandler\Debug;
+use App\Imports\ProductImport;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -176,5 +179,21 @@ class ProductController extends Controller
         $dataproduct->delete();
 
         return redirect('product');
+    }
+    
+    public function import(Request $request)
+    {
+        $this->validate($request, [
+			'file' => 'required|mimes:csv,xls,xlsx'
+		]);
+
+        $file = $request->file('file');
+        $nama_file = $file->getClientOriginalName();
+        $file->move('data_file',$nama_file);
+
+        Excel::import(new ProductImport, public_path('/data_file/'.$nama_file));
+
+        Session::flash('sukses','Data Debitur Berhasil Diimport!');
+        return redirect('debitur');
     }
 }

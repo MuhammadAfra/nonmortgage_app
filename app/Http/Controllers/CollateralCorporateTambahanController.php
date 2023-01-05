@@ -15,8 +15,13 @@ class CollateralCorporateTambahanController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $corporate = Collateral_Corporate_Tambahan::get();
         return view('collateral_tambahan.corporate.index', compact('corporate'));
+=======
+        $corporatetbh = Collateral_Corporate_Tambahan::get();
+        return view('collateral_tambahan.corporate.index', compact('corporatetbh'));
+>>>>>>> dev-hafid
     }
 
     /**
@@ -27,7 +32,11 @@ class CollateralCorporateTambahanController extends Controller
     public function create()
     {
         $prod = Product::get();
+<<<<<<< HEAD
         return view('collateral_tambahan.corporate.create', compact('prod'));
+=======
+        return view('collateral_utama.corporate.create', compact('prod'));
+>>>>>>> dev-hafid
     }
 
     /**
@@ -45,7 +54,11 @@ class CollateralCorporateTambahanController extends Controller
             'Nama_Pt_Penerima_Corporate_Guarantee_Tambahan',
             'Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan',
             'No_Telp_Pt_Pemberi_Corporate_Guarantee_Tambahan',
+<<<<<<< HEAD
             'Status_Tambahan',                    
+=======
+            'Status',                    
+>>>>>>> dev-hafid
         ]);
 
         Collateral_Corporate_Tambahan::create($request->all());
@@ -60,8 +73,13 @@ class CollateralCorporateTambahanController extends Controller
      */
     public function show($id)
     {
+<<<<<<< HEAD
         $corporate = Collateral_Corporate_Tambahan::findorfail($id);
         return view('collateral_tambahan.corporate.detail', compact('corporate'));
+=======
+        $corporatetbh = Collateral_Corporate_Tambahan::findorfail($id);
+        return view('collateral_tambahan.corporate.detail', compact('corporatetbh'));
+>>>>>>> dev-hafid
     }
 
     /**
@@ -72,9 +90,15 @@ class CollateralCorporateTambahanController extends Controller
      */
     public function edit($id)
     {
+<<<<<<< HEAD
         $corporate = Collateral_Corporate_Tambahan::findorfail($id);
         $prod = Product::get();
         return view('collateral_tambahan.corporate.edit', compact('corporate','prod'));
+=======
+        $corporatetbh = Collateral_Corporate_Tambahan::findorfail($id);
+        $prod = Product::get();
+        return view('collateral_tambahan.corporate.edit', compact('corporatetbh','prod'));
+>>>>>>> dev-hafid
     }
 
     /**
@@ -93,11 +117,19 @@ class CollateralCorporateTambahanController extends Controller
             'Nama_Pt_Penerima_Corporate_Guarantee_Tambahan',
             'Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan',
             'No_Telp_Pt_Pemberi_Corporate_Guarantee_Tambahan',
+<<<<<<< HEAD
             'Status_Tambahan',                    
         ]);
 
         $corporate = Collateral_Corporate_Tambahan::findorfail($id);
         $corporate->update($request->all());
+=======
+            'Status_Tambahan',  
+        ]);
+
+        $corporatetbh = Collateral_Corporate_Tambahan::findorfail($id);
+        $corporatetbh->update($request->all());
+>>>>>>> dev-hafid
         return redirect('collateral_corporate_tambahan');
     }
 
@@ -109,8 +141,13 @@ class CollateralCorporateTambahanController extends Controller
      */
     public function destroy($id)
     {
+<<<<<<< HEAD
         $corporate = Collateral_Corporate_Tambahan::findorfail($id);
         $corporate->delete();
+=======
+        $corporatetbh = Collateral_Corporate_Tambahan::findorfail($id);
+        $corporatetbh->delete();
+>>>>>>> dev-hafid
         return redirect('collateral_corporate_tambahan');
     }
 }

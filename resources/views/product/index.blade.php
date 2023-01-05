@@ -23,7 +23,8 @@ Home
 @if (auth()->user()->level == "Admin")                            
 <div class="d-flex pb-3">
     <a href="{{ url('product/create') }}" class="btn btn-success my-2 mx-2">Create New</a>
-    <a href="{{ url('/upload_product') }}" class="btn btn-secondary my-2 ml-2">Upload File</a>
+    <button type="button" class="btn btn-primary btn-md my-2" style="height: 38px" type="button" data-toggle="modal"
+    data-target="#impormodal">Impor Data</button>
 </div>
 @endif
 
@@ -102,7 +103,7 @@ Home
                 </button>
             </div>
             <div class="modal-body">
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/product_import') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row pb-3">
                         <div class="col-sm-4"><label>Upload File <span class="text-danger">*</span></label></div>

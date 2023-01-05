@@ -24,6 +24,8 @@ use App\Http\Controllers\MasterSkemaPembiayaanController;
 use App\Http\Controllers\CollateralMobilTambahanController;
 use App\Http\Controllers\CollateralMotorTambahanController;
 use App\Http\Controllers\CollateralCorporateTambahanController;
+use App\Http\Controllers\CollateralRumahTambahanController;
+use App\Http\Controllers\CollateralInventoryTambahanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,7 +74,7 @@ Route::group(['middleware' => ['PreventBack']], function(){
 
         // product
         Route::resource('product', ProductController::class);
-
+        Route::post('/product_import', [ProductController::class, 'import'])->name('product_import');
         // debitur
         Route::resource('debitur', DebiturController::class);
         Route::post('/debitur_import', [DebiturController::class, 'import'])->name('debitur_import');
@@ -88,11 +90,13 @@ Route::group(['middleware' => ['PreventBack']], function(){
 
         // collateral inven
         Route::resource('collateral_inven', CollateralInventoryController::class);
+        Route::resource('collateral_inven_tambahan', CollateralInventoryTambahanController::class);
 
         // collateral rumah
         Route::resource('collateral_rumah', CollateralRumahController::class);
-
-        // collateral mobil
+        Route::resource('collateral_rumah_tambahan', CollateralRumahTambahanController::class);
+        
+        // collateral utama - mobil
         Route::resource('collateral_mobil', CollateralMobilController::class);
         Route::resource('collateral_mobil_tambahan', CollateralMobilTambahanController::class);
 

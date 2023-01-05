@@ -117,7 +117,7 @@ Add
         <div class="col-sm-4"></div>
         <div class="col-sm-8">
             <button class="btn btn-primary" type="submit">Add</button>
-            <a href="{{ url('collateral_motor') }}" class="btn btn-default">Cancel</a>
+            <a href="{{ url('collateral_rumah') }}" class="btn btn-default">Cancel</a>
         </div>
     </div>
 </form>

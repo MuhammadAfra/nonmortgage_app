@@ -34,7 +34,7 @@ Add
         <div class="col-sm-8">
             <input type="number" name="Counter_Corporate_Guarantee_Tambahan" class="form-control"
                 style="width: 300px; height: 30px;">
-            @error('Counter_Corporate_Guarantee')
+            @error('Counter_Corporate_Guarantee_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -44,7 +44,7 @@ Add
         <div class="col-sm-8">
             <input type="number" name="Nilai_Corporate_Guarantee_Tambahan" class="form-control"
                 style="width: 300px; height: 30px;">
-            @error('Nilai_Corporate_Guarantee')
+            @error('Nilai_Corporate_Guarantee_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -55,7 +55,7 @@ Add
         <div class="col-sm-8">
             <input type="text" name="Nama_Pt_Penerima_Corporate_Guarantee_Tambahan" class="form-control"
                 style="width: 300px; height: 30px;">
-            @error('Nama_Pt_Penerima_Corporate_Guarantee')
+            @error('Nama_Pt_Penerima_Corporate_Guarantee_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -65,7 +65,7 @@ Add
         <div class="col-sm-8">
             <input type="text" name="Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan" class="form-control"
                 style="width: 300px; height: 30px;">
-            @error('Nama_Pt_Pemberi_Corporate_Guarantee')
+            @error('Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -76,7 +76,7 @@ Add
         <div class="col-sm-8">
             <input type='number' name="No_Telp_Pt_Pemberi_Corporate_Guarantee_Tambahan" style="width: 300px; height: 30px;"
                 class="form-control" cols="30" rows="10" />
-            @error('No_Telp_Pt_Pemberi_Corporate_Guarantee')
+            @error('No_Telp_Pt_Pemberi_Corporate_Guarantee_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>

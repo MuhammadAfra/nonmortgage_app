@@ -16,11 +16,11 @@ Detail
     <div class="card-body">
         <div class="row pb-3">
             <div class="col-sm-4"><label>Partner Perusahaan</label></div>
-            <div class="col-sm-8">: {{ $corporate->product->partner->NAMA_PERUSAHAAN }}</div>
+            <div class="col-sm-8">: {{ $corporatetbh->product->partner->NAMA_PERUSAHAAN }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nama Debitur</label></div>
-            <div class="col-sm-8">: {{ $corporate->product->debitur->NAMA_DEBITUR }}</div>
+            <div class="col-sm-8">: {{ $corporatetbh->product->debitur->NAMA_DEBITUR }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Counter Corporate Guarantee</label></div>

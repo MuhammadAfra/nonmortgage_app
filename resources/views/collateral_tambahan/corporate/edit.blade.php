@@ -19,8 +19,8 @@ Edit
         <div class="col-sm-4"><label>Debitur & Partner <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <select name="PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                <option value="{{ $corporate->PRODUCT_ID }}">{{ $corporate->product->debitur->NAMA_DEBITUR }} -
-                    {{ $corporate->product->partner->NAMA_PERUSAHAAN }}</option>
+                <option value="{{ $corporatetbh->PRODUCT_ID }}">{{ $corporatetbh->product->debitur->NAMA_DEBITUR }} -
+                    {{ $corporatetbh->product->partner->NAMA_PERUSAHAAN }}</option>
                 @foreach ($prod as $item)
                 <option value="{{ $item->id }}">{{ $item->debitur->NAMA_DEBITUR }} -
                     {{ $item->partner->NAMA_PERUSAHAAN }}</option>
@@ -36,7 +36,7 @@ Edit
         <div class="col-sm-8">
             <input type="number" name="Counter_Corporate_Guarantee_Tambahan" value='{{$corporate->Counter_Corporate_Guarantee_Tambahan}}'
                 class="form-control" style="width: 300px; height: 30px;">
-            @error('Counter_Corporate_Guarantee')
+            @error('Counter_Corporate_Guarantee_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -46,7 +46,7 @@ Edit
         <div class="col-sm-8">
             <input type="number" name="Nilai_Corporate_Guarantee_Tambahan" value='{{$corporate->Nilai_Corporate_Guarantee_Tambahan}}'
                 class="form-control" style="width: 300px; height: 30px;">
-            @error('Nilai_Corporate_Guarantee')
+            @error('Nilai_Corporate_Guarantee_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -58,7 +58,7 @@ Edit
             <input type="text" name="Nama_Pt_Penerima_Corporate_Guarantee_Tambahan"
                 value='{{$corporate->Nama_Pt_Penerima_Corporate_Guarantee_Tambahan}}' class="form-control"
                 style="width: 300px; height: 30px;">
-            @error('Nama_Pt_Penerima_Corporate_Guarantee')
+            @error('Nama_Pt_Penerima_Corporate_Guarantee_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -69,7 +69,7 @@ Edit
             <input type="text" name="Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan"
                 value='{{$corporate->Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan}}' class="form-control"
                 style="width: 300px; height: 30px;">
-            @error('Nama_Pt_Pemberi_Corporate_Guarantee')
+            @error('Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -81,7 +81,7 @@ Edit
             <input type='number' name="No_Telp_Pt_Pemberi_Corporate_Guarantee_Tambahan"
                 value='{{$corporate->No_Telp_Pt_Pemberi_Corporate_Guarantee_Tambahan}}' style="width: 300px; height: 30px;"
                 class="form-control" cols="30" rows="10" />
-            @error('No_Telp_Pt_Pemberi_Corporate_Guarantee')
+            @error('No_Telp_Pt_Pemberi_Corporate_Guarantee_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -91,7 +91,7 @@ Edit
         <div class="col-sm-8">
             <input type="text" name="Status_Tambahan" value='{{$corporate->Status_Tambahan}}' class="form-control"
                 style="width: 300px; height: 30px;">
-            @error('Status')
+            @error('Status_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>

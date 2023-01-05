@@ -42,6 +42,11 @@ class Partner extends Model
         'Nilai_Assuransi_Rupiah',
         'Status',
     ];
+
+    public function master_product()
+    {
+        return $this->belongsTo(Master_Product::class, 'DETIL_PRODUCT_PROFILE');
+    }
     
     public function product()
     {
@@ -63,10 +68,22 @@ class Partner extends Model
         return $this->hasManyThrough(Collateral_Rumah::class, Product::class, 'product_id', 'PARTNER_ID');
     }
 
+    public function rumah_tbh_colls()
+    {
+        return $this->hasManyThrough(Collateral_Rumah_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
+    }
+
     public function inven_colls()
     {
         return $this->hasManyThrough(Collateral_Inventory::class, Product::class, 'product_id', 'PARTNER_ID');
     }
+
+    public function inven_tbh_colls()
+    {
+        return $this->hasManyThrough(Collateral_Inventory_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
+    }
+
+
 
     public function product_colls_mobil()
     {
@@ -91,11 +108,6 @@ class Partner extends Model
     public function corporate_colls_tambahan()
     {
         return $this->hasManyThrough(Collateral_Corporate_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
-    }
-
-    public function master_product()
-    {
-        return $this->belongsTo(Master_Product::class, 'DETIL_PRODUCT_PROFILE');
     }
 
 

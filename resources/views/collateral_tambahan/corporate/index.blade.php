@@ -49,7 +49,7 @@ Home
                 </tr>
             </thead>
             <tbody>
-                @foreach ($corporate as $item)
+                @foreach ($corporatetbh as $item)
                 <tr>
                     <td class="text-center">{{ $loop->iteration }}</td>
                     @if (auth()->user()->level == "Admin")
