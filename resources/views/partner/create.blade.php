@@ -314,7 +314,7 @@ Add
             @enderror
         </div>
     </div>
-    <div class="row pb-3">
+    {{-- <div class="row pb-3">
         <div class="col-sm-4"><label>Jenis Asuransi<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <input type="text" name="Jenis_Assuransi" class="form-control" style="width: 300px; height: 30px;">
@@ -349,7 +349,7 @@ Add
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
-    </div>
+    </div> --}}
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">

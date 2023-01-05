@@ -65,10 +65,6 @@ Home
                     <th>Draft Template Agree End User</th>
                     <th>Contoh Risk Acceptance Criteria</th>
                     <th>NDA Document</th>
-                    <th>Jenis Asuransi</th>
-                    <th>Nama Perusahaan Asuransi</th>
-                    <th>Persen Asuransi</th>
-                    <th>Nilai Asuransi Rupiah</th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -115,10 +111,6 @@ Home
                     <td>{{ $item->DRAFT_TEMPLATE_AGREEMENT_END_USER }}</td>
                     <td>{{ $item->CONTOH_RISK_ACCEPTANCE_CRITERIA }}</td>
                     <td>{{ $item->NDA_DOCUMENT }}</td>
-                    <td>{{ $item->Jenis_Assuransi }}</td>
-                    <td>{{ $item->Nama_Perusahaan_Assuransi }}</td>
-                    <td>{{ $item->Persen_Assuransi }}</td>
-                    <td>{{ $item->Nilai_Assuransi_Rupiah }}</td>
                     <td>{{ $item->Status }}</td>
                 </tr>
                 @endforeach

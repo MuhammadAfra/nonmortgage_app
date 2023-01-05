@@ -14,6 +14,7 @@ use App\Http\Controllers\MasterProductController;
 use App\Http\Controllers\MasterSektorEkonomiController;
 use App\Http\Controllers\MasterSkemaPembiayaanController;
 use App\Http\Controllers\MasterSukuBungaController;
+use App\Http\Controllers\MasterAsuransiController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -54,7 +55,7 @@ Route::get('/dw_mdl_diri/{MODAL_PENDIRIAN}', [PartnerController::class, 'downloa
 Route::group(['middleware' => ['PreventBack']], function(){
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::group(['middleware' => ['auth', 'cekLevel:Admin']], function(){
-        // master suku bunga
+        // master parameterize
         Route::resource('master_suku_bunga', MasterSukuBungaController::class);
         Route::resource('master_product', MasterProductController::class);
         Route::resource('master_pola_pembayaran', MasterPolaPembayaranController::class);
@@ -62,6 +63,7 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::resource('master_jenis_product', MasterJenisProductController::class);
         Route::resource('master_jenis_pembiayaan', MasterJenisPembiayaanController::class);
         Route::resource('master_skema_pembiayaan', MasterSkemaPembiayaanController::class);
+        Route::resource('master_asuransi', MasterAsuransiController::class);
         // product
         Route::resource('product', ProductController::class);
         Route::get('/upload_product', [ProductController::class, 'upload'])->name('upload_product');
@@ -98,7 +100,7 @@ Route::group(['middleware' => ['PreventBack']], function(){
     });
     
     Route::group(['middleware' => ['auth', 'cekLevel:User']], function(){
-        // master suku bunga
+        // master parameterize
         Route::get('/suku_bunga', [MasterSukuBungaController::class, 'index'])->name('suku_bunga');
         Route::get('/masterProduct', [MasterProductController::class, 'index'])->name('masterProduct');
         Route::get('/pola_pembayaran', [MasterPolaPembayaranController::class, 'index'])->name('pola_pembayaran');
@@ -106,6 +108,7 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::get('/jenis_product', [MasterJenisProductController::class, 'index'])->name('jenis_product');
         Route::get('/jenis_pembiayaan', [MasterJenisPembiayaanController::class, 'index'])->name('jenis_pembiayaan');
         Route::get('/skema_pembiayaan', [MasterSkemaPembiayaanController::class, 'index'])->name('skema_pembiayaan');
+        Route::get('/asuransi', [MasterAsuransiController::class, 'index'])->name('asuransi');
         // product
         Route::get('/index_product', [ProductController::class, 'index'])->name('index_product');
         // debitur
