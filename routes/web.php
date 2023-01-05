@@ -96,7 +96,7 @@ Route::group(['middleware' => ['PreventBack']], function(){
         // collateral utama - mobil
         Route::resource('collateral_mobil', CollateralMobilController::class);
 
-        // collateral utama - invoice
+        // collateral invoice
         Route::resource('collateral_invoice', CollateralInvoiceController::class);
         Route::resource('collateral_invoice_tambahan', CollateralInvoiceTambahanController::class);
 

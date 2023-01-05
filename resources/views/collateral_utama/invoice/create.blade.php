@@ -60,7 +60,7 @@ Add
         <div class="col-sm-4"><label>Atas Nama Invoice<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <input type="text" name="Atas_Nama_Invoice" class="form-control" style="width: 300px; height: 30px;">
-            @error('Type')
+            @error('Atas_Nama_Invoice')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
