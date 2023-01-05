@@ -75,6 +75,11 @@ class Debitur extends Model
     {
         return $this->hasManyThrough(Collateral_Corporate_Tambahan::class, Product::class, 'debitur_id', 'DEBITUR_ID');
     }
+
+    public function invoice_tbh_colls()
+    {
+        return $this->hasManyThrough(Collateral_Invoice_Tambahan::class, Product::class, 'debitur_id', 'DEBITUR_ID');
+    }
     
     public function product_colls_mobil()
     {
