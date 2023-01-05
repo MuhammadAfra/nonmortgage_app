@@ -22,6 +22,7 @@ use App\Http\Controllers\MasterPolaPembayaranController;
 use App\Http\Controllers\MasterJenisPembiayaanController;
 use App\Http\Controllers\MasterSkemaPembiayaanController;
 use App\Http\Controllers\CollateralRumahTambahanController;
+use App\Http\Controllers\CollateralInvoiceTambahanController;
 use App\Http\Controllers\CollateralCorporateTambahanController;
 use App\Http\Controllers\CollateralInventoryTambahanController;
 
@@ -97,6 +98,7 @@ Route::group(['middleware' => ['PreventBack']], function(){
 
         // collateral utama - invoice
         Route::resource('collateral_invoice', CollateralInvoiceController::class);
+        Route::resource('collateral_invoice_tambahan', CollateralInvoiceTambahanController::class);
 
         // collateral corporate
         Route::resource('collateral_corporate', CollateralCorporateController::class);

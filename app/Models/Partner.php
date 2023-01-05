@@ -78,6 +78,11 @@ class Partner extends Model
         return $this->hasManyThrough(Collateral_Corporate_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
     }
 
+    public function invoice_tbh_colls()
+    {
+        return $this->hasManyThrough(Collateral_Invoice_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
+    }
+
     public function master_product()
     {
         return $this->belongsTo(Master_Product::class, 'DETIL_PRODUCT_PROFILE');

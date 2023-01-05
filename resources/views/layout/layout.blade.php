@@ -215,7 +215,7 @@
                                             <a href="{{ url('collateral_inven_tambahan') }}" class="nav-link">4. Inventori</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">5. Invoice</a>
+                                            <a href="{{ url('collateral_invoice_tambahan') }}" class="nav-link">5. Invoice</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ url('collateral_corporate_tambahan') }}" class="nav-link">6. Corporate Guarantee</a>
