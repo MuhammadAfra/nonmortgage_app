@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('content')
 @section('title')
-Collateral Utama - Corporate Guarantee
+Collateral Tambahan - Corporate Guarantee
 @endsection
 
 @section('subtitle')
@@ -10,11 +10,11 @@ Home
 
 @if (auth()->user()->level == "Admin")
 @section('page')
-<a href="{{ url('collateral_corporate') }}">Collateral Utama - Corporate Guarantee</a>
+<a href="{{ url('collateral_corporate') }}">Collateral Tambahan - Corporate Guarantee</a>
 @endsection
 @elseif(auth()->user()->level == "User")
 @section('page')
-<a href="#">Collateral Utama - Corporate Guarantee</a>
+<a href="#">Collateral Tambahan - Corporate Guarantee</a>
 @endsection
 @endif
 
@@ -22,7 +22,7 @@ Home
 
 @if (auth()->user()->level == "Admin")
 <div class="d-flex pb-3">
-    <a href="{{ url('collateral_corporate/create') }}" class="btn btn-success my-2">Create New</a>
+    <a href="{{ url('collateral_corporate_tambahan/create') }}" class="btn btn-success my-2">Create New</a>
 </div>
 @endif
 <div class="card">
@@ -49,17 +49,17 @@ Home
                 </tr>
             </thead>
             <tbody>
-                @foreach ($corporate as $item)
+                @foreach ($corporatetbh as $item)
                 <tr>
                     <td class="text-center">{{ $loop->iteration }}</td>
                     @if (auth()->user()->level == "Admin")
                     <td class="d-flex" style="justify-content: center">
-                        <div><a href="{{ url('collateral_corporate/'.$item->id.'/edit') }}"
+                        <div><a href="{{ url('collateral_corporate_tambahan/'.$item->id.'/edit') }}"
                                 class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
-                        <div><a href="{{ url('collateral_corporate/'.$item->id) }}"
+                        <div><a href="{{ url('collateral_corporate_tambahan/'.$item->id) }}"
                                 class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
                         <div>
-                            <form action="{{ url('collateral_corporate',$item->id) }}" method="POST">
+                            <form action="{{ url('collateral_corporate_tambahan',$item->id) }}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger btn-sm text-white"><i
@@ -70,12 +70,12 @@ Home
                     @endif
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
-                    <td>{{ $item->Counter_Corporate_Guarantee }}</td>
-                    <td>{{ $item->Nilai_Corporate_Guarantee }}</td>
-                    <td>{{ $item->Nama_Pt_Penerima_Corporate_Guarantee }}</td>
-                    <td>{{ $item->Nama_Pt_Pemberi_Corporate_Guarantee }}</td>
-                    <td>{{ $item->No_Telp_Pt_Pemberi_Corporate_Guarantee }}</td>
-                    <td>{{ $item->Status }}</td>
+                    <td>{{ $item->Counter_Corporate_Guarantee_Tambahan }}</td>
+                    <td>{{ $item->Nilai_Corporate_Guarantee_Tambahan }}</td>
+                    <td>{{ $item->Nama_Pt_Penerima_Corporate_Guarantee_Tambahan }}</td>
+                    <td>{{ $item->Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan }}</td>
+                    <td>{{ $item->No_Telp_Pt_Pemberi_Corporate_Guarantee_Tambahan }}</td>
+                    <td>{{ $item->Status_Tambahan }}</td>
                 </tr>
                 @endforeach
             </tbody>

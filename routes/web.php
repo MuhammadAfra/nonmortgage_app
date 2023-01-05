@@ -21,6 +21,9 @@ use App\Http\Controllers\MasterSektorEkonomiController;
 use App\Http\Controllers\MasterPolaPembayaranController;
 use App\Http\Controllers\MasterJenisPembiayaanController;
 use App\Http\Controllers\MasterSkemaPembiayaanController;
+use App\Http\Controllers\CollateralRumahTambahanController;
+use App\Http\Controllers\CollateralCorporateTambahanController;
+use App\Http\Controllers\CollateralInventoryTambahanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,7 +72,7 @@ Route::group(['middleware' => ['PreventBack']], function(){
 
         // product
         Route::resource('product', ProductController::class);
-
+        Route::post('/product_import', [ProductController::class, 'import'])->name('product_import');
         // debitur
         Route::resource('debitur', DebiturController::class);
         Route::post('/debitur_import', [DebiturController::class, 'import'])->name('debitur_import');
@@ -81,20 +84,23 @@ Route::group(['middleware' => ['PreventBack']], function(){
         // collateral utama - motor
         Route::resource('collateral_motor', CollateralMotorController::class);
 
-        // collateral utama - inven
+        // collateral inven
         Route::resource('collateral_inven', CollateralInventoryController::class);
+        Route::resource('collateral_inven_tambahan', CollateralInventoryTambahanController::class);
 
-        // collateral utama - rumah
+        // collateral rumah
         Route::resource('collateral_rumah', CollateralRumahController::class);
-
+        Route::resource('collateral_rumah_tambahan', CollateralRumahTambahanController::class);
+        
         // collateral utama - mobil
         Route::resource('collateral_mobil', CollateralMobilController::class);
 
         // collateral utama - invoice
         Route::resource('collateral_invoice', CollateralInvoiceController::class);
 
-        // collateral utama - corporate
+        // collateral corporate
         Route::resource('collateral_corporate', CollateralCorporateController::class);
+        Route::resource('collateral_corporate_tambahan', CollateralCorporateTambahanController::class);
 
         // user management
         Route::resource('users', UserController::class);

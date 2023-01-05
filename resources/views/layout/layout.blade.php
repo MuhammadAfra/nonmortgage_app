@@ -209,16 +209,16 @@
                                             <a href="#" class="nav-link">2. Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">3. Rumah / Tanah</a>
+                                            <a href="{{ url('collateral_rumah_tambahan') }}" class="nav-link">3. Rumah / Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">4. Inventori</a>
+                                            <a href="{{ url('collateral_inven_tambahan') }}" class="nav-link">4. Inventori</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="#" class="nav-link">5. Invoice</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">6. Corporate Guarantee</a>
+                                            <a href="{{ url('collateral_corporate_tambahan') }}" class="nav-link">6. Corporate Guarantee</a>
                                         </li>
                                     </ul>
                                 </li>

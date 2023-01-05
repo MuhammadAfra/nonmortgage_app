@@ -58,9 +58,24 @@ class Partner extends Model
         return $this->hasManyThrough(Collateral_Rumah::class, Product::class, 'product_id', 'PARTNER_ID');
     }
 
+    public function rumah_tbh_colls()
+    {
+        return $this->hasManyThrough(Collateral_Rumah_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
+    }
+
     public function inven_colls()
     {
         return $this->hasManyThrough(Collateral_Inventory::class, Product::class, 'product_id', 'PARTNER_ID');
+    }
+
+    public function inven_tbh_colls()
+    {
+        return $this->hasManyThrough(Collateral_Inventory_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
+    }
+
+    public function corporate_tbh_colls()
+    {
+        return $this->hasManyThrough(Collateral_Corporate_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
     }
 
     public function master_product()
