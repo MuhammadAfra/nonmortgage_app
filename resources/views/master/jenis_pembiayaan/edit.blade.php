@@ -27,7 +27,7 @@
         <div class="row pb-3">
             <div class="col-sm-4"><label>Kovensional / Syariah <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                <select name="id_product" class="form-control py-0" style="width: 300px; height: 30px;"">
+                <select name="id_product" class="form-control py-0" style="width: 300px; height: 30px;">
                     <option value="{{ $jenisPembiayaan->id_product }}">{{ $jenisPembiayaan->jenis_product->id }} - {{ $jenisPembiayaan->jenis_product->Product }}</option>
                     @foreach ($jenisProduct as $item)
                         <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->Product }}</option>

@@ -47,7 +47,7 @@
         <div class="row pb-3">
             <div class="col-sm-4"></div>
             <div class="col-sm-8">
-                <button class="btn btn-primary text-white" type="submit">Edit</button>
+                <button class="btn btn-warning text-white" type="submit">Edit</button>
                 <a href="{{ url('master_suku_bunga') }}" class="btn btn-default">Cancel</a>
             </div>
         </div>
