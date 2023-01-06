@@ -28,7 +28,7 @@
             <div class="col-sm-4"><label>Jenis Pembiayaan <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
                 <select name="id_jenis_pembiayaan" class="form-control py-0" style="width: 300px; height: 30px;"">
-                    <option value="{{ $skemaPembiayaan->id_jenis_pembiayaan }}">{{ $skemaPembiayaan->jenis->jenis_pembiayaan }} - {{ $skemaPembiayaan->jenis->jenis_product->Product }}</option>
+                    <option selected value="{{ $skemaPembiayaan->id_jenis_pembiayaan }}">{{ $skemaPembiayaan->jenis->jenis_pembiayaan }} - {{ $skemaPembiayaan->jenis->jenis_product->Product }}</option>
                     @foreach ($jp as $item)
                         <option value="{{ $item->id }}">{{ $item->jenis_pembiayaan }} - {{ $item->jenis_product->Product }}</option>
                     @endforeach

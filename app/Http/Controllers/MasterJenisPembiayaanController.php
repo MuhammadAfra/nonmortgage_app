@@ -41,6 +41,9 @@ class MasterJenisPembiayaanController extends Controller
         $this->validate($request, [
             'jenis_pembiayaan' => 'required',
             'id_product' => 'required'
+        ],[
+            'jenis_pembiayaan' => 'Input Jenis Pembiayaan!',
+            'id_product' => 'Input Id Product!'
         ]);
 
         Master_Jenis_Pembiayaan::create([
@@ -88,6 +91,9 @@ class MasterJenisPembiayaanController extends Controller
         $this->validate($request, [
             'jenis_pembiayaan' => 'required',
             'id_product' => 'required'
+        ],[
+            'jenis_pembiayaan' => 'Input Jenis Pembiayaan!',
+            'id_product' => 'Input Id Product!'
         ]);
 
         $jenisPembiayaan = Master_Jenis_Pembiayaan::findorfail($id);

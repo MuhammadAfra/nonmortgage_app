@@ -41,7 +41,7 @@ Home
                     <th>Sandi Turunan</th>
                     <th>Label</th>
                     <th>Sandi Utama</th>
-                    <th>Sandi Turunan</th>
+                    <th>Label Utama</th>
                 </tr>
             </thead>
             <tbody>

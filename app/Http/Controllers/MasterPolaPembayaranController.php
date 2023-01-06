@@ -41,7 +41,7 @@ class MasterPolaPembayaranController extends Controller
             'Nilai_Pola_Pembayaran' => 'required',
         ],[
             'Pola_Pembayaran' => 'Input Pola Pembayaran!',
-            'Nilai_Pola_Pembayaran' => 'Input Nilai Pola Pembayaran1',
+            'Nilai_Pola_Pembayaran' => 'Input Nilai Pola Pembayaran!',
         ]);
 
         Master_Pola_Pembayaran::create([
@@ -90,7 +90,7 @@ class MasterPolaPembayaranController extends Controller
             'Nilai_Pola_Pembayaran' => 'required',
         ],[
             'Pola_Pembayaran' => 'Input Pola Pembayaran!',
-            'Nilai_Pola_Pembayaran' => 'Input Nilai Pola Pembayaran1',
+            'Nilai_Pola_Pembayaran' => 'Input Nilai Pola Pembayaran!',
         ]);
 
         $polaPembayaran = Master_Pola_Pembayaran::findorfail($id);

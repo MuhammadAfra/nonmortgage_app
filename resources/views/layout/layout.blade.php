@@ -83,6 +83,7 @@
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="/dashboard" class="nav-link {{ 'dashboard' == request()->path() ? 'active' : '' }}">
+                                <i class="fas fa-tachometer"></i>                                
                                 <p>
                                     Dashboard
                                 </p>
@@ -90,6 +91,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-database"></i>
                                 <p>
                                     Master
                                     <i class="fas fa-angle-left right"></i>
@@ -429,7 +431,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">@yield('title') <span style="color: #959595; font-size: 20px">@yield('subtitle')</span></h1>
+                            <h1 class="m-0">@yield('title')</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
