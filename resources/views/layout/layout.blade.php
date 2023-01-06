@@ -488,7 +488,7 @@
     $(function () {
         $("#example1").DataTable({
         "responsive": false, "lengthChange": false, "autoWidth": false,
-        "buttons": ["excel", "pdf"],
+        "buttons": [],
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         $('#example2').DataTable({
         "paging": true,
@@ -504,7 +504,7 @@
     $(function () {
         $("#user").DataTable({
         "responsive": false, "lengthChange": false, "autoWidth": false,
-        "buttons": ["excel", "pdf"]
+        "buttons": []
         }).buttons().container().appendTo('#user_wrapper .col-md-6:eq(0)');
         $('#example2').DataTable({
         "paging": true,
