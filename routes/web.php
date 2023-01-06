@@ -74,8 +74,8 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::resource('master_jenis_product', MasterJenisProductController::class);
         Route::resource('master_jenis_pembiayaan', MasterJenisPembiayaanController::class);
         Route::resource('master_skema_pembiayaan', MasterSkemaPembiayaanController::class);
-        Route::resource('master_jenis_asuransi', MasterAsuransiController::class);
-
+        Route::resource('master_asuransi', MasterAsuransiController::class);
+        
         // product
         Route::resource('product', ProductController::class);
         Route::post('/product_import', [ProductController::class, 'import'])->name('product_import');
@@ -92,7 +92,7 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::resource('collateral_motor', CollateralMotorController::class);
         Route::resource('collateral_motor_tambahan', CollateralMotorTambahanController::class);
 
-        // collateral inven
+        // collateral inventory
         Route::resource('collateral_inven', CollateralInventoryController::class);
         Route::resource('collateral_inven_tambahan', CollateralInventoryTambahanController::class);
 
@@ -100,7 +100,7 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::resource('collateral_rumah', CollateralRumahController::class);
         Route::resource('collateral_rumah_tambahan', CollateralRumahTambahanController::class);
         
-        // collateral utama - mobil
+        // collateral  mobil
         Route::resource('collateral_mobil', CollateralMobilController::class);
         Route::resource('collateral_mobil_tambahan', CollateralMobilTambahanController::class);
 

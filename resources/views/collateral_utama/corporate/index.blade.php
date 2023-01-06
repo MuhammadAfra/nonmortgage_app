@@ -71,7 +71,7 @@ Home
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->Counter_Corporate_Guarantee }}</td>
-                    <td>{{ $item->Nilai_Corporate_Guarantee }}</td>
+                    <td>{{ number_format($item->Nilai_Corporate_Guarantee) }}</td>
                     <td>{{ $item->Nama_Pt_Penerima_Corporate_Guarantee }}</td>
                     <td>{{ $item->Nama_Pt_Pemberi_Corporate_Guarantee }}</td>
                     <td>{{ $item->No_Telp_Pt_Pemberi_Corporate_Guarantee }}</td>

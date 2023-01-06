@@ -39,9 +39,9 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Kendaraan Bermobil<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Nilai Kendaraan Bermobil (Rp)<span class="text-danger">*</span></div>
         <div class="col-sm-8">
-            <input type="number" name="Nilai_Mobil_Vehicle" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Nilai_Mobil_Vehicle" class="form-control number-separator" style="width: 300px; height: 30px;">
             @error('Nilai_Mobil_Vehicle')
             <p class="text-danger">{{ $message }}</p>
             @enderror

@@ -75,12 +75,12 @@ Home
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->Counter_Invoice}}</td>
-                    <td>{{ $item->Nilai_Invoice}}</td>
+                    <td>{{ number_format($item->Nilai_Invoice) }}</td>
                     <td>{{ $item->Jenis_Invoice}}</td>
                     <td>{{ $item->Atas_Nama_Invoice}}</td>
                     <td>{{ $item->Alamat_Nama_Invoice}}</td>
                     <td>{{ $item->No_Fiducia}}</td>
-                    <td>{{ $item->Nilai_Fiducia}}</td>
+                    <td>{{ number_format($item->Nilai_Fiducia) }}</td>
                     <td>{{ $item->Tgl_Fiducia}}</td>
                     <td>{{ $item->Tgl_Jatuh_Tempo}}</td>
                     <td>{{ $item->Status}}</td>

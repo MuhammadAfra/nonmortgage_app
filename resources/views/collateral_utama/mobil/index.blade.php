@@ -80,7 +80,7 @@ Home
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->Counter_Mobil }}</td>
-                    <td>{{ $item->Nilai_Mobil_Vehicle }}</td>
+                    <td>{{ number_format($item->Nilai_Mobil_Vehicle) }}</td>
                     <td>{{ $item->Merk }}</td>
                     <td>{{ $item->Type }}</td>
                     <td>{{ $item->Model }}</td>

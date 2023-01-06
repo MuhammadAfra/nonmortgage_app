@@ -181,10 +181,10 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">1. Kendaraan Bermotor</a>
+                                            <a href="{{ url('collateral_motor') }}" class="nav-link">1. Kendaraan Bermotor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">2. Kendaraan Bermobil</a>
+                                            <a href="{{ url('collateral_mobil') }}" class="nav-link">2. Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ url('collateral_rumah') }}" class="nav-link">3. Rumah / Tanah</a>
@@ -320,7 +320,7 @@
                             <a href="{{ url('/index_product') }}" class="nav-link {{ '/index_product' == request()->path() ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-handshake"></i>
                                 <p>
-                                    Productttt
+                                    Product
                                 </p>
                             </a>
                         </li>
@@ -328,7 +328,7 @@
                             <a href="#" class="nav-link">
                                 <i class="fas fa-handshake"></i>
                                 <p>
-                                    Collateral
+                                    &nbsp;&nbsp;Collateral
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>

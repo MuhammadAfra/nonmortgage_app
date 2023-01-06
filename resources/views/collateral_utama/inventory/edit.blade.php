@@ -40,9 +40,9 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Inv<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Nilai Inv (Rp)<span class="text-danger">*</span></div>
         <div class="col-sm-8">
-            <input type="number" name="Nilai_Inv" value="{{ $inven->Nilai_Inv }}" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Nilai_Inv" value="{{ $inven->Nilai_Inv }}" class="form-control number-separator" style="width: 300px; height: 30px;">
             @error('Nilai_Inv')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -67,9 +67,9 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Inventory<span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nilai Inventory (Rp)<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Inventory" value="{{ $inven->Nilai_Inventory }}" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Nilai_Inventory" value="{{ $inven->Nilai_Inventory }}" class="form-control number-separator" style="width: 300px; height: 30px;">
             @error('Nilai_Inventory')
             <p class="text-danger">{{ $message }}</p>
             @enderror

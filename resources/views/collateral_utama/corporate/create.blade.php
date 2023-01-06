@@ -40,9 +40,9 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Corporate Guarantee<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Nilai Corporate Guarantee (Rp)<span class="text-danger">*</span></div>
         <div class="col-sm-8">
-            <input type="number" name="Nilai_Corporate_Guarantee" class="form-control"
+            <input type="text" name="Nilai_Corporate_Guarantee" class="form-control number-separator"
                 style="width: 300px; height: 30px;">
             @error('Nilai_Corporate_Guarantee')
             <p class="text-danger">{{ $message }}</p>

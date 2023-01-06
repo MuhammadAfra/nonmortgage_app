@@ -71,10 +71,10 @@ Home
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->Counter_Inventory }}</td>
-                    <td>{{ $item->Nilai_Inv }}</td>
+                    <td>{{ number_format($item->Nilai_Inv) }}</td>
                     <td>{{ $item->Nama_Inventory }}</td>
                     <td>{{ $item->Besar_Inventory }}</td>
-                    <td>{{ $item->Nilai_Inventory }}</td>
+                    <td>{{ number_format($item->Nilai_Inventory) }}</td>
                     <td>{{ $item->Alamat_Inventory }}</td>
                     <td>{{ $item->Atas_Nama_Inventory }}</td>
                     <td>{{ $item->Alamat_Atas_Nama_Inventory }}</td>

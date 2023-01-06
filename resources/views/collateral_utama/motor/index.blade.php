@@ -45,9 +45,8 @@ Home
                     <th>Merk</th>
                     <th>Type</th>
                     <th>Model</th>
-                    <th>Jenis Motor</th>
+                    <th>Jenis Motor Sport/Listrik</th>
                     <th>Nama di BKPB</th>
-                    {{-- <th>Alamat di BKPB</th> --}}
                     <th>No Frame</th>
                     <th>No Engine</th>
                     <th>No Polisi</th>
@@ -77,7 +76,7 @@ Home
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->Counter_Motor }}</td>
-                    <td>{{ $item->Nilai_Motor_Vehicle }}</td>
+                    <td>{{ number_format($item->Nilai_Motor_Vehicle) }}</td>
                     <td>{{ $item->Merk }}</td>
                     <td>{{ $item->Type }}</td>
                     <td>{{ $item->Model }}</td>
