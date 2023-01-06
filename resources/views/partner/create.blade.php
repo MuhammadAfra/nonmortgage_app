@@ -83,7 +83,7 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Detail Product File <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Detail Product<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <div class="input-group" style="width: 300px; height: 38px;">
                 <select class="custom-select" name="DETIL_PRODUCT_PROFILE">
@@ -158,7 +158,7 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nomor HP Direktur Utama <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nomor Identitas Direktur Utama <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <input type="number" name="No_Identitas_Direktur_Utama" class="form-control"
                 style="width: 300px; height: 30px;">
@@ -177,7 +177,7 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nomor HP Direktur 1 <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nomor Identitas Direktur 1 <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <input type="number" name="No_Identitas_Direktur1" class="form-control" style="width: 300px; height: 30px;">
             @error('No_Identitas_Direktur1')
@@ -195,7 +195,7 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nomor HP Direktur 2 <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nomor Identitas Direktur 2 <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <input type="number" name="No_Identitas_Direktur2" class="form-control" style="width: 300px; height: 30px;">
             @error('No_Identitas_Direktur2')
@@ -314,7 +314,7 @@ Add
             @enderror
         </div>
     </div>
-    <div class="row pb-3">
+    {{-- <div class="row pb-3">
         <div class="col-sm-4"><label>Jenis Asuransi<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <input type="text" name="Jenis_Assuransi" class="form-control" style="width: 300px; height: 30px;">
@@ -349,13 +349,18 @@ Add
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
-    </div>
+    </div> --}}
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Status" class="form-control" style="width: 300px; height: 30px;">
+            <select name="Status" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option>-----</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Reject">Reject</option>
+            </select>
             @error('Status')
-            <p class="text-danger">{{ $message }}</p>
+                <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>

@@ -59,7 +59,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->Nama_Direktur_Utama }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nomor Direktur Utama</label></div>
+            <div class="col-sm-4"><label>Nomor Identitas Direktur Utama</label></div>
             <div class="col-sm-8">: {{ $partner->No_Identitas_Direktur_Utama }}</div>
         </div>
         <div class="row pb-3">
@@ -67,7 +67,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->Nama_Direktur1 }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nomor Direktur 1</label></div>
+            <div class="col-sm-4"><label>Nomor Identitas Direktur 1</label></div>
             <div class="col-sm-8">: {{ $partner->No_Identitas_Direktur1 }}</div>
         </div>
         <div class="row pb-3">
@@ -75,7 +75,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->Nama_Direktur_2 }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nomor Direktur 2</label></div>
+            <div class="col-sm-4"><label>Nomor Identitas Direktur 2</label></div>
             <div class="col-sm-8">: {{ $partner->No_Identitas_Direktur2 }}</div>
         </div>
         <div class="row pb-3">
@@ -114,7 +114,7 @@ Detail
             <div class="col-sm-4"><label>NDA Document <br> <a href="{{ url('/dw_nda', $partner->NDA_DOCUMENT) }}">Download File</a></label></div>
             <div class="col-sm-8">: {{ $partner->NDA_DOCUMENT }}</div>
         </div>
-        <div class="row pb-3">
+        {{-- <div class="row pb-3">
             <div class="col-sm-4"><label>Jenis Asuransi</label></div>
             <div class="col-sm-8">: {{ $partner->Jenis_Assuransi }}</div>
         </div>
@@ -129,7 +129,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Assuransi Rupiah</label></div>
             <div class="col-sm-8">: {{ $partner->Nilai_Assuransi_Rupiah }}</div>
-        </div>
+        </div> --}}
         <div class="row pb-3">
             <div class="col-sm-4"><label>Status</label></div>
             <div class="col-sm-8">: {{ $partner->Status }}</div>

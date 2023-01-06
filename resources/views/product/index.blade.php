@@ -24,7 +24,7 @@ Home
 <div class="d-flex pb-3">
     <a href="{{ url('product/create') }}" class="btn btn-success my-2 mx-2">Create New</a>
     <button type="button" class="btn btn-primary btn-md my-2" style="height: 38px" type="button" data-toggle="modal"
-    data-target="#impormodal">Impor Data</button>
+    data-target="#impormodal">Import Data</button>
 </div>
 @endif
 
@@ -44,15 +44,15 @@ Home
                     <th>Partner</th>
                     <th>Debitur</th>
                     <th>Jenis Product</th>
-                    <th>Nilai Pembiayaan Pokok Maximum</th>
-                    <th>Suku Bunga Flat</th>
-                    <th>Suku Bunga Effective</th>
-                    <th>Jangka Waktu Maximum</th>
+                    <th>Nilai Pembiayaan/Pokok Maximum </th>
+                    <th>Suku Bunga Flat(%)</th>
+                    <th>Suku Bunga Effective(%)</th>
+                    <th>Jangka Waktu Maximum (Bulan)</th>
                     <th>Pola Pembayaran</th>
-                    <th>Biaya Administrasi</th>
-                    <th>Biaya Asuransi</th>
-                    <th>Biaya Provinsi</th>
-                    <th>Biaya Lain Lain</th>
+                    <th>Biaya Administrasi </th>
+                    <th>Biaya Asuransi </th>
+                    <th>Biaya Provisi </th>
+                    <th>Biaya Lain Lain     </th>
                     {{-- <th>File</th> --}}
                 </tr>
             </thead>
@@ -76,15 +76,15 @@ Home
                     <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->m_product->id_master_product }} - {{ $item->m_product->nama_product }}</td>
-                    <td>{{ $item->NILAI_PEMBIAYAAN_POKOK_MAXIMUM }}</td>
+                    <td>Rp{{ number_format($item->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}</td>
                     <td>{{ $item->SUKU_BUNGA_FLAT }}</td>
                     <td>{{ $item->SUKU_BUNGA_EFFECTIVE }}</td>
                     <td>{{ $item->Jangka_Waktu_Maximum }}</td>
                     <td>{{ $item->pola_pembayaran->Pola_Pembayaran }}</td>
-                    <td>{{ $item->BIAYA_ADMINISTRASI }}</td>
-                    <td>{{ $item->BIAYA_ASSURANSI }}</td>
-                    <td>{{ $item->BIAYA_PROVISI }}</td>
-                    <td>{{ $item->BIAYA_LAIN_LAIN }}</td>
+                    <td>Rp{{ number_format($item->BIAYA_ADMINISTRASI) }}</td>
+                    <td>Rp{{ number_format($item->BIAYA_ASSURANSI) }}</td>
+                    <td>Rp{{ number_format($item->BIAYA_PROVISI) }}</td>
+                    <td>Rp{{ number_format($item->BIAYA_LAIN_LAIN) }}</td>
                 </tr>
                 @endforeach
             </tbody>
@@ -97,7 +97,7 @@ Home
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="impormodalLabel">Impor Data From Excel</h5>
+                <h5 class="modal-title" id="impormodalLabel">Import Data From Excel</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

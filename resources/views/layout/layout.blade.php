@@ -131,6 +131,11 @@
                                         <p>Master Skema Pembiayaan</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('master_asuransi') }}" class="nav-link {{ 'master_asuransi' == request()->path() ? 'active' : '' }}">
+                                        <p>Master Asuransi</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -143,6 +148,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('debitur') }}" class="nav-link {{ 'debitur' == request()->path() ? 'active' : '' }}">
+                            {{-- <a href="{{ url('debitur') }}" class="nav-link {{ 'debitur' == request()->path() ? 'active' : '' }}"> --}}
                                 <i class="nav-icon fas fa-handshake"></i>
                                 <p>
                                     Debitur
@@ -175,10 +181,10 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_motor') }}" class="nav-link">1. Kendaraan Bermotor</a>
+                                            <a href="#" class="nav-link">1. Kendaraan Bermotor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_mobil') }}" class="nav-link">2. Kendaraan Bermobil</a>
+                                            <a href="#" class="nav-link">2. Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ url('collateral_rumah') }}" class="nav-link">3. Rumah / Tanah</a>
@@ -287,6 +293,11 @@
                                         <p>Master Skema Pembiayaan</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('/asuransi') }}" class="nav-link {{ '/asuransi' == request()->path() ? 'active' : '' }}">
+                                        <p>Master Asuransi</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -309,7 +320,7 @@
                             <a href="{{ url('/index_product') }}" class="nav-link {{ '/index_product' == request()->path() ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-handshake"></i>
                                 <p>
-                                    Product
+                                    Productttt
                                 </p>
                             </a>
                         </li>
@@ -445,6 +456,7 @@
     <script src="{{ asset('Template/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('Template/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('Template/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+    <script src="{{ asset('Template/plugins/separator-number/js/number-separator.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('Template/dist/js/adminlte.min.js') }}"></script>
     <!-- Page specific script -->
