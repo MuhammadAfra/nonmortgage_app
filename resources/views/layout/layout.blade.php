@@ -148,6 +148,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-handshake"></i>
                                 <p>
                                     Debitur
                                     <i class="fas fa-angle-left right"></i>
@@ -156,13 +157,13 @@
                             <ul class="nav nav-treeview ml-1">
                                 <li class="nav-item">
                                     <a href="{{ url('debitur') }}" class="nav-link {{ 'debitur' == request()->path() ? 'active' : '' }}">
-                                        <i class="nav-icon fas fa-handshake"></i>
+                                        &nbsp;&nbsp;<i class="nav-icon fas fa-handshake"></i>
                                         <p>Perorangan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ url('debitur_badan_usaha') }}" class="nav-link {{ 'debitur_badan_usaha' == request()->path() ? 'active' : '' }}">
-                                        <i class="nav-icon fas fa-handshake"></i>
+                                        &nbsp;&nbsp;<i class="nav-icon fas fa-handshake"></i>
                                         <p>Badan Usaha</p>
                                     </a>
                                 </li>
