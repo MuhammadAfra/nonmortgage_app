@@ -8,8 +8,9 @@ use App\Models\Product;
 use App\Models\Master_Product;
 use App\Models\Master_Pola_Pembayaran;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class ProductImport implements ToModel
+class ProductImport implements ToModel, WithHeadingRow
 {
     private $partner;
     private $debitur;
@@ -29,24 +30,27 @@ class ProductImport implements ToModel
     */
     public function model(array $row)
     {
-        $partner = $this->partner->where('NAMA_PERUSAHAAN', $row[2])->first();
-        $debitur =  $this->debitur->where('NAMA_DEBITUR', $row[3])->first();
-        $mproduct = $this->mproduct->where('nama_product', $row[4])->first();
-        $pola =$this->pola->where('Pola_Pembayaran', $row[9])->first();
-        // dd($row);
+        $partner = $this->partner->where('NAMA_PERUSAHAAN', $row['partner'])->first();
+        $debitur =  $this->debitur->where('NAMA_DEBITUR', $row['debitur'])->first();
+        $mproduct = $this->mproduct->where('nama_product', $row['jenis_produk'])->first();
+        $pola =$this->pola->where('Pola_Pembayaran', $row['pola_pembayaran'])->first();
+
+
         return new Product([
         'PARTNER_ID' => $partner->id ?? NULL,
         'DEBITUR_ID' => $debitur->id ?? NULL,
         'M_PRODUCT_ID' => $mproduct->id ?? NULL,
-        'NILAI_PEMBIAYAAN_POKOK_MAXIMUM'=> $row[5],
-        'SUKU_BUNGA_FLAT'=> $row[6],
-        'SUKU_BUNGA_EFFECTIVE'=> $row[7],
-        'Jangka_Waktu_Maximum'=> $row[8],
+        'NILAI_PEMBIAYAAN_POKOK_MAXIMUM'=> $row['nilai_pembiayaan_pokok_maximum'],
+        'SUKU_BUNGA_FLAT'=> $row['suku_bunga_flat'],
+        'SUKU_BUNGA_EFFECTIVE'=> $row['suku_bunga_effective'],
+        'Jangka_Waktu_Maximum'=> $row['jangka_waktu_maximum'],
         'POLA_PEMBAYARAN_ID' => $pola->id ?? NULL,
-        'BIAYA_ADMINISTRASI'=> $row[10],
-        'BIAYA_ASSURANSI'=> $row[11],
-        'BIAYA_PROVISI'=> $row[12],
-        'BIAYA_LAIN_LAIN'=> $row[13],
+        'BIAYA_ADMINISTRASI'=> $row['biaya_administrasi'],
+        'BIAYA_ASSURANSI'=> $row['biaya_asuransi'],
+        'BIAYA_PROVISI'=> $row['biaya_provinsi'],
+        'BIAYA_LAIN_LAIN'=> $row['biaya_lain_lain'],
         ]);
     }
+
+    
 }

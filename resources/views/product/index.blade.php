@@ -27,6 +27,12 @@ Home
     data-target="#impormodal">Impor Data</button>
 </div>
 @endif
+@if ($sukses = Session::get('sukses'))
+<div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button> 
+    <strong>{{ $sukses }}</strong>
+</div>
+@endif
 
 <div class="card">
     <div class="card-header">
