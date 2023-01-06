@@ -147,13 +147,26 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('debitur') }}" class="nav-link {{ 'debitur' == request()->path() ? 'active' : '' }}">
-                            {{-- <a href="{{ url('debitur') }}" class="nav-link {{ 'debitur' == request()->path() ? 'active' : '' }}"> --}}
-                                <i class="nav-icon fas fa-handshake"></i>
+                            <a href="#" class="nav-link">
                                 <p>
                                     Debitur
+                                    <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview ml-1">
+                                <li class="nav-item">
+                                    <a href="{{ url('debitur') }}" class="nav-link {{ 'debitur' == request()->path() ? 'active' : '' }}">
+                                        <i class="nav-icon fas fa-handshake"></i>
+                                        <p>Perorangan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('debitur_badan_usaha') }}" class="nav-link {{ 'debitur_badan_usaha' == request()->path() ? 'active' : '' }}">
+                                        <i class="nav-icon fas fa-handshake"></i>
+                                        <p>Badan Usaha</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('product') }}" class="nav-link {{ 'product' == request()->path() ? 'active' : '' }}">
@@ -241,8 +254,6 @@
                     </ul>
                     @elseif(auth()->user()->level == "User")
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="/dashboard" class="nav-link {{ 'dashboard' == request()->path() ? 'active' : '' }}">
                                 <p>
@@ -309,12 +320,24 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('/index_debitur') }}" class="nav-link {{ '/index_debitur' == request()->path() ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-handshake"></i>
+                            <a href="#" class="nav-link">
                                 <p>
                                     Debitur
+                                    <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview ml-1">
+                                <li class="nav-item">
+                                    <a href="{{ url('/index_debitur') }}" class="nav-link {{ '/index_debitur' == request()->path() ? 'active' : '' }}">
+                                        <p>Perorangan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('/index_debitur_badan_usaha') }}" class="nav-link {{ '/index_debitur_badan_usaha' == request()->path() ? 'active' : '' }}">
+                                        <p>Badan Usaha</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('/index_product') }}" class="nav-link {{ '/index_product' == request()->path() ? 'active' : '' }}">

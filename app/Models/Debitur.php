@@ -31,9 +31,27 @@ class Debitur extends Model
         'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1',
         'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2',
         'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3',
+        'Jenis_Asuransi_Id',
+        'Perusahaan_Asuransi',
+        'Persen_Asuransi',
+        'Nilai_Asuransi',
+        'Jaminan_Sertifikat_Tanah',
+        'Nilai_Sertifikat_Tanah',
+        'Jaminan_Kendaraan_Bermotor_Mobil',
+        'Nilai_Kendaraan_Bermotor_Mobil',
+        'Jaminan_Kendaraan_Bermotor_Motor',
+        'Nilai_Kendaraan_Bermotor_Motor',
+        'Jaminan_Personel_Guarantee',
+        'Nilai_Personel_Guarantee',
+        'Jaminan_Invoice',
+        'Nilai_Invoice',
+        'Jaminan_Inventory',
+        'Nilai_Inventory',
+        'Jaminan_Lainnya',
         'APAKAH_ADA_DP',
         'DOWN_PAYMENT_CUSTOMER',
     ];
+    
     public $timestamps = false;
 
     public function product()
@@ -104,5 +122,10 @@ class Debitur extends Model
     public function corporate_colls_tambahan()
     {
         return $this->hasManyThrough(Collateral_Corporate_Tambahan::class, Product::class, 'debitur_id', 'DEBITUR_ID');
+    }
+
+    public function asuransi()
+    {
+        return $this->belongsTo(Master_Asuransi::class, 'Jenis_Asuransi_Id');
     }
 }

@@ -189,9 +189,9 @@ class ProductController extends Controller
 
         $file = $request->file('file');
         $nama_file = $file->getClientOriginalName();
-        $file->move('data_file',$nama_file);
+        $file->move('import/product',$nama_file);
 
-        Excel::import(new ProductImport, public_path('/data_file/'.$nama_file));
+        Excel::import(new ProductImport, public_path('/import/product/'.$nama_file));
 
         Session::flash('sukses','Data Debitur Berhasil Diimport!');
         return redirect('debitur');
