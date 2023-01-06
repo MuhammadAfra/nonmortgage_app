@@ -42,6 +42,11 @@ class Partner extends Model
         'Nilai_Assuransi_Rupiah',
         'Status',
     ];
+
+    public function master_product()
+    {
+        return $this->belongsTo(Master_Product::class, 'DETIL_PRODUCT_PROFILE');
+    }
     
     public function product()
     {
@@ -51,6 +56,11 @@ class Partner extends Model
     public function product_colls()
     {
         return $this->hasManyThrough(Collateral_Motor::class, Collateral_Invoice::class, Product::class, 'product_id', 'PARTNER_ID');
+    }
+
+    public function product_colls_tambahan()
+    {
+        return $this->hasManyThrough(Collateral_Motor_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
     }
 
     public function rumah_colls()
@@ -73,9 +83,21 @@ class Partner extends Model
         return $this->hasManyThrough(Collateral_Inventory_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
     }
 
-    public function corporate_tbh_colls()
+
+
+    public function product_colls_mobil()
     {
-        return $this->hasManyThrough(Collateral_Corporate_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
+        return $this->hasManyThrough(Collateral_Mobil::class, Product::class, 'product_id', 'PARTNER_ID');
+    }
+
+    public function product_colls_mobil_tambahan()
+    {
+        return $this->hasManyThrough(Collateral_Mobil_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
+    }
+
+    public function invoice_colls()
+    {
+        return $this->hasManyThrough(Collateral_Invoice::class, Product::class, 'product_id', 'PARTNER_ID');
     }
 
     public function invoice_tbh_colls()
@@ -83,15 +105,16 @@ class Partner extends Model
         return $this->hasManyThrough(Collateral_Invoice_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
     }
 
-    public function master_product()
+    public function corporate_colls()
     {
-        return $this->belongsTo(Master_Product::class, 'DETIL_PRODUCT_PROFILE');
+        return $this->hasManyThrough(Collateral_Corporate::class, Product::class, 'product_id', 'PARTNER_ID');
     }
 
-    public function product_colls_mobil()
+    public function corporate_colls_tambahan()
     {
-        return $this->hasManyThrough(Collateral_Mobil::class, Product::class, 'product_id', 'PARTNER_ID');
+        return $this->hasManyThrough(Collateral_Corporate_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
     }
+
 
     public $timestamps = false;
 }

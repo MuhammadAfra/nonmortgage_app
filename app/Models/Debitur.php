@@ -45,6 +45,11 @@ class Debitur extends Model
     {
         return $this->hasManyThrough(Collateral_Motor::class, Product::class, 'debitur_id', 'DEBITUR_ID');
     }
+    
+    public function product_colls_tambahan()
+    {
+        return $this->hasManyThrough(Collateral_Motor_Tambahan::class, Product::class, 'debitur_id', 'DEBITUR_ID');
+    }
 
     public function rumah_colls()
     {
@@ -79,5 +84,25 @@ class Debitur extends Model
     public function product_colls_mobil()
     {
         return $this->hasManyThrough(Collateral_Mobil::class, Product::class, 'debitur_id', 'DEBITUR_ID');
+    }
+
+    public function product_colls_mobil_tambahan()
+    {
+        return $this->hasManyThrough(Collateral_Mobil_Tambahan::class, Product::class, 'debitur_id', 'DEBITUR_ID');
+    }
+
+    public function invoice_colls()
+    {
+        return $this->hasManyThrough(Collateral_Invoice::class, Product::class, 'debitur_id', 'DEBITUR_ID');
+    }
+
+    public function corporate_colls()
+    {
+        return $this->hasManyThrough(Collateral_Corporate::class, Product::class, 'debitur_id', 'DEBITUR_ID');
+    }
+
+    public function corporate_colls_tambahan()
+    {
+        return $this->hasManyThrough(Collateral_Corporate_Tambahan::class, Product::class, 'debitur_id', 'DEBITUR_ID');
     }
 }

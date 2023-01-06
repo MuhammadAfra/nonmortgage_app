@@ -10,7 +10,7 @@ Home
 
 @if (auth()->user()->level == "Admin")
 @section('page')
-<a href="{{ url('collateral_corporate') }}">Collateral Tambahan - Corporate Guarantee</a>
+<a href="{{ url('collateral_corporate_tambahan') }}">Collateral Tambahan - Corporate Guarantee</a>
 @endsection
 @elseif(auth()->user()->level == "User")
 @section('page')

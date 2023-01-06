@@ -203,10 +203,10 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">1. Kendaraan Bermotor</a>
+                                            <a href="{{ url('collateral_motor_tambahan') }}" class="nav-link">1. Kendaraan Bermotor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">2. Kendaraan Bermobil</a>
+                                            <a href="{{ url('collateral_mobil_tambahan') }}" class="nav-link">2. Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ url('collateral_rumah_tambahan') }}" class="nav-link">3. Rumah / Tanah</a>
@@ -331,22 +331,22 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">1. Kendaraan Bermotor</a>
+                                            <a href="{{ url('colls_motor_utama') }}" class="nav-link">1. Kendaraan Bermotor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">2. Kendaraan Bermobil</a>
+                                            <a href="{{ url('colls_mobil_utama') }}" class="nav-link">2. Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">3. Rumah/Tanah</a>
+                                            <a href="{{ url('colls_rumah_utama') }}" class="nav-link">3. Rumah/Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">4. Inventori</a>
+                                            <a href="{{ url('colls_inven_utama') }}" class="nav-link">4. Inventori</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">5. Invoice</a>
+                                            <a href="{{ url('colls_invoice_utama') }}" class="nav-link">5. Invoice</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">6. Corporate Guarantee</a>
+                                            <a href="{{ url('colls_corporate_utama') }}" class="nav-link">6. Corporate Guarantee</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -359,22 +359,22 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">1. Kendaraan Bermotor</a>
+                                            <a href="{{ url('colls_motor_tambahan') }}" class="nav-link">1. Kendaraan Bermotor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">2. Kendaraan Bermobil</a>
+                                            <a href="{{ url('colls_mobil_tambahan') }}" class="nav-link">2. Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">3. Rumah/Tanah</a>
+                                            <a href="{{ url('colls_rumah_tambahan') }}" class="nav-link">3. Rumah/Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">4. Inventori</a>
+                                            <a href="{{ url('colls_inven_tambahan') }}" class="nav-link">4. Inventori</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">5. Invoice</a>
+                                            <a href="{{ url('colls_invoice_tambahan') }}" class="nav-link">5. Invoice</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="#" class="nav-link">6. Corporate Guarantee</a>
+                                            <a href="{{ url('colls_corporate_tambahan') }}" class="nav-link">6. Corporate Guarantee</a>
                                         </li>
                                     </ul>
                                 </li>

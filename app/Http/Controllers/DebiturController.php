@@ -206,6 +206,7 @@ class DebiturController extends Controller
         $file->move('data_file',$nama_file);
 
         Excel::import(new DebiturImport, public_path('/data_file/'.$nama_file));
+        // dd($data);
 
         Session::flash('sukses','Data Debitur Berhasil Diimport!');
         return redirect('debitur');

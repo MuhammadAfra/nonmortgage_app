@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Master_Product;
 use App\Models\Partner;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\PartnerImport;
+use App\Models\Master_Product;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 
 class PartnerController extends Controller
 {
@@ -400,8 +402,6 @@ class PartnerController extends Controller
             $partner->save();
         }
 
-        // dd($partner);
-        
         return redirect('partner');
 
     }
@@ -434,6 +434,22 @@ class PartnerController extends Controller
 
         // delete data
         $partner->delete();
+        return redirect('partner');
+    }
+
+    public function import(Request $request)
+    {
+        $this->validate($request, [
+			'file' => 'required|mimes:csv,xls,xlsx'
+		]);
+
+        $file = $request->file('file');
+        $nama_file = $file->getClientOriginalName();
+        $file->move('data_file',$nama_file);
+
+        Excel::import(new PartnerImport, public_path('/data_file/'.$nama_file));
+
+        Session::flash('sukses','Data Debitur Berhasil Diimport!');
         return redirect('partner');
     }
 }

@@ -85,7 +85,7 @@ Add
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <input type="text" name="Status_Tambahan" class="form-control" style="width: 300px; height: 30px;">
-            @error('Status_Tambahan')
+            @error('Status')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
