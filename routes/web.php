@@ -28,6 +28,7 @@ use App\Http\Controllers\CollateralRumahTambahanController;
 use App\Http\Controllers\CollateralInvoiceTambahanController;
 use App\Http\Controllers\CollateralCorporateTambahanController;
 use App\Http\Controllers\CollateralInventoryTambahanController;
+use App\Http\Controllers\DebiturBadanUsahaController;
 use App\Models\Master_Asuransi;
 
 /*
@@ -63,6 +64,22 @@ Route::get('/dw_siup/{SIUP}', [PartnerController::class, 'download'])->name('dw_
 Route::get('/dw_akte_ad/{AKTE_PERUBAHAN_ANGGARAN_DASAR}', [PartnerController::class, 'download'])->name('dw_akte_ad');
 Route::get('/dw_mdl_diri/{MODAL_PENDIRIAN}', [PartnerController::class, 'download'])->name('dw_mdl_diri');
 
+Route::get('/dw_deb_akte_pendirian/{AKTE_PENDIRIAN}', [DebiturBadanUsahaController::class, 'download'])->name('dw_akte_pendirian');
+Route::get('/dw_deb_tdp/{TDP}', [DebiturBadanUsahaController::class, 'download'])->name('dw_tdp');
+Route::get('/dw_deb_finance_projection/{FINANCIAL_PROJECTION}', [DebiturBadanUsahaController::class, 'download'])->name('dw_finance_projection');
+Route::get('/dw_deb_bank/{BANK_STATEMENT_LAST_3_MONTHS}', [DebiturBadanUsahaController::class, 'download'])->name('dw_bank');
+Route::get('/dw_deb_company/{COMPANY_PROFILE}', [DebiturBadanUsahaController::class, 'download'])->name('dw_company');
+Route::get('/dw_deb_nda/{NDA}', [DebiturBadanUsahaController::class, 'download'])->name('dw_nda');
+Route::get('/dw_deb_risk_acc/{RISK_ACCEPTANCE_CRITERIA}', [DebiturBadanUsahaController::class, 'download'])->name('dw_risk_acc');
+Route::get('/dw_deb_draft/{DRAFT_TEMPLATE}', [DebiturBadanUsahaController::class, 'download'])->name('dw_draft');
+Route::get('/dw_deb_in_house/{IN_HOUSE_FINANCIAL}', [DebiturBadanUsahaController::class, 'download'])->name('dw_in_house');
+Route::get('/dw_deb_audited/{AUDITED_FINANCIAL}', [DebiturBadanUsahaController::class, 'download'])->name('dw_audited');
+Route::get('/dw_deb_mdl_akhir/{MODAL_PERUBAHAN_TERAKHIR}', [DebiturBadanUsahaController::class, 'download'])->name('dw_mdl_akhir');
+Route::get('/dw_deb_npwp/{NPWP}', [DebiturBadanUsahaController::class, 'download'])->name('dw_npwp');
+Route::get('/dw_deb_siup/{SIUP}', [DebiturBadanUsahaController::class, 'download'])->name('dw_siup');
+Route::get('/dw_deb_akte_ad/{AKTE_PERUBAHAN_ANGGARAN_DASAR}', [DebiturBadanUsahaController::class, 'download'])->name('dw_akte_ad');
+Route::get('/dw_deb_mdl_diri/{MODAL_PENDIRIAN}', [DebiturBadanUsahaController::class, 'download'])->name('dw_mdl_diri');
+
 Route::group(['middleware' => ['PreventBack']], function(){
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::group(['middleware' => ['auth', 'cekLevel:Admin']], function(){
@@ -74,14 +91,19 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::resource('master_jenis_product', MasterJenisProductController::class);
         Route::resource('master_jenis_pembiayaan', MasterJenisPembiayaanController::class);
         Route::resource('master_skema_pembiayaan', MasterSkemaPembiayaanController::class);
-        Route::resource('master_jenis_asuransi', MasterAsuransiController::class);
+        Route::resource('master_asuransi', MasterAsuransiController::class);
 
         // product
         Route::resource('product', ProductController::class);
         Route::post('/product_import', [ProductController::class, 'import'])->name('product_import');
+
         // debitur
         Route::resource('debitur', DebiturController::class);
         Route::post('/debitur_import', [DebiturController::class, 'import'])->name('debitur_import');
+
+        // debitur badan usaha
+        Route::resource('debitur_badan_usaha', DebiturBadanUsahaController::class);
+        Route::post('/debitur_badan_usaha_import', [DebiturBadanUsahaController::class, 'import'])->name('debitur_badan_usaha_import');
 
         // partner
         Route::resource('partner', PartnerController::class);
@@ -130,6 +152,8 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::get('/index_product', [ProductController::class, 'index'])->name('index_product');
         // debitur
         Route::get('/index_debitur', [DebiturController::class, 'index'])->name('index_debitur');
+        // debitur_badan_usaha
+        Route::get('/index_debitur_badan_usaha', [DebiturController::class, 'index'])->name('index_debitur_badan_usaha');
         // partner
         Route::get('/index_partner', [PartnerController::class, 'index'])->name('index_partner');
         // collaterals utama

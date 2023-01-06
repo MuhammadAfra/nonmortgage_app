@@ -43,162 +43,129 @@ class PartnerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'NAMA_PERUSAHAAN' => 'required',
-            'ALAMAT_PERUSAHAAN' => 'required',
-            'STATUS_BADAN_HUKUM' => 'required',
-            'AKTE_PENDIRIAN' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'COMPANY_PROFILE' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'DETIL_PRODUCT_PROFILE' => 'required',
-            'AKTE_PERUBAHAN_ANGGARAN_DASAR' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'SIUP' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'TDP' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'NPWP' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'Nama_Direktur_Utama' => 'required',
-            'No_Identitas_Direktur_Utama' => 'required',
-            'Nama_Direktur1' => 'required',
-            'No_Identitas_Direktur1' => 'required',
-            'Nama_Direktur_2' => 'required',
-            'No_Identitas_Direktur2' => 'required',
-            'MODAL_PENDIRIAN' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'MODAL_PERUBAHAN_TERAKHIR' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'BANK_STATEMENT_LAST_3_MONTHS' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'CONTOH_RISK_ACCEPTANCE_CRITERIA' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'NDA_DOCUMENT' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'DRAFT_TEMPLATE_AGREEMENT_END_USER' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'Jenis_Assuransi' => 'required',
-            'Nama_Perusahaan_Assuransi' => 'required',
-            'Persen_Assuransi' => 'required',
-            'Nilai_Assuransi_Rupiah' => 'required',
-            'Status' => 'required',
+            'AKTE_PENDIRIAN' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'COMPANY_PROFILE' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'AKTE_PERUBAHAN_ANGGARAN_DASAR' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'SIUP' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'TDP' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'NPWP' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'MODAL_PENDIRIAN' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'MODAL_PERUBAHAN_TERAKHIR' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'BANK_STATEMENT_LAST_3_MONTHS' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'DRAFT_TEMPLATE_AGREEMENT_END_USER' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'CONTOH_RISK_ACCEPTANCE_CRITERIA' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'NDA_DOCUMENT' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
         ]);
 
-        // $partner = new Partner();
-
-        // upload file akte pendirian
-        $akte = $request->AKTE_PENDIRIAN;
-        $nama_akte = $akte->getClientOriginalName();
-        $request->AKTE_PENDIRIAN->move('data_file', $nama_akte);
-        // $partner->AKTE_PENDIRIAN = $nama_akte; // save to db
-
-        // upload file company profile
-        $company = $request->COMPANY_PROFILE;
-        $nama_company = $company->getClientOriginalName();
-        $request->COMPANY_PROFILE->move('data_file', $nama_company);
-        // $partner->COMPANY_PROFILE = $nama_company; // save to db
-
-        // upload file akte perubahan anggaran dasar
-        $akte_perubahan = $request->AKTE_PERUBAHAN_ANGGARAN_DASAR;
-        $nama_akte_perubahan = $akte_perubahan->getClientOriginalName();
-        $request->AKTE_PERUBAHAN_ANGGARAN_DASAR->move('data_file', $nama_akte_perubahan);
-        // $partner->AKTE_PERUBAHAN_ANGGARAN_DASAR = $nama_akte_perubahan; // save to db
-
-        // upload file SIUP
-        $siup = $request->SIUP;
-        $nama_siup = $siup->getClientOriginalName();
-        $request->SIUP->move('data_file', $nama_siup);
-        // $partner->SIUP = $nama_siup; // save to db
-
-        // upload file TDP
-        $tdp = $request->TDP;
-        $nama_tdp = $tdp->getClientOriginalName();
-        $request->TDP->move('data_file', $nama_tdp);
-        // $partner->TDP = $nama_tdp; // save to db
+        $partner = Partner::create($request->all());
         
-        // upload file NPWP
-        $npwp = $request->NPWP;
-        $nama_npwp = $npwp->getClientOriginalName();
-        $request->NPWP->move('data_file', $nama_npwp);
-        // $partner->NPWP = $nama_npwp; // save to db
+        if($request->hasFile('AKTE_PENDIRIAN'))
+        {
+            $request->file('AKTE_PENDIRIAN')->move('data_partner/', $request->file('AKTE_PENDIRIAN')->getClientOriginalName());
+            $partner->AKTE_PENDIRIAN = $request->file('AKTE_PENDIRIAN')->getClientOriginalName();
+            $partner->save();
+        }
+        
+        if($request->hasFile('COMPANY_PROFILE'))
+        {
+            $request->file('COMPANY_PROFILE')->move('data_partner/', $request->file('COMPANY_PROFILE')->getClientOriginalName());
+            $partner->COMPANY_PROFILE = $request->file('COMPANY_PROFILE')->getClientOriginalName();
+            $partner->save();
+        }
 
-        // upload file modal pendirian
-        $modal_pendirian = $request->MODAL_PENDIRIAN;
-        $nama_modal_pendirian = $modal_pendirian->getClientOriginalName();
-        $request->MODAL_PENDIRIAN->move('data_file', $nama_modal_pendirian);
-        // $partner->MODAL_PENDIRIAN = $nama_modal_pendirian; // save to db
+        if($request->hasFile('AKTE_PERUBAHAN_ANGGARAN_DASAR'))
+        {
+            $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->move('data_partner/', $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->getClientOriginalName());
+            $partner->AKTE_PERUBAHAN_ANGGARAN_DASAR = $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->getClientOriginalName();
+            $partner->save();
+        }
 
-        // upload file modal perubahan
-        $modal_perubahan = $request->MODAL_PERUBAHAN_TERAKHIR;
-        $nama_modal_perubahan = $modal_perubahan->getClientOriginalName();
-        $request->MODAL_PERUBAHAN_TERAKHIR->move('data_file', $nama_modal_perubahan);
-        // $partner->MODAL_PERUBAHAN_TERAKHIR = $nama_modal_perubahan; // save to db
+        if($request->hasFile('SIUP'))
+        {
+            $request->file('SIUP')->move('data_partner/', $request->file('SIUP')->getClientOriginalName());
+            $partner->SIUP = $request->file('SIUP')->getClientOriginalName();
+            $partner->save();
+        }
 
-        // upload file audited financial
-        $audited = $request->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS;
-        $nama_audited = $audited->getClientOriginalName();
-        $request->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS->move('data_file', $nama_audited);
-        // $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS = $nama_audited; // save to db
- 
-        // upload file in house financial
-        $in_house = $request->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR;
-        $nama_in_house = $in_house->getClientOriginalName();
-        $request->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR->move('data_file', $nama_in_house);
-        // $partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR = $nama_in_house; // save to db
- 
-        // upload file bank statement
-        $bank_statement = $request->BANK_STATEMENT_LAST_3_MONTHS;
-        $nama_bank_statement = $bank_statement->getClientOriginalName();
-        $request->BANK_STATEMENT_LAST_3_MONTHS->move('data_file', $nama_bank_statement);
-        // $partner->BANK_STATEMENT_LAST_3_MONTHS = $nama_bank_statement; // save to db
- 
-        // upload file financial projection
-        $financial = $request->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS;
-        $nama_financial = $financial->getClientOriginalName();
-        $request->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS->move('data_file', $nama_financial);
-        // $partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS = $nama_financial; // save to db
- 
-        // upload file draft template
-        $draft = $request->DRAFT_TEMPLATE_AGREEMENT_END_USER;
-        $nama_draft = $draft->getClientOriginalName();
-        $request->DRAFT_TEMPLATE_AGREEMENT_END_USER->move('data_file', $nama_draft);
-        // $partner->DRAFT_TEMPLATE_AGREEMENT_END_USER = $nama_draft; // save to db
- 
-        // upload file risk acceptance
-        $risk_acc = $request->CONTOH_RISK_ACCEPTANCE_CRITERIA;
-        $nama_risk_acc = $risk_acc->getClientOriginalName();
-        $request->CONTOH_RISK_ACCEPTANCE_CRITERIA->move('data_file', $nama_risk_acc);
-        // $partner->CONTOH_RISK_ACCEPTANCE_CRITERIA = $nama_risk_acc; // save to db
- 
-        // upload file nda doc
-        $nda_doc = $request->NDA_DOCUMENT;
-        $nama_nda_doc = $nda_doc->getClientOriginalName();
-        $request->NDA_DOCUMENT->move('data_file', $nama_nda_doc);
-        // $partner->NDA_DOCUMENT = $nama_nda_doc; // save to db
+        if($request->hasFile('TDP'))
+        {
+            $request->file('TDP')->move('data_partner/', $request->file('TDP')->getClientOriginalName());
+            $partner->TDP = $request->file('TDP')->getClientOriginalName();
+            $partner->save();
+        }
 
-        Partner::create([
-            'NAMA_PERUSAHAAN' => $request->NAMA_PERUSAHAAN,
-            'ALAMAT_PERUSAHAAN' => $request->ALAMAT_PERUSAHAAN,
-            'STATUS_BADAN_HUKUM' => $request->STATUS_BADAN_HUKUM,
-            'AKTE_PENDIRIAN' => $nama_akte,
-            'COMPANY_PROFILE' => $nama_company,
-            'DETIL_PRODUCT_PROFILE' => $request->DETIL_PRODUCT_PROFILE,
-            'AKTE_PERUBAHAN_ANGGARAN_DASAR' => $nama_akte_perubahan,
-            'SIUP' => $nama_siup,
-            'TDP' => $nama_tdp,
-            'NPWP' => $nama_npwp,
-            'Nama_Direktur_Utama' => $request->Nama_Direktur_Utama,
-            'No_Identitas_Direktur_Utama' => $request->No_Identitas_Direktur_Utama,
-            'Nama_Direktur1' => $request->Nama_Direktur1,
-            'No_Identitas_Direktur1' => $request->No_Identitas_Direktur1,
-            'Nama_Direktur_2' => $request->Nama_Direktur_2,
-            'No_Identitas_Direktur2' => $request->No_Identitas_Direktur2,
-            'MODAL_PENDIRIAN' => $nama_modal_pendirian,
-            'MODAL_PERUBAHAN_TERAKHIR' => $nama_modal_perubahan,
-            'AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS' => $nama_audited,
-            'IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR' => $nama_in_house,
-            'BANK_STATEMENT_LAST_3_MONTHS' => $nama_bank_statement,
-            'FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS' => $nama_financial,
-            'DRAFT_TEMPLATE_AGREEMENT_END_USER' => $nama_draft,
-            'CONTOH_RISK_ACCEPTANCE_CRITERIA' => $nama_risk_acc,
-            'NDA_DOCUMENT' => $nama_nda_doc,
-            'Jenis_Assuransi' => $request->Jenis_Assuransi,
-            'Nama_Perusahaan_Assuransi' => $request->Nama_Perusahaan_Assuransi,
-            'Persen_Assuransi' => $request->Persen_Assuransi,
-            'Nilai_Assuransi_Rupiah' => $request->Nilai_Assuransi_Rupiah,
-            'Status' => $request->Status
-        ]);
+        if($request->hasFile('NPWP'))
+        {
+            $request->file('NPWP')->move('data_partner/', $request->file('NPWP')->getClientOriginalName());
+            $partner->NPWP = $request->file('NPWP')->getClientOriginalName();
+            $partner->save();
+        }
+
+        if($request->hasFile('MODAL_PENDIRIAN'))
+        {
+            $request->file('MODAL_PENDIRIAN')->move('data_partner/', $request->file('MODAL_PENDIRIAN')->getClientOriginalName());
+            $partner->MODAL_PENDIRIAN = $request->file('MODAL_PENDIRIAN')->getClientOriginalName();
+            $partner->save();
+        }
+
+        if($request->hasFile('MODAL_PERUBAHAN_TERAKHIR'))
+        {
+            $request->file('MODAL_PERUBAHAN_TERAKHIR')->move('data_partner/', $request->file('MODAL_PERUBAHAN_TERAKHIR')->getClientOriginalName());
+            $partner->MODAL_PERUBAHAN_TERAKHIR = $request->file('MODAL_PERUBAHAN_TERAKHIR')->getClientOriginalName();
+            $partner->save();
+        }
+
+        if($request->hasFile('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS'))
+        {   
+            $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->move('data_partner/', $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->getClientOriginalName());
+            $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS = $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->getClientOriginalName();
+            $partner->save();
+        }
+
+        if($request->hasFile('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR'))
+        {
+           $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->move('data_partner/', $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->getClientOriginalName());
+            $partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR = $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->getClientOriginalName();
+            $partner->save();
+        }
+
+        if($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS'))
+        {
+            $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move('data_partner/', $request->file('BANK_STATEMENT_LAST_3_MONTHS')->getClientOriginalName());
+            $partner->BANK_STATEMENT_LAST_3_MONTHS = $request->file('BANK_STATEMENT_LAST_3_MONTHS')->getClientOriginalName();
+            $partner->save();
+        }
+
+        if($request->hasFile('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS'))
+        {
+            $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->move('data_partner/', $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->getClientOriginalName());
+            $partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS = $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->getClientOriginalName();
+            $partner->save();
+        }
+        
+        if($request->hasFile('DRAFT_TEMPLATE_AGREEMENT_END_USER'))
+        {
+            $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->move('data_partner/', $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->getClientOriginalName());
+            $partner->DRAFT_TEMPLATE_AGREEMENT_END_USER = $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->getClientOriginalName();
+            $partner->save();
+        }
+
+        if($request->hasFile('CONTOH_RISK_ACCEPTANCE_CRITERIA'))
+        {
+            $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->move('data_partner/', $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->getClientOriginalName());
+            $partner->CONTOH_RISK_ACCEPTANCE_CRITERIA = $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->getClientOriginalName();
+            $partner->save();
+        }
+        
+        if($request->hasFile('NDA_DOCUMENT'))
+        {
+            $request->file('NDA_DOCUMENT')->move('data_partner/', $request->file('NDA_DOCUMENT')->getClientOriginalName());
+            $partner->NDA_DOCUMENT = $request->file('NDA_DOCUMENT')->getClientOriginalName();
+            $partner->save();
+        }
 
         return redirect('partner');
 
@@ -236,7 +203,7 @@ class PartnerController extends Controller
 
     public function download($file)
     {
-        return response()->download(public_path('data_file/'.$file));
+        return response()->download(public_path('data_partner/'.$file));
     }
 
     /**
@@ -261,143 +228,110 @@ class PartnerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'NAMA_PERUSAHAAN' => 'required',
-            'ALAMAT_PERUSAHAAN' => 'required',
-            'STATUS_BADAN_HUKUM' => 'required',
-            // 'AKTE_PENDIRIAN' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            // 'COMPANY_PROFILE' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'DETIL_PRODUCT_PROFILE' => 'required',
-            // 'AKTE_PERUBAHAN_ANGGARAN_DASAR' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            // 'SIUP' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            // 'TDP' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            // 'NPWP' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'Nama_Direktur_Utama' => 'required',
-            'No_Identitas_Direktur_Utama' => 'required',
-            'Nama_Direktur1' => 'required',
-            'No_Identitas_Direktur1' => 'required',
-            'Nama_Direktur_2' => 'required',
-            'No_Identitas_Direktur2' => 'required',
-            // 'MODAL_PENDIRIAN' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            // 'MODAL_PERUBAHAN_TERAKHIR' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            // 'AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            // 'IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            // 'BANK_STATEMENT_LAST_3_MONTHS' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            // 'FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            // 'CONTOH_RISK_ACCEPTANCE_CRITERIA' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            // 'NDA_DOCUMENT' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            // 'DRAFT_TEMPLATE_AGREEMENT_END_USER' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx',
-            'Jenis_Assuransi' => 'required',
-            'Nama_Perusahaan_Assuransi' => 'required',
-            'Persen_Assuransi' => 'required',
-            'Nilai_Assuransi_Rupiah' => 'required',
-            'Status' => 'required',
-        ]);
-
         $partner = Partner::findorfail($id);
         $partner->update($request->all());
         
         if($request->hasFile('AKTE_PENDIRIAN'))
         {
-            $request->file('AKTE_PENDIRIAN')->move('data_file/', $request->file('AKTE_PENDIRIAN')->getClientOriginalName());
+            $request->file('AKTE_PENDIRIAN')->move('data_partner/', $request->file('AKTE_PENDIRIAN')->getClientOriginalName());
             $partner->AKTE_PENDIRIAN = $request->file('AKTE_PENDIRIAN')->getClientOriginalName();
             $partner->save();
         }
         
         if($request->hasFile('COMPANY_PROFILE'))
         {
-            $request->file('COMPANY_PROFILE')->move('data_file/', $request->file('COMPANY_PROFILE')->getClientOriginalName());
+            $request->file('COMPANY_PROFILE')->move('data_partner/', $request->file('COMPANY_PROFILE')->getClientOriginalName());
             $partner->COMPANY_PROFILE = $request->file('COMPANY_PROFILE')->getClientOriginalName();
             $partner->save();
         }
 
         if($request->hasFile('AKTE_PERUBAHAN_ANGGARAN_DASAR'))
         {
-            $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->move('data_file/', $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->getClientOriginalName());
+            $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->move('data_partner/', $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->getClientOriginalName());
             $partner->AKTE_PERUBAHAN_ANGGARAN_DASAR = $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->getClientOriginalName();
             $partner->save();
         }
 
         if($request->hasFile('SIUP'))
         {
-            $request->file('SIUP')->move('data_file/', $request->file('SIUP')->getClientOriginalName());
+            $request->file('SIUP')->move('data_partner/', $request->file('SIUP')->getClientOriginalName());
             $partner->SIUP = $request->file('SIUP')->getClientOriginalName();
             $partner->save();
         }
 
         if($request->hasFile('TDP'))
         {
-            $request->file('TDP')->move('data_file/', $request->file('TDP')->getClientOriginalName());
+            $request->file('TDP')->move('data_partner/', $request->file('TDP')->getClientOriginalName());
             $partner->TDP = $request->file('TDP')->getClientOriginalName();
             $partner->save();
         }
 
         if($request->hasFile('NPWP'))
         {
-            $request->file('NPWP')->move('data_file/', $request->file('NPWP')->getClientOriginalName());
+            $request->file('NPWP')->move('data_partner/', $request->file('NPWP')->getClientOriginalName());
             $partner->NPWP = $request->file('NPWP')->getClientOriginalName();
             $partner->save();
         }
 
         if($request->hasFile('MODAL_PENDIRIAN'))
         {
-            $request->file('MODAL_PENDIRIAN')->move('data_file/', $request->file('MODAL_PENDIRIAN')->getClientOriginalName());
+            $request->file('MODAL_PENDIRIAN')->move('data_partner/', $request->file('MODAL_PENDIRIAN')->getClientOriginalName());
             $partner->MODAL_PENDIRIAN = $request->file('MODAL_PENDIRIAN')->getClientOriginalName();
             $partner->save();
         }
 
         if($request->hasFile('MODAL_PERUBAHAN_TERAKHIR'))
         {
-            $request->file('MODAL_PERUBAHAN_TERAKHIR')->move('data_file/', $request->file('MODAL_PERUBAHAN_TERAKHIR')->getClientOriginalName());
+            $request->file('MODAL_PERUBAHAN_TERAKHIR')->move('data_partner/', $request->file('MODAL_PERUBAHAN_TERAKHIR')->getClientOriginalName());
             $partner->MODAL_PERUBAHAN_TERAKHIR = $request->file('MODAL_PERUBAHAN_TERAKHIR')->getClientOriginalName();
             $partner->save();
         }
 
         if($request->hasFile('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS'))
         {   
-            $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->move('data_file/', $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->getClientOriginalName());
+            $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->move('data_partner/', $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->getClientOriginalName());
             $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS = $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->getClientOriginalName();
             $partner->save();
         }
 
         if($request->hasFile('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR'))
         {
-           $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->move('data_file/', $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->getClientOriginalName());
+           $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->move('data_partner/', $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->getClientOriginalName());
             $partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR = $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->getClientOriginalName();
             $partner->save();
         }
 
         if($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS'))
         {
-            $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move('data_file/', $request->file('BANK_STATEMENT_LAST_3_MONTHS')->getClientOriginalName());
+            $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move('data_partner/', $request->file('BANK_STATEMENT_LAST_3_MONTHS')->getClientOriginalName());
             $partner->BANK_STATEMENT_LAST_3_MONTHS = $request->file('BANK_STATEMENT_LAST_3_MONTHS')->getClientOriginalName();
             $partner->save();
         }
 
         if($request->hasFile('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS'))
         {
-            $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->move('data_file/', $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->getClientOriginalName());
+            $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->move('data_partner/', $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->getClientOriginalName());
             $partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS = $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->getClientOriginalName();
             $partner->save();
         }
         
         if($request->hasFile('DRAFT_TEMPLATE_AGREEMENT_END_USER'))
         {
-            $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->move('data_file/', $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->getClientOriginalName());
+            $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->move('data_partner/', $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->getClientOriginalName());
             $partner->DRAFT_TEMPLATE_AGREEMENT_END_USER = $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->getClientOriginalName();
             $partner->save();
         }
 
         if($request->hasFile('CONTOH_RISK_ACCEPTANCE_CRITERIA'))
         {
-            $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->move('data_file/', $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->getClientOriginalName());
+            $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->move('data_partner/', $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->getClientOriginalName());
             $partner->CONTOH_RISK_ACCEPTANCE_CRITERIA = $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->getClientOriginalName();
             $partner->save();
         }
         
         if($request->hasFile('NDA_DOCUMENT'))
         {
-            $request->file('NDA_DOCUMENT')->move('data_file/', $request->file('NDA_DOCUMENT')->getClientOriginalName());
+            $request->file('NDA_DOCUMENT')->move('data_partner/', $request->file('NDA_DOCUMENT')->getClientOriginalName());
             $partner->NDA_DOCUMENT = $request->file('NDA_DOCUMENT')->getClientOriginalName();
             $partner->save();
         }
@@ -417,20 +351,20 @@ class PartnerController extends Controller
         $partner = Partner::findorfail($id);
         
         // delete file
-        File::delete('data_file/'.$partner->AKTE_PENDIRIAN);
-        File::delete('data_file/'.$partner->COMPANY_PROFILE);
-        File::delete('data_file/'.$partner->SIUP);
-        File::delete('data_file/'.$partner->TDP);
-        File::delete('data_file/'.$partner->NPWP);
-        File::delete('data_file/'.$partner->MODAL_PENDIRIAN);
-        File::delete('data_file/'.$partner->MODAL_PERUBAHAN_TERAKHIR);
-        File::delete('data_file/'.$partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS);
-        File::delete('data_file/'.$partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR);
-        File::delete('data_file/'.$partner->BANK_STATEMENT_LAST_3_MONTHS);
-        File::delete('data_file/'.$partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS);
-        File::delete('data_file/'.$partner->DRAFT_TEMPLATE_AGREEMENT_END_USER);
-        File::delete('data_file/'.$partner->CONTOH_RISK_ACCEPTANCE_CRITERIA);
-        File::delete('data_file/'.$partner->NDA_DOCUMENT);
+        File::delete('data_partner/'.$partner->AKTE_PENDIRIAN);
+        File::delete('data_partner/'.$partner->COMPANY_PROFILE);
+        File::delete('data_partner/'.$partner->SIUP);
+        File::delete('data_partner/'.$partner->TDP);
+        File::delete('data_partner/'.$partner->NPWP);
+        File::delete('data_partner/'.$partner->MODAL_PENDIRIAN);
+        File::delete('data_partner/'.$partner->MODAL_PERUBAHAN_TERAKHIR);
+        File::delete('data_partner/'.$partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS);
+        File::delete('data_partner/'.$partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR);
+        File::delete('data_partner/'.$partner->BANK_STATEMENT_LAST_3_MONTHS);
+        File::delete('data_partner/'.$partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS);
+        File::delete('data_partner/'.$partner->DRAFT_TEMPLATE_AGREEMENT_END_USER);
+        File::delete('data_partner/'.$partner->CONTOH_RISK_ACCEPTANCE_CRITERIA);
+        File::delete('data_partner/'.$partner->NDA_DOCUMENT);
 
         // delete data
         $partner->delete();
@@ -445,9 +379,9 @@ class PartnerController extends Controller
 
         $file = $request->file('file');
         $nama_file = $file->getClientOriginalName();
-        $file->move('data_file',$nama_file);
+        $file->move('import/partner',$nama_file);
 
-        Excel::import(new PartnerImport, public_path('/data_file/'.$nama_file));
+        Excel::import(new PartnerImport, public_path('/import/partner/'.$nama_file));
 
         Session::flash('sukses','Data Debitur Berhasil Diimport!');
         return redirect('partner');

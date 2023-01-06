@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Debitur;
 use Illuminate\Http\Request;
 use App\Imports\DebiturImport;
+use App\Models\Master_Asuransi;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
 
@@ -28,7 +29,8 @@ class DebiturController extends Controller
      */
     public function create()
     {
-        return view('debitur.create');
+        $asuransi = Master_Asuransi::all();
+        return view('debitur.create', compact('asuransi'));
     }
 
     /**
@@ -62,6 +64,7 @@ class DebiturController extends Controller
             'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2' => 'required',
             'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3' => 'required',
             'APAKAH_ADA_DP' => 'required',
+            'Jenis_Asuransi_Id' => 'required',
             ]);
 
         Debitur::create([
@@ -86,6 +89,23 @@ class DebiturController extends Controller
             'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1' => $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1,
             'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2' => $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2,
             'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3' => $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3,
+            'Jenis_Asuransi_Id' => $request->Jenis_Asuransi_Id,
+            'Perusahaan_Asuransi' => $request->Perusahaan_Asuransi,
+            'Persen_Asuransi' => $request->Persen_Asuransi,
+            'Nilai_Asuransi' => $request->Nilai_Asuransi,
+            'Jaminan_Sertifikat_Tanah' => $request->Jaminan_Sertifikat_Tanah,
+            'Nilai_Sertifikat_Tanah' => $request->Nilai_Sertifikat_Tanah,
+            'Jaminan_Kendaraan_Bermotor_Mobil' => $request->Jaminan_Kendaraan_Bermotor_Mobil,
+            'Nilai_Kendaraan_Bermotor_Mobil' => $request->Nilai_Kendaraan_Bermotor_Mobil,
+            'Jaminan_Kendaraan_Bermotor_Motor' => $request->Jaminan_Kendaraan_Bermotor_Motor,
+            'Nilai_Kendaraan_Bermotor_Motor' => $request->Nilai_Kendaraan_Bermotor_Motor,
+            'Jaminan_Personel_Guarantee' => $request->Jaminan_Personel_Guarantee,
+            'Nilai_Personel_Guarantee' => $request->Nilai_Personel_Guarantee,
+            'Jaminan_Invoice' => $request->Jaminan_Invoice,
+            'Nilai_Invoice' => $request->Nilai_Invoice,
+            'Jaminan_Inventory' => $request->Jaminan_Inventory,
+            'Nilai_Inventory' => $request->Nilai_Inventory,
+            'Jaminan_Lainnya' => $request->Jaminan_Lainnya,
             'APAKAH_ADA_DP' => $request->APAKAH_ADA_DP,
             'DOWN_PAYMENT_CUSTOMER' => $request->DOWN_PAYMENT_CUSTOMER,
             ]);
@@ -114,7 +134,8 @@ class DebiturController extends Controller
     public function edit($id)
     {
         $debitur = Debitur::findorfail($id);
-        return view('debitur.edit', compact('debitur'));
+        $asuransi = Master_Asuransi::all();
+        return view('debitur.edit', compact('debitur','asuransi'));
     }
 
     /**
@@ -149,6 +170,7 @@ class DebiturController extends Controller
             'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2' => 'required',
             'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3' => 'required',
             'APAKAH_ADA_DP' => 'required',
+            'Jenis_Asuransi_Id' => 'required',
             ]);
             
         $debitur = Debitur::findorfail($id);
@@ -174,6 +196,23 @@ class DebiturController extends Controller
             'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1' => $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1,
             'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2' => $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2,
             'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3' => $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3,
+            'Jenis_Asuransi_Id' => $request->Jenis_Asuransi_Id,
+            'Perusahaan_Asuransi' => $request->Perusahaan_Asuransi,
+            'Persen_Asuransi' => $request->Persen_Asuransi,
+            'Nilai_Asuransi' => $request->Nilai_Asuransi,
+            'Jaminan_Sertifikat_Tanah' => $request->Jaminan_Sertifikat_Tanah,
+            'Nilai_Sertifikat_Tanah' => $request->Nilai_Sertifikat_Tanah,
+            'Jaminan_Kendaraan_Bermotor_Mobil' => $request->Jaminan_Kendaraan_Bermotor_Mobil,
+            'Nilai_Kendaraan_Bermotor_Mobil' => $request->Nilai_Kendaraan_Bermotor_Mobil,
+            'Jaminan_Kendaraan_Bermotor_Motor' => $request->Jaminan_Kendaraan_Bermotor_Motor,
+            'Nilai_Kendaraan_Bermotor_Motor' => $request->Nilai_Kendaraan_Bermotor_Motor,
+            'Jaminan_Personel_Guarantee' => $request->Jaminan_Personel_Guarantee,
+            'Nilai_Personel_Guarantee' => $request->Nilai_Personel_Guarantee,
+            'Jaminan_Invoice' => $request->Jaminan_Invoice,
+            'Nilai_Invoice' => $request->Nilai_Invoice,
+            'Jaminan_Inventory' => $request->Jaminan_Inventory,
+            'Nilai_Inventory' => $request->Nilai_Inventory,
+            'Jaminan_Lainnya' => $request->Jaminan_Lainnya,
             'APAKAH_ADA_DP' => $request->APAKAH_ADA_DP,
             'DOWN_PAYMENT_CUSTOMER' => $request->DOWN_PAYMENT_CUSTOMER,
         ]);
@@ -203,9 +242,9 @@ class DebiturController extends Controller
 
         $file = $request->file('file');
         $nama_file = $file->getClientOriginalName();
-        $file->move('data_file',$nama_file);
+        $file->move('import/debitur',$nama_file);
 
-        Excel::import(new DebiturImport, public_path('/data_file/'.$nama_file));
+        Excel::import(new DebiturImport, public_path('/import/debitur/'.$nama_file));
         // dd($data);
 
         Session::flash('sukses','Data Debitur Berhasil Diimport!');

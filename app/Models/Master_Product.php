@@ -20,8 +20,14 @@ class Master_Product extends Model
         return $this->hasMany(Partner::class);
     
     }
+
     public function product()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function debitur()
+    {
+        return $this->hasMany(Debitur_Badan_Usaha::class);
     }
 }

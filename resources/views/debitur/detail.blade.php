@@ -95,6 +95,74 @@ Detail
             <div class="col-sm-8">: {{ $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3 }}</div>
         </div>
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Jenis Asuransi</label></div>
+            <div class="col-sm-8">: {{ $debitur->asuransi->Jenis_Asuransi }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Perusahaan Asuransi</label></div>
+            <div class="col-sm-8">: {{ $debitur->Perusahaan_Asuransi }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Persen Asuransi</label></div>
+            <div class="col-sm-8">: {{ $debitur->Persen_Asuransi }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nilai Asuransi</label></div>
+            <div class="col-sm-8">: {{ $debitur->Nilai_Asuransi }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Jaminan Sertifikat Tanah</label></div>
+            <div class="col-sm-8">: {{ $debitur->Jaminan_Sertifikat_Tanah }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nilai Sertifikat Tanah</label></div>
+            <div class="col-sm-8">: {{ $debitur->Nilai_Sertifikat_Tanah }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Jaminan Kendaraan Mobil</label></div>
+            <div class="col-sm-8">: {{ $debitur->Jaminan_Kendaraan_Bermotor_Mobil }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nilai Kendaraan Mobil</label></div>
+            <div class="col-sm-8">: {{ $debitur->Nilai_Kendaraan_Bermotor_Mobil }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Jaminan Kendaraan Motor</label></div>
+            <div class="col-sm-8">: {{ $debitur->Jaminan_Kendaraan_Bermotor_Motor }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nilai Kendaraan Motor</label></div>
+            <div class="col-sm-8">: {{ $debitur->Nilai_Kendaraan_Bermotor_Motor }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Jaminan Personal Guarantee</label></div>
+            <div class="col-sm-8">: {{ $debitur->Jaminan_Personel_Guarantee }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nilai Personal Guarantee</label></div>
+            <div class="col-sm-8">: {{ $debitur->Nilai_Personel_Guarantee }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Jaminan Invoice</label></div>
+            <div class="col-sm-8">: {{ $debitur->Jaminan_Invoice }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nilai Invoice</label></div>
+            <div class="col-sm-8">: {{ $debitur->Nilai_Invoice }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Jaminan Inventori</label></div>
+            <div class="col-sm-8">: {{ $debitur->Jaminan_Inventory }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nilai Inventori</label></div>
+            <div class="col-sm-8">: {{ $debitur->Nilai_Inventory }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Jaminan Lainnya</label></div>
+            <div class="col-sm-8">: {{ $debitur->Jaminan_Lainnya }}</div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>DP</label></div>
             <div class="col-sm-8">: {{ $debitur->APAKAH_ADA_DP }}</div>
         </div>

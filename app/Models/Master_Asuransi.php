@@ -15,4 +15,14 @@ class Master_Asuransi extends Model
 
     public $timestamps = false;
 
+    public function debitur()
+    {
+        return $this->hasMany(Debitur::class);
+    }
+
+    public function debitur_badan_usaha()
+    {
+        return $this->hasMany(Debitur_Badan_Usaha::class);
+    }
+
 }
