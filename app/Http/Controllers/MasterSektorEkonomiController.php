@@ -45,7 +45,7 @@ class MasterSektorEkonomiController extends Controller
             'Sandi_Turunan' => 'Input Sandi Turunan!',
             'Label' => 'Input Label!',
             'Sandi_Utama' => 'Input Sandi Utama!',
-            'Label_Utama' => 'Input Label Sandi Utama!',
+            'Label_Utama' => 'Input Label Utama!',
         ]);
 
         Master_Sektor_Ekonomi::create([
@@ -100,7 +100,7 @@ class MasterSektorEkonomiController extends Controller
             'Sandi_Turunan' => 'Input Sandi Turunan!',
             'Label' => 'Input Label!',
             'Sandi_Utama' => 'Input Sandi Utama!',
-            'Label_Utama' => 'Input Label Sandi Utama!',
+            'Label_Utama' => 'Input Label Utama!',
         ]);
 
         $sektorEkonomi = Master_Sektor_Ekonomi::findorfail($id);

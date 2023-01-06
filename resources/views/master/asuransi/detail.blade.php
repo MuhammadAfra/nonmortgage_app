@@ -8,7 +8,7 @@
 @endsection
 
 @section('page')
-    <a href="{{ url('master_asuransi') }}">Master Jenis Asuransi</a>
+    <a href="{{ url('master_asuransi') }}">Master Asuransi</a>
 @endsection
 
 @section('content')
