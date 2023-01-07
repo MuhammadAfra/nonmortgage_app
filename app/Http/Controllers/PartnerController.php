@@ -170,25 +170,6 @@ class PartnerController extends Controller
         return redirect('partner');
 
     }
-
-    public function add_product(Request $request)
-    {
-        $this->validate($request, [
-            'id_master_product' => 'required',
-            'nama_product' => 'required'
-        ],[
-            'id_master_product' => 'Input Product!',
-            'nama_product' => 'Input Product!'
-        ]);
-
-        Master_Product::create([
-            'id_master_product' => $request->id_master_product,
-            'nama_product' => $request->nama_product
-        ]);
-
-        return redirect('partner/create');
-    }
-
     /**
      * Display the specified resource.
      *

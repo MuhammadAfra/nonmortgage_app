@@ -50,10 +50,10 @@ Home
                     <th>Nama Perusahaan</th>
                     <th>Alamat Perusahaan</th>
                     <th>Status Bahan Hukum</th>
-                    <th>Akte Pendirian</th>
+                    <th>Akta Pendirian</th>
                     <th>Company Profile</th>
                     <th>Detail Company Profile</th>
-                    <th>Akte Perubahan Anggaran Dasar</th>
+                    <th>Akta Perubahan Anggaran Dasar</th>
                     <th>SIUP</th>
                     <th>TDP</th>
                     <th>NPWP</th>
@@ -65,7 +65,7 @@ Home
                     <th>Nomor Identitas Direktur 2</th>
                     <th>Modal Pendirian</th>
                     <th>Modal Perubahan Terakhir</th>
-                    <th>Audited Financial Statement Current Year</th>
+                    {{-- <th>Audited Financial Statement Current Year</th> --}}
                     <th>Audited Financial Statement Last 2 Years</th>
                     <th>In House Financial Statement Current Year</th>
                     <th>Bank Statement Last 3 Years</th>
@@ -111,7 +111,7 @@ Home
                     <td>{{ $item->No_Identitas_Direktur2 }}</td>
                     <td>{{ $item->MODAL_PENDIRIAN }}</td>
                     <td>{{ $item->MODAL_PERUBAHAN_TERAKHIR }}</td>
-                    <td>no fields</td>
+                    {{-- <td>no fields</td> --}}
                     <td>{{ $item->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS }}</td>
                     <td>{{ $item->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR }}</td>
                     <td>{{ $item->BANK_STATEMENT_LAST_3_MONTHS }}</td>
