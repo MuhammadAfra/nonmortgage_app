@@ -193,7 +193,7 @@ class ProductController extends Controller
 
         Excel::import(new ProductImport, public_path('/import/product/'.$nama_file));
 
-        Session::flash('sukses','Data Debitur Berhasil Diimport!');
-        return redirect('debitur');
+        Session::flash('sukses','Data Produk Berhasil Diimport!');
+        return redirect('product');
     }
 }
