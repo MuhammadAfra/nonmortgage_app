@@ -175,7 +175,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $dataproduct =  Product::findorfail($id);
+        $dataproduct = Product::findorfail($id);
         $dataproduct->delete();
 
         return redirect('product');

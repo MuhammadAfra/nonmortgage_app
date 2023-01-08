@@ -14,7 +14,7 @@ class MasterProductController extends Controller
      */
     public function index()
     {
-        $product = Master_Product::all();
+        $product = Master_Product::orderBy('id', 'desc')->get();;
         return view('master.master_product.index', compact('product'));
     }
 

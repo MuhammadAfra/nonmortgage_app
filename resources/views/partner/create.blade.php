@@ -17,7 +17,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Perusahaan </label></div>
         <div class="col-sm-8">
-            <input type="text" name="NAMA_PERUSAHAAN" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="NAMA_PERUSAHAAN" class="form-control" style="width: 500px; height: 30px;">
         </div>
     </div>
     <div class="row pb-3">
@@ -71,20 +71,15 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Detail Product <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Detail Nama Product <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <div class="input-group" style="width: 300px; height: 38px;">
-                <select class="custom-select" required name="DETIL_PRODUCT_PROFILE">
-                    <option></option>
+            <div class="input-group" style="width: 500px; height: 38px;">
+                <select class="form-control py-0" required name="DETIL_PRODUCT_PROFILE">
+                    <option>--------------</option>
                     @foreach ($prod as $item)
-                    <option value="{{ $item->id }}">{{ $item->id_master_product }} - {{ $item->nama_product }}</option>
+                    <option value="{{ $item->id }}">{{ $item->nama_product }}</option>
                     @endforeach
                 </select>
-                <div class="input-group-append">
-                    <button class="btn bg-white p-0 py-1 font-weight-bold" type="button" data-toggle="modal"
-                        data-target="#exampleModal"
-                        style="height: 38px; width: 30px; border: 1px solid #ced4da">+</button>
-                </div>
             </div>
         </div>
     </div>
@@ -127,38 +122,38 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Direktur Utama </label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nama_Direktur_Utama" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Nama_Direktur_Utama" class="form-control" style="width: 500px; height: 30px;">
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur Utama </label></div>
         <div class="col-sm-8">
             <input type="number" name="No_Identitas_Direktur_Utama" class="form-control"
-                style="width: 300px; height: 30px;">
+                style="width: 500px; height: 30px;">
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Direktur 1 </label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nama_Direktur1" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Nama_Direktur1" class="form-control" style="width: 500px; height: 30px;">
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur 1 </label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur1" class="form-control" style="width: 300px; height: 30px;">
+            <input type="number" name="No_Identitas_Direktur1" class="form-control" style="width: 500px; height: 30px;">
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Direktur 2 </label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nama_Direktur_2" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Nama_Direktur_2" class="form-control" style="width: 500px; height: 30px;">
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur 2 </label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur2" class="form-control" style="width: 300px; height: 30px;">
+            <input type="number" name="No_Identitas_Direktur2" class="form-control" style="width: 500px; height: 30px;">
         </div>
     </div>
     <div class="row pb-3">
@@ -190,8 +185,7 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>In House Financial Statement Current Year <span
-                    class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>In House Financial Statement Current Year</div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 30px; cursor: pointer;">
                 <input type="file" class="custom-file-input" name="IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR">
@@ -219,7 +213,7 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Draft Template Agree End User </label></div>
+        <div class="col-sm-4"><label>Draft Template Agreement End User </label></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 30px; cursor: pointer;">
                 <input type="file" class="custom-file-input" name="DRAFT_TEMPLATE_AGREEMENT_END_USER">
@@ -248,8 +242,8 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status</label></div>
         <div class="col-sm-8">
-            <select name="Status" class="form-control py-0" style="width: 300px; height: 30px;">
-                <option>-----</option>
+            <select name="Status" class="form-control py-0" style="width: 500px; height: 38px;">
+                <option>--------------</option>
                     <option value="Pending">Pending</option>
                     <option value="Completed">Completed</option>
                     <option value="Reject">Reject</option>
@@ -299,7 +293,7 @@ Add
                         <div class="col-sm-4"><label>ID Product </label></div>
                         <div class="col-sm-8">
                             <input type="text" name="id_master_product" class="form-control"
-                                style="width: 300px; height: 30px;">
+                                style="width: 500px; height: 30px;">
                             @error('id_master_product')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -309,7 +303,7 @@ Add
                         <div class="col-sm-4"><label>Nama Product </label></div>
                         <div class="col-sm-8">
                             <input type="text" name="nama_product" class="form-control"
-                                style="width: 300px; height: 30px;">
+                                style="width: 500px; height: 30px;">
                             @error('nama_product')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror

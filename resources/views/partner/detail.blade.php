@@ -29,7 +29,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>Akte Pendirian <br> 
             @if ($partner->AKTE_PENDIRIAN != NULL)
-            <a href="{{ url('/dw_deb_akte_pendirian', $partner->AKTE_PENDIRIAN) }}">Download File</a>
+            <a href="{{ url('/dw_akte_pendirian', $partner->AKTE_PENDIRIAN) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->AKTE_PENDIRIAN }}</div>
@@ -37,7 +37,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>Company Profile <br> 
             @if ($partner->COMPANY_PROFILE != NULL)
-            <a href="{{ url('/dw_deb_company', $partner->COMPANY_PROFILE) }}">Download File</a>
+            <a href="{{ url('/dw_company', $partner->COMPANY_PROFILE) }}">Download File</a>
             @endif
         </label></div>
             <div class="col-sm-8">: {{ $partner->COMPANY_PROFILE }}</div>
@@ -49,7 +49,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>Akte Perubahan Anggaran Dasar <br> 
             @if ($partner->AKTE_PERUBAHAN_ANGGARAN_DASAR != NULL)
-            <a href="{{ url('/dw_deb_akte_ad', $partner->AKTE_PERUBAHAN_ANGGARAN_DASAR) }}">Download File</a>
+            <a href="{{ url('/dw_akte_ad', $partner->AKTE_PERUBAHAN_ANGGARAN_DASAR) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->AKTE_PERUBAHAN_ANGGARAN_DASAR }}</div>
@@ -57,7 +57,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>SIUP <br> 
             @if ($partner->SIUP != NULL)
-            <a href="{{ url('/dw_deb_siup', $partner->SIUP) }}">Download File</a>
+            <a href="{{ url('/dw_siup', $partner->SIUP) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->SIUP }}</div>
@@ -65,7 +65,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>TDP <br> 
             @if ($partner->TDP != NULL)
-            <a href="{{ url('/dw_deb_tdp', $partner->TDP) }}">Download File</a>
+            <a href="{{ url('/dw_tdp', $partner->TDP) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->TDP }}</div>
@@ -73,7 +73,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>NPWP <br> 
             @if ($partner->NPWP != NULL)
-            <a href="{{ url('/dw_deb_npwp', $partner->NPWP) }}">Download File</a>
+            <a href="{{ url('/dw_npwp', $partner->NPWP) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->NPWP }}</div>
@@ -105,7 +105,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>Modal Pendirian <br> 
             @if ($partner->MODAL_PENDIRIAN != NULL)
-            <a href="{{ url('/dw_deb_mdl_diri', $partner->MODAL_PENDIRIAN) }}">Download File</a>
+            <a href="{{ url('/dw_mdl_diri', $partner->MODAL_PENDIRIAN) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->MODAL_PENDIRIAN }}</div>
@@ -113,7 +113,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>Modal Perubahan Terakhir <br> 
             @if ($partner->MODAL_PERUBAHAN_TERAKHIR != NULL)
-            <a href="{{ url('/dw_deb_mdl_akhir', $partner->MODAL_PERUBAHAN_TERAKHIR) }}">Download File</a>
+            <a href="{{ url('/dw_mdl_akhir', $partner->MODAL_PERUBAHAN_TERAKHIR) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->MODAL_PERUBAHAN_TERAKHIR }}</div>
@@ -121,7 +121,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>Audited Financial Statement <br> 
             @if ($partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS != NULL)
-            <a href="{{ url('/dw_deb_audited', $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS) }}">Download File</a>
+            <a href="{{ url('/dw_audited', $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS }}</div>
@@ -129,7 +129,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>In House Financial Statement <br> 
             @if ($partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR != NULL)
-            <a href="{{ url('/dw_deb_in_house', $partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR) }}">Download File</a>
+            <a href="{{ url('/dw_in_house', $partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR }}</div>
@@ -137,7 +137,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>Bank Statement <br> 
             @if ($partner->BANK_STATEMENT_LAST_3_MONTHS != NULL)
-            <a href="{{ url('/dw_deb_bank', $partner->BANK_STATEMENT_LAST_3_MONTHS) }}">Download File</a>
+            <a href="{{ url('/dw_bank', $partner->BANK_STATEMENT_LAST_3_MONTHS) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->BANK_STATEMENT_LAST_3_MONTHS }}</div>
@@ -145,7 +145,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>Financial Projection <br> 
             @if ($partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS != NULL)
-            <a href="{{ url('/dw_deb_finance_projection', $partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS) }}">Download File</a>
+            <a href="{{ url('/dw_finance_projection', $partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS }}</div>
@@ -153,7 +153,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>Draft Template <br> 
             @if ($partner->DRAFT_TEMPLATE_AGREEMENT_END_USER != NULL)
-            <a href="{{ url('/dw_deb_draft', $partner->DRAFT_TEMPLATE_AGREEMENT_END_USER) }}">Download File</a>
+            <a href="{{ url('/dw_draft', $partner->DRAFT_TEMPLATE_AGREEMENT_END_USER) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->DRAFT_TEMPLATE_AGREEMENT_END_USER }}</div>
@@ -161,7 +161,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>Risk Acceptance Criteria <br> 
             @if ($partner->CONTOH_RISK_ACCEPTANCE_CRITERIA != NULL)
-            <a href="{{ url('/dw_deb_risk_acc', $partner->CONTOH_RISK_ACCEPTANCE_CRITERIA) }}">Download File</a>
+            <a href="{{ url('/dw_risk_acc', $partner->CONTOH_RISK_ACCEPTANCE_CRITERIA) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->CONTOH_RISK_ACCEPTANCE_CRITERIA }}</div>
@@ -169,7 +169,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>NDA Document <br> 
             @if ($partner->NDA_DOCUMENT != NULL)
-                <a href="{{ url('/dw_deb_nda', $partner->NDA_DOCUMENT) }}">Download File</a>
+                <a href="{{ url('/dw_nda', $partner->NDA_DOCUMENT) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->NDA_DOCUMENT }}</div>

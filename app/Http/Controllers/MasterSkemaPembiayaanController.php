@@ -15,7 +15,7 @@ class MasterSkemaPembiayaanController extends Controller
      */
     public function index()
     {
-        $skemaPembiayaan = Master_Skema_Pembiayaan::all();
+        $skemaPembiayaan = Master_Skema_Pembiayaan::orderBy('id', 'desc')->get();; 
         return view('master.skema_pembiayaan.index', compact('skemaPembiayaan'));
     }
 

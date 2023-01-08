@@ -14,7 +14,7 @@ class MasterPolaPembayaranController extends Controller
      */
     public function index()
     {
-        $polaPembayaran = Master_Pola_Pembayaran::all();
+        $polaPembayaran = Master_Pola_Pembayaran::orderBy('id', 'desc')->get();
         return view('master.pola_pembayaran.index', compact('polaPembayaran'));
     }
 
@@ -46,7 +46,7 @@ class MasterPolaPembayaranController extends Controller
 
         Master_Pola_Pembayaran::create([
             'Pola_Pembayaran' => $request->Pola_Pembayaran,
-            'Nilai_Pola_Pembayaran' => $request->Nilai_Pola_Pembayaran,
+            'Nilai_Pola_Pembayaran' => str_replace( ',', '', $request->Nilai_Pola_Pembayaran ), 
         ]);
 
         return redirect('master_pola_pembayaran');
@@ -96,7 +96,7 @@ class MasterPolaPembayaranController extends Controller
         $polaPembayaran = Master_Pola_Pembayaran::findorfail($id);
         $polaPembayaran->update([
             'Pola_Pembayaran' => $request->Pola_Pembayaran,
-            'Nilai_Pola_Pembayaran' => $request->Nilai_Pola_Pembayaran,
+            'Nilai_Pola_Pembayaran' => str_replace( ',', '', $request->Nilai_Pola_Pembayaran ),
         ]);
         
         return redirect('master_pola_pembayaran');

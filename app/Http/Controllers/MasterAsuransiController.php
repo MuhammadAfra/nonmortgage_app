@@ -14,7 +14,7 @@ class MasterAsuransiController extends Controller
      */
     public function index()
     {
-        $jenisAsuransi = Master_Asuransi::all();
+        $jenisAsuransi = Master_Asuransi::orderBy('id', 'desc')->get();
         return view('master.asuransi.index', compact('jenisAsuransi'));
     }
 

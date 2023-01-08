@@ -15,7 +15,7 @@ class MasterJenisPembiayaanController extends Controller
      */
     public function index()
     {
-        $jenisPembiayaan = Master_Jenis_Pembiayaan::with('jenis_product')->get();
+        $jenisPembiayaan = Master_Jenis_Pembiayaan::orderBy('id', 'desc')->get();
         return view('master.jenis_pembiayaan.index', compact('jenisPembiayaan'));
     }
 

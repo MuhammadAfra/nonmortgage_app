@@ -83,9 +83,9 @@
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="/dashboard" class="nav-link {{ 'dashboard' == request()->path() ? 'active' : '' }}">
-                                <i class="fas fa-tachometer"></i>                                
+                                &nbsp;<i class="fas fa-tachometer-alt"></i>                                
                                 <p>
-                                    Dashboard
+                                    &nbsp;&nbsp;Dashboard
                                 </p>
                             </a>
                         </li>
@@ -150,7 +150,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-handshake"></i>
+                                <i class="nav-icon fas fa-user-friends"></i>
                                 <p>
                                     Debitur
                                     <i class="fas fa-angle-left right"></i>
@@ -159,13 +159,11 @@
                             <ul class="nav nav-treeview ml-1">
                                 <li class="nav-item">
                                     <a href="{{ url('debitur') }}" class="nav-link {{ 'debitur' == request()->path() ? 'active' : '' }}">
-                                        &nbsp;&nbsp;<i class="nav-icon fas fa-handshake"></i>
                                         <p>Perorangan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{ url('debitur_badan_usaha') }}" class="nav-link {{ 'debitur_badan_usaha' == request()->path() ? 'active' : '' }}">
-                                        &nbsp;&nbsp;<i class="nav-icon fas fa-handshake"></i>
                                         <p>Badan Usaha</p>
                                     </a>
                                 </li>
@@ -173,7 +171,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('product') }}" class="nav-link {{ 'product' == request()->path() ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-handshake"></i>
+                                <i class="nav-icon fas fa-box-open"></i>
                                 <p>
                                     Product
                                 </p>
@@ -181,7 +179,7 @@
                         </li>
                         <li class="nav-item ml-1">
                             <a href="#" class="nav-link">
-                                <i class="fas fa-handshake"></i>
+                                <i class="fas fa-hand-holding"></i>
                                 <p>
                                      &nbsp;&nbsp;Collateral
                                     <i class="right fas fa-angle-left"></i>
@@ -197,22 +195,22 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_motor') }}" class="nav-link">1. Kendaraan Bermotor</a>
+                                            <a href="{{ url('collateral_motor') }}" class="nav-link">Kendaraan Bermotor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_mobil') }}" class="nav-link">2. Kendaraan Bermobil</a>
+                                            <a href="{{ url('collateral_mobil') }}" class="nav-link">Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_rumah') }}" class="nav-link">3. Rumah / Tanah</a>
+                                            <a href="{{ url('collateral_rumah') }}" class="nav-link">Rumah / Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_inven') }}" class="nav-link">4. Inventori</a>
+                                            <a href="{{ url('collateral_inven') }}" class="nav-link">Inventori</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_invoice') }}" class="nav-link">5. Invoice</a>
+                                            <a href="{{ url('collateral_invoice') }}" class="nav-link">Invoice</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_corporate') }}" class="nav-link">6. Corporate Guarantee</a>
+                                            <a href="{{ url('collateral_corporate') }}" class="nav-link">Corporate Guarantee</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -225,22 +223,22 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_motor_tambahan') }}" class="nav-link">1. Kendaraan Bermotor</a>
+                                            <a href="{{ url('collateral_motor_tambahan') }}" class="nav-link">Kendaraan Bermotor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_mobil_tambahan') }}" class="nav-link">2. Kendaraan Bermobil</a>
+                                            <a href="{{ url('collateral_mobil_tambahan') }}" class="nav-link">Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_rumah_tambahan') }}" class="nav-link">3. Rumah / Tanah</a>
+                                            <a href="{{ url('collateral_rumah_tambahan') }}" class="nav-link">Rumah / Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_inven_tambahan') }}" class="nav-link">4. Inventori</a>
+                                            <a href="{{ url('collateral_inven_tambahan') }}" class="nav-link">Inventori</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_invoice_tambahan') }}" class="nav-link">5. Invoice</a>
+                                            <a href="{{ url('collateral_invoice_tambahan') }}" class="nav-link">Invoice</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_corporate_tambahan') }}" class="nav-link">6. Corporate Guarantee</a>
+                                            <a href="{{ url('collateral_corporate_tambahan') }}" class="nav-link">Corporate Guarantee</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -368,22 +366,22 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_motor_utama') }}" class="nav-link">1. Kendaraan Bermotor</a>
+                                            <a href="{{ url('colls_motor_utama') }}" class="nav-link">Kendaraan Bermotor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_mobil_utama') }}" class="nav-link">2. Kendaraan Bermobil</a>
+                                            <a href="{{ url('colls_mobil_utama') }}" class="nav-link">Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_rumah_utama') }}" class="nav-link">3. Rumah/Tanah</a>
+                                            <a href="{{ url('colls_rumah_utama') }}" class="nav-link">Rumah/Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_inven_utama') }}" class="nav-link">4. Inventori</a>
+                                            <a href="{{ url('colls_inven_utama') }}" class="nav-link">Inventori</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_invoice_utama') }}" class="nav-link">5. Invoice</a>
+                                            <a href="{{ url('colls_invoice_utama') }}" class="nav-link">Invoice</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_corporate_utama') }}" class="nav-link">6. Corporate Guarantee</a>
+                                            <a href="{{ url('colls_corporate_utama') }}" class="nav-link">Corporate Guarantee</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -396,22 +394,22 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_motor_tambahan') }}" class="nav-link">1. Kendaraan Bermotor</a>
+                                            <a href="{{ url('colls_motor_tambahan') }}" class="nav-link">Kendaraan Bermotor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_mobil_tambahan') }}" class="nav-link">2. Kendaraan Bermobil</a>
+                                            <a href="{{ url('colls_mobil_tambahan') }}" class="nav-link">Kendaraan Bermobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_rumah_tambahan') }}" class="nav-link">3. Rumah/Tanah</a>
+                                            <a href="{{ url('colls_rumah_tambahan') }}" class="nav-link">Rumah/Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_inven_tambahan') }}" class="nav-link">4. Inventori</a>
+                                            <a href="{{ url('colls_inven_tambahan') }}" class="nav-link">Inventori</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_invoice_tambahan') }}" class="nav-link">5. Invoice</a>
+                                            <a href="{{ url('colls_invoice_tambahan') }}" class="nav-link">Invoice</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_corporate_tambahan') }}" class="nav-link">6. Corporate Guarantee</a>
+                                            <a href="{{ url('colls_corporate_tambahan') }}" class="nav-link">Corporate Guarantee</a>
                                         </li>
                                     </ul>
                                 </li>

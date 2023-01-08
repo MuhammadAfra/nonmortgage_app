@@ -43,12 +43,12 @@
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Jenis Product <span class="text-danger">*</span></label></div>
+            <div class="col-sm-4"><label>Nama Product <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
                 <select name="M_PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
                     <option>-----</option>
                     @foreach ($prod as $item)
-                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->nama_product }}</option>
+                        <option value="{{ $item->id }}">{{ $item->nama_product }}</option>
                     @endforeach
                 </select>
                 @error('M_PRODUCT_ID')
@@ -98,7 +98,7 @@
                 <select name="POLA_PEMBAYARAN_ID" class="form-control py-0" style="width: 300px; height: 30px;">
                     <option>-----</option>
                     @foreach ($pola as $item)
-                        <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->Pola_Pembayaran }}</option>
+                        <option value="{{ $item->id }}">ada 2 {{ $item->Pola_Pembayaran }}</option>
                     @endforeach
                 </select>  
                 @error('POLA_PEMBAYARAN_ID')

@@ -20,7 +20,7 @@
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Pola Pembayaran</label></div>
-            <div class="col-sm-8">: {{ $polaPembayaran->Nilai_Pola_Pembayaran }}</div>
+            <div class="col-sm-8">: {{ number_format($polaPembayaran->Nilai_Pola_Pembayaran) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"></div>

@@ -15,7 +15,7 @@ class MasterSukuBungaController extends Controller
      */
     public function index()
     {
-        $sukuBunga = Master_Suku_Bunga::get();
+        $sukuBunga = Master_Suku_Bunga::orderBy('id', 'desc')->get();
         return view('master.suku_bunga.index', compact('sukuBunga'));
     }
 
@@ -50,7 +50,7 @@ class MasterSukuBungaController extends Controller
 
         Master_Suku_Bunga::create([
             'Suku_Bunga' => $request->Suku_Bunga,
-            'Nilai_Suku_Bunga' => $request->Nilai_Suku_Bunga,
+            'Nilai_Suku_Bunga' => str_replace( ',', '', $request->Nilai_Suku_Bunga ),
             'konven_syariah_id' => $request->konven_syariah_id,
         ]);
 
@@ -104,7 +104,7 @@ class MasterSukuBungaController extends Controller
         $sukuBunga = Master_Suku_Bunga::findorfail($id);
         $sukuBunga->update([
             'Suku_Bunga' => $request->Suku_Bunga,
-            'Nilai_Suku_Bunga' => $request->Nilai_Suku_Bunga,
+            'Nilai_Suku_Bunga' => str_replace( ',', '', $request->Nilai_Suku_Bunga ),
             'konven_syariah_id' => $request->konven_syariah_id,
         ]);
         

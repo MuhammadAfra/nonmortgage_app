@@ -43,7 +43,7 @@ Home
                     @endif
                     <th>Partner</th>
                     <th>Debitur</th>
-                    <th>Jenis Product</th>
+                    <th>Nama Product</th>
                     <th>Nilai Pembiayaan/Pokok Maximum </th>
                     <th>Suku Bunga Flat(%)</th>
                     <th>Suku Bunga Effective(%)</th>

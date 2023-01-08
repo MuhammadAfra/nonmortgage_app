@@ -15,7 +15,7 @@ class MasterJenisProductController extends Controller
      */
     public function index()
     {
-        $jenisProduct = Master_Jenis_Product::all();
+        $jenisProduct = Master_Jenis_Product::orderBy('id', 'desc')->get();;
         return view('master.jenis_product.index', compact('jenisProduct'));
     }
 
