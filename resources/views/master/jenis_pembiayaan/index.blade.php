@@ -38,7 +38,7 @@ Home
                     <th class="text-center" style="width: 200px;">Action</th>
                     @endif
                     <th class="text-center">Jenis Pembiayaan</th>
-                    <th class="text-center">Id Product</th>
+                    {{-- <th class="text-center">Id Product</th> --}}
                     <th class="text-center">Konvensional / Syariah</th>
                 </tr>
             </thead>
@@ -51,16 +51,16 @@ Home
                             <div><a href="{{ url('master_jenis_pembiayaan/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                             <div><a href="{{ url('master_jenis_pembiayaan/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
                             <div>
-                                <form action="{{ url('master_jenis_pembiayaan',$item->id) }}" method="POST">
+                            <form action="{{ url('master_jenis_pembiayaan',$item->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
-                                </form>
+                                </form>              
                             </div>
                         </td>
                         @endif
                         <td>{{ $item->jenis_pembiayaan }}</td>
-                        <td>{{ $item->jenis_product->id }}</td>
+                        {{-- <td>{{ $item->jenis_product->id }}</td> --}}
                         <td>{{ $item->jenis_product->Product }}</td>
                     </tr>
                 @endforeach

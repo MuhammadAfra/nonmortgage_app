@@ -106,7 +106,6 @@ Route::group(['middleware' => ['PreventBack']], function(){
 
         // partner
         Route::resource('partner', PartnerController::class);
-        Route::post('/add_product', [PartnerController::class, 'add_product'])->name('add_product');
         Route::post('/partner_import', [PartnerController::class, 'import'])->name('partner_import');
 
         // collateral motor

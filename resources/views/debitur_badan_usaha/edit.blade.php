@@ -59,7 +59,7 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Akte Pendirian <span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Akta Pendirian <span class="text-danger">*</span></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 30px; cursor: pointer;">
                 <input type="file" class="custom-file-input" name="AKTE_PENDIRIAN">
@@ -102,7 +102,7 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Akte Perubahan Anggaran Dasar </label></div>
+        <div class="col-sm-4"><label>Akta Perubahan Anggaran Dasar </label></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 30px; cursor: pointer;">
                 <input type="file" class="custom-file-input" name="AKTE_PERUBAHAN_ANGGARAN_DASAR">

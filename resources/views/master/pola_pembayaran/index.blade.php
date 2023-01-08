@@ -50,11 +50,11 @@ Home
                             <div><a href="{{ url('master_pola_pembayaran/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                             <div><a href="{{ url('master_pola_pembayaran/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
                             <div>
-                                <form action="{{ url('master_pola_pembayaran',$item->id) }}" method="POST">
+                            <form action="{{ url('master_pola_pembayaran',$item->id) }}" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
-                                </form>
+                                </form>        
                             </div>
                         </td>
                         @endif

@@ -52,15 +52,17 @@ Home
                             <div><a href="{{ url('master_skema_pembiayaan/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                             <div><a href="{{ url('master_skema_pembiayaan/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
                             <div>
-                                <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
+                                <form action="{{ url('master_skema_pembiayaan',$item->id) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
+                                </form>                            
                             </div>
                             </div>
                         </td>
                         @endif
                         <td>{{ $item->skema_pembiayaan }}</td>
-                        {{-- <td>{{ $item->jenis->id }}</td> --}}
                         <td>{{ $item->jenis->jenis_pembiayaan }}</td>
-                        {{-- <td>{{ $item->jenis->jenis_product->id }}</td> --}}
                         <td>{{ $item->jenis->jenis_product->Product }}</td>
                     </tr>
                 @endforeach
@@ -68,22 +70,4 @@ Home
     </div>
     <!-- /.card-body -->
 </div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-            <h5>Apakah Anda Yakin Ingin Hapus Data?</h5>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <form action="{{ url('master_skema_pembiayaan',$item->id) }}" method="POST">
-                @csrf
-                @method('delete')
-                <button type="submit" class="btn btn-danger text-white">Delete</button>
-            </form>
-        </div>
-      </div>
-    </div>
-  </div>
 @endsection

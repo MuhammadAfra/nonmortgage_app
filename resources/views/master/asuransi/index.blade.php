@@ -8,17 +8,17 @@ Home
 @endsection
 
 @if (auth()->user()->level == "Admin")
-    @section('page')
-        <a href="{{ url('master_asuransi') }}">Master Asuransi</a>
-    @endsection
+@section('page')
+<a href="{{ url('master_asuransi') }}">Master Asuransi</a>
+@endsection
 @elseif(auth()->user()->level == "User")
-    @section('page')
-    <a href="{{ url('/master_asuransi') }}">Master Asuransi</a>
-    @endsection
+@section('page')
+<a href="{{ url('/master_asuransi') }}">Master Asuransi</a>
+@endsection
 @endif
 
 @section('content')
-@if (auth()->user()->level == "Admin")    
+@if (auth()->user()->level == "Admin")
 <div class="d-flex pb-3">
     <a href="{{ url('master_asuransi/create') }}" class="btn btn-success my-2">Create New</a>
 </div>
@@ -35,7 +35,7 @@ Home
                 <tr>
                     <th class="text-center" style="width: 100px;">No</th>
                     @if (auth()->user()->level == "Admin")
-                    <th class="text-center"style="width: 200px;">Action</th>
+                    <th class="text-center" style="width: 200px;">Action</th>
                     @endif
                     <th class="text-center">Jenis Asuransi</th>
                 </tr>
@@ -49,16 +49,13 @@ Home
                             <div><a href="{{ url('master_asuransi/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                             <div><a href="{{ url('master_asuransi/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
                             <div>
-                                <form action="{{ url('master_asuransi',$item->id) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
-                                </form>
+                                <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
                             </div>
                         </td>
                         @endif
                         <td>{{ $item->Jenis_Asuransi }}</td>
                     </tr>
+                    
                 @endforeach
         </table>
     </div>
