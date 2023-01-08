@@ -27,7 +27,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->STATUS_BADAN_HUKUM }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Akte Pendirian <br> 
+            <div class="col-sm-4"><label>Akta Pendirian <br> 
             @if ($partner->AKTE_PENDIRIAN != NULL)
             <a href="{{ url('/dw_akte_pendirian', $partner->AKTE_PENDIRIAN) }}">Download File</a>
             @endif
@@ -47,7 +47,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->master_product->id_master_product }} - {{ $partner->master_product->nama_product }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Akte Perubahan Anggaran Dasar <br> 
+            <div class="col-sm-4"><label>Akta Perubahan Anggaran Dasar <br> 
             @if ($partner->AKTE_PERUBAHAN_ANGGARAN_DASAR != NULL)
             <a href="{{ url('/dw_akte_ad', $partner->AKTE_PERUBAHAN_ANGGARAN_DASAR) }}">Download File</a>
             @endif

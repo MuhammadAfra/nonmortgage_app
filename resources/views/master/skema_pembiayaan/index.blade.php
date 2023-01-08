@@ -59,9 +59,7 @@ Home
                         @include('master.skema_pembiayaan.delete')
                         @endif
                         <td>{{ $item->skema_pembiayaan }}</td>
-                        {{-- <td>{{ $item->jenis->id }}</td> --}}
                         <td>{{ $item->jenis->jenis_pembiayaan }}</td>
-                        {{-- <td>{{ $item->jenis->jenis_product->id }}</td> --}}
                         <td>{{ $item->jenis->jenis_product->Product }}</td>
                     </tr>
                 @endforeach

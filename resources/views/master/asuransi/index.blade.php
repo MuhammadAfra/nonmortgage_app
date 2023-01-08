@@ -8,17 +8,17 @@ Home
 @endsection
 
 @if (auth()->user()->level == "Admin")
-    @section('page')
-        <a href="{{ url('master_asuransi') }}">Master Asuransi</a>
-    @endsection
+@section('page')
+<a href="{{ url('master_asuransi') }}">Master Asuransi</a>
+@endsection
 @elseif(auth()->user()->level == "User")
-    @section('page')
-    <a href="{{ url('/master_asuransi') }}">Master Asuransi</a>
-    @endsection
+@section('page')
+<a href="{{ url('/master_asuransi') }}">Master Asuransi</a>
+@endsection
 @endif
 
 @section('content')
-@if (auth()->user()->level == "Admin")    
+@if (auth()->user()->level == "Admin")
 <div class="d-flex pb-3">
     <a href="{{ url('master_asuransi/create') }}" class="btn btn-success my-2">Create New</a>
 </div>

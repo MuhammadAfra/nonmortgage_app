@@ -50,10 +50,10 @@ Home
                     <th>Nama Perusahaan</th>
                     <th>Alamat Perusahaan</th>
                     <th>Status Bahan Hukum</th>
-                    <th>Akte Pendirian</th>
+                    <th>Akta Pendirian</th>
                     <th>Company Profile</th>
                     <th>Detail Company Profile</th>
-                    <th>Akte Perubahan Anggaran Dasar</th>
+                    <th>Akta Perubahan Anggaran Dasar</th>
                     <th>SIUP</th>
                     <th>TDP</th>
                     <th>NPWP</th>

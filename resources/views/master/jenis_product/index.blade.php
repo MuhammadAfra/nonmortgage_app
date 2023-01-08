@@ -42,7 +42,7 @@ Home
             <tbody>
                 @foreach ($jenisProduct as $item)                    
                     <tr>
-                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td>{{ $loop->iteration }}</td>
                         @if (auth()->user()->level == "Admin")
                         <td class="d-flex" style="justify-content: center">
                             <div><a href="{{ url('master_jenis_product/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>

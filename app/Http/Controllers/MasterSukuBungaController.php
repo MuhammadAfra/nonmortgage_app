@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Master_Jenis_Product;
-use App\Models\Master_Suku_Bunga;
 use Illuminate\Http\Request;
+use App\Models\Master_Suku_Bunga;
+use App\Models\Master_Jenis_Product;
+use Illuminate\Support\Facades\Session;
 
 class MasterSukuBungaController extends Controller
 {
@@ -48,7 +49,10 @@ class MasterSukuBungaController extends Controller
             'konven_syariah_id' => 'Input Tipe Suku Bunga!'
         ]);
 
-        Master_Suku_Bunga::create([
+        Session::flash('Suku_Bunga', $request->Suku_Bunga);
+        Session::flash('Nilai_Suku_Bunga', $request->Suku_Bunga);
+
+        $data = Master_Suku_Bunga::create([
             'Suku_Bunga' => $request->Suku_Bunga,
             'Nilai_Suku_Bunga' => str_replace( ',', '', $request->Nilai_Suku_Bunga ),
             'konven_syariah_id' => $request->konven_syariah_id,
@@ -124,4 +128,5 @@ class MasterSukuBungaController extends Controller
 
         return redirect('master_suku_bunga');
     }
+    
 }

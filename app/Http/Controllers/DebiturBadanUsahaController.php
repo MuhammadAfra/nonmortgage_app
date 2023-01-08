@@ -366,7 +366,7 @@ class DebiturBadanUsahaController extends Controller
 
         Excel::import(new DebiturBadanUsahaImport, public_path('/import/product/'.$nama_file));
 
-        Session::flash('sukses','Data Debitur Berhasil Diimport!');
-        return redirect('debitur');
+        Session::flash('sukses','Data Debitur Badan Usaha Berhasil Diimport!');
+        return redirect('debitur_badan_usaha');
     }
 }
