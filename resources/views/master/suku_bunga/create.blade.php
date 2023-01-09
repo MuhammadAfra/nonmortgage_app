@@ -41,11 +41,7 @@
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Suku Bunga <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-<<<<<<< HEAD
                 <input type="text" name="Nilai_Suku_Bunga" class="form-control number-separator" style="width: 300px; height: 30px;">
-=======
-                <input type="number" name="Nilai_Suku_Bunga" class="form-control" value="{{ Session::get('Nilai_Suku_Bunga') }}" style="width: 300px; height: 30px;">
->>>>>>> 96416405cf1375d7fac3e5dc354645089172b370
                 @error('Nilai_Suku_Bunga')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror

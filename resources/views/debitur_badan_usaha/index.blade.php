@@ -91,6 +91,7 @@ Home
                     <th>Jaminan Lainnya</th>
                     <th>DP</th>
                     <th>Jumlah DP</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -102,13 +103,10 @@ Home
                         <div><a href="{{ url('debitur_badan_usaha/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                         <div><a href="{{ url('debitur_badan_usaha/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
                         <div>
-                            <form action="{{ url('debitur_badan_usaha',$item->id) }}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
-                            </form>
+                            <button type="button" data-toggle="modal" data-target="#exampleModalCenter{{ $item->id }}" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
                         </div>
                     </td>
+                    @include('debitur_badan_usaha.delete')
                     @endif
                     <td>{{ $item->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->ALAMAT_PERUSAHAAN }}</td>
@@ -154,6 +152,7 @@ Home
                     <td>{{ $item->Jaminan_Lainnya  }}</td>
                     <td>{{ $item->APAKAH_ADA_DP }}</td>
                     <td>{{ $item->DOWN_PAYMENT_CUSTOMER }}</td>
+                    <td>{{ $item->Status }}</td>
                 </tr>
                 @endforeach
             </tbody>

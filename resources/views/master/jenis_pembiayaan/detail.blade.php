@@ -19,10 +19,6 @@
             <div class="col-sm-8">: {{ $jenisPembiayaan->jenis_pembiayaan }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Id Product</label></div>
-            <div class="col-sm-8">: {{ $jenisPembiayaan->jenis_product->id }}</div>
-        </div>
-        <div class="row pb-3">
             <div class="col-sm-4"><label>Konvensional / Syariah</label></div>
             <div class="col-sm-8">: {{ $jenisPembiayaan->jenis_product->Product }}</div>
         </div>

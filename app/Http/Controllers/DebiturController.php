@@ -18,7 +18,7 @@ class DebiturController extends Controller
      */
     public function index()
     {
-        $debitur = Debitur::all();
+        $debitur = Debitur::orderBy('id', 'desc')->get();
         return view('debitur.index', compact('debitur'));
     }
 

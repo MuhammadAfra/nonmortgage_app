@@ -48,10 +48,7 @@ class MasterSukuBungaController extends Controller
             'Nilai_Suku_Bunga' => 'Input Nilai Suku Bunga',
             'konven_syariah_id' => 'Input Tipe Suku Bunga!'
         ]);
-
-        Session::flash('Suku_Bunga', $request->Suku_Bunga);
-        Session::flash('Nilai_Suku_Bunga', $request->Suku_Bunga);
-
+        
         $data = Master_Suku_Bunga::create([
             'Suku_Bunga' => $request->Suku_Bunga,
             'Nilai_Suku_Bunga' => str_replace( ',', '', $request->Nilai_Suku_Bunga ),

@@ -27,7 +27,13 @@ Home
     data-target="#impormodal">Import Data</button>
 </div>
 @endif
-
+{{-- notifikasi sukses --}}
+@if ($sukses = Session::get('sukses'))
+<div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button> 
+    <strong>{{ $sukses }}</strong>
+</div>
+@endif
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">List Product</h3>
@@ -52,7 +58,7 @@ Home
                     <th>Biaya Administrasi </th>
                     <th>Biaya Asuransi </th>
                     <th>Biaya Provisi </th>
-                    <th>Biaya Lain Lain     </th>
+                    <th>Biaya Lain Lain</th>
                     {{-- <th>File</th> --}}
                 </tr>
             </thead>
@@ -65,14 +71,11 @@ Home
                         <div><a href="{{ url('product/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                         <div><a href="{{ url('product/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
                         <div>
-                            <form action="{{ url('product',$item->id) }}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
-                            </form>
+                            <button type="button" data-toggle="modal" data-target="#exampleModalCenter{{ $item->id }}" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
                         </div>
-                    @endif
                     </td>
+                    @include('product.delete')
+                    @endif
                     <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->m_product->id_master_product }} - {{ $item->m_product->nama_product }}</td>

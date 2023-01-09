@@ -91,7 +91,7 @@ Edit
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>tanggungan<span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Tanggungan<span class="text-danger">*</span></label></div>
         <div class="col-sm-8"><input type="text" value="{{ $debitur->TANGGUNGAN }}" name="TANGGUNGAN"
                 class="form-control" style="width: 300px; height: 30px;"></div>
     </div>

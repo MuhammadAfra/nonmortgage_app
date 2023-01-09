@@ -19,7 +19,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->NAMA_PERUSAHAAN }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Alamat</label></div>
+            <div class="col-sm-4"><label>Alamat Perusahaan</label></div>
             <div class="col-sm-8">: {{ $partner->ALAMAT_PERUSAHAAN }}</div>
         </div>
         <div class="row pb-3">

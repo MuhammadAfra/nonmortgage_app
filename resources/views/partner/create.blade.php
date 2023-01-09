@@ -69,13 +69,12 @@ Add
             </div>
         </div>
     </div>
-
     <div class="row pb-3">
         <div class="col-sm-4"><label>Detail Nama Product <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <div class="input-group" style="width: 500px; height: 38px;">
                 <select class="form-control py-0" required name="DETIL_PRODUCT_PROFILE">
-                    <option>--------------</option>
+                    <option></option>
                     @foreach ($prod as $item)
                     <option value="{{ $item->id }}">{{ $item->nama_product }}</option>
                     @endforeach
@@ -269,54 +268,11 @@ Add
                 <center>
                         <h5>Data Akan Disimpan Sebagai <span style="font-style: italic">Draft</span></h5>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                 </center>
             </div>
         </div>
         </div>
     </div>
 </form>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('add_product') }}" method="POST">
-                    @csrf
-                    <div class="row pb-3">
-                        <div class="col-sm-4"><label>ID Product </label></div>
-                        <div class="col-sm-8">
-                            <input type="text" name="id_master_product" class="form-control"
-                                style="width: 500px; height: 30px;">
-                            @error('id_master_product')
-                            <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="row pb-3">
-                        <div class="col-sm-4"><label>Nama Product </label></div>
-                        <div class="col-sm-8">
-                            <input type="text" name="nama_product" class="form-control"
-                                style="width: 500px; height: 30px;">
-                            @error('nama_product')
-                            <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-                    </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Add</button>
-            </div>
-            </form>
-        </div>
-    </div>
-</div>
 @endsection

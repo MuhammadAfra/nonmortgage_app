@@ -37,10 +37,6 @@ class PartnerImport implements ToModel, WithHeadingRow
             'No_Identitas_Direktur1' => $row['no_identitas_direktur_1'],
             'Nama_Direktur_2' => $row['nama_direktur_2'],
             'No_Identitas_Direktur2' => $row['no_identitas_direktur_2'],
-            'Jenis_Assuransi' => $row['jenis_asuransi'],
-            'Nama_Perusahaan_Assuransi' => $row['nama_perusahaan_asuransi'],
-            'Persen_Assuransi' => $row['persen_asuransi'],
-            'Nilai_Assuransi_Rupiah' => $row['nilai_asuransi_rupiah'],
             'Status' => $row['status'],
         ]);
     }
