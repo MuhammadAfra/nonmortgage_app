@@ -53,15 +53,7 @@ Home
                             <div><a href="{{ url('master_sektor_ekonomi/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                             <div><a href="{{ url('master_sektor_ekonomi/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
                             <div>
-<<<<<<< HEAD
                                 <button type="button" data-toggle="modal" data-target="#exampleModalCenter{{ $item->id }}" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
-=======
-                            <form action="{{ url('master_sektor_ekonomi',$item->id) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
-                                </form> 
->>>>>>> 96416405cf1375d7fac3e5dc354645089172b370
                             </div>
                         </td>
                         @include('master.sektor_ekonomi.delete')
@@ -76,9 +68,4 @@ Home
     </div>
     <!-- /.card-body -->
 </div>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 96416405cf1375d7fac3e5dc354645089172b370
 @endsection

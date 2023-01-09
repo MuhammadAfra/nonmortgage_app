@@ -253,9 +253,26 @@ Edit
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"></div>
-        <div class="col-sm-8"> 
-            <button class="text-white btn btn-warning" type="submit">Edit</button>
+        <div class="col-sm-8">
+            <button class="btn btn-warning text-white" type="submit">Edit</button>
             <a href="{{ url('partner') }}" class="btn btn-default">Cancel</a>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter">
+                Update As Draft
+            </button>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body py-5">
+                <center>
+                        <h5>Data Akan Disimpan Sebagai <span style="font-style: italic">Draft</span></h5>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                </center>
+            </div>
+        </div>
         </div>
     </div>
 </form>

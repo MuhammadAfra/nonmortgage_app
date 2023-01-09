@@ -19,16 +19,8 @@
             <div class="col-sm-8">: {{ $skemaPembiayaan->skema_pembiayaan }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Id Pembiayaan</label></div>
-            <div class="col-sm-8">: {{ $skemaPembiayaan->jenis->id }}</div>
-        </div>
-        <div class="row pb-3">
             <div class="col-sm-4"><label>Jenis Pembiayaan</label></div>
             <div class="col-sm-8">: {{ $skemaPembiayaan->jenis->jenis_pembiayaan }}</div>
-        </div>
-        <div class="row pb-3">
-            <div class="col-sm-4"><label>Id Product</label></div>
-            <div class="col-sm-8">: {{ $skemaPembiayaan->jenis->jenis_product->id }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Konvensional / Syariah</label></div>

@@ -65,7 +65,6 @@ Home
                     <th>Nomor Identitas Direktur 2</th>
                     <th>Modal Pendirian</th>
                     <th>Modal Perubahan Terakhir</th>
-                    {{-- <th>Audited Financial Statement Current Year</th> --}}
                     <th>Audited Financial Statement Last 2 Years</th>
                     <th>In House Financial Statement Current Year</th>
                     <th>Bank Statement Last 3 Years</th>
@@ -85,13 +84,10 @@ Home
                         <div><a href="{{ url('partner/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                         <div><a href="{{ url('partner/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
                         <div>
-                            <form action="{{ url('partner',$item->id) }}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
-                            </form>
+                            <button type="button" data-toggle="modal" data-target="#exampleModalCenter{{ $item->id }}" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
                         </div>
                     </td>
+                    @include('partner.delete')
                     @endif
                     <td>{{ $item->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->ALAMAT_PERUSAHAAN }}</td>
@@ -111,7 +107,6 @@ Home
                     <td>{{ $item->No_Identitas_Direktur2 }}</td>
                     <td>{{ $item->MODAL_PENDIRIAN }}</td>
                     <td>{{ $item->MODAL_PERUBAHAN_TERAKHIR }}</td>
-                    {{-- <td>no fields</td> --}}
                     <td>{{ $item->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS }}</td>
                     <td>{{ $item->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR }}</td>
                     <td>{{ $item->BANK_STATEMENT_LAST_3_MONTHS }}</td>

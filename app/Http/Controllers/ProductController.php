@@ -36,7 +36,6 @@ class ProductController extends Controller
     public function create()
     {
         $deb = Debitur::all();
-        // $bunga = Master_Suku_Bunga::all();
         $pola = Master_Pola_Pembayaran::all();
         $partner = Partner::all();
         $prod = Master_Product::all();
