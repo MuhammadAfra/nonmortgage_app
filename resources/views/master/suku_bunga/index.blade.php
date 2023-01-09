@@ -19,7 +19,7 @@ Home
 
 @section('content')
 
-@if (auth()->user()->level == "Admin")                            
+@if (auth()->user()->level == "Admin")
     <div class="d-flex pb-3">
         <a href="{{ url('master_suku_bunga/create') }}" class="btn btn-success my-2">Create New</a>
     </div>
