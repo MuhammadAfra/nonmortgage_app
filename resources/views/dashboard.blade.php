@@ -8,6 +8,6 @@ Dashboard
 @endsection
 
 @section('content')
-    <h3><em>Non Mortgage - Application</em></h3>
-    <p>PT. Usaha Pembiayan Reliance Indonesia</p>
+    <h3><em>~ Non Mortgage Master Data Application ~</em></h3>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PT Usaha Pembiayaan Reliance Indonesia</p>
 @endsection

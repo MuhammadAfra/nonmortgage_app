@@ -59,7 +59,7 @@
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Pembiayaan /<br> Pokok Maximum <span class="text-danger">*</span></div>
             <div class="col-sm-8">
-                <input type="text" name="NILAI_PEMBIAYAAN_POKOK_MAXIMUM" placeholder="Nilai Pembiayaan Pokok Maximum" class="form-control" style="width: 300px; height: 30px;">
+                <input type="text" name="NILAI_PEMBIAYAAN_POKOK_MAXIMUM" placeholder="Nilai Pembiayaan Pokok Maximum" class="form-control number-separator" style="width: 300px; height: 30px;">
                 @error('NILAI_PEMBIAYAAN_POKOK_MAXIMUM')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
@@ -98,7 +98,7 @@
                 <select name="POLA_PEMBAYARAN_ID" class="form-control py-0" style="width: 300px; height: 30px;">
                     <option>-----</option>
                     @foreach ($pola as $item)
-                        <option value="{{ $item->id }}">ada 2 {{ $item->Pola_Pembayaran }}</option>
+                        <option value="{{ $item->id }}">{{ $item->Pola_Pembayaran }}</option>
                     @endforeach
                 </select>  
                 @error('POLA_PEMBAYARAN_ID')
@@ -106,22 +106,22 @@
                 @enderror
             </div>
         </div>
-        <div class="row pb-3">
-            <div class="col-sm-4"><label>Biaya Administrasi (Rp)</label></div>
-            <div class="col-sm-8"><input type="text" placeholder="Biaya Administrasi" name="BIAYA_ADMINISTRASI" class="form-control" style="width: 300px; height: 30px;"></div>
-        </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Asuransi (Rp)</label></div>
-            <div class="col-sm-8"><input type="text" placeholder="Biaya Asuransi" name="BIAYA_ASSURANSI" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" placeholder="Biaya Asuransi" name="BIAYA_ASSURANSI" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Provisi (Rp)</label></div>
-            <div class="col-sm-8"><input type="text" placeholder="Biaya Provinsi" name="BIAYA_PROVISI" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" placeholder="Biaya Provinsi" name="BIAYA_PROVISI" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Biaya Lain Lain (Rp)</label></div>
-            <div class="col-sm-8"><input type="text" placeholder="Biaya Lain Lain" name="BIAYA_LAIN_LAIN" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-8"><input type="text" placeholder="Biaya Lain Lain" name="BIAYA_LAIN_LAIN" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"></div>
             <div class="col-sm-8">

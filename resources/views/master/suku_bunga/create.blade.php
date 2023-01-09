@@ -17,7 +17,7 @@
         <div class="row pb-3">
             <div class="col-sm-4"><label>Suku Bunga <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                <input type="text" name="Suku_Bunga" class="form-control" value="{{ Session::get('Suku_Bunga') }}" style="width: 300px; height: 30px;">
+                <input type="text" name="Suku_Bunga" class="form-control" style="width: 300px; height: 30px;">
                 @error('Suku_Bunga')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
@@ -27,25 +27,27 @@
             <div class="col-sm-4"><label>Konvensional / Syariah <span class="text-danger">*</span></label></div>
             <div class="col-sm-4 row pl-3">
                 @foreach ($jp as $item)    
-                <div class="d-flex">
-                    <input type="radio" value="{{ $item->id }}" style="width: 15px" name="konven_syariah_id" class="form-control">
-                    <p class="my-auto mx-2" style="font-weight: 600">{{ $item->Product }}</p>
-                </div>
+                    <div class="d-flex">
+                        <input type="radio" value="{{ $item->id }}" style="width: 15px" name="konven_syariah_id" class="form-control">
+                        <p class="my-auto mx-2" style="font-weight: 600">{{ $item->Product }}</p>
+                    </div>
                 @endforeach
-                <br>
-                @error('konven_syariah_id')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror
             </div>
         </div>
+
+        @error('konven_syariah_id')
+        <div class="row pb-3 mt-n4">
+            <div class="col-sm-4"><label></span></label></div>
+            <div class="col-sm-4 row pl-3">
+                <p class="text-danger">{{ $message }}</p>
+            </div>
+        </div>
+        @enderror
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Suku Bunga <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-<<<<<<< HEAD
                 <input type="text" name="Nilai_Suku_Bunga" class="form-control number-separator" style="width: 300px; height: 30px;">
-=======
-                <input type="number" name="Nilai_Suku_Bunga" class="form-control" value="{{ Session::get('Nilai_Suku_Bunga') }}" style="width: 300px; height: 30px;">
->>>>>>> 96416405cf1375d7fac3e5dc354645089172b370
                 @error('Nilai_Suku_Bunga')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
@@ -60,3 +62,4 @@
         </div>
     </form>
 @endsection
+
