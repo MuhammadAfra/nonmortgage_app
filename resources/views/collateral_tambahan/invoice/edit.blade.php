@@ -44,7 +44,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Invoice<span class="text-danger">*</span></div>
         <div class="col-sm-8">
-            <input type="number" name="Nilai_Invoice_Tambahan" value="{{ $invoicetbh->Nilai_Invoice_Tambahan }}" class="form-control"
+            <input type="text" name="Nilai_Invoice_Tambahan" value="{{ number_format($invoicetbh->Nilai_Invoice_Tambahan) }}" class="form-control number-separator"
                 style="width: 300px; height: 30px;">
             @error('Nilai_Invoice_Tambahan')
             <p class="text-danger">{{ $message }}</p>
@@ -94,7 +94,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Fiducia<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Fiducia_Tambahan" value="{{ $invoicetbh->Nilai_Fiducia_Tambahan }}" class="form-control"
+            <input type="text" name="Nilai_Fiducia_Tambahan" value="{{ number_format($invoicetbh->Nilai_Fiducia_Tambahan) }}" class="form-control number-separator"
                 style="width: 300px; height: 30px;">
             @error('Nilai_Fiducia_Tambahan')
             <p class="text-danger">{{ $message }}</p>

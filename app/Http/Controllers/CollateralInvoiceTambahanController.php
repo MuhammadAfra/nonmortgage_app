@@ -52,7 +52,19 @@ class CollateralInvoiceTambahanController extends Controller
             'Status_Tambahan',           
         ]);
 
-        Collateral_Invoice_Tambahan::create($request->all());
+        Collateral_Invoice_Tambahan::create([
+            'Counter_Invoice_Tambahan' => $request->Counter_Invoice_Tambahan,
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Invoice_Tambahan' => str_ireplace(',', '', $request->Nilai_Invoice_Tambahan),
+            'Jenis_Invoice_Tambahan' => $request->Jenis_Invoice_Tambahan,
+            'Atas_Nama_Invoice_Tambahan' => $request->Atas_Nama_Invoice_Tambahan,
+            'Alamat_Nama_Invoice_Tambahan' => $request->Alamat_Nama_Invoice_Tambahan,
+            'No_Fiducia_Tambahan' => $request->No_Fiducia_Tambahan,
+            'Nilai_Fiducia_Tambahan' => str_ireplace(',', '', $request->Nilai_Fiducia_Tambahan),
+            'Tgl_Fiducia_Tambahan' => $request->Tgl_Fiducia_Tambahan,
+            'Tgl_Jatuh_Tempo_Tambahan' => $request->Tgl_Jatuh_Tempo_Tambahan,
+            'Status_Tambahan' => $request->Status_Tambahan,
+        ]);
         return redirect('collateral_invoice_tambahan');
     }
 
@@ -105,7 +117,19 @@ class CollateralInvoiceTambahanController extends Controller
         ]);
 
         $invoicetbh = Collateral_Invoice_Tambahan::findorfail($id);
-        $invoicetbh->update($request->all());
+        $invoicetbh->update([
+            'Counter_Invoice_Tambahan' => $request->Counter_Invoice_Tambahan,
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Invoice_Tambahan' => str_ireplace(',', '', $request->Nilai_Invoice_Tambahan),
+            'Jenis_Invoice_Tambahan' => $request->Jenis_Invoice_Tambahan,
+            'Atas_Nama_Invoice_Tambahan' => $request->Atas_Nama_Invoice_Tambahan,
+            'Alamat_Nama_Invoice_Tambahan' => $request->Alamat_Nama_Invoice_Tambahan,
+            'No_Fiducia_Tambahan' => $request->No_Fiducia_Tambahan,
+            'Nilai_Fiducia_Tambahan' => str_ireplace(',', '', $request->Nilai_Fiducia_Tambahan),
+            'Tgl_Fiducia_Tambahan' => $request->Tgl_Fiducia_Tambahan,
+            'Tgl_Jatuh_Tempo_Tambahan' => $request->Tgl_Jatuh_Tempo_Tambahan,
+            'Status_Tambahan' => $request->Status_Tambahan,
+        ]);
 
         return redirect('collateral_invoice_tambahan');
     }

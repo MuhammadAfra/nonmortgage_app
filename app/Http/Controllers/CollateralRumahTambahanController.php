@@ -50,7 +50,17 @@ class CollateralRumahTambahanController extends Controller
             'Status_Tambahan',
         ]);
 
-        Collateral_Rumah_Tambahan::create($request->all());
+        Collateral_Rumah_Tambahan::create([
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Counter_Rumah_Tanah_Tambahan' => $request->Counter_Rumah_Tanah_Tambahan,
+            'Nilai_Rumah_Tanah_Tambahan' => str_ireplace(',', '', $request->Nilai_Rumah_Tanah_Tambahan),
+            'No_Shm_No_Hgb_Tambahan' => $request->No_Shm_No_Hgb_Tambahan,
+            'Luas_Tambahan' => $request->Luas_Tambahan,
+            'Atas_Nama_Tambahan' => $request->Atas_Nama_Tambahan,
+            'Alamat_Tambahan' => $request->Alamat_Tambahan,
+            'Nilai_Appraisal_Tambahan' => str_ireplace(',', '', $request->Nilai_Appraisal_Tambahan),
+            'Status_Tambahan' => $request->Status_Tambahan,
+        ]);
         return redirect('collateral_rumah_tambahan');
     }
 
@@ -100,7 +110,17 @@ class CollateralRumahTambahanController extends Controller
             'Status_Tambahan',
         ]);
         $rumahtbh = Collateral_Rumah_Tambahan::findorfail($id);
-        $rumahtbh->update($request->all());
+        $rumahtbh->update([
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Counter_Rumah_Tanah_Tambahan' => $request->Counter_Rumah_Tanah_Tambahan,
+            'Nilai_Rumah_Tanah_Tambahan' => str_ireplace(',', '', $request->Nilai_Rumah_Tanah_Tambahan),
+            'No_Shm_No_Hgb_Tambahan' => $request->No_Shm_No_Hgb_Tambahan,
+            'Luas_Tambahan' => $request->Luas_Tambahan,
+            'Atas_Nama_Tambahan' => $request->Atas_Nama_Tambahan,
+            'Alamat_Tambahan' => $request->Alamat_Tambahan,
+            'Nilai_Appraisal_Tambahan' => str_ireplace(',', '', $request->Nilai_Appraisal_Tambahan),
+            'Status_Tambahan' => $request->Status_Tambahan,
+        ]);
 
         return redirect('collateral_rumah_tambahan');
     }

@@ -51,7 +51,18 @@ class CollateralInventoryTambahanController extends Controller
             'Status_Tambahan',
         ]);
 
-        Collateral_Inventory_Tambahan::create($request->all());
+        Collateral_Inventory_Tambahan::create([
+        'PRODUCT_ID' =>$request->PRODUCT_ID,
+        'Counter_Inventory_Tambahan' =>$request->Counter_Inventory_Tambahan,
+        'Nilai_Inv_Tambahan' => str_ireplace(',', '', $request->Nilai_Inv_Tambahan),
+        'Nama_Inventory_Tambahan' =>$request->Nama_Inventory_Tambahan,
+        'Besar_Inventory_Tambahan' =>$request->Besar_Inventory_Tambahan,
+        'Nilai_Inventory_Tambahan' =>str_ireplace(',', '', $request->Nilai_Inventory_Tambahan),
+        'Alamat_Inventory_Tambahan' =>$request->Alamat_Inventory_Tambahan,
+        'Atas_Nama_Inventory_Tambahan' =>$request->Atas_Nama_Inventory_Tambahan,
+        'Alamat_Atas_Nama_Inventory_Tambahan' =>$request->Alamat_Atas_Nama_Inventory_Tambahan,
+        'Status_Tambahan' =>$request->Status_Tambahan,
+        ]);
         return redirect('collateral_inven_tambahan');
     }
 
@@ -102,7 +113,18 @@ class CollateralInventoryTambahanController extends Controller
             'Status_Tambahan',
         ]);
         $inventbh = Collateral_Inventory_Tambahan::findorfail($id);
-        $inventbh->update($request->all());
+        $inventbh->update([
+        'PRODUCT_ID' =>$request->PRODUCT_ID,
+        'Counter_Inventory_Tambahan' =>$request->Counter_Inventory_Tambahan,
+        'Nilai_Inv_Tambahan' => str_ireplace(',', '', $request->Nilai_Inv_Tambahan),
+        'Nama_Inventory_Tambahan' =>$request->Nama_Inventory_Tambahan,
+        'Besar_Inventory_Tambahan' =>$request->Besar_Inventory_Tambahan,
+        'Nilai_Inventory_Tambahan' =>str_ireplace(',', '', $request->Nilai_Inventory_Tambahan),
+        'Alamat_Inventory_Tambahan' =>$request->Alamat_Inventory_Tambahan,
+        'Atas_Nama_Inventory_Tambahan' =>$request->Atas_Nama_Inventory_Tambahan,
+        'Alamat_Atas_Nama_Inventory_Tambahan' =>$request->Alamat_Atas_Nama_Inventory_Tambahan,
+        'Status_Tambahan' =>$request->Status_Tambahan,
+    ]);
 
         return redirect('collateral_inven_tambahan');
     }

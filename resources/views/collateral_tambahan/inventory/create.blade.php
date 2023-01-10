@@ -50,7 +50,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Inv<span class="text-danger">*</span></div>
         <div class="col-sm-8">
-            <input type="number" name="Nilai_Inv_Tambahan" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Nilai_Inv_Tambahan" class="form-control number-separator" style="width: 300px; height: 30px;">
             @error('Nilai_Inv_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -77,7 +77,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Inventory<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="number" name="Nilai_Inventory_Tambahan" class="form-control"
+            <input type="text" name="Nilai_Inventory_Tambahan" class="form-control number-separator"
                 style="width: 300px; height: 30px;">
             @error('Nilai_Inventory_Tambahan')
             <p class="text-danger">{{ $message }}</p>

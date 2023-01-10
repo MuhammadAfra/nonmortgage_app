@@ -48,7 +48,15 @@ class CollateralCorporateTambahanController extends Controller
             'Status_Tambahan',                    
         ]);
 
-        Collateral_Corporate_Tambahan::create($request->all());
+        Collateral_Corporate_Tambahan::create([
+            'Counter_Corporate_Guarantee_Tambahan' => $request->Counter_Corporate_Guarantee_Tambahan,
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Corporate_Guarantee_Tambahan' => str_ireplace(',', '', $request->Nilai_Corporate_Guarantee_Tambahan), 
+            'Nama_Pt_Penerima_Corporate_Guarantee_Tambahan' => $request->Nama_Pt_Penerima_Corporate_Guarantee_Tambahan,
+            'Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan' => $request->Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan,
+            'No_Telp_Pt_Pemberi_Corporate_Guarantee_Tambahan' => $request->No_Telp_Pt_Pemberi_Corporate_Guarantee_Tambahan,
+            'Status_Tambahan' => $request->Status_Tambahan,        
+        ]);
         return redirect('collateral_corporate_tambahan');
     }
 
@@ -97,7 +105,15 @@ class CollateralCorporateTambahanController extends Controller
         ]);
 
         $corporatetbh = Collateral_Corporate_Tambahan::findorfail($id);
-        $corporatetbh->update($request->all());
+        $corporatetbh->update([
+            'Counter_Corporate_Guarantee_Tambahan' => $request->Counter_Corporate_Guarantee_Tambahan,
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Corporate_Guarantee_Tambahan' => str_ireplace(',', '', $request->Nilai_Corporate_Guarantee_Tambahan), 
+            'Nama_Pt_Penerima_Corporate_Guarantee_Tambahan' => $request->Nama_Pt_Penerima_Corporate_Guarantee_Tambahan,
+            'Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan' => $request->Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan,
+            'No_Telp_Pt_Pemberi_Corporate_Guarantee_Tambahan' => $request->No_Telp_Pt_Pemberi_Corporate_Guarantee_Tambahan,
+            'Status_Tambahan' => $request->Status_Tambahan,
+        ]);
         return redirect('collateral_corporate_tambahan');
     }
 

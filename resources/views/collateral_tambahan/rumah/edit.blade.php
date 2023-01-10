@@ -33,7 +33,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Counter Rumah Tanah<span class="text-danger">*</span></div>
         <div class="col-sm-8">
-            <input type="number" name="Counter_Rumah_Tanah_Tambahan" value="{{ $rumahtbh->Counter_Rumah_Tanah_Tambahan }}" class="form-control" style="width: 300px; height: 30px;">
+            <input type="number" name="Counter_Rumah_Tanah_Tambahan" value="{{ $rumahtbh->Counter_Rumah_Tanah_Tambahan }}" class="form-control number-separator" style="width: 300px; height: 30px;">
             @error('Counter_Rumah_Tanah_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -42,7 +42,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Rumah / Tanah<span class="text-danger">*</span></div>
         <div class="col-sm-8">
-            <input type="number" name="Nilai_Rumah_Tanah_Tambahan" value="{{ $rumahtbh->Nilai_Rumah_Tanah_Tambahan }}" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Nilai_Rumah_Tanah_Tambahan" value="{{ number_format($rumahtbh->Nilai_Rumah_Tanah_Tambahan) }}" class="form-control number-separator" style="width: 300px; height: 30px;">
             @error('Nilai_Rumah_Tanah_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -87,7 +87,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Appraisal<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Appraisal_Tambahan" value="{{ $rumahtbh->Nilai_Appraisal_Tambahan }}" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Nilai_Appraisal_Tambahan" value="{{ number_format($rumahtbh->Nilai_Appraisal_Tambahan) }}" class="form-control number-separator" style="width: 300px; height: 30px;">
             @error('Nilai_Appraisal_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
