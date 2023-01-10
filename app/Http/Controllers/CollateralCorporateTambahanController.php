@@ -27,7 +27,7 @@ class CollateralCorporateTambahanController extends Controller
     public function create()
     {
         $prod = Product::get();
-        return view('collateral_utama.corporate.create', compact('prod'));
+        return view('collateral_tambahan.corporate.create', compact('prod'));
     }
 
     /**

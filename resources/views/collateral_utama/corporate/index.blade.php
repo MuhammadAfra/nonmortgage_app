@@ -59,14 +59,10 @@ Home
                         <div><a href="{{ url('collateral_corporate/'.$item->id) }}"
                                 class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
                         <div>
-                            <form action="{{ url('collateral_corporate',$item->id) }}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger btn-sm text-white"><i
-                                        class="fas fa-trash"></i></button>
-                            </form>
+                        <button type="button" data-toggle="modal" data-target="#exampleModalCenter{{ $item->id }}" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
                         </div>
                     </td>
+                    @include('collateral_utama.corporate.delete')
                     @endif
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
