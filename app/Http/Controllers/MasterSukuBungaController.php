@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Master_Suku_Bunga;
 use App\Models\Master_Jenis_Product;
-use Illuminate\Support\Facades\Session;
+use App\Models\Master_Suku_Bunga;
+use Illuminate\Http\Request;
 
 class MasterSukuBungaController extends Controller
 {
@@ -44,12 +43,12 @@ class MasterSukuBungaController extends Controller
             'Nilai_Suku_Bunga' => 'required',
             'konven_syariah_id' => 'required'
         ],[
-            'Suku_Bunga' => 'Input Suku Bunga',
-            'Nilai_Suku_Bunga' => 'Input Nilai Suku Bunga',
+            'Suku_Bunga' => 'Input Suku Bunga!',
+            'Nilai_Suku_Bunga' => 'Input Nilai Suku Bunga!',
             'konven_syariah_id' => 'Input Tipe Suku Bunga!'
         ]);
-        
-        $data = Master_Suku_Bunga::create([
+
+        Master_Suku_Bunga::create([
             'Suku_Bunga' => $request->Suku_Bunga,
             'Nilai_Suku_Bunga' => str_replace( ',', '', $request->Nilai_Suku_Bunga ),
             'konven_syariah_id' => $request->konven_syariah_id,
@@ -122,8 +121,6 @@ class MasterSukuBungaController extends Controller
     {
         $sukuBunga = Master_Suku_Bunga::findorfail($id);
         $sukuBunga->delete();
-
         return redirect('master_suku_bunga');
     }
-    
 }
