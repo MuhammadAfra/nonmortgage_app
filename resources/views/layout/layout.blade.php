@@ -257,6 +257,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a href="/dashboard" class="nav-link {{ 'dashboard' == request()->path() ? 'active' : '' }}">
+                                &nbsp;<i class="fas fa-tachometer-alt"></i>   
                                 <p>
                                     Dashboard
                                 </p>
@@ -264,6 +265,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-database"></i>
                                 <p>
                                     Master
                                     <i class="fas fa-angle-left right"></i>
@@ -322,6 +324,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-user-friends"></i>
                                 <p>
                                     Debitur
                                     <i class="fas fa-angle-left right"></i>
@@ -342,7 +345,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('/index_product') }}" class="nav-link {{ '/index_product' == request()->path() ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-handshake"></i>
+                                <i class="nav-icon fas fa-box-open"></i>
                                 <p>
                                     Product
                                 </p>
@@ -350,7 +353,7 @@
                         </li>
                         <li class="nav-item ml-1">
                             <a href="#" class="nav-link">
-                                <i class="fas fa-handshake"></i>
+                                <i class="fas fa-hand-holding"></i>
                                 <p>
                                     &nbsp;&nbsp;Collateral
                                     <i class="right fas fa-angle-left"></i>
@@ -484,6 +487,7 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('Template/dist/js/adminlte.min.js') }}"></script>
     <!-- Page specific script -->
+    @yield('scripts')
     <script>
     $(function () {
         $("#example1").DataTable({

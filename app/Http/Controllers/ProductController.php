@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $dataproduct = Product::get();
+        $dataproduct = Product::orderBy('id', 'desc')->get();
         return view('product.index', compact('dataproduct'));
     }
 
@@ -59,6 +59,10 @@ class ProductController extends Controller
             'SUKU_BUNGA_FLAT' => 'required',
             'SUKU_BUNGA_EFFECTIVE' => 'required',
             'POLA_PEMBAYARAN_ID' => 'required',
+            'BIAYA_ADMINISTRASI' => 'required',
+            'BIAYA_ASSURANSI' => 'required',
+            'BIAYA_PROVISI' => 'required',
+            'BIAYA_LAIN_LAIN' => 'required',
         ],[
             'PARTNER_ID.required' => 'Input Partner ID!',
             'DEBITUR_ID.required' => 'Input Debitur ID!',
@@ -68,24 +72,28 @@ class ProductController extends Controller
             'SUKU_BUNGA_FLAT.required' => 'Input Suku Bunga!',
             'SUKU_BUNGA_EFFECTIVE.required' => 'Input Suku Bunga!',
             'POLA_PEMBAYARAN_ID.required' => 'Input Pola Pembayaran!',
+            'BIAYA_ADMINISTRASI' => 'Input Biaya Adminstrasi!',
+            'BIAYA_ASSURANSI' => 'Input Biaya Asuranisi!',
+            'BIAYA_PROVISI' => 'Input Biaya Provinsi!',
+            'BIAYA_LAIN_LAIN' => 'Input Biaya Lain Lain!',
         ]);
-
-        Product::create([
+        
+        $data = Product::create([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
             'M_PRODUCT_ID' => $request->M_PRODUCT_ID,
-            'NILAI_PEMBIAYAAN_POKOK_MAXIMUM' => $request->NILAI_PEMBIAYAAN_POKOK_MAXIMUM,
+            'NILAI_PEMBIAYAAN_POKOK_MAXIMUM' => str_replace( ',', '', $request->NILAI_PEMBIAYAAN_POKOK_MAXIMUM),
             'Jangka_Waktu_Maximum' => $request->Jangka_Waktu_Maximum,
-            'BIAYA_ADMINISTRASI' => $request->BIAYA_ADMINISTRASI,
-            'BIAYA_ASSURANSI' => $request->BIAYA_ASSURANSI,
-            'BIAYA_PROVISI' => $request->BIAYA_PROVISI,
-            'BIAYA_LAIN_LAIN' => $request->BIAYA_LAIN_LAIN,
+            'BIAYA_ADMINISTRASI' => str_replace( ',', '', $request->BIAYA_ADMINISTRASI),
+            'BIAYA_ASSURANSI' => str_replace( ',', '', $request->BIAYA_ASSURANSI),
+            'BIAYA_PROVISI' => str_replace( ',', '', $request->BIAYA_PROVISI),
+            'BIAYA_LAIN_LAIN' => str_replace( ',', '', $request->BIAYA_LAIN_LAIN),
             'SUKU_BUNGA_FLAT' => $request->SUKU_BUNGA_FLAT,
             'SUKU_BUNGA_FLAT' => $request->SUKU_BUNGA_FLAT,
             'SUKU_BUNGA_EFFECTIVE' => $request->SUKU_BUNGA_EFFECTIVE,
             'POLA_PEMBAYARAN_ID' => $request->POLA_PEMBAYARAN_ID,
             ]);
-
+        // dd($data);
         return redirect('product');
     }
 
@@ -152,12 +160,12 @@ class ProductController extends Controller
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
             'M_PRODUCT_ID' => $request->M_PRODUCT_ID,
-            'NILAI_PEMBIAYAAN_POKOK_MAXIMUM' => $request->NILAI_PEMBIAYAAN_POKOK_MAXIMUM,
+            'NILAI_PEMBIAYAAN_POKOK_MAXIMUM' => str_replace( ',', '', $request->NILAI_PEMBIAYAAN_POKOK_MAXIMUM),
             'Jangka_Waktu_Maximum' => $request->Jangka_Waktu_Maximum,
-            'BIAYA_ADMINISTRASI' => $request->BIAYA_ADMINISTRASI,
-            'BIAYA_ASSURANSI' => $request->BIAYA_ASSURANSI,
-            'BIAYA_PROVISI' => $request->BIAYA_PROVISI,
-            'BIAYA_LAIN_LAIN' => $request->BIAYA_LAIN_LAIN,
+            'BIAYA_ADMINISTRASI' => str_replace( ',', '', $request->BIAYA_ADMINISTRASI),
+            'BIAYA_ASSURANSI' => str_replace( ',', '', $request->BIAYA_ASSURANSI),
+            'BIAYA_PROVISI' => str_replace( ',', '', $request->BIAYA_PROVISI),
+            'BIAYA_LAIN_LAIN' => str_replace( ',', '', $request->BIAYA_LAIN_LAIN),
             'SUKU_BUNGA_FLAT' => $request->SUKU_BUNGA_FLAT,
             'SUKU_BUNGA_FLAT' => $request->SUKU_BUNGA_FLAT,
             'SUKU_BUNGA_EFFECTIVE' => $request->SUKU_BUNGA_EFFECTIVE,

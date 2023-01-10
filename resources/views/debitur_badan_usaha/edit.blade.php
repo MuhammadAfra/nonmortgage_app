@@ -66,7 +66,15 @@ Edit
             </div>
         </div>
     </div>
-
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Akta Lain Lain</label></div>
+        <div class="col-sm-8">
+            <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
+                <input type="file" class="custom-file-input" name="AKTE_LAIN_LAIN">
+                <label class="custom-file-label">{{ $deb->AKTE_LAIN_LAIN }}</label>
+            </div>
+        </div>
+    </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Detail Product <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
@@ -236,6 +244,181 @@ Edit
                 <input type="file" class="custom-file-input"  name="NDA_DOCUMENT">
                 <label class="custom-file-label">{{ $deb->NDA_DOCUMENT }}</label>
             </div>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Jenis Asuransi<span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <div style="width: 300px; height: 38px;">
+                <select class="form-control py-0" name="Jenis_Asuransi_Id" style="width: 500px; height: 40px;">
+                    <option value="{{ $deb->Jenis_Asuransi_Id }}">{{ $deb->asuransi->Jenis_Asuransi }}</option>
+                    @foreach ($asuransi as $item)
+                    <option value="{{ $item->id }}">{{ $item->Jenis_Asuransi }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Perusahaan Asuransi</label></div>
+        <div class="col-sm-8"><input value="{{ $deb->Perusahaan_Asuransi }}" type="text" name="Perusahaan_Asuransi"
+                class="form-control" style="width: 500px; height: 40px;"></div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Persen Asuransi</label></div>
+        <div class="col-sm-8"><input value="{{ $deb->Persen_Asuransi }}" type="number" name="Persen_Asuransi"
+                class="form-control" style="width: 500px; height: 40px;"></div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Nilai Asuransi</label></div>
+        <div class="col-sm-8">
+            @if ($deb->Nilai_Asuransi != NULL)
+            <input value="{{ number_format($deb->Nilai_Asuransi) }}" type="text" name="Nilai_Asuransi"
+                class="form-control number-separator" style="width: 500px; height: 40px;">
+            @else
+            <input value="{{ $deb->Nilai_Asuransi }}" type="text" name="Nilai_Asuransi"
+                class="form-control number-separator" style="width: 500px; height: 40px;">
+            @endif
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Jaminan Sertifikat Tanah</label></div>
+        <div class="col-sm-8"><input value="{{ $deb->Jaminan_Sertifikat_Tanah }}" type="text"
+                name="Jaminan_Sertifikat_Tanah" class="form-control" style="width: 500px; height: 40px;"></div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Nilai Sertifikat Tanah</label></div>
+        <div class="col-sm-8">
+            @if ($deb->Nilai_Sertifikat_Tanah)
+            <input value="{{ number_format($deb->Nilai_Sertifikat_Tanah) }}" type="text"
+                name="Nilai_Sertifikat_Tanah" class="form-control number-separator" style="width: 500px; height: 40px;">
+            @else
+            <input value="{{ $deb->Nilai_Sertifikat_Tanah }}" type="text" name="Nilai_Sertifikat_Tanah"
+                class="form-control number-separator" style="width: 500px; height: 40px;">
+            @endif
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Jaminan Kendaraan Mobil</label></div>
+        <div class="col-sm-8"><input value="{{ $deb->Jaminan_Kendaraan_Bermotor_Mobil }}" type="text"
+                name="Jaminan_Kendaraan_Bermotor_Mobil" class="form-control" style="width: 500px; height: 40px;"></div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Nilai Kendaraan Mobil</label></div>
+        <div class="col-sm-8">
+            @if ($deb->Nilai_Kendaraan_Bermotor_Mobil != NULL)
+            <input value="{{ number_format($deb->Nilai_Kendaraan_Bermotor_Mobil) }}" type="text"
+                name="Nilai_Kendaraan_Bermotor_Mobil" class="form-control number-separator"
+                style="width: 500px; height: 40px;">
+            @else
+            <input value="{{ $deb->Nilai_Kendaraan_Bermotor_Mobil }}" type="text"
+                name="Nilai_Kendaraan_Bermotor_Mobil" class="form-control number-separator"
+                style="width: 500px; height: 40px;">
+            @endif
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Jaminan Kendaraan Motor</label></div>
+        <div class="col-sm-8"><input value="{{ $deb->Jaminan_Kendaraan_Bermotor_Motor }}" type="text"
+                name="Jaminan_Kendaraan_Bermotor_Motor" class="form-control" style="width: 500px; height: 40px;"></div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Nilai Kendaraan Motor</label></div>
+        <div class="col-sm-8">
+            @if ($deb->Nilai_Kendaraan_Bermotor_Motor)
+            <input value="{{ number_format($deb->Nilai_Kendaraan_Bermotor_Motor) }}" type="text"
+                name="Nilai_Kendaraan_Bermotor_Motor" class="form-control number-separator"
+                style="width: 500px; height: 40px;">
+            @else
+            <input value="{{ $deb->Nilai_Kendaraan_Bermotor_Motor }}" type="text"
+                name="Nilai_Kendaraan_Bermotor_Motor" class="form-control number-separator"
+                style="width: 500px; height: 40px;">
+            @endif
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Jaminan Personal Guarantee</label></div>
+        <div class="col-sm-8"><input value="{{ $deb->Jaminan_Personel_Guarantee }}" type="text"
+                name="Jaminan_Personel_Guarantee" class="form-control" style="width: 500px; height: 40px;"></div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Nilai Personal Guarantee</label></div>
+        <div class="col-sm-8">
+            @if ($deb->Nilai_Personel_Guarantee)
+            <input value="{{ number_format($deb->Nilai_Personel_Guarantee) }}" type="text"
+                name="Nilai_Personel_Guarantee" class="form-control number-separator"
+                style="width: 500px; height: 40px;">
+            @else
+            <input value="{{ $deb->Nilai_Personel_Guarantee }}" type="text" name="Nilai_Personel_Guarantee"
+                class="form-control number-separator" style="width: 500px; height: 40px;">
+            @endif
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Jaminan Invoice</label></div>
+        <div class="col-sm-8"><input value="{{ $deb->Jaminan_Invoice }}" type="text" name="Jaminan_Invoice"
+                class="form-control" style="width: 500px; height: 40px;"></div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Nilai Invoice</label></div>
+        <div class="col-sm-8">
+            @if ($deb->Nilai_Invoice != NULL)
+            <input value="{{ number_format($deb->Nilai_Invoice) }}" type="text" name="Nilai_Invoice"
+                class="form-control number-separator" style="width: 500px; height: 40px;">
+            @else
+            <input value="{{ $deb->Nilai_Invoice }}" type="text" name="Nilai_Invoice"
+                class="form-control number-separator" style="width: 500px; height: 40px;">
+            @endif
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Jaminan Inventori</label></div>
+        <div class="col-sm-8"><input value="{{ $deb->Jaminan_Inventory }}" type="text" name="Jaminan_Inventory"
+                class="form-control" style="width: 500px; height: 40px;"></div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Nilai Inventori</label></div>
+        <div class="col-sm-8">
+            @if ($deb->Nilai_Inventory != NULL)
+            <input value="{{ number_format($deb->Nilai_Inventory) }}" type="text" name="Nilai_Inventory"
+                class="form-control number-separator" style="width: 500px; height: 40px;">
+            @else
+            <input value="{{ $deb->Nilai_Inventory }}" type="text" name="Nilai_Inventory"
+                class="form-control number-separator" style="width: 500px; height: 40px;">
+            @endif
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Jaminan Lainnya</label></div>
+        <div class="col-sm-8"><input value="{{ $deb->Jaminan_Lainnya }}" type="text" name="Jaminan_Lainnya"
+                class="form-control" style="width: 500px; height: 40px;">
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Apakah Ada DP?</label></div>
+        <div class="col-sm-4 d-flex">
+            <div class="d-flex">
+                <input type="radio" value="YA" {{ ($deb->APAKAH_ADA_DP == "YA")? "checked" : "" }}
+                    style="width: 15px" name="APAKAH_ADA_DP" class="form-control">
+                <p class="my-auto mx-2" style="font-weight: 600">YA</p>
+            </div>
+            <div class=" d-flex">
+                <input type="radio" value="NO" {{ ($deb->APAKAH_ADA_DP == "NO")? "checked" : "" }}
+                    style="width: 15px" name="APAKAH_ADA_DP" class="form-control number-separator">
+                <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Down Payment</label></div>
+        <div class="col-sm-8">
+            @if ($deb->DOWN_PAYMENT_CUSTOMER != NULL)
+            <input type="text" value="{{ number_format($deb->DOWN_PAYMENT_CUSTOMER) }}" name="DOWN_PAYMENT_CUSTOMER"
+                class="form-control number-separator" style="width: 500px; height: 40px;">
+            @else
+            <input type="text" value="{{ $deb->DOWN_PAYMENT_CUSTOMER }}" name="DOWN_PAYMENT_CUSTOMER"
+                class="form-control number-separator" style="width: 500px; height: 40px;">
+            @endif
         </div>
     </div>
     <div class="row pb-3">

@@ -14,15 +14,6 @@ Add
 @section('content')
 <form action="{{ url('collateral_rumah') }}" method="POST">
     @csrf
-    {{-- <div class="row pb-3">
-        <div class="col-sm-4"><label>Collateral ID <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8">
-            <input type="number" name="id" class="form-control" style="width: 300px; height: 30px;">
-            @error('id')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
-        </div>
-    </div> --}}
     <div class="row pb-3">
         <div class="col-sm-4"><label>Debitur & Partner <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
@@ -50,7 +41,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Rumah Tanah (Rp)<span class="text-danger">*</span></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Rumah_Tanah" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Nilai_Rumah_Tanah" class="form-control number-separator" style="width: 300px; height: 30px;">
             @error('Nilai_Rumah_Tanah')
             <p class="text-danger">{{ $message }}</p>
             @enderror

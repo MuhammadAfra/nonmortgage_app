@@ -48,7 +48,15 @@ class CollateralCorporateController extends Controller
             'Status',                    
         ]);
 
-        Collateral_Corporate::create($request->all());
+        Collateral_Corporate::create([
+            'Counter_Corporate_Guarantee' => $request->Counter_Corporate_Guarantee,
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Corporate_Guarantee' => str_replace(',', '', $request->Nilai_Corporate_Guarantee),
+            'Nama_Pt_Penerima_Corporate_Guarantee' => $request->Nama_Pt_Penerima_Corporate_Guarantee,
+            'Nama_Pt_Pemberi_Corporate_Guarantee' => $request->Nama_Pt_Pemberi_Corporate_Guarantee,
+            'No_Telp_Pt_Pemberi_Corporate_Guarantee' => $request->No_Telp_Pt_Pemberi_Corporate_Guarantee,
+            'Status' => $request->Status, 
+        ]);
         return redirect('collateral_corporate');
     }
 
@@ -97,7 +105,15 @@ class CollateralCorporateController extends Controller
         ]);
 
         $corporate = Collateral_Corporate::findorfail($id);
-        $corporate->update($request->all());
+        $corporate->update([
+            'Counter_Corporate_Guarantee' => $request->Counter_Corporate_Guarantee,
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Corporate_Guarantee' => str_replace(',', '', $request->Nilai_Corporate_Guarantee),
+            'Nama_Pt_Penerima_Corporate_Guarantee' => $request->Nama_Pt_Penerima_Corporate_Guarantee,
+            'Nama_Pt_Pemberi_Corporate_Guarantee' => $request->Nama_Pt_Pemberi_Corporate_Guarantee,
+            'No_Telp_Pt_Pemberi_Corporate_Guarantee' => $request->No_Telp_Pt_Pemberi_Corporate_Guarantee,
+            'Status' => $request->Status, 
+        ]);
         return redirect('collateral_corporate');
     }
 

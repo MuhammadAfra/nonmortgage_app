@@ -19,7 +19,8 @@ Edit
         <div class="col-sm-4"><label>Debitur & Partner <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <select name="PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                <option value="{{ $mobil->PRODUCT_ID }}">{{ $mobil->product->debitur->NAMA_DEBITUR }} - {{ $mobil->product->partner->NAMA_PERUSAHAAN }}</option>
+                <option value="{{ $mobil->PRODUCT_ID }}">{{ $mobil->product->debitur->NAMA_DEBITUR }} -
+                    {{ $mobil->product->partner->NAMA_PERUSAHAAN }}</option>
                 @foreach ($prod as $item)
                 <option value="{{ $item->id }}">{{ $item->debitur->NAMA_DEBITUR }} -
                     {{ $item->partner->NAMA_PERUSAHAAN }}</option>
@@ -33,7 +34,8 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Counter Mobil<span class="text-danger">*</span></div>
         <div class="col-sm-8">
-            <input type="number" name="Counter_Mobil" value="{{ $mobil->Counter_Mobil }}" class="form-control" style="width: 300px; height: 30px;">
+            <input type="number" name="Counter_Mobil" value="{{ $mobil->Counter_Mobil }}" class="form-control"
+                style="width: 300px; height: 30px;">
             @error('Counter_Mobil')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -42,7 +44,8 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Kendaraan Bermobil (Rp)<span class="text-danger">*</span></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Mobil_Vehicle" value="{{ ($mobil->Nilai_Mobil_Vehicle) }}" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Nilai_Mobil_Vehicle" value="{{ number_format($mobil->Nilai_Mobil_Vehicle) }}"
+                class="form-control number-separator" style="width: 300px; height: 30px;">
             @error('Nilai_Mobil_Vehicle')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -51,7 +54,8 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Merk<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Merk" value="{{ $mobil->Merk }}" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Merk" value="{{ $mobil->Merk }}" class="form-control"
+                style="width: 300px; height: 30px;">
             @error('Merk')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -60,7 +64,8 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Type<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Type" value="{{ $mobil->Type }}" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Type" value="{{ $mobil->Type }}" class="form-control"
+                style="width: 300px; height: 30px;">
             @error('Type')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -69,7 +74,8 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Model<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Model" value="{{ $mobil->Model }}" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Model" value="{{ $mobil->Model }}" class="form-control"
+                style="width: 300px; height: 30px;">
             @error('Model')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -78,7 +84,8 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Peruntukan<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Peruntukan" value="{{ $mobil->Peruntukan }}" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Peruntukan" value="{{ $mobil->Peruntukan }}" class="form-control"
+                style="width: 300px; height: 30px;">
             @error('Peruntukan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -87,7 +94,8 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Di BPKB<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nama_Di_Bpkb" value="{{ $mobil->Nama_Di_Bpkb }}" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Nama_Di_Bpkb" value="{{ $mobil->Nama_Di_Bpkb }}" class="form-control"
+                style="width: 300px; height: 30px;">
             @error('Nama_Di_Bpkb')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -96,7 +104,8 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Alamat Di BPKB<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Alamat_Di_Bpkb" value="{{ $mobil->Alamat_Di_Bpkb }}" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Alamat_Di_Bpkb" value="{{ $mobil->Alamat_Di_Bpkb }}" class="form-control"
+                style="width: 300px; height: 30px;">
             @error('Alamat_Di_Bpkb')
             <p class="text-danger">{{ $message }}</p>
             @enderror

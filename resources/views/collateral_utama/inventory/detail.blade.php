@@ -27,10 +27,6 @@ Detail
             <div class="col-sm-8">: {{ $inven->Counter_Inventory }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nilai Inv (Rp)</label></div>
-            <div class="col-sm-8">: {{ $inven->Nilai_Inv }}</div>
-        </div>
-        <div class="row pb-3">
             <div class="col-sm-4"><label>Nama Inventory</label></div>
             <div class="col-sm-8">: {{ $inven->Nama_Inventory }}</div>
         </div>

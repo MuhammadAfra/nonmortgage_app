@@ -43,7 +43,17 @@ class CollateralRumahController extends Controller
             'Status',
         ]);
 
-        Collateral_Rumah::create($request->all());
+        Collateral_Rumah::create([
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Counter_Rumah_tanah' => $request->Counter_Rumah_tanah,
+            'Nilai_Rumah_Tanah' => str_ireplace(',', '', $request->Nilai_Rumah_Tanah),
+            'No_Shm_No_Hgb' => $request->No_Shm_No_Hgb,
+            'Luas' => $request->Luas,
+            'Atas_Nama' => $request->Atas_Nama,
+            'Alamat' => $request->Alamat,
+            'Nilai_Appraisal' => str_ireplace(',', '', $request->Nilai_Appraisal),
+            'Status' => $request->Status,
+        ]);
         return redirect('collateral_rumah');
     }
 
@@ -75,7 +85,17 @@ class CollateralRumahController extends Controller
         ]);
 
         $rumah = Collateral_Rumah::findorfail($id);
-        $rumah->update($request->all());
+        $rumah->update([
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Counter_Rumah_tanah' => $request->Counter_Rumah_tanah,
+            'Nilai_Rumah_Tanah' => str_ireplace(',', '', $request->Nilai_Rumah_Tanah),
+            'No_Shm_No_Hgb' => $request->No_Shm_No_Hgb,
+            'Luas' => $request->Luas,
+            'Atas_Nama' => $request->Atas_Nama,
+            'Alamat' => $request->Alamat,
+            'Nilai_Appraisal' => str_ireplace(',', '', $request->Nilai_Appraisal),
+            'Status' => $request->Status,
+        ]);
 
         return redirect('collateral_rumah');
     }

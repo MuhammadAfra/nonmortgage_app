@@ -28,7 +28,7 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Kendaraan Bermotor</label></div>
-            <div class="col-sm-8">: {{ $motor->Nilai_Motor_Vehicle_Tambahan }}</div>
+            <div class="col-sm-8">: {{ number_format($motor->Nilai_Motor_Vehicle_Tambahan) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Merk</label></div>

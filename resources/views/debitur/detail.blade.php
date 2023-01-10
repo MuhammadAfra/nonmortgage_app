@@ -76,30 +76,30 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Income per Bulan</label></div>
-            <div class="col-sm-8">: {{ $debitur->INCOME_BULAN }}</div>
+            <div class="col-sm-8">: Rp{{ number_format($debitur->INCOME_BULAN) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Spouse Income per Bulan</label></div>
-            <div class="col-sm-8">: {{ $debitur->SUPOUSE_INCOME_BULAN }}</div>
+            <div class="col-sm-8">: Rp{{ number_format($debitur->SUPOUSE_INCOME_BULAN) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Rekening Bulan Ke 1</label></div>
-            <div class="col-sm-8">: {{ $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1 }}</div>
+            <div class="col-sm-8">: Rp{{ number_format($debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Rekening Bulan Ke 2</label></div>
-            <div class="col-sm-8">: {{ $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2 }}</div>
+            <div class="col-sm-8">: Rp{{ number_format($debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Rekening Bulan Ke 3</label></div>
-            <div class="col-sm-8">: {{ $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3 }}</div>
+            <div class="col-sm-8">: Rp{{ number_format($debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jenis Asuransi</label></div>
             <div class="col-sm-8">: {{ $debitur->asuransi->Jenis_Asuransi }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Perusahaan Asuransi</label></div>
+            <div class="col-sm-4"><label>Perusahaan Asuransi</label></div>  
             <div class="col-sm-8">: {{ $debitur->Perusahaan_Asuransi }}</div>
         </div>
         <div class="row pb-3">
@@ -108,47 +108,66 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Asuransi</label></div>
+            @if ($debitur->Nilai_Asuransi != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($debitur->Nilai_Asuransi) }}</div>
+            @else
             <div class="col-sm-8">: {{ $debitur->Nilai_Asuransi }}</div>
-        </div>
+            @endif        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Sertifikat Tanah</label></div>
             <div class="col-sm-8">: {{ $debitur->Jaminan_Sertifikat_Tanah }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Sertifikat Tanah</label></div>
+            @if ($debitur->Nilai_Sertifikat_Tanah != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($debitur->Nilai_Sertifikat_Tanah) }}</div>
+            @else
             <div class="col-sm-8">: {{ $debitur->Nilai_Sertifikat_Tanah }}</div>
-        </div>
+            @endif        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Kendaraan Mobil</label></div>
             <div class="col-sm-8">: {{ $debitur->Jaminan_Kendaraan_Bermotor_Mobil }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Kendaraan Mobil</label></div>
+            @if ($debitur->Nilai_Kendaraan_Bermotor_Mobil != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($debitur->Nilai_Kendaraan_Bermotor_Mobil) }}</div>
+            @else
             <div class="col-sm-8">: {{ $debitur->Nilai_Kendaraan_Bermotor_Mobil }}</div>
-        </div>
+            @endif        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Kendaraan Motor</label></div>
             <div class="col-sm-8">: {{ $debitur->Jaminan_Kendaraan_Bermotor_Motor }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Kendaraan Motor</label></div>
+            @if ($debitur->Nilai_Kendaraan_Bermotor_Motor != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($debitur->Nilai_Kendaraan_Bermotor_Motor) }}</div>
+            @else
             <div class="col-sm-8">: {{ $debitur->Nilai_Kendaraan_Bermotor_Motor }}</div>
-        </div>
+            @endif        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Personal Guarantee</label></div>
             <div class="col-sm-8">: {{ $debitur->Jaminan_Personel_Guarantee }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Personal Guarantee</label></div>
+            @if ($debitur->Nilai_Personel_Guarantee != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($debitur->Nilai_Personel_Guarantee) }}</div>
+            @else
             <div class="col-sm-8">: {{ $debitur->Nilai_Personel_Guarantee }}</div>
-        </div>
+            @endif        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Invoice</label></div>
             <div class="col-sm-8">: {{ $debitur->Jaminan_Invoice }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Invoice</label></div>
+            @if ($debitur->Nilai_Invoice != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($debitur->Nilai_Invoice) }}</div>
+            @else
             <div class="col-sm-8">: {{ $debitur->Nilai_Invoice }}</div>
+            @endif
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Inventori</label></div>
@@ -156,7 +175,11 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Inventori</label></div>
+            @if ($debitur->Nilai_Inventory != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($debitur->Nilai_Inventory) }}</div>
+            @else
             <div class="col-sm-8">: {{ $debitur->Nilai_Inventory }}</div>
+            @endif
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Lainnya</label></div>
@@ -168,7 +191,11 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jumlah DP</label></div>
+            @if ($debitur->DOWN_PAYMENT_CUSTOMER != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($debitur->DOWN_PAYMENT_CUSTOMER) }}</div>
+            @else
             <div class="col-sm-8">: {{ $debitur->DOWN_PAYMENT_CUSTOMER }}</div>
+            @endif
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"></div>

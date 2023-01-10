@@ -83,6 +83,7 @@ Route::get('/dw_deb_mdl_diri/{MODAL_PENDIRIAN}', [DebiturBadanUsahaController::c
 Route::group(['middleware' => ['PreventBack']], function(){
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::group(['middleware' => ['auth', 'cekLevel:Admin']], function(){
+        
         // master parameterize
         Route::resource('master_suku_bunga', MasterSukuBungaController::class);
         Route::resource('master_product', MasterProductController::class);
@@ -91,6 +92,7 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::resource('master_jenis_product', MasterJenisProductController::class);
         Route::resource('master_jenis_pembiayaan', MasterJenisPembiayaanController::class);
         Route::resource('master_skema_pembiayaan', MasterSkemaPembiayaanController::class);
+
         Route::resource('master_asuransi', MasterAsuransiController::class);
         // product
         Route::resource('product', ProductController::class);

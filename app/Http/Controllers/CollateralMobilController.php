@@ -15,7 +15,7 @@ class CollateralMobilController extends Controller
      */
     public function index()
     {
-        $mobil = Collateral_Mobil::get();
+        $mobil = Collateral_Mobil::orderBy('id', 'desc')->get();
         return view('collateral_utama.mobil.index', compact('mobil'));
     }
 
@@ -41,6 +41,7 @@ class CollateralMobilController extends Controller
         $this->validate($request, [
             'PRODUCT_ID',
             'Nilai_Mobil_Vehicle',
+            'Counter_Mobil',
             'Merk',
             'Type',
             'Model',
@@ -56,7 +57,24 @@ class CollateralMobilController extends Controller
             'Status',
         ]);
 
-        Collateral_Mobil::create($request->all());
+        Collateral_Mobil::create([
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Mobil_Vehicle' => str_replace(',', '' ,$request->Nilai_Mobil_Vehicle),
+            'Counter_Mobil' => $request->Counter_Mobil,
+            'Merk' => $request->Merk,
+            'Type' => $request->Type,
+            'Model' => $request->Model,
+            'Peruntukan' => $request->Peruntukan,
+            'Nama_Di_Bpkb' => $request->Nama_Di_Bpkb,
+            'Alamat_Di_Bpkb' => $request->Alamat_Di_Bpkb,
+            'No_Frame' => $request->No_Frame,
+            'No_Engine' => $request->No_Engine,
+            'No_Polisi' => $request->No_Polisi,
+            'Colour' => $request->Colour,
+            'Tahun' => $request->Tahun,
+            'Silinder' => $request->Silinder,
+            'Status' => $request->Status,
+        ]);
         return redirect('collateral_mobil');
     }
 
@@ -97,6 +115,7 @@ class CollateralMobilController extends Controller
         $this->validate($request, [
             'PRODUCT_ID',
             'Nilai_Mobil_Vehicle',
+            'Counter_Mobil',
             'Merk',
             'Type',
             'Model',
@@ -113,7 +132,24 @@ class CollateralMobilController extends Controller
         ]);
 
         $mobil = Collateral_Mobil::findorfail($id);
-        $mobil->update($request->all());
+        $mobil->update([
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Mobil_Vehicle' => str_replace(',', '' ,$request->Nilai_Mobil_Vehicle),
+            'Counter_Mobil' => $request->Counter_Mobil,
+            'Merk' => $request->Merk,
+            'Type' => $request->Type,
+            'Model' => $request->Model,
+            'Peruntukan' => $request->Peruntukan,
+            'Nama_Di_Bpkb' => $request->Nama_Di_Bpkb,
+            'Alamat_Di_Bpkb' => $request->Alamat_Di_Bpkb,
+            'No_Frame' => $request->No_Frame,
+            'No_Engine' => $request->No_Engine,
+            'No_Polisi' => $request->No_Polisi,
+            'Colour' => $request->Colour,
+            'Tahun' => $request->Tahun,
+            'Silinder' => $request->Silinder,
+            'Status' => $request->Status,
+        ]);
 
         return redirect('collateral_mobil');
     }
