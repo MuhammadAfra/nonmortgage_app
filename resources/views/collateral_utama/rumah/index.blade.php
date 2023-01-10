@@ -40,7 +40,6 @@ Home
                     @endif
                     <th>Partner Perusahaan</th>
                     <th>Nama Debitur</th>
-                    {{-- <th>Biaya Administrasi</th> --}}
                     <th>Nilai Rumah / Tanah</th>
                     <th>No SHM / No HGB</th>
                     <th>Luas</th>

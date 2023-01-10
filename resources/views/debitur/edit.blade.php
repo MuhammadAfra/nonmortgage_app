@@ -97,31 +97,38 @@ Edit
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Income <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="number" value="{{ $debitur->INCOME_BULAN }}" name="INCOME_BULAN"
-                class="form-control" style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8"><input type="text" value="{{ number_format($debitur->INCOME_BULAN) }}" name="INCOME_BULAN"
+                class="form-control number-separator" style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Spouse Income Bulan <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="text" value="{{ $debitur->SUPOUSE_INCOME_BULAN }}"
-                name="SUPOUSE_INCOME_BULAN" class="form-control" style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8"><input type="text" value="{{ number_format($debitur->SUPOUSE_INCOME_BULAN) }}"
+                name="SUPOUSE_INCOME_BULAN" class="form-control number-separator" style="width: 300px; height: 30px;">
+        </div>
     </div>
     <h5 class="pb-3">Rekening Koran 3 Bulan Terakhir</h5>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Rekening Bulan 1 <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="number" value="{{ $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1 }}"
-                name="REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1" class="form-control" style="width: 300px; height: 30px;">
+        <div class="col-sm-8"><input type="text"
+                value="{{ number_format($debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1) }}"
+                name="REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1" class="form-control number-separator"
+                style="width: 300px; height: 30px;">
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Rekening Bulan 2 <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="number" value="{{ $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2 }}"
-                name="REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2" class="form-control" style="width: 300px; height: 30px;">
+        <div class="col-sm-8"><input type="text"
+                value="{{ number_format($debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2) }}"
+                name="REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2" class="form-control number-separator"
+                style="width: 300px; height: 30px;">
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Rekening Bulan 3 <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="number" value="{{ $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3 }}"
-                name="REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3" class="form-control" style="width: 300px; height: 30px;">
+        <div class="col-sm-8"><input type="text"
+                value="{{ number_format($debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3) }}"
+                name="REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3" class="form-control number-separator"
+                style="width: 300px; height: 30px;">
         </div>
     </div>
     <div class="row pb-3">
@@ -139,83 +146,138 @@ Edit
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Perusahaan Asuransi</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Perusahaan_Asuransi }}" type="text" name="Perusahaan_Asuransi" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8"><input value="{{ $debitur->Perusahaan_Asuransi }}" type="text" name="Perusahaan_Asuransi"
+                class="form-control" style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Persen Asuransi</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Persen_Asuransi }}" type="number" name="Persen_Asuransi" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8"><input value="{{ $debitur->Persen_Asuransi }}" type="number" name="Persen_Asuransi"
+                class="form-control" style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Asuransi</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Nilai_Asuransi }}" type="number" name="Nilai_Asuransi" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8">
+            @if ($debitur->Nilai_Asuransi != NULL)
+            <input value="{{ number_format($debitur->Nilai_Asuransi) }}" type="text" name="Nilai_Asuransi"
+                class="form-control number-separator" style="width: 300px; height: 30px;">
+            @else
+            <input value="{{ $debitur->Nilai_Asuransi }}" type="text" name="Nilai_Asuransi"
+                class="form-control number-separator" style="width: 300px; height: 30px;">
+            @endif
+        </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Jaminan Sertifikat Tanah</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Sertifikat_Tanah }}" type="text" name="Jaminan_Sertifikat_Tanah" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Sertifikat_Tanah }}" type="text"
+                name="Jaminan_Sertifikat_Tanah" class="form-control" style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Sertifikat Tanah</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Nilai_Sertifikat_Tanah }}" type="number" name="Nilai_Sertifikat_Tanah" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8">
+            @if ($debitur->Nilai_Sertifikat_Tanah)
+            <input value="{{ number_format($debitur->Nilai_Sertifikat_Tanah) }}" type="text"
+                name="Nilai_Sertifikat_Tanah" class="form-control number-separator" style="width: 300px; height: 30px;">
+            @else
+            <input value="{{ $debitur->Nilai_Sertifikat_Tanah }}" type="text" name="Nilai_Sertifikat_Tanah"
+                class="form-control number-separator" style="width: 300px; height: 30px;">
+            @endif
+        </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Jaminan Kendaraan Mobil</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Kendaraan_Bermotor_Mobil }}" type="text" name="Jaminan_Kendaraan_Bermotor_Mobil" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Kendaraan_Bermotor_Mobil }}" type="text"
+                name="Jaminan_Kendaraan_Bermotor_Mobil" class="form-control" style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Kendaraan Mobil</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Nilai_Kendaraan_Bermotor_Mobil }}" type="number" name="Nilai_Kendaraan_Bermotor_Mobil" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8">
+            @if ($debitur->Nilai_Kendaraan_Bermotor_Mobil != NULL)
+            <input value="{{ number_format($debitur->Nilai_Kendaraan_Bermotor_Mobil) }}" type="text"
+                name="Nilai_Kendaraan_Bermotor_Mobil" class="form-control number-separator"
+                style="width: 300px; height: 30px;">
+            @else
+            <input value="{{ $debitur->Nilai_Kendaraan_Bermotor_Mobil }}" type="text"
+                name="Nilai_Kendaraan_Bermotor_Mobil" class="form-control number-separator"
+                style="width: 300px; height: 30px;">
+            @endif
+        </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Jaminan Kendaraan Motor</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Kendaraan_Bermotor_Motor }}" type="text" name="Jaminan_Kendaraan_Bermotor_Motor" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Kendaraan_Bermotor_Motor }}" type="text"
+                name="Jaminan_Kendaraan_Bermotor_Motor" class="form-control" style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Kendaraan Motor</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Nilai_Kendaraan_Bermotor_Motor }}" type="number" name="Nilai_Kendaraan_Bermotor_Motor" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8">
+            @if ($debitur->Nilai_Kendaraan_Bermotor_Motor)
+            <input value="{{ number_format($debitur->Nilai_Kendaraan_Bermotor_Motor) }}" type="text"
+                name="Nilai_Kendaraan_Bermotor_Motor" class="form-control number-separator"
+                style="width: 300px; height: 30px;">
+            @else
+            <input value="{{ $debitur->Nilai_Kendaraan_Bermotor_Motor }}" type="text"
+                name="Nilai_Kendaraan_Bermotor_Motor" class="form-control number-separator"
+                style="width: 300px; height: 30px;">
+            @endif
+        </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Jaminan Personal Guarantee</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Personel_Guarantee }}" type="text" name="Jaminan_Personel_Guarantee" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Personel_Guarantee }}" type="text"
+                name="Jaminan_Personel_Guarantee" class="form-control" style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Personal Guarantee</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Nilai_Personel_Guarantee }}" type="number" name="Nilai_Personel_Guarantee" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8">
+            @if ($debitur->Nilai_Personel_Guarantee)
+            <input value="{{ number_format($debitur->Nilai_Personel_Guarantee) }}" type="text"
+                name="Nilai_Personel_Guarantee" class="form-control number-separator"
+                style="width: 300px; height: 30px;">
+            @else
+            <input value="{{ $debitur->Nilai_Personel_Guarantee }}" type="text" name="Nilai_Personel_Guarantee"
+                class="form-control number-separator" style="width: 300px; height: 30px;">
+            @endif
+        </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Jaminan Invoice</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Invoice }}" type="text" name="Jaminan_Invoice" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Invoice }}" type="text" name="Jaminan_Invoice"
+                class="form-control" style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Invoice</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Nilai_Invoice }}" type="number" name="Nilai_Invoice" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8">
+            @if ($debitur->Nilai_Invoice != NULL)
+            <input value="{{ number_format($debitur->Nilai_Invoice) }}" type="text" name="Nilai_Invoice"
+                class="form-control number-separator" style="width: 300px; height: 30px;">
+            @else
+            <input value="{{ $debitur->Nilai_Invoice }}" type="text" name="Nilai_Invoice"
+                class="form-control number-separator" style="width: 300px; height: 30px;">
+            @endif
+        </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Jaminan Inventori</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Inventory }}" type="text" name="Jaminan_Inventory" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Inventory }}" type="text" name="Jaminan_Inventory"
+                class="form-control" style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Inventori</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Nilai_Inventory }}" type="number" name="Nilai_Inventory" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8">
+            @if ($debitur->Nilai_Inventory != NULL)
+            <input value="{{ number_format($debitur->Nilai_Inventory) }}" type="text" name="Nilai_Inventory"
+                class="form-control number-separator" style="width: 300px; height: 30px;">
+            @else
+            <input value="{{ $debitur->Nilai_Inventory }}" type="text" name="Nilai_Inventory"
+                class="form-control number-separator" style="width: 300px; height: 30px;">
+            @endif
+        </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Jaminan Lainnya</label></div>
-        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Lainnya }}" type="text" name="Jaminan_Lainnya" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8"><input value="{{ $debitur->Jaminan_Lainnya }}" type="text" name="Jaminan_Lainnya"
+                class="form-control" style="width: 300px; height: 30px;">
+        </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Apakah Ada DP?</label></div>
@@ -227,15 +289,22 @@ Edit
             </div>
             <div class=" d-flex">
                 <input type="radio" value="NO" {{ ($debitur->APAKAH_ADA_DP == "NO")? "checked" : "" }}
-                    style="width: 15px" name="APAKAH_ADA_DP" class="form-control">
+                    style="width: 15px" name="APAKAH_ADA_DP" class="form-control number-separator">
                 <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
             </div>
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Down Payment</label></div>
-        <div class="col-sm-8"><input type="number" value="{{ $debitur->DOWN_PAYMENT_CUSTOMER }}"
-                name="DOWN_PAYMENT_CUSTOMER" class="form-control" style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-8">
+            @if ($debitur->DOWN_PAYMENT_CUSTOMER != NULL)
+            <input type="text" value="{{ number_format($debitur->DOWN_PAYMENT_CUSTOMER) }}" name="DOWN_PAYMENT_CUSTOMER"
+                class="form-control number-separator" style="width: 300px; height: 30px;">
+            @else
+            <input type="text" value="{{ $debitur->DOWN_PAYMENT_CUSTOMER }}" name="DOWN_PAYMENT_CUSTOMER"
+                class="form-control number-separator" style="width: 300px; height: 30px;">
+            @endif
+        </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"></div>

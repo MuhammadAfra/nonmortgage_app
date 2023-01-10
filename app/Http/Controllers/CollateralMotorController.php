@@ -15,7 +15,7 @@ class CollateralMotorController extends Controller
      */
     public function index()
     {
-        $motor = Collateral_Motor::get();
+        $motor = Collateral_Motor::orderBy('id', 'desc')->get();
         return view('collateral_utama.motor.index', compact('motor'));
     }
 
@@ -39,7 +39,6 @@ class CollateralMotorController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            // 'id',
             'PRODUCT_ID',
             'Nilai_Motor_Vehicle',
             'Merk',
@@ -57,7 +56,23 @@ class CollateralMotorController extends Controller
             'Status',
         ]);
 
-        Collateral_Motor::create($request->all());
+        Collateral_Motor::create([
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Motor_Vehicle' => str_ireplace(',', '', $request->Nilai_Motor_Vehicle),
+            'Merk' => $request->Merk,
+            'Type' => $request->Type,
+            'Model' => $request->Model,
+            'Jenis_Motor_Sport_Listrik' => $request->Jenis_Motor_Sport_Listrik,
+            'Nama_Di_Bpkb' => $request->Nama_Di_Bpkb,
+            'Counter_Motor' => $request->Counter_Motor,
+            'No_Frame' => $request->No_Frame,
+            'No_Engine' => $request->No_Engine,
+            'No_Polisi' => $request->No_Polisi,
+            'Colour' => $request->Colour,
+            'Tahun' => $request->Tahun,
+            'Silinder' => $request->Silinder,
+            'Status' => $request->Status,
+        ]);
         return redirect('collateral_motor');
     }
 
@@ -96,7 +111,6 @@ class CollateralMotorController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            // 'id',
             'PRODUCT_ID',
             'Nilai_Motor_Vehicle',
             'Merk',
@@ -115,7 +129,23 @@ class CollateralMotorController extends Controller
         ]);
 
         $motor = Collateral_Motor::findorfail($id);
-        $motor->update($request->all());
+        $motor->update([
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Motor_Vehicle' => str_ireplace(',', '', $request->Nilai_Motor_Vehicle),
+            'Merk' => $request->Merk,
+            'Type' => $request->Type,
+            'Model' => $request->Model,
+            'Jenis_Motor_Sport_Listrik' => $request->Jenis_Motor_Sport_Listrik,
+            'Nama_Di_Bpkb' => $request->Nama_Di_Bpkb,
+            'Counter_Motor' => $request->Counter_Motor,
+            'No_Frame' => $request->No_Frame,
+            'No_Engine' => $request->No_Engine,
+            'No_Polisi' => $request->No_Polisi,
+            'Colour' => $request->Colour,
+            'Tahun' => $request->Tahun,
+            'Silinder' => $request->Silinder,
+            'Status' => $request->Status,
+        ]);
 
         return redirect('collateral_motor');
     }

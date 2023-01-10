@@ -43,6 +43,14 @@ Detail
             <div class="col-sm-8">: {{ $deb->COMPANY_PROFILE }}</div>
         </div>
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Akta Lain Lain <br> 
+            @if ($deb->AKTA_LAIN_LAIN != NULL)
+            <a href="{{ url('/dw_deb_company', $deb->AKTE_LAIN_LAIN) }}">Download File</a>
+            @endif
+        </label></div>
+            <div class="col-sm-8">: {{ $deb->AKTE_LAIN_LAIN }}</div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>Detail Product Profile</label></div>
             <div class="col-sm-8">: {{ $deb->detil_product->id_master_product }} - {{ $deb->detil_product->nama_product }}</div>
         </div>
@@ -188,47 +196,66 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Asuransi</label></div>
+            @if ($deb->Nilai_Asuransi != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($deb->Nilai_Asuransi) }}</div>
+            @else
             <div class="col-sm-8">: {{ $deb->Nilai_Asuransi }}</div>
-        </div>
+            @endif        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Sertifikat Tanah</label></div>
             <div class="col-sm-8">: {{ $deb->Jaminan_Sertifikat_Tanah }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Sertifikat Tanah</label></div>
+            @if ($deb->Nilai_Sertifikat_Tanah != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($deb->Nilai_Sertifikat_Tanah) }}</div>
+            @else
             <div class="col-sm-8">: {{ $deb->Nilai_Sertifikat_Tanah }}</div>
-        </div>
+            @endif        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Kendaraan Mobil</label></div>
             <div class="col-sm-8">: {{ $deb->Jaminan_Kendaraan_Bermotor_Mobil }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Kendaraan Mobil</label></div>
+            @if ($deb->Nilai_Kendaraan_Bermotor_Mobil != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($deb->Nilai_Kendaraan_Bermotor_Mobil) }}</div>
+            @else
             <div class="col-sm-8">: {{ $deb->Nilai_Kendaraan_Bermotor_Mobil }}</div>
-        </div>
+            @endif        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Kendaraan Motor</label></div>
             <div class="col-sm-8">: {{ $deb->Jaminan_Kendaraan_Bermotor_Motor }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Kendaraan Motor</label></div>
+            @if ($deb->Nilai_Kendaraan_Bermotor_Motor != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($deb->Nilai_Kendaraan_Bermotor_Motor) }}</div>
+            @else
             <div class="col-sm-8">: {{ $deb->Nilai_Kendaraan_Bermotor_Motor }}</div>
-        </div>
+            @endif        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Personal Guarantee</label></div>
             <div class="col-sm-8">: {{ $deb->Jaminan_Personel_Guarantee }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Personal Guarantee</label></div>
+            @if ($deb->Nilai_Personel_Guarantee != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($deb->Nilai_Personel_Guarantee) }}</div>
+            @else
             <div class="col-sm-8">: {{ $deb->Nilai_Personel_Guarantee }}</div>
-        </div>
+            @endif        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Invoice</label></div>
             <div class="col-sm-8">: {{ $deb->Jaminan_Invoice }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Invoice</label></div>
+            @if ($deb->Nilai_Invoice != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($deb->Nilai_Invoice) }}</div>
+            @else
             <div class="col-sm-8">: {{ $deb->Nilai_Invoice }}</div>
+            @endif
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Inventori</label></div>
@@ -236,7 +263,11 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Inventori</label></div>
+            @if ($deb->Nilai_Inventory != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($deb->Nilai_Inventory) }}</div>
+            @else
             <div class="col-sm-8">: {{ $deb->Nilai_Inventory }}</div>
+            @endif
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Lainnya</label></div>
@@ -248,7 +279,11 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jumlah DP</label></div>
+            @if ($deb->DOWN_PAYMENT_CUSTOMER != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($deb->DOWN_PAYMENT_CUSTOMER) }}</div>
+            @else
             <div class="col-sm-8">: {{ $deb->DOWN_PAYMENT_CUSTOMER }}</div>
+            @endif
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"></div>

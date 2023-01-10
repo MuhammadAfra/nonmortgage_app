@@ -15,7 +15,7 @@ class CollateralInvoiceController extends Controller
      */
     public function index() 
     {
-        $invoice = Collateral_Invoice::get();
+        $invoice = Collateral_Invoice::orderBy('id', 'desc')->get();
         return view('collateral_utama.invoice.index', compact('invoice'));
     }
 
@@ -52,7 +52,19 @@ class CollateralInvoiceController extends Controller
             'Status',           
         ]);
 
-        Collateral_Invoice::create($request->all());
+        Collateral_Invoice::create([
+            'Counter_Invoice' => $request->Counter_Invoice,
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Invoice' => str_replace(',', '', $request->Nilai_Invoice),
+            'Jenis_Invoice' => $request->Jenis_Invoice,
+            'Atas_Nama_Invoice' => $request->Atas_Nama_Invoice,
+            'Alamat_Nama_Invoice' => $request->Alamat_Nama_Invoice,
+            'No_Fiducia' => $request->No_Fiducia,
+            'Nilai_Fiducia' => str_replace(',', '', $request->Nilai_Fiducia),
+            'Tgl_Fiducia' => $request->Tgl_Fiducia,
+            'Tgl_Jatuh_Tempo' => $request->Tgl_Jatuh_Tempo,
+            'Status' => $request->Status,
+        ]);
         return redirect('collateral_invoice');
     }
 
@@ -105,7 +117,19 @@ class CollateralInvoiceController extends Controller
         ]);
 
         $invoice = Collateral_Invoice::findorfail($id);
-        $invoice->update($request->all());
+        $invoice->update([
+            'Counter_Invoice' => $request->Counter_Invoice,
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Invoice' => str_replace(',', '', $request->Nilai_Invoice),
+            'Jenis_Invoice' => $request->Jenis_Invoice,
+            'Atas_Nama_Invoice' => $request->Atas_Nama_Invoice,
+            'Alamat_Nama_Invoice' => $request->Alamat_Nama_Invoice,
+            'No_Fiducia' => $request->No_Fiducia,
+            'Nilai_Fiducia' => str_replace(',', '', $request->Nilai_Fiducia),
+            'Tgl_Fiducia' => $request->Tgl_Fiducia,
+            'Tgl_Jatuh_Tempo' => $request->Tgl_Jatuh_Tempo,
+            'Status' => $request->Status,
+        ]);
 
         return redirect('collateral_invoice');
     }

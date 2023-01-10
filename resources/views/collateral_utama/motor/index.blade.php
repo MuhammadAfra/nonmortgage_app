@@ -79,7 +79,6 @@ Home
                     <td>{{ $item->Model }}</td>
                     <td>{{ $item->Jenis_Motor_Sport_Listrik }}</td>
                     <td>{{ $item->Nama_Di_Bpkb }}</td>
-                    {{-- <td>{{ $item->Alamat_Di_Bpkb }}</td> --}}
                     <td>{{ $item->No_Frame }}</td>
                     <td>{{ $item->No_Engine }}</td>
                     <td>{{ $item->No_Polisi }}</td>

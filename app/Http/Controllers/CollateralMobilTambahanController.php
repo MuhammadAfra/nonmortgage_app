@@ -16,7 +16,7 @@ class CollateralMobilTambahanController extends Controller
      */
     public function index()
     {
-        $mobil = Collateral_Mobil_Tambahan::get();
+        $mobil = Collateral_Mobil_Tambahan::orderBy('id', 'desc')->get();
         return view('collateral_tambahan.mobil.index', compact('mobil'));
     }
 
@@ -57,8 +57,25 @@ class CollateralMobilTambahanController extends Controller
             'Status_Tambahan',
         ]);
 
-        Collateral_Mobil_Tambahan::create($request->all());
-        return redirect('collateral_mobil');
+        Collateral_Mobil_Tambahan::create([
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Mobil_Vehicle_Tambahan' => str_replace(',', '' ,$request->Nilai_Mobil_Vehicle_Tambahan),
+            'Counter_Mobil_Tambahan' => $request->Counter_Mobil_Tambahan,
+            'Merk_Tambahan' => $request->Merk_Tambahan,
+            'Type_Tambahan' => $request->Type_Tambahan,
+            'Model_Tambahan' => $request->Model_Tambahan,
+            'Peruntukan_Tambahan' => $request->Peruntukan_Tambahan,
+            'Nama_Di_Bpkb_Tambahan' => $request->Nama_Di_Bpkb_Tambahan,
+            'Alamat_Di_Bpkb_Tambahan' => $request->Alamat_Di_Bpkb_Tambahan,
+            'No_Frame_Tambahan' => $request->No_Frame_Tambahan,
+            'No_Engine_Tambahan' => $request->No_Engine_Tambahan,
+            'No_Polisi_Tambahan' => $request->No_Polisi_Tambahan,
+            'Colour_Tambahan' => $request->Colour_Tambahan,
+            'Tahun_Tambahan' => $request->Tahun_Tambahan,
+            'Silinder_Tambahan' => $request->Silinder_Tambahan,
+            'Status_Tambahan' => $request->Status_Tambahan,
+        ]);
+        return redirect('collateral_mobil_tambahan');
     }
 
     /**
@@ -115,7 +132,24 @@ class CollateralMobilTambahanController extends Controller
         ]);
 
         $mobil = Collateral_Mobil_Tambahan::findorfail($id);
-        $mobil->update($request->all());
+        $mobil->update([
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Nilai_Mobil_Vehicle_Tambahan' => str_replace(',', '' ,$request->Nilai_Mobil_Vehicle_Tambahan),
+            'Counter_Mobil_Tambahan' => $request->Counter_Mobil_Tambahan,
+            'Merk_Tambahan' => $request->Merk_Tambahan,
+            'Type_Tambahan' => $request->Type_Tambahan,
+            'Model_Tambahan' => $request->Model_Tambahan,
+            'Peruntukan_Tambahan' => $request->Peruntukan_Tambahan,
+            'Nama_Di_Bpkb_Tambahan' => $request->Nama_Di_Bpkb_Tambahan,
+            'Alamat_Di_Bpkb_Tambahan' => $request->Alamat_Di_Bpkb_Tambahan,
+            'No_Frame_Tambahan' => $request->No_Frame_Tambahan,
+            'No_Engine_Tambahan' => $request->No_Engine_Tambahan,
+            'No_Polisi_Tambahan' => $request->No_Polisi_Tambahan,
+            'Colour_Tambahan' => $request->Colour_Tambahan,
+            'Tahun_Tambahan' => $request->Tahun_Tambahan,
+            'Silinder_Tambahan' => $request->Silinder_Tambahan,
+            'Status_Tambahan' => $request->Status_Tambahan,
+        ]);
 
         return redirect('collateral_mobil_tambahan');
     }

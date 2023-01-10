@@ -96,28 +96,28 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Income <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="number" name="INCOME_BULAN" class="form-control"
+        <div class="col-sm-8"><input type="text" name="INCOME_BULAN" class="form-control number-separator"
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Spouse Income Bulan <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="text" name="SUPOUSE_INCOME_BULAN" class="form-control"
+        <div class="col-sm-8"><input type="text" name="SUPOUSE_INCOME_BULAN" class="form-control number-separator"
                 style="width: 300px; height: 30px;"></div>
     </div>
     <h5 class="pb-3">Rekening Koran 3 Bulan Terakhir</h5>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Rekening Bulan 1 <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="number" name="REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1" class="form-control"
+        <div class="col-sm-8"><input type="text" name="REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1" class="form-control number-separator"
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Rekening Bulan 2 <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="number" name="REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2" class="form-control"
+        <div class="col-sm-8"><input type="text" name="REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2" class="form-control number-separator"
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Rekening Bulan 3 <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="number" name="REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3" class="form-control"
+        <div class="col-sm-8"><input type="text" name="REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3" class="form-control number-separator"
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
@@ -145,7 +145,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Asuransi</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Asuransi" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Asuransi" class="form-control number-separator"
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
@@ -155,7 +155,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Sertifikat Tanah</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Sertifikat_Tanah" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Sertifikat_Tanah" class="form-control number-separator"
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
@@ -165,7 +165,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Kendaraan Mobil</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Kendaraan_Bermotor_Mobil" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Kendaraan_Bermotor_Mobil" class="form-control number-separator"
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
@@ -175,7 +175,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Kendaraan Motor</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Kendaraan_Bermotor_Motor" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Kendaraan_Bermotor_Motor" class="form-control number-separator"
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
@@ -185,7 +185,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Personal Guarantee</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Personel_Guarantee" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Personel_Guarantee" class="form-control number-separator"
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
@@ -195,7 +195,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Invoice</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Invoice" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Invoice" class="form-control number-separator"
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
@@ -205,7 +205,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Inventori</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Inventory" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Inventory" class="form-control number-separator"
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
@@ -228,7 +228,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Down Payment</label></div>
-        <div class="col-sm-8"><input type="number" name="DOWN_PAYMENT_CUSTOMER" class="form-control"
+        <div class="col-sm-8"><input type="text" name="DOWN_PAYMENT_CUSTOMER" class="form-control number-separator"
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">

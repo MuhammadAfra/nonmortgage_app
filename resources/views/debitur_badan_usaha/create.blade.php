@@ -70,9 +70,18 @@ Add
         </div>
     </div>
     <div class="row pb-3">
+        <div class="col-sm-4"><label>Akta Lain Lain </label></div>
+        <div class="col-sm-8">
+            <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
+                <input type="file" class="custom-file-input" name="AKTE_LAIN_LAIN">
+                <label class="custom-file-label">Choose file</label>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-3">
         <div class="col-sm-4"><label>Detail Nama Product <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <div class="input-group" style="width: 500px; height: 38px;">
+            <div class="input-group" style="width: 500px; height: 40px;">
                 <select class="form-control py-0" required name="DETIL_PRODUCT_PROFILE">
                     <option></option>
                     @foreach ($prod as $item)
@@ -241,7 +250,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Jenis Asuransi <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <div style="width: 300px; height: 38px;">
+            <div style="width: 500px; height: 40px;">
                 <select class="form-control py-0" name="Jenis_Asuransi_Id" required style="width: 500px; height: 40px;">
                     <option></option>
                     @foreach ($asuransi as $item)
@@ -263,7 +272,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Asuransi</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Asuransi" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Asuransi" class="form-control number-separator"
                 style="width: 500px; height: 40px;"></div>
     </div>
     <div class="row pb-3">
@@ -273,7 +282,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Sertifikat Tanah</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Sertifikat_Tanah" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Sertifikat_Tanah" class="form-control number-separator"
                 style="width: 500px; height: 40px;"></div>
     </div>
     <div class="row pb-3">
@@ -283,7 +292,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Kendaraan Mobil</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Kendaraan_Bermotor_Mobil" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Kendaraan_Bermotor_Mobil" class="form-control number-separator"
                 style="width: 500px; height: 40px;"></div>
     </div>
     <div class="row pb-3">
@@ -293,7 +302,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Kendaraan Motor</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Kendaraan_Bermotor_Motor" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Kendaraan_Bermotor_Motor" class="form-control number-separator"
                 style="width: 500px; height: 40px;"></div>
     </div>
     <div class="row pb-3">
@@ -303,7 +312,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Personal Guarantee</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Personel_Guarantee" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Personel_Guarantee" class="form-control number-separator"
                 style="width: 500px; height: 40px;"></div>
     </div>
     <div class="row pb-3">
@@ -313,7 +322,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Invoice</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Invoice" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Invoice" class="form-control number-separator"
                 style="width: 500px; height: 40px;"></div>
     </div>
     <div class="row pb-3">
@@ -323,7 +332,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Inventori</label></div>
-        <div class="col-sm-8"><input type="number" name="Nilai_Inventory" class="form-control"
+        <div class="col-sm-8"><input type="text" name="Nilai_Inventory" class="form-control number-separator"
                 style="width: 500px; height: 40px;"></div>
     </div>
     <div class="row pb-3">
@@ -346,7 +355,7 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Down Payment</label></div>
-        <div class="col-sm-8"><input type="number" name="DOWN_PAYMENT_CUSTOMER" class="form-control" style="width: 500px; height: 40px;">
+        <div class="col-sm-8"><input type="text" name="DOWN_PAYMENT_CUSTOMER" class="form-control number-separator" style="width: 500px; height: 40px;">
         </div>
     </div>
     <div class="row pb-3">

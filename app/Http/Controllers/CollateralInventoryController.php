@@ -42,7 +42,6 @@ class CollateralInventoryController extends Controller
         $this->validate($request, [
             'PRODUCT_ID',
             'Counter_Inventory',
-            'Nilai_Inv',
             'Nama_Inventory',
             'Besar_Inventory',
             'Nilai_Inventory',
@@ -51,8 +50,18 @@ class CollateralInventoryController extends Controller
             'Alamat_Atas_Nama_Inventory',
             'Status',
         ]);
-
-        Collateral_Inventory::create($request->all());
+        
+        Collateral_Inventory::create([
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Counter_Inventory' => $request->Counter_Inventory,
+            'Nama_Inventory' => $request->Nama_Inventory,
+            'Besar_Inventory' => $request->Besar_Inventory,
+            'Nilai_Inventory' => str_replace(',', '', $request->Nilai_Inventory),
+            'Alamat_Inventory' => $request->Alamat_Inventory,
+            'Atas_Nama_Inventory' => $request->Atas_Nama_Inventory,
+            'Alamat_Atas_Nama_Inventory' => $request->Alamat_Atas_Nama_Inventory,
+            'Status' => $request->Status,
+        ]);
         return redirect('collateral_inven');
     }
 
@@ -103,7 +112,17 @@ class CollateralInventoryController extends Controller
             'Status',
         ]);
         $inven = Collateral_Inventory::findorfail($id);
-        $inven->update($request->all());
+        $inven->update([
+            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'Counter_Inventory' => $request->Counter_Inventory,
+            'Nama_Inventory' => $request->Nama_Inventory,
+            'Besar_Inventory' => $request->Besar_Inventory,
+            'Nilai_Inventory' => str_replace(',', '', $request->Nilai_Inventory),
+            'Alamat_Inventory' => $request->Alamat_Inventory,
+            'Atas_Nama_Inventory' => $request->Atas_Nama_Inventory,
+            'Alamat_Atas_Nama_Inventory' => $request->Alamat_Atas_Nama_Inventory,
+            'Status' => $request->Status,
+        ]);
 
         return redirect('collateral_inven');
     }

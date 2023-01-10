@@ -73,7 +73,7 @@ Home
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->Counter_Motor_Tambahan }}</td>
-                    <td>{{ $item->Nilai_Motor_Vehicle_Tambahan }}</td>
+                    <td>{{ number_format($item->Nilai_Motor_Vehicle_Tambahan) }}</td>
                     <td>{{ $item->Merk_Tambahan }}</td>
                     <td>{{ $item->Type_Tambahan }}</td>
                     <td>{{ $item->Model_Tambahan }}</td>

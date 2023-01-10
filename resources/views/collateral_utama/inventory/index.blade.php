@@ -41,7 +41,6 @@ Home
                     <th>Partner Perusahaan</th>
                     <th>Nama Debitur</th>
                     <th>Counter Inventory</th>
-                    <th>Nilai Inv</th>
                     <th>Nama Inventory</th>
                     <th>Besar Inventory</th>
                     <th>Nilai Inventory</th>
@@ -68,7 +67,6 @@ Home
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->Counter_Inventory }}</td>
-                    <td>{{ number_format($item->Nilai_Inv) }}</td>
                     <td>{{ $item->Nama_Inventory }}</td>
                     <td>{{ $item->Besar_Inventory }}</td>
                     <td>{{ number_format($item->Nilai_Inventory) }}</td>
