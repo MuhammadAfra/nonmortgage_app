@@ -114,8 +114,8 @@ Home
                     <td>{{ $item->KELURAHAN }}</td>
                     <td>{{ $item->KODE_POS }}</td>
                     <td>{{ $item->NAMA_PERUSAHAAN }}</td>
-                    <td>{{ $item->BIDANG_USAHA }}</td>
-                    <td>{{ $item->SUB_BIDANG_USAHA }}</td>
+                    <td>{{ $item->sektor->Label }}</td>
+                    <td>{{ $item->sektor->Label_Utama }}</td>
                     <td>{{ $item->LAMA_USAHA }}</td>
                     <td>{{ $item->JABATAN }}</td>
                     <td>{{ $item->TANGGUNGAN }}</td>
