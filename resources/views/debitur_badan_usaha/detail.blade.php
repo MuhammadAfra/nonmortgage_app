@@ -45,7 +45,7 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>Akta Lain Lain <br> 
             @if ($deb->AKTA_LAIN_LAIN != NULL)
-            <a href="{{ url('/dw_deb_company', $deb->AKTE_LAIN_LAIN) }}">Download File</a>
+            <a href="{{ url('/dw_deb_all', $deb->AKTE_LAIN_LAIN) }}">Download File</a>
             @endif
         </label></div>
             <div class="col-sm-8">: {{ $deb->AKTE_LAIN_LAIN }}</div>
