@@ -43,9 +43,11 @@ class PartnerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'AKTE_PENDIRIAN' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'AKTE_PENDIRIAN' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'COMPANY_PROFILE' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'AKTE_PERUBAHAN_ANGGARAN_DASAR' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'files' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
+            'files.*' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'SIUP' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'TDP' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'NPWP' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
@@ -60,112 +62,152 @@ class PartnerController extends Controller
             'NDA_DOCUMENT' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
         ]);
 
-        $partner = Partner::create($request->all());
+        $partner = new Partner();
+        
+        if ($request->hasFile('AKTE_LAIN_LAIN')) 
+        {
+            foreach ($request->file('AKTE_LAIN_LAIN') as $all) {
+                $akte_name = time().'_'.rand(1,9999).'_'.$all->getClientOriginalExtension();
+                $all->move(public_path().'/data_partner/', $akte_name);
+                $data[] = $akte_name;
+                $partner->AKTE_LAIN_LAIN = json_encode($data);
+                $partner->save();   
+            }
+        }
         
         if($request->hasFile('AKTE_PENDIRIAN'))
         {
-            $request->file('AKTE_PENDIRIAN')->move('data_partner/', $request->file('AKTE_PENDIRIAN')->getClientOriginalName());
-            $partner->AKTE_PENDIRIAN = $request->file('AKTE_PENDIRIAN')->getClientOriginalName();
+            $name_ap = time().'_'.rand(1,9999).'_'.$request->AKTE_PENDIRIAN->getClientOriginalExtension();
+            $request->file('AKTE_PENDIRIAN')->move(public_path().'/data_partner/', $name_ap);
+            $partner->AKTE_PENDIRIAN = $name_ap;
             $partner->save();
         }
         
         if($request->hasFile('COMPANY_PROFILE'))
         {
-            $request->file('COMPANY_PROFILE')->move('data_partner/', $request->file('COMPANY_PROFILE')->getClientOriginalName());
-            $partner->COMPANY_PROFILE = $request->file('COMPANY_PROFILE')->getClientOriginalName();
+            $name_cp = time().'_'.rand(1,9999).'_'.$request->COMPANY_PROFILE->getClientOriginalExtension();
+            $request->file('COMPANY_PROFILE')->move(public_path().'/data_partner/', $name_cp);
+            $partner->COMPANY_PROFILE = $name_cp;
             $partner->save();
         }
 
         if($request->hasFile('AKTE_PERUBAHAN_ANGGARAN_DASAR'))
         {
-            $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->move('data_partner/', $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->getClientOriginalName());
-            $partner->AKTE_PERUBAHAN_ANGGARAN_DASAR = $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->getClientOriginalName();
+            $name_apad = time().'_'.rand(1,9999).'_'.$request->AKTE_PERUBAHAN_ANGGARAN_DASAR->getClientOriginalExtension();
+            $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->move(public_path().'/data_partner/', $name_apad);
+            $partner->AKTE_PERUBAHAN_ANGGARAN_DASAR = $name_apad;
             $partner->save();
         }
 
         if($request->hasFile('SIUP'))
         {
-            $request->file('SIUP')->move('data_partner/', $request->file('SIUP')->getClientOriginalName());
-            $partner->SIUP = $request->file('SIUP')->getClientOriginalName();
+            $name_siup = time().'_'.rand(1,9999).'_'.$request->SIUP->getClientOriginalExtension();
+            $request->file('SIUP')->move(public_path().'/data_partner/', $name_siup);
+            $partner->SIUP = $name_siup;
             $partner->save();
         }
 
         if($request->hasFile('TDP'))
         {
-            $request->file('TDP')->move('data_partner/', $request->file('TDP')->getClientOriginalName());
-            $partner->TDP = $request->file('TDP')->getClientOriginalName();
+            $name_tdp = time().'_'.rand(1,9999).'_'.$request->TDP->getClientOriginalExtension();
+            $request->file('TDP')->move(public_path().'/data_partner/', $name_tdp);
+            $partner->TDP = $name_tdp;
             $partner->save();
         }
 
         if($request->hasFile('NPWP'))
         {
-            $request->file('NPWP')->move('data_partner/', $request->file('NPWP')->getClientOriginalName());
-            $partner->NPWP = $request->file('NPWP')->getClientOriginalName();
+            $name_npwp = time().'_'.rand(1,9999).'_'.$request->NPWP->getClientOriginalExtension();
+            $request->file('NPWP')->move(public_path().'/data_partner/', $name_npwp);
+            $partner->NPWP = $name_npwp;
             $partner->save();
         }
 
         if($request->hasFile('MODAL_PENDIRIAN'))
         {
-            $request->file('MODAL_PENDIRIAN')->move('data_partner/', $request->file('MODAL_PENDIRIAN')->getClientOriginalName());
-            $partner->MODAL_PENDIRIAN = $request->file('MODAL_PENDIRIAN')->getClientOriginalName();
+            $name_mp = time().'_'.rand(1,9999).'_'.$request->MODAL_PENDIRIAN->getClientOriginalExtension();
+            $request->file('MODAL_PENDIRIAN')->move(public_path().'/data_partner/', $name_mp);
+            $partner->MODAL_PENDIRIAN = $name_mp;
             $partner->save();
         }
 
         if($request->hasFile('MODAL_PERUBAHAN_TERAKHIR'))
         {
-            $request->file('MODAL_PERUBAHAN_TERAKHIR')->move('data_partner/', $request->file('MODAL_PERUBAHAN_TERAKHIR')->getClientOriginalName());
-            $partner->MODAL_PERUBAHAN_TERAKHIR = $request->file('MODAL_PERUBAHAN_TERAKHIR')->getClientOriginalName();
+            $name_mpt = time().'_'.rand(1,9999).'_'.$request->MODAL_PERUBAHAN_TERAKHIR->getClientOriginalExtension();
+            $request->file('MODAL_PERUBAHAN_TERAKHIR')->move(public_path().'/data_partner/', $name_mpt);
+            $partner->MODAL_PERUBAHAN_TERAKHIR = $name_mpt;
             $partner->save();
         }
 
         if($request->hasFile('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS'))
         {   
-            $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->move('data_partner/', $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->getClientOriginalName());
-            $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS = $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->getClientOriginalName();
+            $name_auf = time().'_'.rand(1,9999).'_'.$request->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS->getClientOriginalExtension();
+            $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->move(public_path().'/data_partner/', $name_auf);
+            $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS = $name_auf;
             $partner->save();
         }
 
         if($request->hasFile('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR'))
         {
-           $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->move('data_partner/', $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->getClientOriginalName());
-            $partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR = $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->getClientOriginalName();
+            $name_inhouse = time().'_'.rand(1,9999).'_'.$request->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR->getClientOriginalExtension();
+            $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->move(public_path().'/data_partner/', $name_inhouse);
+            $partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR = $name_inhouse;
             $partner->save();
         }
 
         if($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS'))
         {
-            $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move('data_partner/', $request->file('BANK_STATEMENT_LAST_3_MONTHS')->getClientOriginalName());
-            $partner->BANK_STATEMENT_LAST_3_MONTHS = $request->file('BANK_STATEMENT_LAST_3_MONTHS')->getClientOriginalName();
+            $name_bank = time().'_'.rand(1,9999).'_'.$request->BANK_STATEMENT_LAST_3_MONTHS->getClientOriginalExtension();
+            $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move(public_path().'/data_partner/', $name_bank);
+            $partner->BANK_STATEMENT_LAST_3_MONTHS = $name_bank;
             $partner->save();
         }
 
         if($request->hasFile('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS'))
         {
-            $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->move('data_partner/', $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->getClientOriginalName());
-            $partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS = $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->getClientOriginalName();
+            $name_fp = time().'_'.rand(1,9999).'_'.$request->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS->getClientOriginalExtension();
+            $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->move(public_path().'/data_partner/', $name_fp);
+            $partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS = $name_fp;
             $partner->save();
         }
         
         if($request->hasFile('DRAFT_TEMPLATE_AGREEMENT_END_USER'))
         {
-            $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->move('data_partner/', $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->getClientOriginalName());
-            $partner->DRAFT_TEMPLATE_AGREEMENT_END_USER = $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->getClientOriginalName();
+            $name_dtaeu = time().'_'.rand(1,9999).'_'.$request->DRAFT_TEMPLATE_AGREEMENT_END_USER->getClientOriginalExtension();
+            $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->move(public_path().'/data_partner/', $name_dtaeu);
+            $partner->DRAFT_TEMPLATE_AGREEMENT_END_USER = $name_dtaeu;
             $partner->save();
         }
 
         if($request->hasFile('CONTOH_RISK_ACCEPTANCE_CRITERIA'))
         {
-            $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->move('data_partner/', $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->getClientOriginalName());
-            $partner->CONTOH_RISK_ACCEPTANCE_CRITERIA = $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->getClientOriginalName();
+            $name_risk = time().'_'.rand(1,9999).'_'.$request->CONTOH_RISK_ACCEPTANCE_CRITERIA->getClientOriginalExtension();
+            $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->move(public_path().'/data_partner/', $name_risk);
+            $partner->CONTOH_RISK_ACCEPTANCE_CRITERIA = $name_risk;
             $partner->save();
         }
         
         if($request->hasFile('NDA_DOCUMENT'))
         {
-            $request->file('NDA_DOCUMENT')->move('data_partner/', $request->file('NDA_DOCUMENT')->getClientOriginalName());
-            $partner->NDA_DOCUMENT = $request->file('NDA_DOCUMENT')->getClientOriginalName();
+            $name_nd = time().'_'.rand(1,9999).'_'.$request->NDA_DOCUMENT->getClientOriginalExtension();
+            $request->file('NDA_DOCUMENT')->move(public_path().'/data_partner/', $name_nd);
+            $partner->NDA_DOCUMENT = $name_nd;
             $partner->save();
         }
+
+        $partner->NAMA_PERUSAHAAN = $request->NAMA_PERUSAHAAN;
+        $partner->ALAMAT_PERUSAHAAN = $request->ALAMAT_PERUSAHAAN;
+        $partner->STATUS_BADAN_HUKUM = $request->STATUS_BADAN_HUKUM;
+        $partner->DETIL_PRODUCT_PROFILE = $request->DETIL_PRODUCT_PROFILE;
+        $partner->Nama_Direktur_Utama = $request->Nama_Direktur_Utama;
+        $partner->No_Identitas_Direktur_Utama = $request->No_Identitas_Direktur_Utama;
+        $partner->Nama_Direktur1 = $request->Nama_Direktur1;
+        $partner->No_Identitas_Direktur1 = $request->No_Identitas_Direktur1;
+        $partner->Nama_Direktur_2 = $request->Nama_Direktur_2;
+        $partner->No_Identitas_Direktur2 = $request->No_Identitas_Direktur2;
+        $partner->Status = $request->Status;
+        $partner->save();
+        // dd($partner);
 
         return redirect('partner');
 
@@ -210,112 +252,150 @@ class PartnerController extends Controller
     public function update(Request $request, $id)
     {
         $partner = Partner::findorfail($id);
-        $partner->update($request->all());
+        
+        if ($request->hasFile('AKTE_LAIN_LAIN')) 
+        {
+            foreach ($request->file('AKTE_LAIN_LAIN') as $all) {
+                $akte_name = time().'_'.rand(1,9999).'_'.$all->getClientOriginalExtension();
+                $all->move(public_path().'/data_partner/', $akte_name);
+                $data[] = $akte_name;
+                $partner->AKTE_LAIN_LAIN = json_encode($data);
+                $partner->save();   
+            }
+        }
         
         if($request->hasFile('AKTE_PENDIRIAN'))
         {
-            $request->file('AKTE_PENDIRIAN')->move('data_partner/', $request->file('AKTE_PENDIRIAN')->getClientOriginalName());
-            $partner->AKTE_PENDIRIAN = $request->file('AKTE_PENDIRIAN')->getClientOriginalName();
+            $name_ap = time().'_'.rand(1,9999).'_'.$request->AKTE_PENDIRIAN->getClientOriginalExtension();
+            $request->file('AKTE_PENDIRIAN')->move(public_path().'/data_partner/', $name_ap);
+            $partner->AKTE_PENDIRIAN = $name_ap;
             $partner->save();
         }
         
         if($request->hasFile('COMPANY_PROFILE'))
         {
-            $request->file('COMPANY_PROFILE')->move('data_partner/', $request->file('COMPANY_PROFILE')->getClientOriginalName());
-            $partner->COMPANY_PROFILE = $request->file('COMPANY_PROFILE')->getClientOriginalName();
+            $name_cp = time().'_'.rand(1,9999).'_'.$request->COMPANY_PROFILE->getClientOriginalExtension();
+            $request->file('COMPANY_PROFILE')->move(public_path().'/data_partner/', $name_cp);
+            $partner->COMPANY_PROFILE = $name_cp;
             $partner->save();
         }
 
         if($request->hasFile('AKTE_PERUBAHAN_ANGGARAN_DASAR'))
         {
-            $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->move('data_partner/', $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->getClientOriginalName());
-            $partner->AKTE_PERUBAHAN_ANGGARAN_DASAR = $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->getClientOriginalName();
+            $name_apad = time().'_'.rand(1,9999).'_'.$request->AKTE_PERUBAHAN_ANGGARAN_DASAR->getClientOriginalExtension();
+            $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->move(public_path().'/data_partner/', $name_apad);
+            $partner->AKTE_PERUBAHAN_ANGGARAN_DASAR = $name_apad;
             $partner->save();
         }
 
         if($request->hasFile('SIUP'))
         {
-            $request->file('SIUP')->move('data_partner/', $request->file('SIUP')->getClientOriginalName());
-            $partner->SIUP = $request->file('SIUP')->getClientOriginalName();
+            $name_siup = time().'_'.rand(1,9999).'_'.$request->SIUP->getClientOriginalExtension();
+            $request->file('SIUP')->move(public_path().'/data_partner/', $name_siup);
+            $partner->SIUP = $name_siup;
             $partner->save();
         }
 
         if($request->hasFile('TDP'))
         {
-            $request->file('TDP')->move('data_partner/', $request->file('TDP')->getClientOriginalName());
-            $partner->TDP = $request->file('TDP')->getClientOriginalName();
+            $name_tdp = time().'_'.rand(1,9999).'_'.$request->TDP->getClientOriginalExtension();
+            $request->file('TDP')->move(public_path().'/data_partner/', $name_tdp);
+            $partner->TDP = $name_tdp;
             $partner->save();
         }
 
         if($request->hasFile('NPWP'))
         {
-            $request->file('NPWP')->move('data_partner/', $request->file('NPWP')->getClientOriginalName());
-            $partner->NPWP = $request->file('NPWP')->getClientOriginalName();
+            $name_npwp = time().'_'.rand(1,9999).'_'.$request->NPWP->getClientOriginalExtension();
+            $request->file('NPWP')->move(public_path().'/data_partner/', $name_npwp);
+            $partner->NPWP = $name_npwp;
             $partner->save();
         }
 
         if($request->hasFile('MODAL_PENDIRIAN'))
         {
-            $request->file('MODAL_PENDIRIAN')->move('data_partner/', $request->file('MODAL_PENDIRIAN')->getClientOriginalName());
-            $partner->MODAL_PENDIRIAN = $request->file('MODAL_PENDIRIAN')->getClientOriginalName();
+            $name_mp = time().'_'.rand(1,9999).'_'.$request->MODAL_PENDIRIAN->getClientOriginalExtension();
+            $request->file('MODAL_PENDIRIAN')->move(public_path().'/data_partner/', $name_mp);
+            $partner->MODAL_PENDIRIAN = $name_mp;
             $partner->save();
         }
 
         if($request->hasFile('MODAL_PERUBAHAN_TERAKHIR'))
         {
-            $request->file('MODAL_PERUBAHAN_TERAKHIR')->move('data_partner/', $request->file('MODAL_PERUBAHAN_TERAKHIR')->getClientOriginalName());
-            $partner->MODAL_PERUBAHAN_TERAKHIR = $request->file('MODAL_PERUBAHAN_TERAKHIR')->getClientOriginalName();
+            $name_mpt = time().'_'.rand(1,9999).'_'.$request->MODAL_PERUBAHAN_TERAKHIR->getClientOriginalExtension();
+            $request->file('MODAL_PERUBAHAN_TERAKHIR')->move(public_path().'/data_partner/', $name_mpt);
+            $partner->MODAL_PERUBAHAN_TERAKHIR = $name_mpt;
             $partner->save();
         }
 
         if($request->hasFile('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS'))
         {   
-            $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->move('data_partner/', $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->getClientOriginalName());
-            $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS = $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->getClientOriginalName();
+            $name_auf = time().'_'.rand(1,9999).'_'.$request->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS->getClientOriginalExtension();
+            $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->move(public_path().'/data_partner/', $name_auf);
+            $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS = $name_auf;
             $partner->save();
         }
 
         if($request->hasFile('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR'))
         {
-           $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->move('data_partner/', $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->getClientOriginalName());
-            $partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR = $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->getClientOriginalName();
+            $name_inhouse = time().'_'.rand(1,9999).'_'.$request->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR->getClientOriginalExtension();
+            $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->move(public_path().'/data_partner/', $name_inhouse);
+            $partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR = $name_inhouse;
             $partner->save();
         }
 
         if($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS'))
         {
-            $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move('data_partner/', $request->file('BANK_STATEMENT_LAST_3_MONTHS')->getClientOriginalName());
-            $partner->BANK_STATEMENT_LAST_3_MONTHS = $request->file('BANK_STATEMENT_LAST_3_MONTHS')->getClientOriginalName();
+            $name_bank = time().'_'.rand(1,9999).'_'.$request->BANK_STATEMENT_LAST_3_MONTHS->getClientOriginalExtension();
+            $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move(public_path().'/data_partner/', $name_bank);
+            $partner->BANK_STATEMENT_LAST_3_MONTHS = $name_bank;
             $partner->save();
         }
 
         if($request->hasFile('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS'))
         {
-            $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->move('data_partner/', $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->getClientOriginalName());
-            $partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS = $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->getClientOriginalName();
+            $name_fp = time().'_'.rand(1,9999).'_'.$request->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS->getClientOriginalExtension();
+            $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->move(public_path().'/data_partner/', $name_fp);
+            $partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS = $name_fp;
             $partner->save();
         }
         
         if($request->hasFile('DRAFT_TEMPLATE_AGREEMENT_END_USER'))
         {
-            $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->move('data_partner/', $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->getClientOriginalName());
-            $partner->DRAFT_TEMPLATE_AGREEMENT_END_USER = $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->getClientOriginalName();
+            $name_dtaeu = time().'_'.rand(1,9999).'_'.$request->DRAFT_TEMPLATE_AGREEMENT_END_USER->getClientOriginalExtension();
+            $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->move(public_path().'/data_partner/', $name_dtaeu);
+            $partner->DRAFT_TEMPLATE_AGREEMENT_END_USER = $name_dtaeu;
             $partner->save();
         }
 
         if($request->hasFile('CONTOH_RISK_ACCEPTANCE_CRITERIA'))
         {
-            $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->move('data_partner/', $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->getClientOriginalName());
-            $partner->CONTOH_RISK_ACCEPTANCE_CRITERIA = $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->getClientOriginalName();
+            $name_risk = time().'_'.rand(1,9999).'_'.$request->CONTOH_RISK_ACCEPTANCE_CRITERIA->getClientOriginalExtension();
+            $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->move(public_path().'/data_partner/', $name_risk);
+            $partner->CONTOH_RISK_ACCEPTANCE_CRITERIA = $name_risk;
             $partner->save();
         }
         
         if($request->hasFile('NDA_DOCUMENT'))
         {
-            $request->file('NDA_DOCUMENT')->move('data_partner/', $request->file('NDA_DOCUMENT')->getClientOriginalName());
-            $partner->NDA_DOCUMENT = $request->file('NDA_DOCUMENT')->getClientOriginalName();
+            $name_nd = time().'_'.rand(1,9999).'_'.$request->NDA_DOCUMENT->getClientOriginalExtension();
+            $request->file('NDA_DOCUMENT')->move(public_path().'/data_partner/', $name_nd);
+            $partner->NDA_DOCUMENT = $name_nd;
             $partner->save();
         }
+
+        $partner->NAMA_PERUSAHAAN = $request->NAMA_PERUSAHAAN;
+        $partner->ALAMAT_PERUSAHAAN = $request->ALAMAT_PERUSAHAAN;
+        $partner->STATUS_BADAN_HUKUM = $request->STATUS_BADAN_HUKUM;
+        $partner->DETIL_PRODUCT_PROFILE = $request->DETIL_PRODUCT_PROFILE;
+        $partner->Nama_Direktur_Utama = $request->Nama_Direktur_Utama;
+        $partner->No_Identitas_Direktur_Utama = $request->No_Identitas_Direktur_Utama;
+        $partner->Nama_Direktur1 = $request->Nama_Direktur1;
+        $partner->No_Identitas_Direktur1 = $request->No_Identitas_Direktur1;
+        $partner->Nama_Direktur_2 = $request->Nama_Direktur_2;
+        $partner->No_Identitas_Direktur2 = $request->No_Identitas_Direktur2;
+        $partner->Status = $request->Status;
+        $partner->save();
 
         return redirect('partner');
 
@@ -334,6 +414,9 @@ class PartnerController extends Controller
         // delete file
         File::delete('data_partner/'.$partner->AKTE_PENDIRIAN);
         File::delete('data_partner/'.$partner->COMPANY_PROFILE);
+        foreach (json_decode($partner->AKTE_LAIN_LAIN) as $key) {
+            File::delete('data_partner/'.$key);
+        }
         File::delete('data_partner/'.$partner->SIUP);
         File::delete('data_partner/'.$partner->TDP);
         File::delete('data_partner/'.$partner->NPWP);

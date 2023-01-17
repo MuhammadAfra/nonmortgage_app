@@ -67,7 +67,21 @@ Edit
             </div>
         </div>
     </div>
-
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Akta Lain Lain</label></div>   
+        <div class="col-sm-8">
+            <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
+                <input type="file" class="custom-file-input" name="AKTE_LAIN_LAIN[]" multiple>
+                <label class="custom-file-label">
+                    @if ($partner->AKTE_LAIN_LAIN != NULL)
+                        @foreach (json_decode($partner->AKTE_LAIN_LAIN) as $item)
+                            {{ $item }},
+                        @endforeach
+                    @endif
+                </label>
+            </div>
+        </div>
+    </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Detail Product <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">

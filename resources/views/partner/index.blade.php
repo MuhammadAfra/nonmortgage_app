@@ -52,6 +52,7 @@ Home
                     <th>Status Bahan Hukum</th>
                     <th>Akta Pendirian</th>
                     <th>Company Profile</th>
+                    <th>Akte Lain Lain</th>
                     <th>Detail Company Profile</th>
                     <th>Akta Perubahan Anggaran Dasar</th>
                     <th>SIUP</th>
@@ -94,6 +95,13 @@ Home
                     <td>{{ $item->STATUS_BADAN_HUKUM }}</td>
                     <td>{{ $item->AKTE_PENDIRIAN }}</td>
                     <td>{{ $item->COMPANY_PROFILE }}</td>
+                    <td>
+                    @if ($item->AKTE_LAIN_LAIN != NULL)
+                        @foreach (json_decode($item->AKTE_LAIN_LAIN) as $file)
+                            {{ $file }}
+                        @endforeach   
+                    @endif 
+                    </td>
                     <td>{{ $item->master_product->nama_product }}</td>
                     <td>{{ $item->AKTE_PERUBAHAN_ANGGARAN_DASAR }}</td>
                     <td>{{ $item->SIUP }}</td>

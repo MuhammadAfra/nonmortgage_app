@@ -63,6 +63,7 @@ Route::get('/dw_npwp/{NPWP}', [PartnerController::class, 'download'])->name('dw_
 Route::get('/dw_siup/{SIUP}', [PartnerController::class, 'download'])->name('dw_siup');
 Route::get('/dw_akte_ad/{AKTE_PERUBAHAN_ANGGARAN_DASAR}', [PartnerController::class, 'download'])->name('dw_akte_ad');
 Route::get('/dw_mdl_diri/{MODAL_PENDIRIAN}', [PartnerController::class, 'download'])->name('dw_mdl_diri');
+Route::get('/dw_all/{AKTE_LAIN_LAIN}', [PartnerController::class, 'download'])->name('dw_all');
 
 Route::get('/dw_deb_akte_pendirian/{AKTE_PENDIRIAN}', [DebiturBadanUsahaController::class, 'download'])->name('dw_akte_pendirian');
 Route::get('/dw_deb_tdp/{TDP}', [DebiturBadanUsahaController::class, 'download'])->name('dw_tdp');
@@ -79,6 +80,7 @@ Route::get('/dw_deb_npwp/{NPWP}', [DebiturBadanUsahaController::class, 'download
 Route::get('/dw_deb_siup/{SIUP}', [DebiturBadanUsahaController::class, 'download'])->name('dw_siup');
 Route::get('/dw_deb_akte_ad/{AKTE_PERUBAHAN_ANGGARAN_DASAR}', [DebiturBadanUsahaController::class, 'download'])->name('dw_akte_ad');
 Route::get('/dw_deb_mdl_diri/{MODAL_PENDIRIAN}', [DebiturBadanUsahaController::class, 'download'])->name('dw_mdl_diri');
+Route::get('/dw_deb_all/{AKTE_LAIN_LAIN}', [DebiturBadanUsahaController::class, 'download'])->name('dw_deb_all');
 
 Route::group(['middleware' => ['PreventBack']], function(){
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');

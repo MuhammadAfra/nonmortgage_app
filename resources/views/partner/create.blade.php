@@ -70,6 +70,15 @@ Add
         </div>
     </div>
     <div class="row pb-3">
+        <div class="col-sm-4"><label>Akta Lain Lain </label></div>
+        <div class="col-sm-8">
+            <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
+                <input type="file" class="custom-file-input" name="AKTE_LAIN_LAIN[]" multiple>
+                <label class="custom-file-label">Choose file</label>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-3">
         <div class="col-sm-4"><label>Detail Nama Product <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <div class="input-group" style="width: 500px; height: 38px;">
