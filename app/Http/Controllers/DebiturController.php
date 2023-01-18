@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Debitur;
+use App\Models\Partner;
 use Illuminate\Http\Request;
 use App\Imports\DebiturImport;
 use App\Models\Master_Asuransi;
 use App\Models\Master_Sektor_Ekonomi;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class DebiturController extends Controller
 {
@@ -32,7 +34,8 @@ class DebiturController extends Controller
     {
         $asuransi = Master_Asuransi::all();
         $sektor = Master_Sektor_Ekonomi::all();
-        return view('debitur.create', compact('asuransi', 'sektor'));
+        $partner = Partner::all();
+        return view('debitur.create', compact('asuransi', 'sektor', 'partner'));
     }
 
     /**
@@ -44,6 +47,7 @@ class DebiturController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
+            'PARTNER_ID' => 'required',
             'NAMA_DEBITUR' => 'required',
             'TANGGAL_LAHIR' => 'required',
             'NO_KTP' => 'required',
@@ -111,6 +115,12 @@ class DebiturController extends Controller
                 $inventori = NULL;
             }
 
+            if ($request->Nilai_Jaminan_Lainnya != NULL) {
+                $nilai_jaminan_lainnya = str_replace( ',', '', $request->Nilai_Jaminan_Lainnya);
+            }else{
+                $nilai_jaminan_lainnya = NULL;
+            }
+
             if ($request->DOWN_PAYMENT_CUSTOMER != NULL) {
                 $dp = str_replace( ',', '', $request->DOWN_PAYMENT_CUSTOMER);
             }else{
@@ -118,6 +128,7 @@ class DebiturController extends Controller
             }
             
             $debitur = new Debitur();
+            $debitur->PARTNER_ID = $request->PARTNER_ID;
             $debitur->NAMA_DEBITUR = $request->NAMA_DEBITUR;
             $debitur->TANGGAL_LAHIR = $request->TANGGAL_LAHIR;
             $debitur->NO_KTP = $request->NO_KTP;
@@ -141,7 +152,7 @@ class DebiturController extends Controller
             $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3 = str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3);
             $debitur->Jenis_Asuransi_Id = $request->Jenis_Asuransi_Id;
             $debitur->Perusahaan_Asuransi = $request->Perusahaan_Asuransi;
-            $debitur->Persen_Asuransi = $request->Persen_Asuransi;
+            $debitur->Persen_Asuransi = str_replace( ',', '.', $request->Persen_Asuransi);
             $debitur->Nilai_Asuransi = $asuransi;
             $debitur->Jaminan_Sertifikat_Tanah = $request->Jaminan_Sertifikat_Tanah;
             $debitur->Nilai_Sertifikat_Tanah = $tanah;
@@ -156,6 +167,7 @@ class DebiturController extends Controller
             $debitur->Jaminan_Inventory = $request->Jaminan_Inventory;
             $debitur->Nilai_Inventory = $inventori;
             $debitur->Jaminan_Lainnya = $request->Jaminan_Lainnya;
+            $debitur->Nilai_Jaminan_Lainnya = $nilai_jaminan_lainnya;
             $debitur->APAKAH_ADA_DP = $request->APAKAH_ADA_DP;
             $debitur->DOWN_PAYMENT_CUSTOMER = $dp;
             // dd($debitur);
@@ -187,7 +199,8 @@ class DebiturController extends Controller
         $debitur = Debitur::findorfail($id);
         $asuransi = Master_Asuransi::get();
         $sektor = Master_Sektor_Ekonomi::get();
-        return view('debitur.edit', compact('debitur','asuransi','sektor'));
+        $partner = Master_Sektor_Ekonomi::get();
+        return view('debitur.edit', compact('debitur','asuransi','sektor', 'partner'));
     }
 
     /**
@@ -200,6 +213,7 @@ class DebiturController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
+            'PARTNER_ID' => 'required',
             'NAMA_DEBITUR' => 'required',
             'TANGGAL_LAHIR' => 'required',
             'NO_KTP' => 'required',
@@ -268,6 +282,12 @@ class DebiturController extends Controller
             $inventori = NULL;
         }
 
+        if ($request->Nilai_Jaminan_Lainnya != NULL || $request->Nilai_Jaminan_Lainnya != 0) {
+            $nilai_jaminan_lainnya = str_replace( ',', '', $request->Nilai_Jaminan_Lainnya);
+        }else{
+            $nilai_jaminan_lainnya = NULL;
+        }
+
         if ($request->DOWN_PAYMENT_CUSTOMER != NULL || $request->DOWN_PAYMENT_CUSTOMER != 0) {
             $dp = str_replace( ',', '', $request->DOWN_PAYMENT_CUSTOMER);
         }else{
@@ -275,6 +295,7 @@ class DebiturController extends Controller
         }
 
         $debitur->update([
+            'PARTNER_ID' => $request->PARTNER_ID,
             'NAMA_DEBITUR' => $request->NAMA_DEBITUR,
             'TANGGAL_LAHIR' => $request->TANGGAL_LAHIR,
             'NO_KTP' => $request->NO_KTP,
@@ -298,7 +319,7 @@ class DebiturController extends Controller
             'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3' => str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3),
             'Jenis_Asuransi_Id' => $request->Jenis_Asuransi_Id,
             'Perusahaan_Asuransi' => $request->Perusahaan_Asuransi,
-            'Persen_Asuransi' => $request->Persen_Asuransi,
+            'Persen_Asuransi' => str_replace( ',', '.', $request->Persen_Asuransi), 
             'Nilai_Asuransi' => $asuransi,
             'Jaminan_Sertifikat_Tanah' => $request->Jaminan_Sertifikat_Tanah,
             'Nilai_Sertifikat_Tanah' => $tanah,
@@ -313,6 +334,7 @@ class DebiturController extends Controller
             'Jaminan_Inventory' => $request->Jaminan_Inventory,
             'Nilai_Inventory' => $inventori,
             'Jaminan_Lainnya' => $request->Jaminan_Lainnya,
+            'Nilai_Jaminan_Lainnya' => $nilai_jaminan_lainnya,
             'APAKAH_ADA_DP' => $request->APAKAH_ADA_DP,
             'DOWN_PAYMENT_CUSTOMER' => $dp,
         ]);

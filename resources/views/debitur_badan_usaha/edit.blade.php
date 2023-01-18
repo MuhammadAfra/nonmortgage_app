@@ -14,7 +14,21 @@ Edit
 @section('content')
 <form action="{{ url('debitur_badan_usaha', $deb->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
-    @method('PUT')<div class="row pb-3">
+    @method('PUT')
+
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Partner ID</label></div>
+        <div class="col-sm-8">
+            <select name="PARTNER_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option value="{{ $deb->PARTNER_ID }}">{{ $deb->partner->NAMA_PERUSAHAAN }}</option>
+                @foreach ($partner as $item)
+                    <option value="{{ $item->id }}"> {{ $item->NAMA_PERUSAHAAN }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    
+    <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Perusahaan</label></div>
         <div class="col-sm-8">
             <input type="text" name="NAMA_PERUSAHAAN" value="{{ $deb->NAMA_PERUSAHAAN }}" class="form-control" style="width: 500px; height: 40px;">
@@ -279,7 +293,7 @@ Edit
         <div class="col-sm-4"><label>Persen Asuransi<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <div class="input-group" style="width: 500px; height: 38px;">
-                <input type="number" class="form-control" value="{{ $deb->Persen_Asuransi }}"
+                <input type="text" class="form-control" value="{{ $deb->Persen_Asuransi }}"
                     name="Persen_Asuransi">
                 <div class="input-group-append">
                     <span class="input-group-text">%</span>

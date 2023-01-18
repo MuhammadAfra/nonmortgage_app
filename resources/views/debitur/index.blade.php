@@ -47,6 +47,7 @@ Home
                     @if (auth()->user()->level == "Admin")
                     <th>Action</th>
                     @endif
+                    <th>Nama Perusahaan Partner</th>
                     <th>Nama Debitur</th>
                     <th>Tanggal Lahir</th>
                     <th>No KTP</th>
@@ -85,6 +86,7 @@ Home
                     <th>Jaminan Inventory</th>
                     <th>Nilai Inventory</th>
                     <th>Jaminan Lainnya</th>
+                    <th>Nilai Jaminan Lainnya</th>
                     <th>Down Payment</th>
                     <th>Jumlah Down Payment</th>
                 </tr>
@@ -103,6 +105,7 @@ Home
                     </td>
                     @include('debitur.delete')
                     @endif
+                    <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>  
                     <td>{{ $item->NAMA_DEBITUR }}</td>
                     <td>{{ $item->TANGGAL_LAHIR }}</td>
                     <td>{{ $item->NO_KTP }}</td>
@@ -169,6 +172,11 @@ Home
                     <td>{{ $item->Nilai_Inventory }}</td>
                     @endif
                     <td>{{ $item->Jaminan_Lainnya  }}</td>
+                    @if ($item->Nilai_Jaminan_Lainnya != null)
+                    <td>Rp{{ number_format($item->Nilai_Jaminan_Lainnya) }}</td>
+                    @else
+                    <td>{{ $item->Nilai_Jaminan_Lainnya }}</td>
+                    @endif
                     <td>{{ $item->APAKAH_ADA_DP }}</td>
                     @if ($item->DOWN_PAYMENT_CUSTOMER != null)
                     <td>Rp{{ number_format($item->DOWN_PAYMENT_CUSTOMER) }}</td>

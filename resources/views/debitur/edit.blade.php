@@ -15,163 +15,100 @@
 <form action="{{ url('debitur', $debitur->id) }}" method="POST">
     @csrf
     @method('PUT')
+
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Partner ID</label></div>
+        <div class="col-sm-8">
+            <select name="PARTNER_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option value="{{ $debitur->PARTNER_ID }}">{{ $debitur->partner->NAMA_PERUSAHAAN }}</option>
+                @foreach ($partner as $item)
+                    <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->NAMA_PERUSAHAAN }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Debitur <span class="text-danger">*</span></label></div>
         <div class="col-sm-8"><input type="text" value="{{ $debitur->NAMA_DEBITUR }}" name="NAMA_DEBITUR"
                 class="form-control" style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Tanggal Lahir <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="date" value="{{ $debitur->TANGGAL_LAHIR }}" name="TANGGAL_LAHIR"
-                class="form-control" style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>No KTP</label> <span class="text-danger">*</span></div>
-        <div class="col-sm-8"><input type="number" value="{{ $debitur->NO_KTP }}" name="NO_KTP" class="form-control"
-                style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>No NPWP</label> <span class="text-danger">*</span></div>
-        <div class="col-sm-8"><input type="text" value="{{ $debitur->NO_NPWP }}" name="NO_NPWP" class="form-control"
-                style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Alamat <span class="text-danger">*</span></div>
-        <div class="col-sm-8"><textarea name="ALAMAT_CUSTOMER" style="width: 300px; height: 100px;" class="form-control"
-                cols="30" rows="10">{{ $debitur->ALAMAT_CUSTOMER }}</textarea></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Provinsi<span class="text-danger">*</span></div>
-        <div class="col-sm-8"><input type="text" value="{{ $debitur->PROVINSI }}" name="PROVINSI" class="form-control"
-                style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Kabupaten / Kota <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="text" value="{{ $debitur->KABUPATEN_KOTA }}" name="KABUPATEN_KOTA"
-                class="form-control" style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Kecamatan <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="rext" value="{{ $debitur->KECAMATAN }}" name="KECAMATAN" class="form-control"
-                style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Kelurahan <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="rext" value="{{ $debitur->KELURAHAN }}" name="KELURAHAN" class="form-control"
-                style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Kode Pos <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="number" value="{{ $debitur->KODE_POS }}" name="KODE_POS" class="form-control"
-                style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Nama Perusahaan <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="text" value="{{ $debitur->NAMA_PERUSAHAAN }}" name="NAMA_PERUSAHAAN"
-                class="form-control" style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Bidang Usaha & Sub Bidang Usaha<span class="text-danger">*</span></label></div>
-        <div class="col-sm-8">
-            <select name="BIDANG_USAHA" class="form-control py-0" style="width: 300px; height: 30px;">
-                <option value="{{ $debitur->BIDANG_USAHA }}">{{ $debitur->sektor->Label_Utama }} -- {{ $debitur->sektor->Label }}</option>
-                @foreach ($sektor->sortBy('Label_Utama') as $item)
-                <option value="{{ $item->id }}">{{ $item->Label_Utama }} -- {{ $item->Label }}</option>
-                @endforeach
-            </select>
-        </div>
     </div>
     {{-- <div class="row pb-3">
         <div class="col-sm-4"><label>Sub Bidang Usaha <span class="text-danger">*</span></label></div>
         <div class="col-sm-8"><input type="text" value="{{ $debitur->SUB_BIDANG_USAHA }}" name="SUB_BIDANG_USAHA"
                 class="form-control" style="width: 300px; height: 30px;"></div>
     </div> --}}
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Lama Usaha <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="text" value="{{ $debitur->LAMA_USAHA }}" name="LAMA_USAHA"
-                class="form-control" style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Jabatan <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="text" value="{{ $debitur->JABATAN }}" name="JABATAN" class="form-control"
-                style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Tanggungan<span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="text" value="{{ $debitur->TANGGUNGAN }}" name="TANGGUNGAN"
-                class="form-control" style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Income <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="text" value="{{ number_format($debitur->INCOME_BULAN) }}" name="INCOME_BULAN"
-                class="form-control number-separator" style="width: 300px; height: 30px;"></div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Spouse Income Bulan <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="text" value="{{ number_format($debitur->SUPOUSE_INCOME_BULAN) }}"
-                name="SUPOUSE_INCOME_BULAN" class="form-control number-separator" style="width: 300px; height: 30px;">
-        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Tanggal Lahir <span class="text-danger">*</span></label></div>
             <div class="col-sm-8"><input type="date" value="{{ $debitur->TANGGAL_LAHIR }}" name="TANGGAL_LAHIR"
                     class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>No KTP</label> <span class="text-danger">*</span></div>
             <div class="col-sm-8"><input type="number" value="{{ $debitur->NO_KTP }}" name="NO_KTP" class="form-control"
                     style="width: 300px; height: 30px;"></div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>No NPWP</label> <span class="text-danger">*</span></div>
             <div class="col-sm-8"><input type="text" value="{{ $debitur->NO_NPWP }}" name="NO_NPWP" class="form-control"
                     style="width: 300px; height: 30px;"></div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Alamat <span class="text-danger">*</span></div>
             <div class="col-sm-8">
                 <textarea name="ALAMAT_CUSTOMER" style="width: 300px; height: 100px;" class="form-control" cols="30"
-                    rows="10">{{ $debitur->ALAMAT_CUSTOMER }}</textarea>
-            </div>
+                    rows="10">{{ $debitur->ALAMAT_CUSTOMER }}</textarea></div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Provinsi<span class="text-danger">*</span></div>
             <div class="col-sm-8"><input type="text" value="{{ $debitur->PROVINSI }}" name="PROVINSI"
                     class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Kabupaten / Kota <span class="text-danger">*</span></label></div>
             <div class="col-sm-8"><input type="text" value="{{ $debitur->KABUPATEN_KOTA }}" name="KABUPATEN_KOTA"
                     class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Kecamatan <span class="text-danger">*</span></label></div>
             <div class="col-sm-8"><input type="rext" value="{{ $debitur->KECAMATAN }}" name="KECAMATAN"
                     class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Kelurahan <span class="text-danger">*</span></label></div>
             <div class="col-sm-8"><input type="rext" value="{{ $debitur->KELURAHAN }}" name="KELURAHAN"
                     class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Kode Pos <span class="text-danger">*</span></label></div>
             <div class="col-sm-8"><input type="number" value="{{ $debitur->KODE_POS }}" name="KODE_POS"
                     class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nama Perusahaan <span class="text-danger">*</span></label></div>
             <div class="col-sm-8"><input type="text" value="{{ $debitur->NAMA_PERUSAHAAN }}" name="NAMA_PERUSAHAAN"
                     class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
+
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Bidang Usaha <span class="text-danger">*</span></label></div>
-            <div class="col-sm-8"><input type="text" value="{{ $debitur->BIDANG_USAHA }}" name="BIDANG_USAHA"
-                    class="form-control" style="width: 300px; height: 30px;"></div>
-        </div>
-        <div class="row pb-3">
-            <div class="col-sm-4"><label>Sub Bidang Usaha <span class="text-danger">*</span></label></div>
-            <div class="col-sm-8"><input type="text" value="{{ $debitur->SUB_BIDANG_USAHA }}"
-                    name="SUB_BIDANG_USAHA" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-4"><label>Bidang Usaha & Sub Bidang Usaha<span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+                <select name="BIDANG_USAHA" class="form-control py-0" style="width: 300px; height: 30px;">
+                    <option value="{{ $debitur->BIDANG_USAHA }}">{{ $debitur->sektor->Label_Utama }} -- {{ $debitur->sektor->Label }}</option>
+                    @foreach ($sektor->sortBy('Label_Utama') as $item)
+                    <option value="{{ $item->id }}">{{ $item->Label_Utama }} -- {{ $item->Label }}</option>
+                    @endforeach
+                </select>
+            </div>
         </div>
 
         <div class="row pb-3">
@@ -195,6 +132,7 @@
             <div class="col-sm-8"><input type="text" value="{{ $debitur->JABATAN }}" name="JABATAN"
                     class="form-control" style="width: 300px; height: 30px;"></div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Tanggungan<span class="text-danger">*</span></label></div>
             <div class="col-sm-8"><input type="text" value="{{ $debitur->TANGGUNGAN }}" name="TANGGUNGAN"
@@ -354,6 +292,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Perusahaan Asuransi</label></div>
             <div class="col-sm-8"><input value="{{ $debitur->Perusahaan_Asuransi }}" type="text"
@@ -364,7 +303,7 @@
             <div class="col-sm-4"><label>Persen Asuransi<span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
                 <div class="input-group" style="width: 300px; height: 38px;">
-                    <input type="number" class="form-control" value="{{ $debitur->Persen_Asuransi }}"
+                    <input type="text" class="form-control" value="{{ $debitur->Persen_Asuransi }}"
                         name="Persen_Asuransi">
                     <div class="input-group-append">
                         <span class="input-group-text">%</span>
@@ -490,7 +429,6 @@
                 @enderror
             </div>
         </div>
-
 
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jaminan Kendaraan Motor</label></div>
@@ -736,6 +674,7 @@
                 @endif
             </div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"></div>
             <div class="col-sm-8">

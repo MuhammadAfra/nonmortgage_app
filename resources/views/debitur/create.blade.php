@@ -14,6 +14,22 @@ Add
 @section('content')
 <form action="{{ url('debitur') }}" method="POST">
     @csrf
+
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Partner ID <span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <select name="PARTNER_ID" class="form-control" style="width: 300px; height: 30px;">
+                <option></option>
+                @foreach ($partner as $item)
+                <option value="{{ $item->id }}">{{ $item->NAMA_PERUSAHAAN }}</option>
+                @endforeach
+            </select>
+            @error('PARTNER_ID')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+    </div>  
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Debitur <span class="text-danger">*</span></label></div>
         <div class="col-sm-8"><input type="text" name="NAMA_DEBITUR" placeholder="Nama Debitur" class="form-control"
@@ -75,7 +91,7 @@ Add
             <select name="BIDANG_USAHA" class="form-control py-0" style="width: 300px; height: 30px;">
                 <option></option>
                 @foreach ($sektor->sortBy('Label_Utama') as $item)
-                <option value="{{ $item->id }}">{{ $item->Label_Utama }} -- {{ $item->Label }}</option>
+                <option value="{{ $item->id }}">{{ $item->Label_Utama }} - {{ $item->Label }}</option>
                 @endforeach
             </select>
         </div>
@@ -218,7 +234,7 @@ Add
         <div class="col-sm-4"><label>Persen Asuransi<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
         <div class="input-group" style="width: 300px; height: 38px;">
-            <input type="number" class="form-control" placeholder="Persen Asuransi" name="Persen_Asuransi">
+            <input type="text" class="form-control" placeholder="Persen Asuransi" name="Persen_Asuransi">
                 <div class="input-group-append">
                     <span class="input-group-text">%</span>
                 </div>

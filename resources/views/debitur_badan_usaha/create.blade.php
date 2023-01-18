@@ -14,6 +14,21 @@ Add
 @section('content')
 <form action="{{ url('debitur_badan_usaha') }}" method="POST" enctype="multipart/form-data">
     @csrf
+
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Partner ID <span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <select name="PARTNER_ID" class="form-control" style="width: 500px; height: 38px;">
+                <option></option>
+                @foreach ($partner as $item)
+                <option value="{{ $item->id }}">{{ $item->NAMA_PERUSAHAAN }}</option>
+                @endforeach
+            </select>
+            @error('PARTNER_ID')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+    </div>  
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Perusahaan </label></div>
         <div class="col-sm-8">
@@ -268,11 +283,23 @@ Add
         <div class="col-sm-8"><input type="text" name="Perusahaan_Asuransi" placeholder="Perusahaan Asuransi" class="form-control"
                 style="width: 500px; height: 40px;"></div>
     </div>
+
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Persen Asuransi</label></div>
-        <div class="col-sm-8"><input type="number" name="Persen_Asuransi" placeholder="Persen Asuransi" class="form-control"
-                style="width: 500px; height: 40px;"></div>
+        <div class="col-sm-4"><label>Persen Asuransi<span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <div class="input-group" style="width: 500px; height: 38px;">
+                <input type="text" class="form-control"
+                    name="Persen_Asuransi">
+                <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                </div>
+            </div>
+            @error('Persen_Asuransi')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
     </div>
+
 
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Asuransi<span class="text-danger">*</span></label></div>
