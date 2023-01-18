@@ -18,7 +18,7 @@ Add
         <div class="col-sm-4"><label>Debitur & Partner <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <select name="PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                <option>-----</option>
+                <option></option>
                 @foreach ($prod as $item)
                 <option value="{{ $item->id }}">{{ $item->debitur->NAMA_DEBITUR }} -
                     {{ $item->partner->NAMA_PERUSAHAAN }}</option>
@@ -38,19 +38,26 @@ Add
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Invoice (Rp)<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Nilai Invoice<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Invoice" class="form-control number-separator" style="width: 300px; height: 30px;">
+        <div class="input-group" style="width: 300px; height: 38px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+            <input type="text" class="form-control number-separator" placeholder="Nilai Invoice" name="Nilai_Invoice">
+            </div>
             @error('Nilai_Invoice')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Jenis Invoice<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Jenis_Invoice" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Jenis_Invoice" class="form-control" placeholder="Jenis Invoice" style="width: 300px; height: 30px;">
             @error('Jenis_Invoice')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -59,7 +66,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Atas Nama Invoice<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Atas_Nama_Invoice" class="form-control" style="width: 300px; height: 30px;">
+            <input type="text" name="Atas_Nama_Invoice" class="form-control" placeholder="Atas Nama Invoice" style="width: 300px; height: 30px;">
             @error('Atas_Nama_Invoice')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -68,7 +75,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Alamat Nama Invoice <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <textarea name="Alamat_Nama_Invoice" style="width: 300px; height: 100px;" class="form-control" cols="30"
+            <textarea name="Alamat_Nama_Invoice" style="width: 300px; height: 100px;" placeholder="Alamat Nama Invoice" class="form-control" cols="30"
                 rows="10"></textarea>
             @error('Alamat_Nama_Invoice')
             <p class="text-danger">{{ $message }}</p>
@@ -77,22 +84,29 @@ Add
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>No Fiducia<span class="text-danger">*</span></label></div>
-        <div class="col-sm-8">
-            <input type="number" name="No_Fiducia" class="form-control" style="width: 300px; height: 30px;">
+        <div class="col-sm-8"> 
+            <input type="number" name="No_Fiducia" class="form-control"  placeholder="No Fiducia" style="width: 300px; height: 30px;">
             @error('No_Fiducia')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Fiducia<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Fiducia" class="form-control number-separator" style="width: 300px; height: 30px;">
+        <div class="input-group" style="width: 300px; height: 38px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+            <input type="text" class="form-control number-separator" placeholder="Nilai Fiducia" name="Nilai_Fiducia">
+            </div>
             @error('Nilai_Fiducia')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Tanggal Fiducia<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
@@ -114,7 +128,12 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Status" class="form-control" style="width: 300px; height: 30px;">
+            <select name="Status" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option></option>
+                <option value="Pending">Pending</option>
+                <option value="To Be Obtained">To Be Obtained</option>
+                <option value="Diterima">Diterima</option>
+            </select>
             @error('Status')
             <p class="text-danger">{{ $message }}</p>
             @enderror

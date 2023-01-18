@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Jenis Product</label></div>
+            <div class="col-sm-4"><label>Nama Product</label></div>
             <div class="col-sm-8">
                 <select name="M_PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
                     <option value="{{ $dataproduct->M_PRODUCT_ID }}">{{ $dataproduct->m_product->id }} - {{ $dataproduct->m_product->nama_product }}</option>
@@ -48,32 +48,68 @@
                 </select>
             </div>
         </div>
+
+
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nilai Pembiayaan /<br> Pokok Maximum (Rp)</div>
-            <div class="col-sm-8"><input type="text" name="NILAI_PEMBIAYAAN_POKOK_MAXIMUM" value="{{ number_format($dataproduct->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
-        </div>
-        <div class="row pb-3">
-            <div class="col-sm-4"><label>Suku Bunga Flat (%)</span></label></div>
+            <div class="col-sm-4"><label>Nilai Pembiayaan /<br> Pokok Maksimum<span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                <input type="number" name="SUKU_BUNGA_FLAT" value="{{ $dataproduct->SUKU_BUNGA_FLAT }}" placeholder="Suku Bunga Flat" class="form-control" style="width: 300px; height: 30px;">
+            <div class="input-group" style="width: 300px; height: 38px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Rp</span>
+                    </div>
+                <input type="text" class="form-control number-separator" value="{{ number_format($dataproduct->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}" placeholder="Nilai Pembiayaan/Pokok Maksimum" name="NILAI_PEMBIAYAAN_POKOK_MAXIMUM">
+                </div>
+                @error('NILAI_PEMBIAYAAN_POKOK_MAXIMUM')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+        </div>
+
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Suku Bunga Flat<span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+            <div class="input-group" style="width: 300px; height: 38px;">
+                <input type="text" class="form-control number-separator" value="{{ $dataproduct->SUKU_BUNGA_FLAT }}" placeholder="Suku Bunga Flat" name="SUKU_BUNGA_FLAT">
+                    <div class="input-group-append">
+                        <span class="input-group-text">%</span>
+                    </div>
+                </div>
                 @error('SUKU_BUNGA_FLAT')
-                    <p class="text-danger">{{ $message }}</p>
+                <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
         </div>
+
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Suku Bunga Effective (%) </label></div>
+            <div class="col-sm-4"><label>Suku Bunga Effective<span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                <input type="number" name="SUKU_BUNGA_EFFECTIVE" value="{{ $dataproduct->SUKU_BUNGA_EFFECTIVE }}" placeholder="Suku Bunga Effective" class="form-control" style="width: 300px; height: 30px;">
+            <div class="input-group" style="width: 300px; height: 38px;">
+                <input type="text" class="form-control number-separator" value="{{ $dataproduct->SUKU_BUNGA_EFFECTIVE }}" placeholder="Suku Bunga Effective" name="SUKU_BUNGA_EFFECTIVE">
+                    <div class="input-group-append">
+                        <span class="input-group-text">%</span>
+                    </div>
+                </div>
                 @error('SUKU_BUNGA_EFFECTIVE')
-                    <p class="text-danger">{{ $message }}</p>
+                <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
         </div>
+
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Jangka Waktu <br> Maksimum (Bulan)</label></div>
-            <div class="col-sm-8"><input type="number" name="Jangka_Waktu_Maximum" value="{{ $dataproduct->Jangka_Waktu_Maximum }}" class="form-control" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-4"><label>Jangka Waktu <br> Maksimum<span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+            <div class="input-group" style="width: 300px; height: 38px;">
+                <input type="text" class="form-control number-separator" value="{{ $dataproduct->Jangka_Waktu_Maximum }}" placeholder="Jangka Waktu Maksimum" name="Jangka_Waktu_Maximum">
+                    <div class="input-group-append">
+                        <span class="input-group-text">Bulan</span>
+                    </div>
+                </div>
+                @error('Jangka_Waktu_Maximum')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"><label>Pola Pembayaran</label></div>
             <div class="col-sm-8">
@@ -85,22 +121,67 @@
                 </select>   
             </div>
         </div>
+        
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Biaya Administrasi (Rp)</label></div>
-            <div class="col-sm-8"><input type="text" name="BIAYA_ADMINISTRASI" value="{{ number_format($dataproduct->BIAYA_ADMINISTRASI) }}" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-4"><label>Biaya Administrasi<span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+            <div class="input-group" style="width: 300px; height: 38px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Rp</span>
+                    </div>
+                <input type="text" class="form-control number-separator" value="{{ number_format($dataproduct->BIAYA_ADMINISTRASI) }}" placeholder="Biaya Administrasi" name="BIAYA_ADMINISTRASI">
+                </div>
+                @error('BIAYA_ADMINISTRASI')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
         </div>
+    
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Biaya Asuransi (Rp)</label></div>
-            <div class="col-sm-8"><input type="text" name="BIAYA_ASSURANSI"  value="{{ number_format($dataproduct->BIAYA_ASSURANSI) }}" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-4"><label>Biaya Asuransi<span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+            <div class="input-group" style="width: 300px; height: 38px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Rp</span>
+                    </div>
+                <input type="text" class="form-control number-separator" value="{{ number_format($dataproduct->BIAYA_ASSURANSI) }}" placeholder="Biaya Asuransi" name="BIAYA_ASSURANSI">
+                </div>
+                @error('BIAYA_ASSURANSI')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
         </div>
+    
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Biaya Provisi (Rp)</label></div>
-            <div class="col-sm-8"><input type="text" name="BIAYA_PROVISI" value="{{ number_format($dataproduct->BIAYA_PROVISI) }}" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-4"><label>Biaya Provisi<span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+            <div class="input-group" style="width: 300px; height: 38px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Rp</span>
+                    </div>
+                <input type="text" class="form-control number-separator" value="{{ number_format($dataproduct->BIAYA_PROVISI) }}" placeholder="Biaya Provisi" name="BIAYA_PROVISI">
+                </div>
+                @error('BIAYA_PROVISI')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
         </div>
+    
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Biaya Lain Lain (Rp)</label></div>
-            <div class="col-sm-8"><input type="text" name="BIAYA_LAIN_LAIN" value="{{ number_format($dataproduct->BIAYA_LAIN_LAIN) }}" class="form-control number-separator" style="width: 300px; height: 30px;"></div>
+            <div class="col-sm-4"><label>Biaya Lain-Lain<span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+            <div class="input-group" style="width: 300px; height: 38px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Rp</span>
+                    </div>
+                <input type="text" class="form-control number-separator" value="{{ number_format($dataproduct->BIAYA_LAIN_LAIN) }}" placeholder="Biaya Lain-Lain" name="BIAYA_LAIN_LAIN">
+                </div>
+                @error('BIAYA_LAIN_LAIN')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"></div>
             <div class="col-sm-8">

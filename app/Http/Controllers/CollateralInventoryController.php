@@ -42,6 +42,7 @@ class CollateralInventoryController extends Controller
         $this->validate($request, [
             'PRODUCT_ID',
             'Counter_Inventory',
+            'Nilai_Inv',
             'Nama_Inventory',
             'Besar_Inventory',
             'Nilai_Inventory',
@@ -54,6 +55,7 @@ class CollateralInventoryController extends Controller
         Collateral_Inventory::create([
             'PRODUCT_ID' => $request->PRODUCT_ID,
             'Counter_Inventory' => $request->Counter_Inventory,
+            'Nilai_Inv' => str_replace(',', '', $request->Nilai_Inv),
             'Nama_Inventory' => $request->Nama_Inventory,
             'Besar_Inventory' => $request->Besar_Inventory,
             'Nilai_Inventory' => str_replace(',', '', $request->Nilai_Inventory),
@@ -115,6 +117,7 @@ class CollateralInventoryController extends Controller
         $inven->update([
             'PRODUCT_ID' => $request->PRODUCT_ID,
             'Counter_Inventory' => $request->Counter_Inventory,
+            'Nilai_Inv' => str_replace(',', '', $request->Nilai_Inv),
             'Nama_Inventory' => $request->Nama_Inventory,
             'Besar_Inventory' => $request->Besar_Inventory,
             'Nilai_Inventory' => str_replace(',', '', $request->Nilai_Inventory),

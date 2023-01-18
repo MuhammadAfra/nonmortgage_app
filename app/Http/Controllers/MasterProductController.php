@@ -40,8 +40,8 @@ class MasterProductController extends Controller
             'id_master_product' => 'required',
             'nama_product' => 'required'
         ],[
-            'id_master_product' => 'Input Product!',
-            'nama_product' => 'Input Product!'
+            'id_master_product' => 'Input ID Product!',
+            'nama_product' => 'Input Nama Product!'
         ]);
 
         Master_Product::create([
@@ -89,8 +89,8 @@ class MasterProductController extends Controller
             'id_master_product' => 'required',
             'nama_product' => 'required'
         ],[
-            'id_master_product' => 'Input Product!',
-            'nama_product' => 'Input Product!'
+            'id_master_product' => 'Input ID Product!',
+            'nama_product' => 'Input Nama Product!'
         ]);
 
         $product = Master_Product::findorfail($id);

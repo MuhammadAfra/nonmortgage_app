@@ -27,8 +27,8 @@ Detail
             <div class="col-sm-8">: {{ $rumah->Counter_Rumah_Tanah }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nilai Rumah / Tanah (Rp)</label></div>
-            <div class="col-sm-8">: {{ number_format($rumah->Nilai_Rumah_Tanah) }}</div>
+            <div class="col-sm-4"><label>Nilai Rumah / Tanah</label></div>
+            <div class="col-sm-8">: Rp{{ number_format($rumah->Nilai_Rumah_Tanah) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>No SHM / No HGB</label></div>
@@ -36,7 +36,7 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Luas</label></div>
-            <div class="col-sm-8">: {{ $rumah->Luas }}</div>
+            <div class="col-sm-8">: {{ $rumah->Luas }} M<sup>2</sup></div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Atas_Nama</label></div>
@@ -48,7 +48,7 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Appraisal</label></div>
-            <div class="col-sm-8">: {{ number_format($rumah->Nilai_Appraisal) }}</div>
+            <div class="col-sm-8">: Rp{{ number_format($rumah->Nilai_Appraisal) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Status</label></div>

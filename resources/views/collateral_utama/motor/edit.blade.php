@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('title')
-Collateral Utama - Kendaraan Bermotor
+Collateral Utama - Kendaraan Motor
 @endsection
 
 @section('subtitle')
@@ -8,7 +8,7 @@ Edit
 @endsection
 
 @section('page')
-<a href="{{ url('collateral_motor') }}">Collateral Utama - Kendaraan Bermotor</a>
+<a href="{{ url('collateral_motor') }}">Collateral Utama - Kendaraan Motor</a>
 @endsection
 
 @section('content')
@@ -39,15 +39,22 @@ Edit
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Kendaraan Bermotor<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Nilai Kendaraan Motor<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Motor_Vehicle" value="{{ number_format($motor->Nilai_Motor_Vehicle) }}" class="form-control number-separator" style="width: 300px; height: 30px;">
+        <div class="input-group" style="width: 300px; height: 38px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+            <input type="text" class="form-control number-separator" value="{{ number_format($motor->Nilai_Motor_Vehicle) }}" placeholder="Nilai Kendaraan Motor" name="Nilai_Motor_Vehicle">
+            </div>
             @error('Nilai_Motor_Vehicle')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Merk<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
@@ -154,16 +161,19 @@ Edit
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Status" value="{{ $motor->Status }}" class="form-control"
-                style="width: 300px; height: 30px;">
-            @error('Status')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <select name="Status" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option value="{{ $motor->Status }}">{{ $motor->Status }}</option>
+                <option value="Pending">Pending</option>
+                <option value="To Be Obtained">To Be Obtained</option>
+                <option value="Diterima">Diterima</option>
+            </select>
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"></div>
         <div class="col-sm-8">

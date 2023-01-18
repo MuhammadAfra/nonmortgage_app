@@ -17,7 +17,7 @@
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jenis Product <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                <input type="text" name="Product" class="form-control" style="width: 300px; height: 30px;">
+                <input type="text" name="Product" class="form-control" placeholder="Jenis Product" style="width: 300px; height: 30px;">
                 @error('Product')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror

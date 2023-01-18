@@ -27,40 +27,40 @@ Detail
             <div class="col-sm-8">: {{ $dataproduct->m_product->id }} - {{ $dataproduct->m_product->nama_product }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nilai Pembiayaan Pokok Maximum (Rp)</label></div>
-            <div class="col-sm-8">: {{ number_format($dataproduct->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}</div>
+            <div class="col-sm-4"><label>Nilai Pembiayaan Pokok Maksimum</label></div>
+            <div class="col-sm-8">: Rp{{ number_format($dataproduct->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Suku Bunga Flat (%)</label></div>
-            <div class="col-sm-8">: {{ $dataproduct->SUKU_BUNGA_FLAT }}</div>
+            <div class="col-sm-4"><label>Suku Bunga Flat</label></div>
+            <div class="col-sm-8">: {{ $dataproduct->SUKU_BUNGA_FLAT }}%</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Suku Bunga Effective (%)</label></div>
-            <div class="col-sm-8">: {{ $dataproduct->SUKU_BUNGA_EFFECTIVE }}</div>
+            <div class="col-sm-4"><label>Suku Bunga Effective </label></div>
+            <div class="col-sm-8">: {{ $dataproduct->SUKU_BUNGA_EFFECTIVE }}%</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Jangka Waktu Maksimum (Bulan)</label></div>
-            <div class="col-sm-8">: {{ $dataproduct->Jangka_Waktu_Maximum }}</div>
+            <div class="col-sm-4"><label>Jangka Waktu Maksimum </label></div>
+            <div class="col-sm-8">: {{ $dataproduct->Jangka_Waktu_Maximum }} Bulan</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Pola Pembayaran</label></div>
             <div class="col-sm-8">: {{ $dataproduct->pola_pembayaran->Pola_Pembayaran }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Biaya Administrasi (Rp)</label></div>
-            <div class="col-sm-8">: {{ number_format($dataproduct->BIAYA_ADMINISTRASI) }}</div>
+            <div class="col-sm-4"><label>Biaya Administrasi </label></div>
+            <div class="col-sm-8">: Rp{{ number_format($dataproduct->BIAYA_ADMINISTRASI) }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Biaya Asuransi (Rp)</label></div>
-            <div class="col-sm-8">: {{ number_format($dataproduct->BIAYA_ASSURANSI) }}</div>
+            <div class="col-sm-4"><label>Biaya Asuransi </label></div>
+            <div class="col-sm-8">: Rp{{ number_format($dataproduct->BIAYA_ASSURANSI) }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Biaya Provisi (Rp)</label></div>
-            <div class="col-sm-8">: {{ number_format($dataproduct->BIAYA_PROVISI) }}</div>
+            <div class="col-sm-4"><label>Biaya Provisi </label></div>
+            <div class="col-sm-8">: Rp{{ number_format($dataproduct->BIAYA_PROVISI) }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Biaya Lain Lain (Rp)</label></div>
-            <div class="col-sm-8">: {{ number_format($dataproduct->BIAYA_LAIN_LAIN) }}</div>
+            <div class="col-sm-4"><label>Biaya Lain-Lain </label></div>
+            <div class="col-sm-8">: Rp{{ number_format($dataproduct->BIAYA_LAIN_LAIN) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"></div>

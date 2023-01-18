@@ -23,17 +23,17 @@ Home
         <table id="user" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>No</th>
-                    <th style="width: 100px">Action</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Level / Role</th>
+                    <th class="text-center" style="width: 25px">No</th>
+                    <th class="text-center" style="width: 100px">Action</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Level / Role</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($dataUser as $item)                    
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $loop->iteration }}</td>
                         <td class="d-flex" style="justify-content: center">
                             <div><a href="{{ url('users/'.$item->id.'/edit') }}" class="btn btn-warning btn-sm text-white mr-1"><i class="fas fa-pen"></i></a></div>
                             <div><a href="{{ url('users/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>

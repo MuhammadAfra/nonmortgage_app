@@ -5,6 +5,9 @@
             <div class="modal-header">
                 <h5>Apakah Anda Yakin Ingin Hapus Data?</h5>
             </div>
+            <div class="modal-header">
+                <h6>Jenis Pembiayaan : {{ $item->jenis_pembiayaan }}</h6>
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <form action="{{ url('master_jenis_pembiayaan', $item->id) }}" method="POST">

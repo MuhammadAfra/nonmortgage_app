@@ -65,9 +65,9 @@ Home
                     <th>Tanggungan</th>
                     <th>Income per Bulan</th>
                     <th>Spouse Income per Bulan</th>
-                    <th>Rekening Koran 3 Bulan Terakhir (Bulan 1)</th>
-                    <th>Rekening Koran 3 Bulan Terakhir (Bulan 2)</th>
-                    <th>Rekening Koran 3 Bulan Terakhir (Bulan 3)</th>
+                    <th>Rekening Koran Bulan Terakhir (Bulan 1)</th>
+                    <th>Rekening Koran Bulan Terakhir (Bulan 2)</th>
+                    <th>Rekening Koran Bulan Terakhir (Bulan 3)</th>
                     <th>Jenis Asuransi</th>
                     <th>Perusahaan Asuransi</th>
                     <th>Persen Asuransi</th>
@@ -82,11 +82,11 @@ Home
                     <th>Nilai Personal Guarantee</th>
                     <th>Jaminan Invoice</th>
                     <th>Nilai Invoice</th>
-                    <th>Jaminan Inventori</th>
-                    <th>Nilai Inventori</th>
+                    <th>Jaminan Inventory</th>
+                    <th>Nilai Inventory</th>
                     <th>Jaminan Lainnya</th>
-                    <th>DP</th>
-                    <th>Jumlah DP</th>
+                    <th>Down Payment</th>
+                    <th>Jumlah Down Payment</th>
                 </tr>
             </thead>
             <tbody>

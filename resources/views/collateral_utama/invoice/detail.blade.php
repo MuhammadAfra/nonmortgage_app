@@ -27,8 +27,8 @@ Detail
             <div class="col-sm-8">: {{ $invoice->Counter_Invoice }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nilai Invoice (Rp)</label></div>
-            <div class="col-sm-8">: {{ number_format($invoice->Nilai_Invoice) }}</div>
+            <div class="col-sm-4"><label>Nilai Invoice </label></div>
+            <div class="col-sm-8">: Rp{{ number_format($invoice->Nilai_Invoice) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jenis Invoice</label></div>
@@ -48,7 +48,7 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Fiducia</label></div>
-            <div class="col-sm-8">: {{ number_format($invoice->Nilai_Fiducia) }}</div>
+            <div class="col-sm-8">: Rp{{ number_format($invoice->Nilai_Fiducia) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Tanggal Fiducia</label></div>

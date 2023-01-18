@@ -27,8 +27,8 @@ Detail
             <div class="col-sm-8">: {{ $motor->Counter_Motor }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nilai Kendaraan Bermotor</label></div>
-            <div class="col-sm-8">: {{ number_format($motor->Nilai_Motor_Vehicle) }}</div>
+            <div class="col-sm-4"><label>Nilai Kendaraan Motor</label></div>
+            <div class="col-sm-8">: Rp{{ number_format($motor->Nilai_Motor_Vehicle) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Merk</label></div>

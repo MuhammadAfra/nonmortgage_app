@@ -37,8 +37,8 @@ Home
                     @if (auth()->user()->level == "Admin")
                     <th class="text-center" style="width: 100px;">Action</th>
                     @endif
-                    <th>ID Product</th>
-                    <th>Nama Product</th>
+                    <th class="text-center" >ID Product</th>
+                    <th class="text-center">Nama Product</th>
                 </tr>
             </thead>
             <tbody>

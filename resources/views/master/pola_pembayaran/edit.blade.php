@@ -24,15 +24,22 @@
                 @enderror
             </div>
         </div>
+
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nilai Pola Pembayaran <span class="text-danger">*</span></label></div>
+            <div class="col-sm-4"><label>Nilai Pola Pembayaran<span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                <input type="text" value="{{ number_format($polaPembayaran->Nilai_Pola_Pembayaran) }}" name="Nilai_Pola_Pembayaran" class="form-control number-separator" style="width: 300px; height: 30px;">
+            <div class="input-group" style="width: 300px; height: 38px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Rp</span>
+                    </div>
+                <input type="text" class="form-control number-separator" value="{{ number_format($polaPembayaran->Nilai_Pola_Pembayaran) }}" placeholder="Nilai Pola Pembayaran" name="Nilai_Pola_Pembayaran">
+                </div>
                 @error('Nilai_Pola_Pembayaran')
-                    <p class="text-danger">{{ $message }}</p>
+                <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
         </div>
+
         <div class="row pb-3">
             <div class="col-sm-4"></div>
             <div class="col-sm-8">

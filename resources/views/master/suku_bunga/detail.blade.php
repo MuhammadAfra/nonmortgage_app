@@ -24,7 +24,7 @@
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Suku Bunga</label></div>
-            <div class="col-sm-8">: {{ number_format($sukuBunga->Nilai_Suku_Bunga) }}</div>
+            <div class="col-sm-8">: Rp{{ number_format($sukuBunga->Nilai_Suku_Bunga) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"></div>

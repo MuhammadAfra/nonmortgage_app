@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('content')
 @section('title')
-Collateral Tambahan - Kendaraan Bermotor
+Collateral Tambahan - Kendaraan Motor
 @endsection
 
 @section('subtitle')
@@ -10,11 +10,11 @@ Home
 
 @if (auth()->user()->level == "Admin")
     @section('page')
-        <a href="{{ url('collateral_motor_tambahan') }}">Collateral Tambahan - Kendaraan Bermotor</a>
+        <a href="{{ url('collateral_motor_tambahan') }}">Collateral Tambahan - Kendaraan Motor</a>
     @endsection
 @elseif(auth()->user()->level == "User")
     @section('page')
-    <a href="#">Collateral Tambahan - Kendaraan Bermotor</a>
+    <a href="#">Collateral Tambahan - Kendaraan Motor</a>
     @endsection
 @endif
 
@@ -41,7 +41,7 @@ Home
                     <th>Partner Perusahaan</th>
                     <th>Nama Debitur</th>
                     <th>Counter Motor</th>
-                    <th>Nilai Kendaraan Bermotor</th>
+                    <th>Nilai Kendaraan Motor</th>
                     <th>Merk</th>
                     <th>Type</th>
                     <th>Model</th>
@@ -68,12 +68,12 @@ Home
                         <button type="button" data-toggle="modal" data-target="#exampleModalCenter{{ $item->id }}" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
                         </div>
                     </td>
-                    @include('collateral_motor_tambahan.motor.delete')
+                    @include('collateral_tambahan.motor.delete')
                     @endif
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->Counter_Motor_Tambahan }}</td>
-                    <td>{{ number_format($item->Nilai_Motor_Vehicle_Tambahan) }}</td>
+                    <td>Rp{{ number_format($item->Nilai_Motor_Vehicle_Tambahan) }}</td>
                     <td>{{ $item->Merk_Tambahan }}</td>
                     <td>{{ $item->Type_Tambahan }}</td>
                     <td>{{ $item->Model_Tambahan }}</td>

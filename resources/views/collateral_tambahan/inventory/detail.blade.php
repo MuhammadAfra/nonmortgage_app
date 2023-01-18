@@ -28,7 +28,7 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Inv</label></div>
-            <div class="col-sm-8">: {{ $inventbh->Nilai_Inv_Tambahan }}</div>
+            <div class="col-sm-8">: Rp{{ number_format($inventbh->Nilai_Inv_Tambahan) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nama Inventory</label></div>
@@ -40,7 +40,7 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Inventory</label></div>
-            <div class="col-sm-8">: {{ $inventbh->Nilai_Inventory_Tambahan }}</div>
+            <div class="col-sm-8">: Rp{{ number_format($inventbh->Nilai_Inventory_Tambahan) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Alamat Inventory</label></div>

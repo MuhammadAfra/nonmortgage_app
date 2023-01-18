@@ -56,7 +56,7 @@ Home
                         @include('master.pola_pembayaran.delete')
                         @endif
                         <td>{{ $item->Pola_Pembayaran }}</td>
-                        <td>{{ number_format($item->Nilai_Pola_Pembayaran) }}</td>
+                        <td>Rp{{ number_format($item->Nilai_Pola_Pembayaran) }}</td>
                     </tr>
                 @endforeach
         </table>

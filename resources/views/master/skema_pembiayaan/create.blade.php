@@ -17,7 +17,7 @@
         <div class="row pb-3">
             <div class="col-sm-4"><label>Skema Pembiayaan <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                <input type="text" name="skema_pembiayaan" class="form-control" style="width: 300px; height: 30px;">
+                <input type="text" name="skema_pembiayaan" placeholder="Skema Pembiayaan" class="form-control" style="width: 300px; height: 30px;">
                 @error('skema_pembiayaan')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror

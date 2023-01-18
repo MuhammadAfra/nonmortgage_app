@@ -40,14 +40,20 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Inv<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Nilai Inv<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Inv_Tambahan" value="{{ number_format($inventbh->Nilai_Inv_Tambahan) }}" class="form-control number-separator" style="width: 300px; height: 30px;">
+        <div class="input-group" style="width: 300px; height: 38px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+            <input type="text" class="form-control number-separator" value="{{ number_format($inventbh->Nilai_Inv_Tambahan) }}" placeholder="Nilai Inv" name="Nilai_Inv_Tambahan">
+            </div>
             @error('Nilai_Inv_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Inventory<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
@@ -66,15 +72,22 @@ Edit
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Inventory<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Inventory_Tambahan" value="{{ number_format($inventbh->Nilai_Inventory_Tambahan) }}" class="form-control number-separator" style="width: 300px; height: 30px;">
+        <div class="input-group" style="width: 300px; height: 38px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+            <input type="text" class="form-control number-separator" value="{{ number_format($inventbh->Nilai_Inventory_Tambahan) }}" placeholder="Nilai Inventory" name="Nilai_Inventory_Tambahan">
+            </div>
             @error('Nilai_Inventory_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Alamat Inventory<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
@@ -105,11 +118,12 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Status_Tambahan" value="{{ $inventbh->Status_Tambahan }}" class="form-control"
-                style="width: 300px; height: 30px;">
-            @error('Status_Tambahan')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <select name="Status_Tambahan" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option value="{{ $inventbh->Status_Tambahan }}">{{ $inventbh->Status_Tambahan }}</option>
+                <option value="Pending">Pending</option>
+                <option value="To Be Obtained">To Be Obtained</option>
+                <option value="Diterima">Diterima</option>
+            </select>
         </div>
     </div>
     <div class="row pb-3">

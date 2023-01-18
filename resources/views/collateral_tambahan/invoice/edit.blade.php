@@ -41,16 +41,22 @@ Edit
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Invoice<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Nilai Invoice<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Invoice_Tambahan" value="{{ number_format($invoicetbh->Nilai_Invoice_Tambahan) }}" class="form-control number-separator"
-                style="width: 300px; height: 30px;">
+        <div class="input-group" style="width: 300px; height: 38px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+            <input type="text" class="form-control number-separator" value="{{ number_format($invoicetbh->Nilai_Invoice_Tambahan) }}" placeholder="Nilai Invoice" name="Nilai_Invoice_Tambahan">
+            </div>
             @error('Nilai_Invoice_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Jenis Invoice<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
@@ -91,16 +97,22 @@ Edit
             @enderror
         </div>
     </div>
+    
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Fiducia<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Fiducia_Tambahan" value="{{ number_format($invoicetbh->Nilai_Fiducia_Tambahan) }}" class="form-control number-separator"
-                style="width: 300px; height: 30px;">
+        <div class="input-group" style="width: 300px; height: 38px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+            <input type="text" class="form-control number-separator" value="{{ number_format($invoicetbh->Nilai_Fiducia_Tambahan) }}" placeholder="Nilai Fiducia" name="Nilai_Fiducia_Tambahan">
+            </div>
             @error('Nilai_Fiducia_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Tanggal Fiducia<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
@@ -121,14 +133,16 @@ Edit
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Status_Tambahan" value="{{ $invoicetbh->Status_Tambahan }}" class="form-control"
-                style="width: 300px; height: 30px;">
-            @error('Status_Tambahan')
-           <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <select name="Status_Tambahan" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option value="{{ $invoicetbh->Status_Tambahan }}">{{ $invoicetbh->Status_Tambahan }}</option>
+                <option value="Pending">Pending</option>
+                <option value="To Be Obtained">To Be Obtained</option>
+                <option value="Diterima">Diterima</option>
+            </select>
         </div>
     </div>
 
