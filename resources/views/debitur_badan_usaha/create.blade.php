@@ -52,7 +52,7 @@ Add
         <div class="col-sm-4"><label>Akta Pendirian <span class="text-danger">*</span></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
-                <input type="file" class="custom-file-input" name="AKTE_PENDIRIAN" required>
+                <input type="file" class="custom-file-input" name="AKTE_PENDIRIAN">
                 <label class="custom-file-label">Choose file</label>
             </div>
             @error('AKTE_PENDIRIAN')
@@ -73,7 +73,7 @@ Add
         <div class="col-sm-4"><label>Akta Lain Lain </label></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
-                <input type="file" class="custom-file-input" name="AKTE_LAIN_LAIN">
+                <input type="file" class="custom-file-input" name="AKTE_LAIN_LAIN[]" multiple>
                 <label class="custom-file-label">Choose file</label>
             </div>
         </div>
@@ -82,7 +82,7 @@ Add
         <div class="col-sm-4"><label>Detail Nama Product <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <div class="input-group" style="width: 500px; height: 40px;">
-                <select class="form-control py-0" required name="DETIL_PRODUCT_PROFILE">
+                <select class="form-control py-0" required name="DETIL_PRODUCT_PROFILE" required>
                     <option></option>
                     @foreach ($prod as $item)
                     <option value="{{ $item->id }}">{{ $item->nama_product }}</option>

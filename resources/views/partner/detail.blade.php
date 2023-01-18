@@ -43,6 +43,17 @@ Detail
             <div class="col-sm-8">: {{ $partner->COMPANY_PROFILE }}</div>
         </div>
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Akta Lain Lain <br> 
+        </label></div>
+            <div class="col-sm-8">: 
+                @if ($partner->AKTE_LAIN_LAIN != NULL)
+                    @foreach (json_decode($partner->AKTE_LAIN_LAIN) as $item)
+                        {{ $item }} | <a href="{{ url('/dw_all', $item) }}">Download File</a> <br>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>Detail Product Profile</label></div>
             <div class="col-sm-8">: {{ $partner->master_product->id_master_product }} - {{ $partner->master_product->nama_product }}</div>
         </div>

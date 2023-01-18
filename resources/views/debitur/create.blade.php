@@ -70,16 +70,27 @@ Add
                 style="width: 300px; height: 30px;"></div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Bidang Usaha <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="text" name="BIDANG_USAHA" class="form-control"
-                style="width: 300px; height: 30px;"></div>
+        <div class="col-sm-4"><label>Bidang Usaha & Sub Bidang Usaha<span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <select name="BIDANG_USAHA" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option></option>
+                @foreach ($sektor->sortBy('Label_Utama') as $item)
+                <option value="{{ $item->id }}">{{ $item->Label_Utama }} -- {{ $item->Label }}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
-    <div class="row pb-3">
+    {{-- <div class="row pb-3">
         <div class="col-sm-4"><label>Sub Bidang Usaha <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8"><input type="text" name="SUB_BIDANG_USAHA" class="form-control"
-                style="width: 300px; height: 30px;"></div>
-    </div>
-
+        <div class="col-sm-8">
+            <select name="SUB_BIDANG_USAHA" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option></option>
+                @foreach ($sektor->sortBy('Label') as $item)
+                <option value="{{ $item->id }}">{{ $item->Label }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div> --}}
     <div class="row pb-3">
         <div class="col-sm-4"><label>Lama Usaha<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">

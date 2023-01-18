@@ -110,11 +110,18 @@ Home
                     @include('debitur_badan_usaha.delete')
                     @endif
                     <td>{{ $item->NAMA_PERUSAHAAN }}</td>
-                    <td>{{ $item->ALAMAT_PERUSAHAAN }}</td>
+                    <td>{{ $item->ALAMAT_PERUSAHAAN }}</td>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                     <td>{{ $item->STATUS_BADAN_HUKUM }}</td>
                     <td>{{ $item->AKTE_PENDIRIAN }}</td>
                     <td>{{ $item->COMPANY_PROFILE }}</td>
-                    <td>{{ $item->AKTE_LAIN_LAIN }}</td>
+                    {{-- <td>{{ $item->AKTE_LAIN_LAIN }}</td> --}}
+                    <td>
+                    @if ($item->AKTE_LAIN_LAIN != NULL)
+                        @foreach (json_decode($item->AKTE_LAIN_LAIN) as $file)
+                            {{ $file }}
+                        @endforeach
+                    @endif
+                    </td>
                     <td>{{ $item->detil_product->nama_product }}</td>
                     <td>{{ $item->AKTE_PERUBAHAN_ANGGARAN_DASAR }}</td>
                     <td>{{ $item->SIUP }}</td>

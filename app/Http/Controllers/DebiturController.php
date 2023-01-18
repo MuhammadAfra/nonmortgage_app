@@ -6,6 +6,7 @@ use App\Models\Debitur;
 use Illuminate\Http\Request;
 use App\Imports\DebiturImport;
 use App\Models\Master_Asuransi;
+use App\Models\Master_Sektor_Ekonomi;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
 
@@ -30,7 +31,8 @@ class DebiturController extends Controller
     public function create()
     {
         $asuransi = Master_Asuransi::all();
-        return view('debitur.create', compact('asuransi'));
+        $sektor = Master_Sektor_Ekonomi::all();
+        return view('debitur.create', compact('asuransi', 'sektor'));
     }
 
     /**
@@ -54,7 +56,7 @@ class DebiturController extends Controller
             'KODE_POS' => 'required',
             'NAMA_PERUSAHAAN' => 'required',
             'BIDANG_USAHA' => 'required',
-            'SUB_BIDANG_USAHA' => 'required',
+            // 'SUB_BIDANG_USAHA' => 'required',
             'LAMA_USAHA' => 'required',
             'JABATAN' => 'required',
             'TANGGUNGAN' => 'required',
@@ -128,7 +130,7 @@ class DebiturController extends Controller
             $debitur->KODE_POS = $request->KODE_POS;
             $debitur->NAMA_PERUSAHAAN = $request->NAMA_PERUSAHAAN;
             $debitur->BIDANG_USAHA = $request->BIDANG_USAHA;
-            $debitur->SUB_BIDANG_USAHA = $request->SUB_BIDANG_USAHA;
+            // $debitur->SUB_BIDANG_USAHA = $request->SUB_BIDANG_USAHA;
             $debitur->LAMA_USAHA = $request->LAMA_USAHA;
             $debitur->JABATAN = $request->JABATAN;
             $debitur->TANGGUNGAN = $request->TANGGUNGAN;
@@ -156,6 +158,7 @@ class DebiturController extends Controller
             $debitur->Jaminan_Lainnya = $request->Jaminan_Lainnya;
             $debitur->APAKAH_ADA_DP = $request->APAKAH_ADA_DP;
             $debitur->DOWN_PAYMENT_CUSTOMER = $dp;
+            // dd($debitur);
             $debitur->save();
 
         return redirect('debitur');
@@ -182,8 +185,9 @@ class DebiturController extends Controller
     public function edit($id)
     {
         $debitur = Debitur::findorfail($id);
-        $asuransi = Master_Asuransi::all();
-        return view('debitur.edit', compact('debitur','asuransi'));
+        $asuransi = Master_Asuransi::get();
+        $sektor = Master_Sektor_Ekonomi::get();
+        return view('debitur.edit', compact('debitur','asuransi','sektor'));
     }
 
     /**
@@ -208,7 +212,7 @@ class DebiturController extends Controller
             'KODE_POS' => 'required',
             'NAMA_PERUSAHAAN' => 'required',
             'BIDANG_USAHA' => 'required',
-            'SUB_BIDANG_USAHA' => 'required',
+            // 'SUB_BIDANG_USAHA' => 'required',
             'LAMA_USAHA' => 'required',
             'JABATAN' => 'required',
             'TANGGUNGAN' => 'required',
@@ -283,7 +287,7 @@ class DebiturController extends Controller
             'KODE_POS' => $request->KODE_POS,
             'NAMA_PERUSAHAAN' => $request->NAMA_PERUSAHAAN,
             'BIDANG_USAHA' => $request->BIDANG_USAHA,
-            'SUB_BIDANG_USAHA' => $request->SUB_BIDANG_USAHA,
+            // 'SUB_BIDANG_USAHA' => $request->SUB_BIDANG_USAHA,
             'LAMA_USAHA' => $request->LAMA_USAHA,
             'JABATAN' => $request->JABATAN,
             'TANGGUNGAN' => $request->TANGGUNGAN,

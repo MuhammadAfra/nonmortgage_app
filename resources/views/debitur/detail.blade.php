@@ -52,11 +52,11 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Bidang Usaha</label></div>
-            <div class="col-sm-8">: {{ $debitur->BIDANG_USAHA }}</div>
+            <div class="col-sm-8">: {{ $debitur->sektor->Label_Utama }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Sub Bidang Usaha</label></div>
-            <div class="col-sm-8">: {{ $debitur->SUB_BIDANG_USAHA }}</div>
+            <div class="col-sm-8">: {{ $debitur->sektor->Label }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Lama Usaha</label></div>

@@ -22,7 +22,7 @@ class Debitur extends Model
         'KODE_POS',
         'NAMA_PERUSAHAAN',
         'BIDANG_USAHA',
-        'SUB_BIDANG_USAHA',
+        // 'SUB_BIDANG_USAHA',
         'LAMA_USAHA',
         'JABATAN',
         'TANGGUNGAN',
@@ -59,6 +59,11 @@ class Debitur extends Model
         return $this->hasMany(Product::class);
     }
 
+    public function sektor()
+    {
+        return $this->belongsTo(Master_Sektor_Ekonomi::class, 'BIDANG_USAHA');
+    }
+    
     public function product_colls()
     {
         return $this->hasManyThrough(Collateral_Motor::class, Product::class, 'debitur_id', 'DEBITUR_ID');
