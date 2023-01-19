@@ -119,7 +119,7 @@ class DebiturBadanUsahaController extends Controller
         if ($request->hasFile('AKTE_LAIN_LAIN')) 
         {
             foreach ($request->file('AKTE_LAIN_LAIN') as $all) {
-                $akte_name = time().'_'.rand(1,9999).'_'.$all->getClientOriginalExtension();
+                $akte_name = 'ALL'.rand(1,99999).'.'.$all->getClientOriginalExtension();
                 $all->move(public_path().'/data_debitur/', $akte_name);
                 $data[] = $akte_name;
                 $deb->AKTE_LAIN_LAIN = json_encode($data);
@@ -129,7 +129,7 @@ class DebiturBadanUsahaController extends Controller
         
         if($request->hasFile('AKTE_PENDIRIAN'))
         {
-            $name_ap = time().'_'.rand(1,9999).'_'.$request->AKTE_PENDIRIAN->getClientOriginalExtension();
+            $name_ap = 'AKPEN'.rand(1,99999).'.'.$request->AKTE_PENDIRIAN->getClientOriginalExtension();
             $request->file('AKTE_PENDIRIAN')->move(public_path().'/data_debitur/', $name_ap);
             $deb->AKTE_PENDIRIAN = $name_ap;
             $deb->save();
@@ -137,7 +137,7 @@ class DebiturBadanUsahaController extends Controller
         
         if($request->hasFile('COMPANY_PROFILE'))
         {
-            $name_cp = time().'_'.rand(1,9999).'_'.$request->COMPANY_PROFILE->getClientOriginalExtension();
+            $name_cp = 'CP'.rand(1,99999).'.'.$request->COMPANY_PROFILE->getClientOriginalExtension();
             $request->file('COMPANY_PROFILE')->move(public_path().'/data_debitur/', $name_cp);
             $deb->COMPANY_PROFILE = $name_cp;
             $deb->save();
@@ -145,7 +145,7 @@ class DebiturBadanUsahaController extends Controller
 
         if($request->hasFile('AKTE_PERUBAHAN_ANGGARAN_DASAR'))
         {
-            $name_apad = time().'_'.rand(1,9999).'_'.$request->AKTE_PERUBAHAN_ANGGARAN_DASAR->getClientOriginalExtension();
+            $name_apad = 'APAD'.rand(1,99999).'.'.$request->AKTE_PERUBAHAN_ANGGARAN_DASAR->getClientOriginalExtension();
             $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->move(public_path().'/data_debitur/', $name_apad);
             $deb->AKTE_PERUBAHAN_ANGGARAN_DASAR = $name_apad;
             $deb->save();
@@ -153,7 +153,7 @@ class DebiturBadanUsahaController extends Controller
 
         if($request->hasFile('SIUP'))
         {
-            $name_siup = time().'_'.rand(1,9999).'_'.$request->SIUP->getClientOriginalExtension();
+            $name_siup = 'SIUP'.rand(1,99999).'.'.$request->SIUP->getClientOriginalExtension();
             $request->file('SIUP')->move(public_path().'/data_debitur/', $name_siup);
             $deb->SIUP = $name_siup;
             $deb->save();
@@ -161,7 +161,7 @@ class DebiturBadanUsahaController extends Controller
 
         if($request->hasFile('TDP'))
         {
-            $name_tdp = time().'_'.rand(1,9999).'_'.$request->TDP->getClientOriginalExtension();
+            $name_tdp = 'TDP'.rand(1,99999).'.'.$request->TDP->getClientOriginalExtension();
             $request->file('TDP')->move(public_path().'/data_debitur/', $name_tdp);
             $deb->TDP = $name_tdp;
             $deb->save();
@@ -169,7 +169,7 @@ class DebiturBadanUsahaController extends Controller
 
         if($request->hasFile('NPWP'))
         {
-            $name_npwp = time().'_'.rand(1,9999).'_'.$request->NPWP->getClientOriginalExtension();
+            $name_npwp = 'NPWP'.rand(1,99999).'.'.$request->NPWP->getClientOriginalExtension();
             $request->file('NPWP')->move(public_path().'/data_debitur/', $name_npwp);
             $deb->NPWP = $name_npwp;
             $deb->save();
@@ -177,7 +177,7 @@ class DebiturBadanUsahaController extends Controller
 
         if($request->hasFile('MODAL_PENDIRIAN'))
         {
-            $name_mp = time().'_'.rand(1,9999).'_'.$request->MODAL_PENDIRIAN->getClientOriginalExtension();
+            $name_mp = 'MP'.rand(1,99999).'.'.$request->MODAL_PENDIRIAN->getClientOriginalExtension();
             $request->file('MODAL_PENDIRIAN')->move(public_path().'/data_debitur/', $name_mp);
             $deb->MODAL_PENDIRIAN = $name_mp;
             $deb->save();
@@ -185,7 +185,7 @@ class DebiturBadanUsahaController extends Controller
 
         if($request->hasFile('MODAL_PERUBAHAN_TERAKHIR'))
         {
-            $name_mpt = time().'_'.rand(1,9999).'_'.$request->MODAL_PERUBAHAN_TERAKHIR->getClientOriginalExtension();
+            $name_mpt = 'MPT'.rand(1,99999).'.'.$request->MODAL_PERUBAHAN_TERAKHIR->getClientOriginalExtension();
             $request->file('MODAL_PERUBAHAN_TERAKHIR')->move(public_path().'/data_debitur/', $name_mpt);
             $deb->MODAL_PERUBAHAN_TERAKHIR = $name_mpt;
             $deb->save();
@@ -193,7 +193,7 @@ class DebiturBadanUsahaController extends Controller
 
         if($request->hasFile('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS'))
         {   
-            $name_auf = time().'_'.rand(1,9999).'_'.$request->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS->getClientOriginalExtension();
+            $name_auf = 'AUFS'.rand(1,99999).'.'.$request->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS->getClientOriginalExtension();
             $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->move(public_path().'/data_debitur/', $name_auf);
             $deb->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS = $name_auf;
             $deb->save();
@@ -201,7 +201,7 @@ class DebiturBadanUsahaController extends Controller
 
         if($request->hasFile('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR'))
         {
-            $name_inhouse = time().'_'.rand(1,9999).'_'.$request->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR->getClientOriginalExtension();
+            $name_inhouse = 'IHFS'.rand(1,99999).'.'.$request->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR->getClientOriginalExtension();
             $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->move(public_path().'/data_debitur/', $name_inhouse);
             $deb->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR = $name_inhouse;
             $deb->save();
@@ -209,7 +209,7 @@ class DebiturBadanUsahaController extends Controller
 
         if($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS'))
         {
-            $name_bank = time().'_'.rand(1,9999).'_'.$request->BANK_STATEMENT_LAST_3_MONTHS->getClientOriginalExtension();
+            $name_bank = 'BNKST'.rand(1,99999).'.'.$request->BANK_STATEMENT_LAST_3_MONTHS->getClientOriginalExtension();
             $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move(public_path().'/data_debitur/', $name_bank);
             $deb->BANK_STATEMENT_LAST_3_MONTHS = $name_bank;
             $deb->save();
@@ -217,7 +217,7 @@ class DebiturBadanUsahaController extends Controller
 
         if($request->hasFile('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS'))
         {
-            $name_fp = time().'_'.rand(1,9999).'_'.$request->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS->getClientOriginalExtension();
+            $name_fp = 'FINPRJ'.rand(1,99999).'.'.$request->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS->getClientOriginalExtension();
             $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->move(public_path().'/data_debitur/', $name_fp);
             $deb->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS = $name_fp;
             $deb->save();
@@ -225,7 +225,7 @@ class DebiturBadanUsahaController extends Controller
         
         if($request->hasFile('DRAFT_TEMPLATE_AGREEMENT_END_USER'))
         {
-            $name_dtaeu = time().'_'.rand(1,9999).'_'.$request->DRAFT_TEMPLATE_AGREEMENT_END_USER->getClientOriginalExtension();
+            $name_dtaeu = 'DRFTAG'.rand(1,99999).'.'.$request->DRAFT_TEMPLATE_AGREEMENT_END_USER->getClientOriginalExtension();
             $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->move(public_path().'/data_debitur/', $name_dtaeu);
             $deb->DRAFT_TEMPLATE_AGREEMENT_END_USER = $name_dtaeu;
             $deb->save();
@@ -233,7 +233,7 @@ class DebiturBadanUsahaController extends Controller
 
         if($request->hasFile('CONTOH_RISK_ACCEPTANCE_CRITERIA'))
         {
-            $name_risk = time().'_'.rand(1,9999).'_'.$request->CONTOH_RISK_ACCEPTANCE_CRITERIA->getClientOriginalExtension();
+            $name_risk = 'RISKACC'.rand(1,99999).'.'.$request->CONTOH_RISK_ACCEPTANCE_CRITERIA->getClientOriginalExtension();
             $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->move(public_path().'/data_debitur/', $name_risk);
             $deb->CONTOH_RISK_ACCEPTANCE_CRITERIA = $name_risk;
             $deb->save();
@@ -241,7 +241,7 @@ class DebiturBadanUsahaController extends Controller
         
         if($request->hasFile('NDA_DOCUMENT'))
         {
-            $name_nd = time().'_'.rand(1,9999).'_'.$request->NDA_DOCUMENT->getClientOriginalExtension();
+            $name_nd = 'NDA'.rand(1,99999).'.'.$request->NDA_DOCUMENT->getClientOriginalExtension();
             $request->file('NDA_DOCUMENT')->move(public_path().'/data_debitur/', $name_nd);
             $deb->NDA_DOCUMENT = $name_nd;
             $deb->save();
@@ -373,133 +373,312 @@ class DebiturBadanUsahaController extends Controller
         
         if ($request->hasFile('AKTE_LAIN_LAIN')) 
         {
-            foreach ($request->file('AKTE_LAIN_LAIN') as $all) {
-                $akte_name = time().'_'.rand(1,9999).'_'.$all->getClientOriginalExtension();
-                $all->move(public_path().'/data_debitur/', $akte_name);
-                $data[] = $akte_name;
-                $deb->AKTE_LAIN_LAIN = json_encode($data);
-                $deb->save();   
+            if ($deb->AKTE_LAIN_LAIN != NULL) {
+                $old = public_path('data_debitur/'.$deb->AKTE_PENDIRIAN);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                foreach ($request->file('AKTE_LAIN_LAIN') as $all) {
+                    $akte_name = 'ALL'.rand(1,99999).'.'.$all->getClientOriginalExtension();
+                    $all->move(public_path().'/data_debitur/', $akte_name);
+                    $data[] = $akte_name;
+                    $deb->AKTE_LAIN_LAIN = json_encode($data);
+                    $deb->save();   
+                }
+            }else{
+                foreach ($request->file('AKTE_LAIN_LAIN') as $all) {
+                    $akte_name = 'ALL'.rand(1,99999).'.'.$all->getClientOriginalExtension();
+                    $all->move(public_path().'/data_debitur/', $akte_name);
+                    $data[] = $akte_name;
+                    $deb->AKTE_LAIN_LAIN = json_encode($data);
+                    $deb->save();   
+                }
             }
         }
         
         if($request->hasFile('AKTE_PENDIRIAN'))
         {
-            $name_ap = time().'_'.rand(1,9999).'_'.$request->AKTE_PENDIRIAN->getClientOriginalExtension();
-            $request->file('AKTE_PENDIRIAN')->move(public_path().'/data_debitur/', $name_ap);
-            $deb->AKTE_PENDIRIAN = $name_ap;
-            $deb->save();
+            if ($deb->AKTE_PENDIRIAN != NULL){
+                $old = public_path('data_debitur/'.$deb->AKTE_PENDIRIAN);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_ap = 'AKPEN'.rand(1,99999).'.'.$request->AKTE_PENDIRIAN->getClientOriginalExtension();
+                $request->file('AKTE_PENDIRIAN')->move(public_path().'/data_debitur/', $name_ap);
+                $deb->AKTE_PENDIRIAN = $name_ap;
+                $deb->save();
+            }else{
+                $name_ap = 'AKPEN'.rand(1,99999).'.'.$request->AKTE_PENDIRIAN->getClientOriginalExtension();
+                $request->file('AKTE_PENDIRIAN')->move(public_path().'/data_debitur/', $name_ap);
+                $deb->AKTE_PENDIRIAN = $name_ap;
+                $deb->save();
+            }
         }
         
         if($request->hasFile('COMPANY_PROFILE'))
         {
-            $name_cp = time().'_'.rand(1,9999).'_'.$request->COMPANY_PROFILE->getClientOriginalExtension();
-            $request->file('COMPANY_PROFILE')->move(public_path().'/data_debitur/', $name_cp);
-            $deb->COMPANY_PROFILE = $name_cp;
-            $deb->save();
+            if ($deb->COMPANY_PROFILE != NULL){
+                $old = public_path('data_debitur/'.$deb->COMPANY_PROFILE);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_cp = 'CP'.rand(1,99999).'.'.$request->COMPANY_PROFILE->getClientOriginalExtension();
+                $request->file('COMPANY_PROFILE')->move(public_path().'/data_debitur/', $name_cp);
+                $deb->COMPANY_PROFILE = $name_cp;
+                $deb->save();
+            }else{
+                $name_cp = 'CP'.rand(1,99999).'.'.$request->COMPANY_PROFILE->getClientOriginalExtension();
+                $request->file('COMPANY_PROFILE')->move(public_path().'/data_debitur/', $name_cp);
+                $deb->COMPANY_PROFILE = $name_cp;
+                $deb->save();
+            }
         }
 
         if($request->hasFile('AKTE_PERUBAHAN_ANGGARAN_DASAR'))
         {
-            $name_apad = time().'_'.rand(1,9999).'_'.$request->AKTE_PERUBAHAN_ANGGARAN_DASAR->getClientOriginalExtension();
-            $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->move(public_path().'/data_debitur/', $name_apad);
-            $deb->AKTE_PERUBAHAN_ANGGARAN_DASAR = $name_apad;
-            $deb->save();
+            if ($deb->AKTE_PERUBAHAN_ANGGARAN_DASAR!= NULL){
+                $old = public_path('data_debitur/'.$deb->AKTE_PERUBAHAN_ANGGARAN_DASAR);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_apad = 'APAD'.rand(1,99999).'.'.$request->AKTE_PERUBAHAN_ANGGARAN_DASAR->getClientOriginalExtension();
+                $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->move(public_path().'/data_debitur/', $name_apad);
+                $deb->AKTE_PERUBAHAN_ANGGARAN_DASAR = $name_apad;
+                $deb->save();
+            }else{
+                $name_apad = 'APAD'.rand(1,99999).'.'.$request->AKTE_PERUBAHAN_ANGGARAN_DASAR->getClientOriginalExtension();
+                $request->file('AKTE_PERUBAHAN_ANGGARAN_DASAR')->move(public_path().'/data_debitur/', $name_apad);
+                $deb->AKTE_PERUBAHAN_ANGGARAN_DASAR = $name_apad;
+                $deb->save();
+            }
         }
 
         if($request->hasFile('SIUP'))
         {
-            $name_siup = time().'_'.rand(1,9999).'_'.$request->SIUP->getClientOriginalExtension();
-            $request->file('SIUP')->move(public_path().'/data_debitur/', $name_siup);
-            $deb->SIUP = $name_siup;
-            $deb->save();
+            if ($deb->SIUP != NULL){
+                $old = public_path('data_debitur/'.$deb->SIUP);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_siup = 'SIUP'.rand(1,99999).'.'.$request->SIUP->getClientOriginalExtension();
+                $request->file('SIUP')->move(public_path().'/data_debitur/', $name_siup);
+                $deb->SIUP = $name_siup;
+                $deb->save();
+            }else{
+                $name_siup = 'SIUP'.rand(1,99999).'.'.$request->SIUP->getClientOriginalExtension();
+                $request->file('SIUP')->move(public_path().'/data_debitur/', $name_siup);
+                $deb->SIUP = $name_siup;
+                $deb->save();
+            }
         }
 
         if($request->hasFile('TDP'))
         {
-            $name_tdp = time().'_'.rand(1,9999).'_'.$request->TDP->getClientOriginalExtension();
-            $request->file('TDP')->move(public_path().'/data_debitur/', $name_tdp);
-            $deb->TDP = $name_tdp;
-            $deb->save();
+            if ($deb->TDP != NULL){
+                $old = public_path('data_debitur/'.$deb->TDP);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_tdp = 'TDP'.rand(1,99999).'.'.$request->TDP->getClientOriginalExtension();
+                $request->file('TDP')->move(public_path().'/data_debitur/', $name_tdp);
+                $deb->TDP = $name_tdp;
+                $deb->save();
+            }else{
+                $name_tdp = 'TDP'.rand(1,99999).'.'.$request->TDP->getClientOriginalExtension();
+                $request->file('TDP')->move(public_path().'/data_debitur/', $name_tdp);
+                $deb->TDP = $name_tdp;
+                $deb->save();
+            }
         }
 
         if($request->hasFile('NPWP'))
         {
-            $name_npwp = time().'_'.rand(1,9999).'_'.$request->NPWP->getClientOriginalExtension();
-            $request->file('NPWP')->move(public_path().'/data_debitur/', $name_npwp);
-            $deb->NPWP = $name_npwp;
-            $deb->save();
+            if ($deb->NPWP != NULL){
+                $old = public_path('data_debitur/'.$deb->NPWP);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_npwp = 'NPWP'.rand(1,99999).'.'.$request->NPWP->getClientOriginalExtension();
+                $request->file('NPWP')->move(public_path().'/data_debitur/', $name_npwp);
+                $deb->NPWP = $name_npwp;
+                $deb->save();
+            }else{
+                $name_npwp = 'NPWP'.rand(1,99999).'.'.$request->NPWP->getClientOriginalExtension();
+                $request->file('NPWP')->move(public_path().'/data_debitur/', $name_npwp);
+                $deb->NPWP = $name_npwp;
+                $deb->save();
+            }
         }
 
         if($request->hasFile('MODAL_PENDIRIAN'))
         {
-            $name_mp = time().'_'.rand(1,9999).'_'.$request->MODAL_PENDIRIAN->getClientOriginalExtension();
-            $request->file('MODAL_PENDIRIAN')->move(public_path().'/data_debitur/', $name_mp);
-            $deb->MODAL_PENDIRIAN = $name_mp;
-            $deb->save();
+            if ($deb->MODAL_PENDIRIAN != NULL){
+                $old = public_path('data_debitur/'.$deb->MODAL_PENDIRIAN);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_mp = 'MP'.rand(1,99999).'.'.$request->MODAL_PENDIRIAN->getClientOriginalExtension();
+                $request->file('MODAL_PENDIRIAN')->move(public_path().'/data_debitur/', $name_mp);
+                $deb->MODAL_PENDIRIAN = $name_mp;
+                $deb->save();
+            }else{
+                $name_mp = 'MP'.rand(1,99999).'.'.$request->MODAL_PENDIRIAN->getClientOriginalExtension();
+                $request->file('MODAL_PENDIRIAN')->move(public_path().'/data_debitur/', $name_mp);
+                $deb->MODAL_PENDIRIAN = $name_mp;
+                $deb->save();
+            }
         }
 
         if($request->hasFile('MODAL_PERUBAHAN_TERAKHIR'))
         {
-            $name_mpt = time().'_'.rand(1,9999).'_'.$request->MODAL_PERUBAHAN_TERAKHIR->getClientOriginalExtension();
-            $request->file('MODAL_PERUBAHAN_TERAKHIR')->move(public_path().'/data_debitur/', $name_mpt);
-            $deb->MODAL_PERUBAHAN_TERAKHIR = $name_mpt;
-            $deb->save();
+            if ($deb->MODAL_PERUBAHAN_TERAKHIR != NULL){
+                $old = public_path('data_debitur/'.$deb->MODAL_PERUBAHAN_TERAKHIR);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_mpt = 'MPT'.rand(1,99999).'.'.$request->MODAL_PERUBAHAN_TERAKHIR->getClientOriginalExtension();
+                $request->file('MODAL_PERUBAHAN_TERAKHIR')->move(public_path().'/data_debitur/', $name_mpt);
+                $deb->MODAL_PERUBAHAN_TERAKHIR = $name_mpt;
+                $deb->save();
+            }else{
+                $name_mpt = 'MPT'.rand(1,99999).'.'.$request->MODAL_PERUBAHAN_TERAKHIR->getClientOriginalExtension();
+                $request->file('MODAL_PERUBAHAN_TERAKHIR')->move(public_path().'/data_debitur/', $name_mpt);
+                $deb->MODAL_PERUBAHAN_TERAKHIR = $name_mpt;
+                $deb->save();
+            }
         }
 
         if($request->hasFile('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS'))
-        {   
-            $name_auf = time().'_'.rand(1,9999).'_'.$request->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS->getClientOriginalExtension();
-            $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->move(public_path().'/data_debitur/', $name_auf);
-            $deb->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS = $name_auf;
-            $deb->save();
+        {
+            if ($deb->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS != NULL){
+                $old = public_path('data_debitur/'.$deb->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS);
+                if (File::exists($old)) {
+                    unlink($old);
+                }   
+                $name_auf = 'AUFS'.rand(1,99999).'.'.$request->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS->getClientOriginalExtension();
+                $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->move(public_path().'/data_debitur/', $name_auf);
+                $deb->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS = $name_auf;
+                $deb->save();
+            }else{
+                $name_auf = 'AUFS'.rand(1,99999).'.'.$request->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS->getClientOriginalExtension();
+                $request->file('AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS')->move(public_path().'/data_debitur/', $name_auf);
+                $deb->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS = $name_auf;
+                $deb->save();
+            }
         }
 
         if($request->hasFile('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR'))
         {
-            $name_inhouse = time().'_'.rand(1,9999).'_'.$request->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR->getClientOriginalExtension();
-            $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->move(public_path().'/data_debitur/', $name_inhouse);
-            $deb->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR = $name_inhouse;
-            $deb->save();
+            if ($deb->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR != NULL){
+                $old = public_path('data_debitur/'.$deb->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_inhouse = 'IHFS'.rand(1,99999).'.'.$request->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR->getClientOriginalExtension();
+                $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->move(public_path().'/data_debitur/', $name_inhouse);
+                $deb->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR = $name_inhouse;
+                $deb->save();
+            }else{
+                $name_inhouse = 'IHFS'.rand(1,99999).'.'.$request->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR->getClientOriginalExtension();
+                $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->move(public_path().'/data_debitur/', $name_inhouse);
+                $deb->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR = $name_inhouse;
+                $deb->save();
+            }
         }
 
         if($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS'))
         {
-            $name_bank = time().'_'.rand(1,9999).'_'.$request->BANK_STATEMENT_LAST_3_MONTHS->getClientOriginalExtension();
-            $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move(public_path().'/data_debitur/', $name_bank);
-            $deb->BANK_STATEMENT_LAST_3_MONTHS = $name_bank;
-            $deb->save();
+            if ($deb->BANK_STATEMENT_LAST_3_MONTHS != NULL){
+                $old = public_path('data_debitur/'.$deb->BANK_STATEMENT_LAST_3_MONTHS);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_bank = 'BNKST'.rand(1,99999).'.'.$request->BANK_STATEMENT_LAST_3_MONTHS->getClientOriginalExtension();
+                $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move(public_path().'/data_debitur/', $name_bank);
+                $deb->BANK_STATEMENT_LAST_3_MONTHS = $name_bank;
+                $deb->save();
+            }else{
+                $name_bank = 'BNKST'.rand(1,99999).'.'.$request->BANK_STATEMENT_LAST_3_MONTHS->getClientOriginalExtension();
+                $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move(public_path().'/data_debitur/', $name_bank);
+                $deb->BANK_STATEMENT_LAST_3_MONTHS = $name_bank;
+                $deb->save();
+            }
         }
 
         if($request->hasFile('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS'))
         {
-            $name_fp = time().'_'.rand(1,9999).'_'.$request->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS->getClientOriginalExtension();
-            $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->move(public_path().'/data_debitur/', $name_fp);
-            $deb->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS = $name_fp;
-            $deb->save();
+            if ($deb->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS != NULL){
+                $old = public_path('data_debitur/'.$deb->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_fp = 'FINPRJ'.rand(1,99999).'.'.$request->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS->getClientOriginalExtension();
+                $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->move(public_path().'/data_debitur/', $name_fp);
+                $deb->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS = $name_fp;
+                $deb->save();
+            }else{
+                $name_fp = 'FINPRJ'.rand(1,99999).'.'.$request->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS->getClientOriginalExtension();
+                $request->file('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS')->move(public_path().'/data_debitur/', $name_fp);
+                $deb->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS = $name_fp;
+                $deb->save();
+            }
         }
         
         if($request->hasFile('DRAFT_TEMPLATE_AGREEMENT_END_USER'))
         {
-            $name_dtaeu = time().'_'.rand(1,9999).'_'.$request->DRAFT_TEMPLATE_AGREEMENT_END_USER->getClientOriginalExtension();
-            $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->move(public_path().'/data_debitur/', $name_dtaeu);
-            $deb->DRAFT_TEMPLATE_AGREEMENT_END_USER = $name_dtaeu;
-            $deb->save();
+            if ($deb->DRAFT_TEMPLATE_AGREEMENT_END_USER != NULL){
+                $old = public_path('data_debitur/'.$deb->DRAFT_TEMPLATE_AGREEMENT_END_USER);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_dtaeu = 'DRFTAG'.rand(1,99999).'.'.$request->DRAFT_TEMPLATE_AGREEMENT_END_USER->getClientOriginalExtension();
+                $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->move(public_path().'/data_debitur/', $name_dtaeu);
+                $deb->DRAFT_TEMPLATE_AGREEMENT_END_USER = $name_dtaeu;
+                $deb->save();
+            }else{
+                $name_dtaeu = 'DRFTAG'.rand(1,99999).'.'.$request->DRAFT_TEMPLATE_AGREEMENT_END_USER->getClientOriginalExtension();
+                $request->file('DRAFT_TEMPLATE_AGREEMENT_END_USER')->move(public_path().'/data_debitur/', $name_dtaeu);
+                $deb->DRAFT_TEMPLATE_AGREEMENT_END_USER = $name_dtaeu;
+                $deb->save();
+            }
         }
 
         if($request->hasFile('CONTOH_RISK_ACCEPTANCE_CRITERIA'))
         {
-            $name_risk = time().'_'.rand(1,9999).'_'.$request->CONTOH_RISK_ACCEPTANCE_CRITERIA->getClientOriginalExtension();
-            $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->move(public_path().'/data_debitur/', $name_risk);
-            $deb->CONTOH_RISK_ACCEPTANCE_CRITERIA = $name_risk;
-            $deb->save();
+            if ($deb->CONTOH_RISK_ACCEPTANCE_CRITERIA != NULL){
+                $old = public_path('data_debitur/'.$deb->CONTOH_RISK_ACCEPTANCE_CRITERIA);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_risk = 'RISKACC'.rand(1,99999).'.'.$request->CONTOH_RISK_ACCEPTANCE_CRITERIA->getClientOriginalExtension();
+                $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->move(public_path().'/data_debitur/', $name_risk);
+                $deb->CONTOH_RISK_ACCEPTANCE_CRITERIA = $name_risk;
+                $deb->save();
+            }else{
+                $name_risk = 'RISKACC'.rand(1,99999).'.'.$request->CONTOH_RISK_ACCEPTANCE_CRITERIA->getClientOriginalExtension();
+                $request->file('CONTOH_RISK_ACCEPTANCE_CRITERIA')->move(public_path().'/data_debitur/', $name_risk);
+                $deb->CONTOH_RISK_ACCEPTANCE_CRITERIA = $name_risk;
+                $deb->save();
+            }
         }
         
         if($request->hasFile('NDA_DOCUMENT'))
         {
-            $name_nd = time().'_'.rand(1,9999).'_'.$request->NDA_DOCUMENT->getClientOriginalExtension();
-            $request->file('NDA_DOCUMENT')->move(public_path().'/data_debitur/', $name_nd);
-            $deb->NDA_DOCUMENT = $name_nd;
-            $deb->save();
+            if ($deb->NDA_DOCUMENT != NULL){
+                $old = public_path('data_debitur/'.$deb->NDA_DOCUMENT);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_nd = 'NDA'.rand(1,99999).'.'.$request->NDA_DOCUMENT->getClientOriginalExtension();
+                $request->file('NDA_DOCUMENT')->move(public_path().'/data_debitur/', $name_nd);
+                $deb->NDA_DOCUMENT = $name_nd;
+                $deb->save();
+            }else{
+                $name_nd = 'NDA'.rand(1,99999).'.'.$request->NDA_DOCUMENT->getClientOriginalExtension();
+                $request->file('NDA_DOCUMENT')->move(public_path().'/data_debitur/', $name_nd);
+                $deb->NDA_DOCUMENT = $name_nd;
+                $deb->save();
+            }
         }
 
         $deb->NAMA_PERUSAHAAN = $request->NAMA_PERUSAHAAN;
@@ -550,8 +729,10 @@ class DebiturBadanUsahaController extends Controller
         // delete file
         File::delete('data_debitur/'.$deb->AKTE_PENDIRIAN);
         File::delete('data_debitur/'.$deb->COMPANY_PROFILE);
-        foreach (json_decode($deb->AKTE_LAIN_LAIN) as $key) {
-            File::delete('data_debitur/'.$key);
+        if ($deb->AKTE_LAIN_LAIN != NULL) {
+            foreach (json_decode($deb->AKTE_LAIN_LAIN) as $key) {
+                File::delete('data_debitur/'.$key);
+            }
         }
         File::delete('data_debitur/'.$deb->SIUP);
         File::delete('data_debitur/'.$deb->TDP);
