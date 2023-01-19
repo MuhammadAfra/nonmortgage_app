@@ -15,6 +15,16 @@ Detail
 <div class="card">
     <div class="card-body">
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Partner</label></div>
+            <div class="col-sm-8">: {{ $debitur->partner->NAMA_PERUSAHAAN }}</div>
+        </div>
+
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nama Debitur</label></div>
+            <div class="col-sm-8">: {{ $debitur->NAMA_DEBITUR}}</div>
+        </div>
+
+        <div class="row pb-3">
             <div class="col-sm-4"><label>Tanggal Lahir</label></div>
             <div class="col-sm-8">: {{ $debitur->TANGGAL_LAHIR }}</div>
         </div>
@@ -170,11 +180,11 @@ Detail
             @endif
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Jaminan Inventori</label></div>
+            <div class="col-sm-4"><label>Jaminan Inventory</label></div>
             <div class="col-sm-8">: {{ $debitur->Jaminan_Inventory }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nilai Inventori</label></div>
+            <div class="col-sm-4"><label>Nilai Inventory</label></div>
             @if ($debitur->Nilai_Inventory != NULL)
             <div class="col-sm-8">: Rp{{ number_format($debitur->Nilai_Inventory) }}</div>
             @else
@@ -185,12 +195,22 @@ Detail
             <div class="col-sm-4"><label>Jaminan Lainnya</label></div>
             <div class="col-sm-8">: {{ $debitur->Jaminan_Lainnya }}</div>
         </div>
+
         <div class="row pb-3">
-            <div class="col-sm-4"><label>DP</label></div>
+            <div class="col-sm-4"><label>Nilai Jaminan Lainnya</label></div>
+            @if ($debitur->Nilai_Jaminan_Lainnya != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($debitur->Nilai_Jaminan_Lainnya) }}</div>
+            @else
+            <div class="col-sm-8">: {{ $debitur->Nilai_Jaminan_Lainnya }}</div>
+            @endif
+        </div>
+
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Down Payment</label></div>
             <div class="col-sm-8">: {{ $debitur->APAKAH_ADA_DP }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Jumlah DP</label></div>
+            <div class="col-sm-4"><label>Jumlah Down Payment</label></div>
             @if ($debitur->DOWN_PAYMENT_CUSTOMER != NULL)
             <div class="col-sm-8">: Rp{{ number_format($debitur->DOWN_PAYMENT_CUSTOMER) }}</div>
             @else

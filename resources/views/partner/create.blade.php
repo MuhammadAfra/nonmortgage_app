@@ -101,7 +101,7 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>SIUP </label></div>
+        <div class="col-sm-4"><label>SIUP / NIB </label></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
                 <input type="file" class="custom-file-input" name="SIUP">
@@ -259,6 +259,7 @@ Add
             </select>
         </div>
     </div>
+    
     <div class="row pb-3">
         <div class="col-sm-4"></div>
         <div class="col-sm-8">

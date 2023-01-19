@@ -68,7 +68,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="/dashboard" class="brand-link">
+            <a href="{{ url('dashboard') }}" class="brand-link">
                 <i><img src="{{ asset('img/reliance_sidebar.png') }}" width="35" height="35" ></i>
                 <span class="brand-text font-weight-light text-center">&nbsp;&nbsp;&nbsp;Non Mortgage</span>
             </a>
@@ -82,7 +82,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="/dashboard" class="nav-link {{ 'dashboard' == request()->path() ? 'active' : '' }}">
+                            <a href="{{ url('dashboard') }}" class="nav-link {{ 'dashboard' == request()->path() ? 'active' : '' }}">
                                 &nbsp;<i class="fas fa-tachometer-alt"></i>                                
                                 <p>
                                     &nbsp;&nbsp;Dashboard
@@ -195,16 +195,16 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_motor') }}" class="nav-link">Kendaraan Bermotor</a>
+                                            <a href="{{ url('collateral_motor') }}" class="nav-link">Kendaraan Motor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_mobil') }}" class="nav-link">Kendaraan Bermobil</a>
+                                            <a href="{{ url('collateral_mobil') }}" class="nav-link">Kendaraan Mobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_rumah') }}" class="nav-link">Rumah / Tanah</a>
+                                            <a href="{{ url('collateral_rumah') }}" class="nav-link">Rumah/Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_inven') }}" class="nav-link">Inventori</a>
+                                            <a href="{{ url('collateral_inven') }}" class="nav-link">Inventory</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ url('collateral_invoice') }}" class="nav-link">Invoice</a>
@@ -223,16 +223,16 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_motor_tambahan') }}" class="nav-link">Kendaraan Bermotor</a>
+                                            <a href="{{ url('collateral_motor_tambahan') }}" class="nav-link">Kendaraan Motor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_mobil_tambahan') }}" class="nav-link">Kendaraan Bermobil</a>
+                                            <a href="{{ url('collateral_mobil_tambahan') }}" class="nav-link">Kendaraan Mobil</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_rumah_tambahan') }}" class="nav-link">Rumah / Tanah</a>
+                                            <a href="{{ url('collateral_rumah_tambahan') }}" class="nav-link">Rumah/Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('collateral_inven_tambahan') }}" class="nav-link">Inventori</a>
+                                            <a href="{{ url('collateral_inven_tambahan') }}" class="nav-link">Inventory</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ url('collateral_invoice_tambahan') }}" class="nav-link">Invoice</a>
@@ -369,16 +369,16 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_motor_utama') }}" class="nav-link">Kendaraan Bermotor</a>
+                                            <a href="{{ url('colls_motor_utama') }}" class="nav-link">Kendaraan Motor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_mobil_utama') }}" class="nav-link">Kendaraan Bermobil</a>
+                                            <a href="{{ url('colls_mobil_utama') }}" class="nav-link">Kendaraan Mobil</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ url('colls_rumah_utama') }}" class="nav-link">Rumah/Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_inven_utama') }}" class="nav-link">Inventori</a>
+                                            <a href="{{ url('colls_inven_utama') }}" class="nav-link">Inventory</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ url('colls_invoice_utama') }}" class="nav-link">Invoice</a>
@@ -397,16 +397,16 @@
                                     </a>
                                     <ul class="nav nav-treeview ml-1">
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_motor_tambahan') }}" class="nav-link">Kendaraan Bermotor</a>
+                                            <a href="{{ url('colls_motor_tambahan') }}" class="nav-link">Kendaraan Motor</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_mobil_tambahan') }}" class="nav-link">Kendaraan Bermobil</a>
+                                            <a href="{{ url('colls_mobil_tambahan') }}" class="nav-link">Kendaraan Mobil</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ url('colls_rumah_tambahan') }}" class="nav-link">Rumah/Tanah</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ url('colls_inven_tambahan') }}" class="nav-link">Inventori</a>
+                                            <a href="{{ url('colls_inven_tambahan') }}" class="nav-link">Inventory</a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ url('colls_invoice_tambahan') }}" class="nav-link">Invoice</a>
@@ -533,6 +533,7 @@
         });
     
     </script>
+
 </body>
 
 </html>

@@ -6,6 +6,9 @@
             <div class="modal-header">
                 <h5>Apakah Anda Yakin Ingin Hapus Data?</h5>
             </div>
+            <div class="modal-header">
+                <h6>Label Turunan : {{ $item->Label }}</h6>
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <form action="{{ url('master_sektor_ekonomi', $item->id) }}" method="POST">

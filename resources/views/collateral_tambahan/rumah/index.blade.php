@@ -67,12 +67,12 @@ Home
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->Counter_Rumah_Tanah_Tambahan }}</td>
-                    <td>{{ number_format($item->Nilai_Rumah_Tanah_Tambahan) }}</td>
+                    <td>Rp{{ number_format($item->Nilai_Rumah_Tanah_Tambahan) }}</td>
                     <td>{{ $item->No_Shm_No_Hgb_Tambahan }}</td>
                     <td>{{ $item->Luas_Tambahan }}</td>
                     <td>{{ $item->Atas_Nama_Tambahan }}</td>
                     <td>{{ $item->Alamat_Tambahan }}</td>
-                    <td>{{ number_format($item->Nilai_Appraisal_Tambahan) }}</td>
+                    <td>Rp{{ number_format($item->Nilai_Appraisal_Tambahan) }}</td>
                     <td>{{ $item->Status_Tambahan }}</td>
                 </tr>
                 @endforeach

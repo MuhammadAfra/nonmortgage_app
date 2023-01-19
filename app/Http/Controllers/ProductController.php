@@ -66,16 +66,16 @@ class ProductController extends Controller
         ],[
             'PARTNER_ID.required' => 'Input Partner ID!',
             'DEBITUR_ID.required' => 'Input Debitur ID!',
-            'M_PRODUCT_ID.required' => 'Input Konven / Syariah!',
-            'NILAI_PEMBIAYAAN_POKOK_MAXIMUM.required' => 'Input Nilai Pembiayaan!',
-            'Jangka_Waktu_Maximum.required' => 'Input Jangka Waktu!',
-            'SUKU_BUNGA_FLAT.required' => 'Input Suku Bunga!',
-            'SUKU_BUNGA_EFFECTIVE.required' => 'Input Suku Bunga!',
+            'M_PRODUCT_ID.required' => 'Input Nama Product!',
+            'NILAI_PEMBIAYAAN_POKOK_MAXIMUM.required' => 'Input Nilai Pembiayaan / Pokok Maksimum!',
+            'Jangka_Waktu_Maximum.required' => 'Input Jangka Waktu Maksimum!',
+            'SUKU_BUNGA_FLAT.required' => 'Input Suku Bunga Flat!',
+            'SUKU_BUNGA_EFFECTIVE.required' => 'Input Suku Bunga Effective!',
             'POLA_PEMBAYARAN_ID.required' => 'Input Pola Pembayaran!',
-            'BIAYA_ADMINISTRASI' => 'Input Biaya Adminstrasi!',
-            'BIAYA_ASSURANSI' => 'Input Biaya Asuranisi!',
-            'BIAYA_PROVISI' => 'Input Biaya Provinsi!',
-            'BIAYA_LAIN_LAIN' => 'Input Biaya Lain Lain!',
+            'BIAYA_ADMINISTRASI' => 'Input Biaya Administrasi!',
+            'BIAYA_ASSURANSI' => 'Input Biaya Asuransi!',
+            'BIAYA_PROVISI' => 'Input Biaya Provisi!',
+            'BIAYA_LAIN_LAIN' => 'Input Biaya Lain-Lain!',
         ]);
         
         $data = Product::create([
@@ -147,11 +147,11 @@ class ProductController extends Controller
         ],[
             'PARTNER_ID.required' => 'Input Partner ID!',
             'DEBITUR_ID.required' => 'Input Debitur ID!',
-            'M_PRODUCT_ID.required' => 'Input Konven / Syariah!',
-            'NILAI_PEMBIAYAAN_POKOK_MAXIMUM.required' => 'Input Nilai Pembiayaan!',
+            'M_PRODUCT_ID.required' => 'Input Nama Product!',
+            'NILAI_PEMBIAYAAN_POKOK_MAXIMUM.required' => 'Input Nilai Pembiayaan / Pokok Maksimum!',
             'Jangka_Waktu_Maximum.required' => 'Input Jangka Waktu!',
-            'SUKU_BUNGA_FLAT.required' => 'Input Suku Bunga!',
-            'SUKU_BUNGA_EFFECTIVE.required' => 'Input Suku Bunga!',
+            'SUKU_BUNGA_FLAT.required' => 'Input Suku Bunga Flat!',
+            'SUKU_BUNGA_EFFECTIVE.required' => 'Input Suku Bunga Effective!',
             'POLA_PEMBAYARAN_ID.required' => 'Input Pola Pembayaran!',
         ]);
 

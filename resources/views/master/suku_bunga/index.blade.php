@@ -56,7 +56,7 @@ Home
                         @include('master.suku_bunga.delete')
                         @endif
                         <td>{{ $item->Suku_Bunga }} {{ $item->jp->Product }}</td>
-                        <td>{{ number_format($item->Nilai_Suku_Bunga) }}</td>
+                        <td>Rp{{ number_format($item->Nilai_Suku_Bunga) }}</td>
                     </tr>
                 @endforeach
         </table>

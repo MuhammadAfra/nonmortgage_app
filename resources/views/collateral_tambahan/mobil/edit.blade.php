@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('title')
-Collateral Utama - Kendaraan Bermobil
+Collateral Utama - Kendaraan Mobil
 @endsection
 
 @section('subtitle')
@@ -8,7 +8,7 @@ Edit
 @endsection
 
 @section('page')
-<a href="{{ url('collateral_mobil_tambahan') }}">Collateral Utama - Kendaraan Bermobil</a>
+<a href="{{ url('collateral_mobil_tambahan') }}">Collateral Utama - Kendaraan Mobil</a>
 @endsection
 
 @section('content')
@@ -39,15 +39,22 @@ Edit
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Kendaraan Bermobil<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Nilai Kendaraan Mobil<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Mobil_Vehicle_Tambahan" value="{{ number_format($mobil->Nilai_Mobil_Vehicle_Tambahan) }}" class="form-control number-separator" style="width: 300px; height: 30px;">
-            @error('Nilai_Mobil_Vehicle')
+        <div class="input-group" style="width: 300px; height: 38px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+            <input type="text" class="form-control number-separator" value="{{ number_format($mobil->Nilai_Mobil_Vehicle_Tambahan) }}" placeholder="Nilai Kendaraan Mobil" name="Nilai_Mobil_Vehicle_Tambahan">
+            </div>
+            @error('Nilai_Mobil_Vehicle_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Merk<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
@@ -165,11 +172,12 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Status_Tambahan" value="{{ $mobil->Status_Tambahan }}" class="form-control"
-                style="width: 300px; height: 30px;">
-            @error('Status')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <select name="Status_Tambahan" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option value="{{ $mobil->Status_Tambahan }}">{{ $mobil->Status_Tambahan }}</option>
+                <option value="Pending">Pending</option>
+                <option value="To Be Obtained">To Be Obtained</option>
+                <option value="Diterima">Diterima</option>
+            </select>
         </div>
     </div>
     <div class="row pb-3">

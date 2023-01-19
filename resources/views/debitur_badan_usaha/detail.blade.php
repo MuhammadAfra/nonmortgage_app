@@ -261,11 +261,11 @@ Detail
             @endif
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Jaminan Inventori</label></div>
+            <div class="col-sm-4"><label>Jaminan Inventory</label></div>
             <div class="col-sm-8">: {{ $deb->Jaminan_Inventory }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nilai Inventori</label></div>
+            <div class="col-sm-4"><label>Nilai Inventory</label></div>
             @if ($deb->Nilai_Inventory != NULL)
             <div class="col-sm-8">: Rp{{ number_format($deb->Nilai_Inventory) }}</div>
             @else
@@ -276,12 +276,22 @@ Detail
             <div class="col-sm-4"><label>Jaminan Lainnya</label></div>
             <div class="col-sm-8">: {{ $deb->Jaminan_Lainnya }}</div>
         </div>
+
         <div class="row pb-3">
-            <div class="col-sm-4"><label>DP</label></div>
+            <div class="col-sm-4"><label>Nilai Jaminan Lainnya</label></div>
+            @if ($deb->Nilai_Jaminan_Lainnya != NULL)
+            <div class="col-sm-8">: Rp{{ number_format($deb->Nilai_Jaminan_Lainnya) }}</div>
+            @else
+            <div class="col-sm-8">: {{ $deb->Nilai_Jaminan_Lainnya }}</div>
+            @endif
+        </div>
+
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Down Payment</label></div>
             <div class="col-sm-8">: {{ $deb->APAKAH_ADA_DP }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Jumlah DP</label></div>
+            <div class="col-sm-4"><label>Jumlah Dwon Payment</label></div>
             @if ($deb->DOWN_PAYMENT_CUSTOMER != NULL)
             <div class="col-sm-8">: Rp{{ number_format($deb->DOWN_PAYMENT_CUSTOMER) }}</div>
             @else

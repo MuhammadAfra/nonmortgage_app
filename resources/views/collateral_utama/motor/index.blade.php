@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('content')
 @section('title')
-Collateral Utama - Kendaraan Bermotor
+Collateral Utama - Kendaraan Motor
 @endsection
 
 @section('subtitle')
@@ -10,11 +10,11 @@ Home
 
 @if (auth()->user()->level == "Admin")
     @section('page')
-        <a href="{{ url('collateral_motor') }}">Collateral Utama - Kendaraan Bermotor</a>
+        <a href="{{ url('collateral_motor') }}">Collateral Utama - Kendaraan Motor</a>
     @endsection
 @elseif(auth()->user()->level == "User")
     @section('page')
-    <a href="#">Collateral Utama - Kendaraan Bermotor</a>
+    <a href="#">Collateral Utama - Kendaraan Motor</a>
     @endsection
 @endif
 
@@ -41,7 +41,7 @@ Home
                     <th>Partner Perusahaan</th>
                     <th>Nama Debitur</th>
                     <th>Counter Motor</th>
-                    <th>Nilai Kendaraan Bermotor</th>
+                    <th>Nilai Kendaraan Motor</th>
                     <th>Merk</th>
                     <th>Type</th>
                     <th>Model</th>
@@ -73,7 +73,7 @@ Home
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->Counter_Motor }}</td>
-                    <td>{{ number_format($item->Nilai_Motor_Vehicle) }}</td>
+                    <td>Rp{{ number_format($item->Nilai_Motor_Vehicle) }}</td>
                     <td>{{ $item->Merk }}</td>
                     <td>{{ $item->Type }}</td>
                     <td>{{ $item->Model }}</td>

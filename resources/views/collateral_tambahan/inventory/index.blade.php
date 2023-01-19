@@ -68,10 +68,10 @@ Home
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->Counter_Inventory_Tambahan }}</td>
-                    <td>{{ number_format($item->Nilai_Inv_Tambahan) }}</td>
+                    <td>Rp{{ number_format($item->Nilai_Inv_Tambahan) }}</td>
                     <td>{{ $item->Nama_Inventory_Tambahan }}</td>
                     <td>{{ $item->Besar_Inventory_Tambahan }}</td>
-                    <td>{{ number_format($item->Nilai_Inventory_Tambahan) }}</td>
+                    <td>Rp{{ number_format($item->Nilai_Inventory_Tambahan) }}</td>
                     <td>{{ $item->Alamat_Inventory_Tambahan }}</td>
                     <td>{{ $item->Atas_Nama_Inventory_Tambahan }}</td>
                     <td>{{ $item->Alamat_Atas_Nama_Inventory_Tambahan }}</td>

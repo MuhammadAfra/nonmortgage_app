@@ -65,12 +65,12 @@ Home
                     @endif
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
-                    <td>{{ number_format($item->Nilai_Rumah_Tanah) }}</td>
+                    <td>Rp{{ number_format($item->Nilai_Rumah_Tanah) }}</td>
                     <td>{{ $item->No_Shm_No_Hgb }}</td>
-                    <td>{{ $item->Luas }}</td>
+                    <td>{{ $item->Luas }} M<sup>2</sup></td>
                     <td>{{ $item->Atas_Nama }}</td>
                     <td>{{ $item->Alamat }}</td>
-                    <td>{{ number_format($item->Nilai_Appraisal) }}</td>
+                    <td>Rp{{ number_format($item->Nilai_Appraisal) }}</td>
                     <td>{{ $item->Status }}</td>
                 </tr>
                 @endforeach

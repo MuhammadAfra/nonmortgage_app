@@ -39,15 +39,22 @@ Edit
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Rumah / Tanah (Rp)<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Nilai Rumah Tanah<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Rumah_Tanah" value="{{ number_format($rumah->Nilai_Rumah_Tanah) }}" class="form-control number-separator" style="width: 300px; height: 30px;">
+        <div class="input-group" style="width: 300px; height: 38px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+            <input type="text" class="form-control number-separator" value="{{ number_format($rumah->Nilai_Rumah_Tanah) }}"  name="Nilai_Rumah_Tanah">
+            </div>
             @error('Nilai_Rumah_Tanah')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>No SHM / No HGB<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
@@ -57,15 +64,22 @@ Edit
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Luas<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Luas" value="{{ $rumah->Luas }}" class="form-control" style="width: 300px; height: 30px;">
+        <div class="input-group" style="width: 300px; height: 30px;">
+            <input type="number" class="form-control" value="{{ $rumah->Luas }}" placeholder="Luas" name="Luas">
+                <div class="input-group-append">
+                    <span class="input-group-text">M<sup>2</sup></span>
+                </div>
+            </div>
             @error('Luas')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Atas Nama<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
@@ -84,25 +98,35 @@ Edit
             @enderror
         </div>
     </div>
+    
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Appraisal<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Appraisal" value="{{ number_format($rumah->Nilai_Appraisal) }}" class="form-control number-separator" style="width: 300px; height: 30px;">
+        <div class="input-group" style="width: 300px; height: 38px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+            <input type="text" class="form-control number-separator" value="{{ number_format($rumah->Nilai_Appraisal) }}" placeholder="Nilai Appraisal" name="Nilai_Appraisal">
+            </div>
             @error('Nilai_Appraisal')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
-    <div class="row pb-3">
+
+
+  <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Status" value="{{ $rumah->Status }}" class="form-control"
-                style="width: 300px; height: 30px;">
-            @error('Status')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <select name="Status" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option value="{{ $rumah->Status }}">{{ $rumah->Status }}</option>
+                <option value="Pending">Pending</option>
+                <option value="To Be Obtained">To Be Obtained</option>
+                <option value="Diterima">Diterima</option>
+            </select>
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"></div>
         <div class="col-sm-8">

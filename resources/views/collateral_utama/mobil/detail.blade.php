@@ -27,8 +27,8 @@ Detail
             <div class="col-sm-8">: {{ $mobil->Counter_Mobil }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nilai Kendaraan Bermotor (Rp)</label></div>
-            <div class="col-sm-8">: {{ number_format($mobil->Nilai_Mobil_Vehicle) }}</div>
+            <div class="col-sm-4"><label>Nilai Kendaraan Mobil</label></div>
+            <div class="col-sm-8">: Rp{{ number_format($mobil->Nilai_Mobil_Vehicle) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Merk</label></div>

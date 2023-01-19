@@ -71,12 +71,12 @@ Home
                     <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ $item->Counter_Invoice_Tambahan}}</td>
-                    <td>{{ number_format($item->Nilai_Invoice_Tambahan)}}</td>
+                    <td>Rp{{ number_format($item->Nilai_Invoice_Tambahan)}}</td>
                     <td>{{ $item->Jenis_Invoice_Tambahan}}</td>
                     <td>{{ $item->Atas_Nama_Invoice_Tambahan}}</td>
                     <td>{{ $item->Alamat_Nama_Invoice_Tambahan}}</td>
                     <td>{{ $item->No_Fiducia_Tambahan}}</td>
-                    <td>{{ number_format($item->Nilai_Fiducia_Tambahan)}}</td>
+                    <td>Rp{{ number_format($item->Nilai_Fiducia_Tambahan)}}</td>
                     <td>{{ $item->Tgl_Fiducia_Tambahan}}</td>
                     <td>{{ $item->Tgl_Jatuh_Tempo_Tambahan}}</td>
                     <td>{{ $item->Status_Tambahan}}</td>

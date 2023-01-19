@@ -41,16 +41,22 @@ Edit
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Invoice (Rp)<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Nilai Invoice<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Invoice" value="{{ number_format($invoice->Nilai_Invoice) }}" class="form-control number-separator"
-                style="width: 300px; height: 30px;">
+        <div class="input-group" style="width: 300px; height: 38px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+            <input type="text" class="form-control number-separator" value="{{ number_format($invoice->Nilai_Invoice) }}" name="Nilai_Invoice">
+            </div>
             @error('Nilai_Invoice')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Jenis Invoice<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
@@ -91,20 +97,26 @@ Edit
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Fiducia<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Fiducia" value="{{ number_format($invoice->Nilai_Fiducia) }}" class="form-control number-separator"
-                style="width: 300px; height: 30px;">
+        <div class="input-group" style="width: 300px; height: 38px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+            <input type="text" class="form-control number-separator" value="{{ number_format($invoice->Nilai_Fiducia) }}" name="Nilai_Fiducia">
+            </div>
             @error('Nilai_Fiducia')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Tanggal Fiducia<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Tgl_Fiducia" value="{{ $invoice->Tgl_Fiducia }}" class="form-control"
+            <input type="date" name="Tgl_Fiducia" value="{{ $invoice->Tgl_Fiducia }}" class="form-control"
                 style="width: 300px; height: 30px;">
             @error('Tgl_Fiducia')
             <p class="text-danger">{{ $message }}</p>
@@ -114,21 +126,23 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Tanggal Jatuh Tempo<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Tgl_Jatuh_Tempo" value="{{ $invoice->Tgl_Jatuh_Tempo }}" class="form-control"
+            <input type="date" name="Tgl_Jatuh_Tempo" value="{{ $invoice->Tgl_Jatuh_Tempo }}" class="form-control"
                 style="width: 300px; height: 30px;">
             @error('Tgl_Jatuh_Tempo')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Status" value="{{ $invoice->Status }}" class="form-control"
-                style="width: 300px; height: 30px;">
-            @error('Status')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <select name="Status" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option value="{{ $invoice->Status }}">{{ $invoice->Status }}</option>
+                <option value="Pending">Pending</option>
+                <option value="To Be Obtained">To Be Obtained</option>
+                <option value="Diterima">Diterima</option>
+            </select>
         </div>
     </div>
 

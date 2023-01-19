@@ -48,6 +48,7 @@ class Debitur extends Model
         'Jaminan_Inventory',
         'Nilai_Inventory',
         'Jaminan_Lainnya',
+        'Nilai_Jaminan_Lainnya',
         'APAKAH_ADA_DP',
         'DOWN_PAYMENT_CUSTOMER',
     ];
@@ -132,5 +133,16 @@ class Debitur extends Model
     public function asuransi()
     {
         return $this->belongsTo(Master_Asuransi::class, 'Jenis_Asuransi_Id');
+    }
+
+    // GET DATA PARTNER
+    public function partner()
+    {
+        return $this->belongsTo(Partner::class, 'PARTNER_ID');
+    }
+
+    public function debitur()
+    {
+        return $this->hasMany(Debitur::class);
     }
 }

@@ -28,7 +28,7 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Invoice</label></div>
-            <div class="col-sm-8">: {{ $invoicetbh->Nilai_Invoice_Tambahan}}</div>
+            <div class="col-sm-8">: Rp{{ number_format($invoicetbh->Nilai_Invoice_Tambahan) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jenis Invoice</label></div>
@@ -48,7 +48,7 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Fiducia</label></div>
-            <div class="col-sm-8">: {{ $invoicetbh->Nilai_Fiducia_Tambahan }}</div>
+            <div class="col-sm-8">: Rp{{ number_format($invoicetbh->Nilai_Fiducia_Tambahan) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Tanggal Fiducia</label></div>

@@ -20,5 +20,16 @@ class Debitur_Badan_Usaha extends Model
         return $this->belongsTo(Master_Product::class, 'DETIL_PRODUCT_PROFILE');
     }
 
+     // GET DATA PARTNER
+     public function partner()
+     {
+         return $this->belongsTo(Partner::class, 'PARTNER_ID');
+     }
+ 
+     public function debitur_badan_usaha()
+     {
+         return $this->hasMany(Debitur_Badan_Usaha::class);
+     }
+
     public $timestamps = false;
 }

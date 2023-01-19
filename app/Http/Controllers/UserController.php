@@ -46,7 +46,7 @@ class UserController extends Controller
             'name' => 'Input Name!',
             'email' => 'Input Email!',
             'level' => 'Input Level',
-            'password' => 'Input Password!',
+            'password' => 'Must contain at least 6 or more characters!',
         ]);
 
         $val['password'] = Hash::make($val['password']);
@@ -98,7 +98,8 @@ class UserController extends Controller
             'name' => 'Input Name!',
             'email' => 'Input Email!',
             'level' => 'Input Level',
-            'password' => 'Input Password!',
+            'current_password' => 'Must contain at least 6 or more characters!',    
+            'password' => 'Must contain at least 6 or more characters!',
         ]);
 
         $user->name = $request->name;

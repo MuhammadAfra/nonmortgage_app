@@ -43,7 +43,7 @@ class MasterSektorEkonomiController extends Controller
             'Label_Utama' => 'required',
         ],[
             'Sandi_Turunan' => 'Input Sandi Turunan!',
-            'Label' => 'Input Label!',
+            'Label' => 'Input Label Turunan!',
             'Sandi_Utama' => 'Input Sandi Utama!',
             'Label_Utama' => 'Input Label Utama!',
         ]);
@@ -98,7 +98,7 @@ class MasterSektorEkonomiController extends Controller
             'Label_Utama' => 'required',
         ],[
             'Sandi_Turunan' => 'Input Sandi Turunan!',
-            'Label' => 'Input Label!',
+            'Label' => 'Input Label Turunan!',
             'Sandi_Utama' => 'Input Sandi Utama!',
             'Label_Utama' => 'Input Label Utama!',
         ]);

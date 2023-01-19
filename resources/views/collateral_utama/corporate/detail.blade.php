@@ -27,8 +27,8 @@ Detail
             <div class="col-sm-8">: {{ $corporate->Counter_Corporate_Guarantee }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nilai Corporate Guarantee (Rp)</label></div>
-            <div class="col-sm-8">: {{ number_format($corporate->Nilai_Corporate_Guarantee) }}</div>
+            <div class="col-sm-4"><label>Nilai Corporate Guarantee</label></div>
+            <div class="col-sm-8">: Rp{{ number_format($corporate->Nilai_Corporate_Guarantee) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nama PT Penerima Corporate Guarantee</label></div>

@@ -41,16 +41,22 @@ Edit
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Corporate Guarantee<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Nilai Corporate Guarantee<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nilai_Corporate_Guarantee_Tambahan" value='{{number_format($corporatetbh->Nilai_Corporate_Guarantee_Tambahan)}}'
-                class="form-control number-separator" style="width: 300px; height: 30px;">
+        <div class="input-group" style="width: 300px; height: 38px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+            <input type="text" class="form-control number-separator" value='{{number_format($corporatetbh->Nilai_Corporate_Guarantee_Tambahan)}}' placeholder="Nilai Corporate Guarantee" name="Nilai_Corporate_Guarantee_Tambahan">
+            </div>
             @error('Nilai_Corporate_Guarantee_Tambahan')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama PT Penerima Corporate Guarantee<span class="text-danger">*</span></label>
         </div>
@@ -86,14 +92,16 @@ Edit
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Status_Tambahan" value='{{$corporatetbh->Status_Tambahan}}' class="form-control"
-                style="width: 300px; height: 30px;">
-            @error('Status_Tambahan')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
+            <select name="Status_Tambahan" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option value="{{ $corporatetbh->Status_Tambahan }}">{{ $corporatetbh->Status_Tambahan }}</option>
+                <option value="Pending">Pending</option>
+                <option value="To Be Obtained">To Be Obtained</option>
+                <option value="Diterima">Diterima</option>
+            </select>
         </div>
     </div>
 

@@ -17,7 +17,7 @@
         <div class="row pb-3">
             <div class="col-sm-4"><label>Jenis Pembiayaan <span class="text-danger">*</span></label></div>
             <div class="col-sm-8">
-                <input type="text" name="jenis_pembiayaan" class="form-control" style="width: 300px; height: 30px;">
+                <input type="text" name="jenis_pembiayaan" class="form-control" placeholder="Jenis Pembiayaan" style="width: 300px; height: 30px;">
                 @error('jenis_pembiayaan')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror

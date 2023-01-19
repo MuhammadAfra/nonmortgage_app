@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Imports\DebiturBadanUsahaImport;
 use Illuminate\Http\Request;
+use App\Models\Partner;
 use App\Models\Master_Product;
 use App\Models\Master_Asuransi;
 use App\Models\Debitur_Badan_Usaha;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
+
 
 class DebiturBadanUsahaController extends Controller
 {
@@ -33,7 +36,8 @@ class DebiturBadanUsahaController extends Controller
     {
         $prod = Master_Product::all();
         $asuransi = Master_Asuransi::all();
-        return view('debitur_badan_usaha.create', compact('prod', 'asuransi'));
+        $partner = Partner::all();
+        return view('debitur_badan_usaha.create', compact('prod', 'asuransi', 'partner'));
     }
 
     /**
@@ -106,6 +110,12 @@ class DebiturBadanUsahaController extends Controller
             $inventori = str_replace( ',', '', $request->Nilai_Inventory);
         }else{
             $inventori = NULL;
+        }
+
+        if ($request->Nilai_Jaminan_Lainnya != NULL) {
+            $nilai_jaminan_lainnya = str_replace( ',', '', $request->Nilai_Jaminan_Lainnya);
+        }else{
+            $nilai_jaminan_lainnya = NULL;
         }
 
         if ($request->DOWN_PAYMENT_CUSTOMER != NULL) {
@@ -247,6 +257,7 @@ class DebiturBadanUsahaController extends Controller
             $deb->save();
         }
 
+        $deb->PARTNER_ID = $request->PARTNER_ID;
         $deb->NAMA_PERUSAHAAN = $request->NAMA_PERUSAHAAN;
         $deb->ALAMAT_PERUSAHAAN = $request->ALAMAT_PERUSAHAAN;
         $deb->STATUS_BADAN_HUKUM = $request->STATUS_BADAN_HUKUM;
@@ -274,6 +285,7 @@ class DebiturBadanUsahaController extends Controller
         $deb->Jaminan_Inventory = $request->Jaminan_Inventory;
         $deb->Nilai_Inventory = $inventori;
         $deb->Jaminan_Lainnya = $request->Jaminan_Lainnya;
+        $deb->Nilai_Jaminan_Lainnya = $nilai_jaminan_lainnya;
         $deb->APAKAH_ADA_DP = $request->APAKAH_ADA_DP;
         $deb->DOWN_PAYMENT_CUSTOMER = $dp;
         $deb->Status = $request->Status;
@@ -309,7 +321,8 @@ class DebiturBadanUsahaController extends Controller
         $deb = Debitur_Badan_Usaha::findorfail($id);
         $asuransi = Master_Asuransi::all();
         $m_prod = Master_Product::all();
-        return view('debitur_badan_usaha.edit', compact('deb','asuransi','m_prod'));
+        $partner = Partner::all();
+        return view('debitur_badan_usaha.edit', compact('deb','asuransi','m_prod', 'partner'));
     }
 
     /**
@@ -363,6 +376,12 @@ class DebiturBadanUsahaController extends Controller
             $inventori = str_replace( ',', '', $request->Nilai_Inventory);
         }else{
             $inventori = NULL;
+        }
+
+        if ($request->Nilai_Jaminan_Lainnya != NULL) {
+            $nilai_jaminan_lainnya = str_replace( ',', '', $request->Nilai_Jaminan_Lainnya);
+        }else{
+            $nilai_jaminan_lainnya = NULL;
         }
 
         if ($request->DOWN_PAYMENT_CUSTOMER != NULL) {
@@ -681,6 +700,7 @@ class DebiturBadanUsahaController extends Controller
             }
         }
 
+        $deb->PARTNER_ID = $request->PARTNER_ID;
         $deb->NAMA_PERUSAHAAN = $request->NAMA_PERUSAHAAN;
         $deb->ALAMAT_PERUSAHAAN = $request->ALAMAT_PERUSAHAAN;
         $deb->STATUS_BADAN_HUKUM = $request->STATUS_BADAN_HUKUM;
@@ -708,6 +728,7 @@ class DebiturBadanUsahaController extends Controller
         $deb->Jaminan_Inventory = $request->Jaminan_Inventory;
         $deb->Nilai_Inventory = $inventori;
         $deb->Jaminan_Lainnya = $request->Jaminan_Lainnya;
+        $deb->Nilai_Jaminan_Lainnya = $nilai_jaminan_lainnya;
         $deb->APAKAH_ADA_DP = $request->APAKAH_ADA_DP;
         $deb->DOWN_PAYMENT_CUSTOMER = $dp;
         $deb->Status = $request->Status;
