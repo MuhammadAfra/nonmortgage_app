@@ -61,7 +61,6 @@ class DebiturBadanUsahaController extends Controller
             'MODAL_PERUBAHAN_TERAKHIR' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
-            'BANK_STATEMENT_LAST_3_MONTHS' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'DRAFT_TEMPLATE_AGREEMENT_END_USER' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'CONTOH_RISK_ACCEPTANCE_CRITERIA' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
@@ -69,7 +68,6 @@ class DebiturBadanUsahaController extends Controller
         ]);
 
         
-        // $deb = Debitur_Badan_Usaha::create($request->all());
         if ($request->Nilai_Asuransi != NULL) {
             $asuransi = str_replace( ',', '', $request->Nilai_Asuransi);
         }else{
@@ -124,6 +122,7 @@ class DebiturBadanUsahaController extends Controller
             $dp = NULL;
         }
 
+
         $deb = new Debitur_Badan_Usaha();
 
         if ($request->hasFile('AKTE_LAIN_LAIN')) 
@@ -133,6 +132,17 @@ class DebiturBadanUsahaController extends Controller
                 $all->move(public_path().'/data_debitur/', $akte_name);
                 $data[] = $akte_name;
                 $deb->AKTE_LAIN_LAIN = json_encode($data);
+                $deb->save();   
+            }
+        }
+
+        if ($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS')) 
+        {
+            foreach ($request->file('BANK_STATEMENT_LAST_3_MONTHS') as $bank) {
+                $bank_state = 'BNKST'.rand(1,99999).'.'.$bank->getClientOriginalExtension();
+                $bank->move(public_path().'/data_debitur/', $bank_state);
+                $data_bank[] = $bank_state;
+                $deb->BANK_STATEMENT_LAST_3_MONTHS = json_encode($data_bank);
                 $deb->save();   
             }
         }
@@ -214,14 +224,6 @@ class DebiturBadanUsahaController extends Controller
             $name_inhouse = 'IHFS'.rand(1,99999).'.'.$request->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR->getClientOriginalExtension();
             $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->move(public_path().'/data_debitur/', $name_inhouse);
             $deb->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR = $name_inhouse;
-            $deb->save();
-        }
-
-        if($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS'))
-        {
-            $name_bank = 'BNKST'.rand(1,99999).'.'.$request->BANK_STATEMENT_LAST_3_MONTHS->getClientOriginalExtension();
-            $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move(public_path().'/data_debitur/', $name_bank);
-            $deb->BANK_STATEMENT_LAST_3_MONTHS = $name_bank;
             $deb->save();
         }
 
@@ -414,6 +416,31 @@ class DebiturBadanUsahaController extends Controller
                 }
             }
         }
+
+        if ($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS')) 
+        {
+            if ($deb->BANK_STATEMENT_LAST_3_MONTHS != NULL) {
+                $old = public_path('data_debitur/'.$deb->BANK_STATEMENT_LAST_3_MONTHS);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                    foreach ($request->file('BANK_STATEMENT_LAST_3_MONTHS') as $bank) {
+                    $bank_state = 'BNKST'.rand(1,99999).'.'.$bank->getClientOriginalExtension();
+                    $bank->move(public_path().'/data_debitur/', $bank_state);
+                    $data_bank[] = $bank_state;
+                    $deb->BANK_STATEMENT_LAST_3_MONTHS = json_encode($data_bank);
+                    $deb->save();   
+                }
+            }else{
+                foreach ($request->file('BANK_STATEMENT_LAST_3_MONTHS') as $bank) {
+                    $bank_state = 'BNKST'.rand(1,99999).'.'.$bank->getClientOriginalExtension();
+                    $bank->move(public_path().'/data_debitur/', $bank_state);
+                    $data_bank[] = $bank_state;
+                    $deb->BANK_STATEMENT_LAST_3_MONTHS = json_encode($data_bank);
+                    $deb->save();   
+                }
+            }
+        }
         
         if($request->hasFile('AKTE_PENDIRIAN'))
         {
@@ -601,25 +628,6 @@ class DebiturBadanUsahaController extends Controller
                 $name_inhouse = 'IHFS'.rand(1,99999).'.'.$request->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR->getClientOriginalExtension();
                 $request->file('IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR')->move(public_path().'/data_debitur/', $name_inhouse);
                 $deb->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR = $name_inhouse;
-                $deb->save();
-            }
-        }
-
-        if($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS'))
-        {
-            if ($deb->BANK_STATEMENT_LAST_3_MONTHS != NULL){
-                $old = public_path('data_debitur/'.$deb->BANK_STATEMENT_LAST_3_MONTHS);
-                if (File::exists($old)) {
-                    unlink($old);
-                }
-                $name_bank = 'BNKST'.rand(1,99999).'.'.$request->BANK_STATEMENT_LAST_3_MONTHS->getClientOriginalExtension();
-                $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move(public_path().'/data_debitur/', $name_bank);
-                $deb->BANK_STATEMENT_LAST_3_MONTHS = $name_bank;
-                $deb->save();
-            }else{
-                $name_bank = 'BNKST'.rand(1,99999).'.'.$request->BANK_STATEMENT_LAST_3_MONTHS->getClientOriginalExtension();
-                $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move(public_path().'/data_debitur/', $name_bank);
-                $deb->BANK_STATEMENT_LAST_3_MONTHS = $name_bank;
                 $deb->save();
             }
         }

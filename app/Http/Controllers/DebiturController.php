@@ -45,34 +45,7 @@ class DebiturController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $this->validate($request,[
-            'PARTNER_ID' => 'required',
-            'NAMA_DEBITUR' => 'required',
-            'TANGGAL_LAHIR' => 'required',
-            'NO_KTP' => 'required',
-            'NO_NPWP' => 'required',
-            'ALAMAT_CUSTOMER' => 'required',
-            'PROVINSI' => 'required',
-            'KABUPATEN_KOTA' => 'required',
-            'KECAMATAN' => 'required',
-            'KELURAHAN' => 'required',
-            'KODE_POS' => 'required',
-            'NAMA_PERUSAHAAN' => 'required',
-            'BIDANG_USAHA' => 'required',
-            // 'SUB_BIDANG_USAHA' => 'required',
-            'LAMA_USAHA' => 'required',
-            'JABATAN' => 'required',
-            'TANGGUNGAN' => 'required',
-            'INCOME_BULAN' => 'required',
-            'SUPOUSE_INCOME_BULAN' => 'required',
-            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1' => 'required',
-            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2' => 'required',
-            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3' => 'required',
-            'APAKAH_ADA_DP' => 'required',
-            'Jenis_Asuransi_Id' => 'required',
-            ]);
-            
+    {       
             if ($request->Nilai_Asuransi != NULL) {
                 $asuransi = str_replace( ',', '', $request->Nilai_Asuransi);
             }else{
@@ -126,6 +99,30 @@ class DebiturController extends Controller
             }else{
                 $dp = NULL;
             }
+
+            if ($request->SUPOUSE_INCOME_BULAN != NULL) {
+                $spouse = str_replace( ',', '', $request->SUPOUSE_INCOME_BULAN);
+            }else{
+                $spouse = NULL;
+            }
+            
+            if ($request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1 != NULL) {
+                $rek_koran1 = str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1);
+            }else{
+                $rek_koran1 = NULL;
+            }
+            
+            if ($request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2 != NULL) {
+                $rek_koran2 = str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2);
+            }else{
+                $rek_koran2 = NULL;
+            }
+            
+            if ($request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3 != NULL) {
+                $rek_koran3 = str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3);
+            }else{
+                $rek_koran3 = NULL;
+            }
             
             $debitur = new Debitur();
             $debitur->PARTNER_ID = $request->PARTNER_ID;
@@ -141,15 +138,14 @@ class DebiturController extends Controller
             $debitur->KODE_POS = $request->KODE_POS;
             $debitur->NAMA_PERUSAHAAN = $request->NAMA_PERUSAHAAN;
             $debitur->BIDANG_USAHA = $request->BIDANG_USAHA;
-            // $debitur->SUB_BIDANG_USAHA = $request->SUB_BIDANG_USAHA;
             $debitur->LAMA_USAHA = $request->LAMA_USAHA;
             $debitur->JABATAN = $request->JABATAN;
             $debitur->TANGGUNGAN = $request->TANGGUNGAN;
             $debitur->INCOME_BULAN = str_replace( ',', '', $request->INCOME_BULAN);
-            $debitur->SUPOUSE_INCOME_BULAN = str_replace( ',', '', $request->SUPOUSE_INCOME_BULAN);
-            $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1 = str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1);
-            $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2 = str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2);
-            $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3 = str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3);
+            $debitur->SUPOUSE_INCOME_BULAN = $spouse;
+            $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1 = $rek_koran1;
+            $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2 = $rek_koran2;
+            $debitur->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3 = $rek_koran3;
             $debitur->Jenis_Asuransi_Id = $request->Jenis_Asuransi_Id;
             $debitur->Perusahaan_Asuransi = $request->Perusahaan_Asuransi;
             $debitur->Persen_Asuransi = str_replace( ',', '.', $request->Persen_Asuransi);
@@ -170,8 +166,8 @@ class DebiturController extends Controller
             $debitur->Nilai_Jaminan_Lainnya = $nilai_jaminan_lainnya;
             $debitur->APAKAH_ADA_DP = $request->APAKAH_ADA_DP;
             $debitur->DOWN_PAYMENT_CUSTOMER = $dp;
-            // dd($debitur);
             $debitur->save();
+            // dd($debitur);
 
         return redirect('debitur');
     }
@@ -212,33 +208,7 @@ class DebiturController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'PARTNER_ID' => 'required',
-            'NAMA_DEBITUR' => 'required',
-            'TANGGAL_LAHIR' => 'required',
-            'NO_KTP' => 'required',
-            'NO_NPWP' => 'required',
-            'ALAMAT_CUSTOMER' => 'required',
-            'PROVINSI' => 'required',
-            'KABUPATEN_KOTA' => 'required',
-            'KECAMATAN' => 'required',
-            'KELURAHAN' => 'required',
-            'KODE_POS' => 'required',
-            'NAMA_PERUSAHAAN' => 'required',
-            'BIDANG_USAHA' => 'required',
-            // 'SUB_BIDANG_USAHA' => 'required',
-            'LAMA_USAHA' => 'required',
-            'JABATAN' => 'required',
-            'TANGGUNGAN' => 'required',
-            'INCOME_BULAN' => 'required',
-            'SUPOUSE_INCOME_BULAN' => 'required',
-            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1' => 'required',
-            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2' => 'required',
-            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3' => 'required',
-            'APAKAH_ADA_DP' => 'required',
-            'Jenis_Asuransi_Id' => 'required',
-            ]);
-            
+
         $debitur = Debitur::findorfail($id);
         if ($request->Nilai_Asuransi != NULL || $request->Nilai_Asuransi != 0) {
             $asuransi = str_replace( ',', '', $request->Nilai_Asuransi);
@@ -294,6 +264,30 @@ class DebiturController extends Controller
             $dp = NULL;
         }
 
+        if ($request->SUPOUSE_INCOME_BULAN != NULL || $request->SUPOUSE_INCOME_BULAN != 0) {
+            $spouse = str_replace( ',', '', $request->SUPOUSE_INCOME_BULAN);
+        }else{
+            $spouse = NULL;
+        }
+        
+        if ($request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1 != NULL || $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1 != 0) {
+            $rek_koran1 = str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1);
+        }else{
+            $rek_koran1 = NULL;
+        }
+        
+        if ($request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2 != NULL || $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2 != 0) {
+            $rek_koran2 = str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2);
+        }else{
+            $rek_koran2 = NULL;
+        }
+        
+        if ($request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3 != NULL || $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3 != 0) {
+            $rek_koran3 = str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3);
+        }else{
+            $rek_koran3 = NULL;
+        }
+
         $debitur->update([
             'PARTNER_ID' => $request->PARTNER_ID,
             'NAMA_DEBITUR' => $request->NAMA_DEBITUR,
@@ -308,15 +302,14 @@ class DebiturController extends Controller
             'KODE_POS' => $request->KODE_POS,
             'NAMA_PERUSAHAAN' => $request->NAMA_PERUSAHAAN,
             'BIDANG_USAHA' => $request->BIDANG_USAHA,
-            // 'SUB_BIDANG_USAHA' => $request->SUB_BIDANG_USAHA,
             'LAMA_USAHA' => $request->LAMA_USAHA,
             'JABATAN' => $request->JABATAN,
             'TANGGUNGAN' => $request->TANGGUNGAN,
             'INCOME_BULAN' => str_replace( ',', '', $request->INCOME_BULAN),
-            'SUPOUSE_INCOME_BULAN' => str_replace( ',', '', $request->SUPOUSE_INCOME_BULAN),
-            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1' => str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1),
-            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2' => str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2),
-            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3' => str_replace( ',', '', $request->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3),
+            'SUPOUSE_INCOME_BULAN' => $spouse,
+            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1' => $rek_koran1,
+            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2' => $rek_koran2,
+            'REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3' => $rek_koran3,
             'Jenis_Asuransi_Id' => $request->Jenis_Asuransi_Id,
             'Perusahaan_Asuransi' => $request->Perusahaan_Asuransi,
             'Persen_Asuransi' => str_replace( ',', '.', $request->Persen_Asuransi), 

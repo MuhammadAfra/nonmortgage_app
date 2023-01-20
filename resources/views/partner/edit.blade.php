@@ -207,9 +207,15 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Bank Statement Last 3 Years</label></div>
         <div class="col-sm-8">
-            <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
-                <input type="file" class="custom-file-input" name="BANK_STATEMENT_LAST_3_MONTHS">
-                <label class="custom-file-label">{{ $partner->BANK_STATEMENT_LAST_3_MONTHS }}</label>
+            <div class="custom-file"  style="width: 500px; height: 30px;">
+                <input type="file" class="custom-file-input" name="BANK_STATEMENT_LAST_3_MONTHS[]" multiple>
+                <label class="custom-file-label">
+                    @if ($partner->BANK_STATEMENT_LAST_3_MONTHS != NULL)
+                        @foreach (json_decode($partner->BANK_STATEMENT_LAST_3_MONTHS) as $item)
+                            {{ $item }},
+                        @endforeach
+                    @endif
+                </label>
             </div>
         </div>
     </div>
@@ -254,6 +260,28 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
+        <div class="col-sm-4"><label>Pengganti Asuransi <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4 d-flex">
+            <div class="d-flex">
+                <input type="radio" value="ADA" style="width: 15px" required name="PENGGANTI_ASURANSI" {{ $partner->PENGGANTI_ASURANSI == 'ADA' ? 'checked' : '' }} class="form-control" onchange="checkASR(this)">
+                <p class="my-auto mx-2" style="font-weight: 600">Ada</p>
+            </div>
+            <div class=" d-flex">
+                <input type="radio" value="TIDAK" style="width: 15px" required name="PENGGANTI_ASURANSI" {{ $partner->PENGGANTI_ASURANSI == 'TIDAK' ? 'checked' : '' }} class="form-control" onchange="checkASR(this)">
+                <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>File Pengganti Asuransi </label></div>
+        <div class="col-sm-8">
+            <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
+                <input id="pengganti" type="file" class="custom-file-input" name="FILE_PENGGANTI_ASURANSI" {{ $partner->PENGGANTI_ASURANSI == 'TIDAK' ? 'disabled' : '' }}>
+                <label class="custom-file-label">{{ $partner->FILE_PENGGANTI_ASURANSI }}</label>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-3">
         <div class="col-sm-4"><label>Status</label></div>
         <div class="col-sm-8">
             <select name="Status" class="form-control py-0" style="width: 500px; height: 40px;">
@@ -290,4 +318,11 @@ Edit
         </div>
     </div>
 </form>
+<script type="text/javascript">
+    function checkASR(obj) 
+    {
+        var pengganti = document.getElementById("pengganti");
+        pengganti.disabled = obj.value == "TIDAK";
+    }
+</script>
 @endsection

@@ -12,7 +12,6 @@ use App\Http\Controllers\MasterAsuransiController;
 use App\Http\Controllers\CollateralMobilController;
 use App\Http\Controllers\CollateralMotorController;
 use App\Http\Controllers\CollateralRumahController;
-use App\Http\Controllers\CollateralUtamaController;
 use App\Http\Controllers\MasterSukuBungaController;
 use App\Http\Controllers\CollateralInvoiceController;
 use App\Http\Controllers\MasterJenisProductController;
@@ -29,7 +28,6 @@ use App\Http\Controllers\CollateralInvoiceTambahanController;
 use App\Http\Controllers\CollateralCorporateTambahanController;
 use App\Http\Controllers\CollateralInventoryTambahanController;
 use App\Http\Controllers\DebiturBadanUsahaController;
-use App\Models\Master_Asuransi;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +62,7 @@ Route::get('/dw_siup/{SIUP}', [PartnerController::class, 'download'])->name('dw_
 Route::get('/dw_akte_ad/{AKTE_PERUBAHAN_ANGGARAN_DASAR}', [PartnerController::class, 'download'])->name('dw_akte_ad');
 Route::get('/dw_mdl_diri/{MODAL_PENDIRIAN}', [PartnerController::class, 'download'])->name('dw_mdl_diri');
 Route::get('/dw_all/{AKTE_LAIN_LAIN}', [PartnerController::class, 'download'])->name('dw_all');
+Route::get('/dw_asuransi/{FILE_PENGGANTI_ASURANSI}', [PartnerController::class, 'download'])->name('dw_asuransi');
 
 Route::get('/dw_deb_akte_pendirian/{AKTE_PENDIRIAN}', [DebiturBadanUsahaController::class, 'download'])->name('dw_akte_pendirian');
 Route::get('/dw_deb_tdp/{TDP}', [DebiturBadanUsahaController::class, 'download'])->name('dw_tdp');

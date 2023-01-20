@@ -10,6 +10,7 @@ class Debitur extends Model
     use HasFactory;
     protected $table = 'debitur';
     protected $fillable = [
+        'PARTNER_ID',
         'NAMA_DEBITUR',
         'TANGGAL_LAHIR',
         'NO_KTP',
@@ -22,7 +23,6 @@ class Debitur extends Model
         'KODE_POS',
         'NAMA_PERUSAHAAN',
         'BIDANG_USAHA',
-        // 'SUB_BIDANG_USAHA',
         'LAMA_USAHA',
         'JABATAN',
         'TANGGUNGAN',

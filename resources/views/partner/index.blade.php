@@ -73,6 +73,8 @@ Home
                     <th>Draft Template Agree End User</th>
                     <th>Contoh Risk Acceptance Criteria</th>
                     <th>NDA Document</th>
+                    <th>Pengganti Asuransi</th>
+                    <th>File Pengganti Asuransi</th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -96,11 +98,11 @@ Home
                     <td>{{ $item->AKTE_PENDIRIAN }}</td>
                     <td>{{ $item->COMPANY_PROFILE }}</td>
                     <td>
-                    @if ($item->AKTE_LAIN_LAIN != NULL)
-                        @foreach (json_decode($item->AKTE_LAIN_LAIN) as $file)
-                            {{ $file }}
-                        @endforeach   
-                    @endif 
+                        @if ($item->AKTE_LAIN_LAIN != NULL)
+                            @foreach (json_decode($item->AKTE_LAIN_LAIN) as $file)
+                                {{ $file }}
+                            @endforeach   
+                        @endif 
                     </td>
                     <td>{{ $item->master_product->nama_product }}</td>
                     <td>{{ $item->AKTE_PERUBAHAN_ANGGARAN_DASAR }}</td>
@@ -117,11 +119,19 @@ Home
                     <td>{{ $item->MODAL_PERUBAHAN_TERAKHIR }}</td>
                     <td>{{ $item->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS }}</td>
                     <td>{{ $item->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR }}</td>
-                    <td>{{ $item->BANK_STATEMENT_LAST_3_MONTHS }}</td>
+                    <td>
+                        @if ($item->BANK_STATEMENT_LAST_3_MONTHS != NULL)
+                            @foreach (json_decode($item->BANK_STATEMENT_LAST_3_MONTHS) as $file)
+                                {{ $file }}
+                            @endforeach   
+                        @endif 
+                    </td>
                     <td>{{ $item->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS }}</td>
                     <td>{{ $item->DRAFT_TEMPLATE_AGREEMENT_END_USER }}</td>
                     <td>{{ $item->CONTOH_RISK_ACCEPTANCE_CRITERIA }}</td>
                     <td>{{ $item->NDA_DOCUMENT }}</td>
+                    <td>{{ $item->PENGGANTI_ASURANSI }}</td>
+                    <td>{{ $item->FILE_PENGGANTI_ASURANSI }}</td>
                     <td>{{ $item->Status }}</td>
                 </tr>
                 @endforeach

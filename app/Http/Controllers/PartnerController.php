@@ -55,7 +55,6 @@ class PartnerController extends Controller
             'MODAL_PERUBAHAN_TERAKHIR' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
-            'BANK_STATEMENT_LAST_3_MONTHS' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'DRAFT_TEMPLATE_AGREEMENT_END_USER' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
             'CONTOH_RISK_ACCEPTANCE_CRITERIA' => 'mimes:png,jpg,jpeg,csv,txt,xlx,xls,xlsx,pdf,doc,docx,ppt,pptx',
@@ -71,6 +70,17 @@ class PartnerController extends Controller
                 $all->move(public_path().'/data_partner/', $akte_name);
                 $data[] = $akte_name;
                 $partner->AKTE_LAIN_LAIN = json_encode($data);
+                $partner->save();   
+            }
+        }
+
+        if ($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS')) 
+        {
+            foreach ($request->file('BANK_STATEMENT_LAST_3_MONTHS') as $bank) {
+                $bank_state = 'BNKST'.rand(1,99999).'.'.$bank->getClientOriginalExtension();
+                $bank->move(public_path().'/data_partner/', $bank_state);
+                $data_bank[] = $bank_state;
+                $partner->BANK_STATEMENT_LAST_3_MONTHS = json_encode($data_bank);
                 $partner->save();   
             }
         }
@@ -155,14 +165,6 @@ class PartnerController extends Controller
             $partner->save();
         }
 
-        if($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS'))
-        {
-            $name_bank = 'BNKST'.rand(1,99999).'.'.$request->BANK_STATEMENT_LAST_3_MONTHS->getClientOriginalExtension();
-            $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move(public_path().'/data_partner/', $name_bank);
-            $partner->BANK_STATEMENT_LAST_3_MONTHS = $name_bank;
-            $partner->save();
-        }
-
         if($request->hasFile('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS'))
         {
             $name_fp = 'FINPRJ'.rand(1,99999).'.'.$request->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS->getClientOriginalExtension();
@@ -195,6 +197,14 @@ class PartnerController extends Controller
             $partner->save();
         }
 
+        if($request->hasFile('FILE_PENGGANTI_ASURANSI'))
+        {
+            $name_asuransi = 'PGNTIASR'.rand(1,99999).'.'.$request->FILE_PENGGANTI_ASURANSI->getClientOriginalExtension();
+            $request->file('FILE_PENGGANTI_ASURANSI')->move(public_path().'/data_partner/', $name_asuransi);
+            $partner->FILE_PENGGANTI_ASURANSI = $name_asuransi;
+            $partner->save();
+        }
+
         $partner->NAMA_PERUSAHAAN = $request->NAMA_PERUSAHAAN;
         $partner->ALAMAT_PERUSAHAAN = $request->ALAMAT_PERUSAHAAN;
         $partner->STATUS_BADAN_HUKUM = $request->STATUS_BADAN_HUKUM;
@@ -206,6 +216,7 @@ class PartnerController extends Controller
         $partner->Nama_Direktur_2 = $request->Nama_Direktur_2;
         $partner->No_Identitas_Direktur2 = $request->No_Identitas_Direktur2;
         $partner->Status = $request->Status;
+        $partner->PENGGANTI_ASURANSI = $request->PENGGANTI_ASURANSI;
         $partner->save();
         // dd($partner);
 
@@ -273,6 +284,31 @@ class PartnerController extends Controller
                     $all->move(public_path().'/data_partner/', $akte_name);
                     $data[] = $akte_name;
                     $partner->AKTE_LAIN_LAIN = json_encode($data);
+                    $partner->save();   
+                }
+            }
+        }
+
+        if ($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS')) 
+        {
+            if ($partner->BANK_STATEMENT_LAST_3_MONTHS != NULL) {
+                $old = public_path('data_debitur/'.$partner->BANK_STATEMENT_LAST_3_MONTHS);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                    foreach ($request->file('BANK_STATEMENT_LAST_3_MONTHS') as $bank) {
+                    $bank_state = 'BNKST'.rand(1,99999).'.'.$bank->getClientOriginalExtension();
+                    $bank->move(public_path().'/data_debitur/', $bank_state);
+                    $data_bank[] = $bank_state;
+                    $partner->BANK_STATEMENT_LAST_3_MONTHS = json_encode($data_bank);
+                    $partner->save();   
+                }
+            }else{
+                foreach ($request->file('BANK_STATEMENT_LAST_3_MONTHS') as $bank) {
+                    $bank_state = 'BNKST'.rand(1,99999).'.'.$bank->getClientOriginalExtension();
+                    $bank->move(public_path().'/data_debitur/', $bank_state);
+                    $data_bank[] = $bank_state;
+                    $partner->BANK_STATEMENT_LAST_3_MONTHS = json_encode($data_bank);
                     $partner->save();   
                 }
             }
@@ -468,25 +504,6 @@ class PartnerController extends Controller
             }
         }
 
-        if($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS'))
-        {
-            if ($partner->BANK_STATEMENT_LAST_3_MONTHS != NULL){
-                $old = public_path('data_partner/'.$partner->BANK_STATEMENT_LAST_3_MONTHS);
-                if (File::exists($old)) {
-                    unlink($old);
-                }
-                $name_bank = 'BNKST'.rand(1,99999).'.'.$request->BANK_STATEMENT_LAST_3_MONTHS->getClientOriginalExtension();
-                $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move(public_path().'/data_partner/', $name_bank);
-                $partner->BANK_STATEMENT_LAST_3_MONTHS = $name_bank;
-                $partner->save();
-            }else{
-                $name_bank = 'BNKST'.rand(1,99999).'.'.$request->BANK_STATEMENT_LAST_3_MONTHS->getClientOriginalExtension();
-                $request->file('BANK_STATEMENT_LAST_3_MONTHS')->move(public_path().'/data_partner/', $name_bank);
-                $partner->BANK_STATEMENT_LAST_3_MONTHS = $name_bank;
-                $partner->save();
-            }
-        }
-
         if($request->hasFile('FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS'))
         {
             if ($partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS != NULL){
@@ -563,6 +580,25 @@ class PartnerController extends Controller
             }
         }
 
+        if($request->hasFile('FILE_PENGGANTI_ASURANSI'))
+        {
+            if ($partner->FILE_PENGGANTI_ASURANSI != NULL){
+                $old = public_path('data_partner/'.$partner->FILE_PENGGANTI_ASURANSI);
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                $name_asuransi = 'PGNTIASR'.rand(1,99999).'.'.$request->FILE_PENGGANTI_ASURANSI->getClientOriginalExtension();
+                $request->file('FILE_PENGGANTI_ASURANSI')->move(public_path().'/data_partner/', $name_asuransi);
+                $partner->FILE_PENGGANTI_ASURANSI = $name_asuransi;
+                $partner->save();
+            }else{
+                $name_asuransi = 'PGNTIASR'.rand(1,99999).'.'.$request->FILE_PENGGANTI_ASURANSI->getClientOriginalExtension();
+                $request->file('FILE_PENGGANTI_ASURANSI')->move(public_path().'/data_partner/', $name_asuransi);
+                $partner->FILE_PENGGANTI_ASURANSI = $name_asuransi;
+                $partner->save();
+            }
+        }
+
         $partner->NAMA_PERUSAHAAN = $request->NAMA_PERUSAHAAN;
         $partner->ALAMAT_PERUSAHAAN = $request->ALAMAT_PERUSAHAAN;
         $partner->STATUS_BADAN_HUKUM = $request->STATUS_BADAN_HUKUM;
@@ -574,6 +610,7 @@ class PartnerController extends Controller
         $partner->Nama_Direktur_2 = $request->Nama_Direktur_2;
         $partner->No_Identitas_Direktur2 = $request->No_Identitas_Direktur2;
         $partner->Status = $request->Status;
+        $partner->PENGGANTI_ASURANSI = $request->PENGGANTI_ASURANSI;
         $partner->save();
 
         return redirect('partner');

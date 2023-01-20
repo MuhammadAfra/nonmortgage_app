@@ -147,11 +147,14 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Bank Statement <br> 
-            @if ($partner->BANK_STATEMENT_LAST_3_MONTHS != NULL)
-            <a href="{{ url('/dw_bank', $partner->BANK_STATEMENT_LAST_3_MONTHS) }}">Download File</a>
-            @endif
-            </label></div>
-            <div class="col-sm-8">: {{ $partner->BANK_STATEMENT_LAST_3_MONTHS }}</div>
+        </label></div>
+            <div class="col-sm-8">: 
+                @if ($partner->BANK_STATEMENT_LAST_3_MONTHS != NULL)
+                    @foreach (json_decode($partner->BANK_STATEMENT_LAST_3_MONTHS) as $item)
+                        {{ $item }} | <a href="{{ url('/dw_bank', $item) }}">Download File</a> <br>
+                    @endforeach
+                @endif
+            </div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Financial Projection <br> 
@@ -184,6 +187,18 @@ Detail
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->NDA_DOCUMENT }}</div>
+        </div>    
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Pengganti Asuransi</label></div>
+            <div class="col-sm-8">: {{ $partner->PENGGANTI_ASURANSI }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>FILE PENGGANTI ASURANSI <br> 
+            @if ($partner->FILE_PENGGANTI_ASURANSI != NULL)
+                <a href="{{ url('/dw_asuransi', $partner->FILE_PENGGANTI_ASURANSI) }}">Download File</a>
+            @endif
+            </label></div>
+            <div class="col-sm-8">: {{ $partner->FILE_PENGGANTI_ASURANSI }}</div>
         </div>    
         <div class="row pb-3">
             <div class="col-sm-4"><label>Status</label></div>
