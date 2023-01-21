@@ -117,71 +117,99 @@ Home
                     <td>{{ $item->KELURAHAN }}</td>
                     <td>{{ $item->KODE_POS }}</td>
                     <td>{{ $item->NAMA_PERUSAHAAN }}</td>
-                    <td>{{ $item->sektor->Label }}</td>
-                    <td>{{ $item->sektor->Label_Utama }}</td>
+                    <td>
+                        @if ($item->BIDANG_USAHA != NULL)
+                        {{ $item->sektor->Label }}
+                        @else
+                        <center>-</center>
+                        @endif
+                    </td>
+                    <td>
+                        @if ($item->BIDANG_USAHA != NULL)
+                        {{ $item->sektor->Label_Utama }}
+                        @else
+                        <center>-</center>
+                        @endif
+                    </td>
                     <td>{{ $item->LAMA_USAHA }}</td>
                     <td>{{ $item->JABATAN }}</td>
                     <td>{{ $item->TANGGUNGAN }}</td>
                     <td>Rp{{ number_format($item->INCOME_BULAN) }}</td>
-                    <td>Rp{{ number_format($item->SUPOUSE_INCOME_BULAN) }}</td>
-                    <td>Rp{{ number_format($item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1) }}</td>
-                    <td>Rp{{ number_format($item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2) }}</td>
-                    <td>Rp{{ number_format($item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3) }}</td>
+                    @if ($item->SUPOUSE_INCOME_BULAN != null )
+                        <td>Rp{{ number_format($item->SUPOUSE_INCOME_BULAN) }}</td>
+                    @else
+                        <td><center>-</center></td>
+                    @endif
+                    @if ($item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1 != null )
+                        <td>Rp{{ number_format($item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_1) }}</td>
+                    @else
+                        <td><center>-</center></td>
+                    @endif
+                    @if ($item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2 != null )
+                        <td>Rp{{ number_format($item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_2) }}</td>
+                    @else
+                        <td><center>-</center></td>
+                    @endif
+                    @if ($item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3 != null )
+                        <td>Rp{{ number_format($item->REKENING_KORAN_3_BULAN_TERAKHIR_BULAN_3) }}</td>
+                    @else
+                        <td><center>-</center></td>
+                    @endif
                     <td>{{ $item->asuransi->Jenis_Asuransi }}</td>
                     <td>{{ $item->Perusahaan_Asuransi }}</td>
                     <td>{{ $item->Persen_Asuransi }}</td>
                     @if ($item->Nilai_Asuransi != null )
-                    <td>Rp{{ number_format($item->Nilai_Asuransi) }}</td>
+                        <td>Rp{{ number_format($item->Nilai_Asuransi) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Asuransi }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Sertifikat_Tanah }}</td>
                     @if ($item->Nilai_Sertifikat_Tanah != null)
                     <td>Rp{{ number_format($item->Nilai_Sertifikat_Tanah) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Sertifikat_Tanah }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Kendaraan_Bermotor_Mobil }}</td>
                     @if ($item->Nilai_Kendaraan_Bermotor_Mobil != null)
                     <td>Rp{{ number_format($item->Nilai_Kendaraan_Bermotor_Mobil) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Kendaraan_Bermotor_Mobil }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Kendaraan_Bermotor_Motor }}</td>
                     @if ($item->Nilai_Kendaraan_Bermotor_Motor != null)
                     <td>Rp{{ number_format($item->Nilai_Kendaraan_Bermotor_Motor) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Kendaraan_Bermotor_Motor }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Personel_Guarantee }}</td>
                     @if ($item->Nilai_Personel_Guarantee != null)
                     <td>Rp{{ number_format($item->Nilai_Personel_Guarantee) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Personel_Guarantee }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Invoice }}</td>
                     @if ($item->Nilai_Invoice != null)
                     <td>Rp{{ number_format($item->Nilai_Invoice) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Invoice }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Inventory }}</td>
                     @if ($item->Nilai_Inventory != null)
                     <td>Rp{{ number_format($item->Nilai_Inventory) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Inventory }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Lainnya  }}</td>
                     @if ($item->Nilai_Jaminan_Lainnya != null)
                     <td>Rp{{ number_format($item->Nilai_Jaminan_Lainnya) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Jaminan_Lainnya }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->APAKAH_ADA_DP }}</td>
                     @if ($item->DOWN_PAYMENT_CUSTOMER != null)
                     <td>Rp{{ number_format($item->DOWN_PAYMENT_CUSTOMER) }}</td>
                     @else
-                    <td>{{ $item->DOWN_PAYMENT_CUSTOMER }}</td>
+                        <td><center>-</center></td>
                     @endif
                 </tr>
                 @endforeach

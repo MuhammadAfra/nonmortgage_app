@@ -147,11 +147,14 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Bank Statement <br> 
-            @if ($deb->BANK_STATEMENT_LAST_3_MONTHS != NULL)
-            <a href="{{ url('/dw_deb_bank', $deb->BANK_STATEMENT_LAST_3_MONTHS) }}">Download File</a>
-            @endif
-            </label></div>
-            <div class="col-sm-8">: {{ $deb->BANK_STATEMENT_LAST_3_MONTHS }}</div>
+        </label></div>
+            <div class="col-sm-8">: 
+                @if ($deb->BANK_STATEMENT_LAST_3_MONTHS != NULL)
+                    @foreach (json_decode($deb->BANK_STATEMENT_LAST_3_MONTHS) as $item)
+                        {{ $item }} | <a href="{{ url('/dw_deb_bank', $item) }}">Download File</a> <br>
+                    @endforeach
+                @endif
+            </div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Financial Projection <br> 

@@ -117,13 +117,12 @@ Home
                     <td>{{ $item->STATUS_BADAN_HUKUM }}</td>
                     <td>{{ $item->AKTE_PENDIRIAN }}</td>
                     <td>{{ $item->COMPANY_PROFILE }}</td>
-                    {{-- <td>{{ $item->AKTE_LAIN_LAIN }}</td> --}}
                     <td>
-                    @if ($item->AKTE_LAIN_LAIN != NULL)
-                        @foreach (json_decode($item->AKTE_LAIN_LAIN) as $file)
-                            {{ $file }}
-                        @endforeach
-                    @endif
+                        @if ($item->AKTE_LAIN_LAIN != NULL)
+                            @foreach (json_decode($item->AKTE_LAIN_LAIN) as $file)
+                                {{ $file }}
+                            @endforeach
+                        @endif
                     </td>
                     <td>{{ $item->detil_product->nama_product }}</td>
                     <td>{{ $item->AKTE_PERUBAHAN_ANGGARAN_DASAR }}</td>
@@ -140,7 +139,13 @@ Home
                     <td>{{ $item->MODAL_PERUBAHAN_TERAKHIR }}</td>
                     <td>{{ $item->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS }}</td>
                     <td>{{ $item->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR }}</td>
-                    <td>{{ $item->BANK_STATEMENT_LAST_3_MONTHS }}</td>
+                    <td>
+                        @if ($item->BANK_STATEMENT_LAST_3_MONTHS != NULL)
+                            @foreach (json_decode($item->BANK_STATEMENT_LAST_3_MONTHS) as $file_bank)
+                                {{ $file_bank }}
+                            @endforeach
+                        @endif
+                    </td>
                     <td>{{ $item->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS }}</td>
                     <td>{{ $item->DRAFT_TEMPLATE_AGREEMENT_END_USER }}</td>
                     <td>{{ $item->CONTOH_RISK_ACCEPTANCE_CRITERIA }}</td>
@@ -149,57 +154,57 @@ Home
                     <td>{{ $item->Perusahaan_Asuransi }}</td>
                     <td>{{ $item->Persen_Asuransi }}</td>
                     @if ($item->Nilai_Asuransi != null )
-                    <td>Rp{{ number_format($item->Nilai_Asuransi) }}</td>
+                        <td>Rp{{ number_format($item->Nilai_Asuransi) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Asuransi }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Sertifikat_Tanah }}</td>
                     @if ($item->Nilai_Sertifikat_Tanah != null)
                     <td>Rp{{ number_format($item->Nilai_Sertifikat_Tanah) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Sertifikat_Tanah }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Kendaraan_Bermotor_Mobil }}</td>
                     @if ($item->Nilai_Kendaraan_Bermotor_Mobil != null)
                     <td>Rp{{ number_format($item->Nilai_Kendaraan_Bermotor_Mobil) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Kendaraan_Bermotor_Mobil }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Kendaraan_Bermotor_Motor }}</td>
                     @if ($item->Nilai_Kendaraan_Bermotor_Motor != null)
                     <td>Rp{{ number_format($item->Nilai_Kendaraan_Bermotor_Motor) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Kendaraan_Bermotor_Motor }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Personel_Guarantee }}</td>
                     @if ($item->Nilai_Personel_Guarantee != null)
                     <td>Rp{{ number_format($item->Nilai_Personel_Guarantee) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Personel_Guarantee }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Invoice }}</td>
                     @if ($item->Nilai_Invoice != null)
                     <td>Rp{{ number_format($item->Nilai_Invoice) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Invoice }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Inventory }}</td>
                     @if ($item->Nilai_Inventory != null)
                     <td>Rp{{ number_format($item->Nilai_Inventory) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Inventory }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Jaminan_Lainnya  }}</td>
                     @if ($item->Nilai_Jaminan_Lainnya != null)
                     <td>Rp{{ number_format($item->Nilai_Jaminan_Lainnya) }}</td>
                     @else
-                    <td>{{ $item->Nilai_Jaminan_Lainnya }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->APAKAH_ADA_DP }}</td>
                     @if ($item->DOWN_PAYMENT_CUSTOMER != null)
                     <td>Rp{{ number_format($item->DOWN_PAYMENT_CUSTOMER) }}</td>
                     @else
-                    <td>{{ $item->DOWN_PAYMENT_CUSTOMER }}</td>
+                        <td><center>-</center></td>
                     @endif
                     <td>{{ $item->Status }}</td>
                 </tr>

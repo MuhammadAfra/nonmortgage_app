@@ -204,8 +204,8 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Bank Statement Last 3 Years </label></div>
         <div class="col-sm-8">
-            <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
-                <input type="file" class="custom-file-input" name="BANK_STATEMENT_LAST_3_MONTHS">
+            <div class="custom-file" style="width: 500px; height: 38px;">
+                <input type="file" class="custom-file-input" name="BANK_STATEMENT_LAST_3_MONTHS[]" multiple>
                 <label class="custom-file-label">Choose file</label>
             </div>
         </div>
@@ -248,6 +248,28 @@ Add
         </div>
     </div>
     <div class="row pb-3">
+        <div class="col-sm-4"><label>Pengganti Asuransi <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4 d-flex">
+            <div class="d-flex">
+                <input type="radio" value="ADA" style="width: 15px" checked required name="PENGGANTI_ASURANSI" class="form-control" onchange="checkASR(this)">
+                <p class="my-auto mx-2" style="font-weight: 600">Ada</p>
+            </div>
+            <div class=" d-flex">
+                <input type="radio" value="TIDAK" style="width: 15px" required name="PENGGANTI_ASURANSI" class="form-control" onchange="checkASR(this)">
+                <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>File Pengganti Asuransi </label></div>
+        <div class="col-sm-8">
+            <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
+                <input id="pengganti" type="file" class="custom-file-input" disabled name="FILE_PENGGANTI_ASURANSI">
+                <label class="custom-file-label">Choose file</label>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-3">
         <div class="col-sm-4"><label>Status</label></div>
         <div class="col-sm-8">
             <select name="Status" class="form-control py-0" style="width: 500px; height: 40px;">
@@ -285,4 +307,11 @@ Add
         </div>
     </div>
 </form>
+<script type="text/javascript">
+    function checkASR(obj) 
+    {
+        var pengganti = document.getElementById("pengganti");
+        pengganti.disabled = obj.value == "ADA";
+    }
+</script>
 @endsection

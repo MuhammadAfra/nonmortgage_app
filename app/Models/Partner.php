@@ -41,6 +41,8 @@ class Partner extends Model
         'Persen_Assuransi',
         'Nilai_Assuransi_Rupiah',
         'Status',
+        'PENGGANTI_ASURANSI',
+        'FILE_PENGGANTI_ASURANSI',
     ];
 
     public function master_product()
@@ -113,6 +115,16 @@ class Partner extends Model
     public function corporate_colls_tambahan()
     {
         return $this->hasManyThrough(Collateral_Corporate_Tambahan::class, Product::class, 'product_id', 'PARTNER_ID');
+    }
+
+    public function debitur()
+    {
+        return $this->hasMany(Debitur::class);
+    }
+
+    public function debitur_bu()
+    {
+        return $this->hasMany(Debitur_Badan_Usaha::class);
     }
 
 
