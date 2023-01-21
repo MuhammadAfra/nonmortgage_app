@@ -43,7 +43,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->COMPANY_PROFILE }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Akta Lain Lain <br> 
+            <div class="col-sm-4"><label>Akta Lain-Lain <br> 
         </label></div>
             <div class="col-sm-8">: 
                 @if ($partner->AKTE_LAIN_LAIN != NULL)
@@ -54,7 +54,7 @@ Detail
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Detail Product Profile</label></div>
+            <div class="col-sm-4"><label>Detail Nama Product</label></div>
             <div class="col-sm-8">: {{ $partner->master_product->id_master_product }} - {{ $partner->master_product->nama_product }}</div>
         </div>
         <div class="row pb-3">
@@ -66,7 +66,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->AKTE_PERUBAHAN_ANGGARAN_DASAR }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>SIUP <br> 
+            <div class="col-sm-4"><label>SIUP / NIB<br> 
             @if ($partner->SIUP != NULL)
             <a href="{{ url('/dw_siup', $partner->SIUP) }}">Download File</a>
             @endif
@@ -130,7 +130,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->MODAL_PERUBAHAN_TERAKHIR }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Audited Financial Statement <br> 
+            <div class="col-sm-4"><label>Audited Financial Statement Last 2 Years <br> 
             @if ($partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS != NULL)
             <a href="{{ url('/dw_audited', $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS) }}">Download File</a>
             @endif
@@ -138,7 +138,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>In House Financial Statement <br> 
+            <div class="col-sm-4"><label>In House Financial Statement Current Year <br> 
             @if ($partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR != NULL)
             <a href="{{ url('/dw_in_house', $partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR) }}">Download File</a>
             @endif
@@ -146,7 +146,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Bank Statement <br> 
+            <div class="col-sm-4"><label>Bank Statement Last 3 Years <br> 
             @if ($partner->BANK_STATEMENT_LAST_3_MONTHS != NULL)
             <a href="{{ url('/dw_bank', $partner->BANK_STATEMENT_LAST_3_MONTHS) }}">Download File</a>
             @endif
@@ -154,7 +154,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->BANK_STATEMENT_LAST_3_MONTHS }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Financial Projection <br> 
+            <div class="col-sm-4"><label>Financial Projection For Next 3-5 Years <br> 
             @if ($partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS != NULL)
             <a href="{{ url('/dw_finance_projection', $partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS) }}">Download File</a>
             @endif
@@ -162,7 +162,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Draft Template <br> 
+            <div class="col-sm-4"><label>Draft Template Agreement End User<br> 
             @if ($partner->DRAFT_TEMPLATE_AGREEMENT_END_USER != NULL)
             <a href="{{ url('/dw_draft', $partner->DRAFT_TEMPLATE_AGREEMENT_END_USER) }}">Download File</a>
             @endif
@@ -170,7 +170,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->DRAFT_TEMPLATE_AGREEMENT_END_USER }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Risk Acceptance Criteria <br> 
+            <div class="col-sm-4"><label>Contoh Risk Acceptance Criteria <br> 
             @if ($partner->CONTOH_RISK_ACCEPTANCE_CRITERIA != NULL)
             <a href="{{ url('/dw_risk_acc', $partner->CONTOH_RISK_ACCEPTANCE_CRITERIA) }}">Download File</a>
             @endif

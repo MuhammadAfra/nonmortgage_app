@@ -52,10 +52,10 @@ Home
                     <th>Status Bahan Hukum</th>
                     <th>Akta Pendirian</th>
                     <th>Company Profile</th>
-                    <th>Akte Lain Lain</th>
-                    <th>Detail Company Profile</th>
+                    <th>Akta Lain-Lain</th>
+                    <th>Detail Nama Product</th>
                     <th>Akta Perubahan Anggaran Dasar</th>
-                    <th>SIUP</th>
+                    <th>SIUP / NIB</th>
                     <th>TDP</th>
                     <th>NPWP</th>
                     <th>Nama Direktur Utama</th>
@@ -70,7 +70,7 @@ Home
                     <th>In House Financial Statement Current Year</th>
                     <th>Bank Statement Last 3 Years</th>
                     <th>Financial Projection For Next 3-5 Years</th>
-                    <th>Draft Template Agree End User</th>
+                    <th>Draft Template Agreement End User</th>
                     <th>Contoh Risk Acceptance Criteria</th>
                     <th>NDA Document</th>
                     <th>Status</th>
