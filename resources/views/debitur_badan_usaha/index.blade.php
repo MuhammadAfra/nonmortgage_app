@@ -47,7 +47,7 @@ Home
                     @if (auth()->user()->level == "Admin")
                     <th>Action</th>
                     @endif
-                    <th>Nama Partner</th>
+                    <th>Nama Perusahaan Partner</th>
                     <th>Nama Perusahaan</th>
                     <th>Alamat Perusahaan</th>
                     <th>Status Bahan Hukum</th>

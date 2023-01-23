@@ -193,7 +193,7 @@ Detail
             <div class="col-sm-8">: {{ $partner->PENGGANTI_ASURANSI }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>FILE PENGGANTI ASURANSI <br> 
+            <div class="col-sm-4"><label>File Pengganti Asuransi <br> 
             @if ($partner->FILE_PENGGANTI_ASURANSI != NULL)
                 <a href="{{ url('/dw_asuransi', $partner->FILE_PENGGANTI_ASURANSI) }}">Download File</a>
             @endif

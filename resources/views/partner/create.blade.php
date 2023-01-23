@@ -70,7 +70,7 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Akta Lain Lain </label></div>
+        <div class="col-sm-4"><label>Akta Lain-Lain </label></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
                 <input type="file" class="custom-file-input" name="AKTE_LAIN_LAIN[]" multiple>
@@ -136,7 +136,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur Utama </label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur_Utama" class="form-control"
+            <input type="text" name="No_Identitas_Direktur_Utama" class="form-control"
                 style="width: 500px; height: 40px;">
         </div>
     </div>
@@ -149,7 +149,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur 1 </label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur1" class="form-control" style="width: 500px; height: 40px;">
+            <input type="text" name="No_Identitas_Direktur1" class="form-control" style="width: 500px; height: 40px;">
         </div>
     </div>
     <div class="row pb-3">
@@ -161,7 +161,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur 2 </label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur2" class="form-control" style="width: 500px; height: 40px;">
+            <input type="text" name="No_Identitas_Direktur2" class="form-control" style="width: 500px; height: 40px;">
         </div>
     </div>
     <div class="row pb-3">

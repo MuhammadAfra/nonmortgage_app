@@ -209,7 +209,7 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Perusahaan Asuransi<span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Perusahaan Asuransi</label></div>
         <div class="col-sm-8"><input type="text" name="Perusahaan_Asuransi" placeholder="Perusahaan Asuransi"
                 class="form-control" style="width: 300px; height: 30px;" required></div>
     </div>
@@ -244,7 +244,7 @@ Add
     <h5 class="pb-3">Jaminan</h5>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Sertifikat Tanah <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Jaminan Sertifikat Tanah </label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
                 <input type="radio" value="ADA" style="width: 15px" required onchange="checkTNH(this)" name="Jaminan_Sertifikat_Tanah"
@@ -272,7 +272,7 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Kendaraan Mobil <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Jaminan Kendaraan Mobil </label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
                 <input type="radio" value="ADA" style="width: 15px" required onchange="checkMBL(this)" name="Jaminan_Kendaraan_Bermotor_Mobil"
@@ -301,7 +301,7 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Kendaraan Motor <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Jaminan Kendaraan Motor </label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
                 <input type="radio" value="ADA" style="width: 15px" required name="Jaminan_Kendaraan_Bermotor_Motor"
@@ -330,7 +330,7 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Personal Guarantee <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Jaminan Personal Guarantee </label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
                 <input type="radio" value="ADA" style="width: 15px" required name="Jaminan_Personel_Guarantee"
@@ -359,7 +359,7 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Invoice <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Jaminan Invoice </label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
                 <input type="radio" value="ADA" style="width: 15px" required name="Jaminan_Invoice" class="form-control" onchange="checkIVC(this)">
@@ -386,7 +386,7 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Inventory <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Jaminan Inventory </label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
                 <input type="radio" value="ADA" style="width: 15px" required name="Jaminan_Inventory" class="form-control" onchange="checkINVN(this)">
@@ -413,7 +413,7 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Lainnya <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Jaminan Lainnya </label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
                 <input type="radio" value="ADA" style="width: 15px" required name="Jaminan_Lainnya" class="form-control" onchange="checkJL(this)">
@@ -440,7 +440,7 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Down Payment <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Down Payment </label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
                 <input type="radio" value="ADA" style="width: 15px" required name="APAKAH_ADA_DP" class="form-control" onchange="checkDP(this)">
@@ -454,7 +454,7 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jumlah Down Payment<span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Jumlah Down Payment <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <div class="input-group" style="width: 300px; height: 38px;">
                 <div class="input-group-prepend">

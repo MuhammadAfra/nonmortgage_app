@@ -395,7 +395,7 @@ class DebiturBadanUsahaController extends Controller
         if ($request->hasFile('AKTE_LAIN_LAIN')) 
         {
             if ($deb->AKTE_LAIN_LAIN != NULL) {
-                $old = public_path('data_debitur/'.$deb->AKTE_PENDIRIAN);
+                $old = public_path('data_debitur/'.$deb->AKTE_LAIN_LAIN);
                 if (File::exists($old)) {
                     unlink($old);
                 }
