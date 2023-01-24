@@ -14,7 +14,9 @@ class Debitur extends Model
         'NAMA_DEBITUR',
         'TANGGAL_LAHIR',
         'NO_KTP',
+        'UPLOAD_KTP',
         'NO_NPWP',
+        'UPLOAD_NPWP',
         'ALAMAT_CUSTOMER',
         'PROVINSI',
         'KABUPATEN_KOTA',
@@ -49,6 +51,7 @@ class Debitur extends Model
         'Nilai_Inventory',
         'Jaminan_Lainnya',
         'Nilai_Jaminan_Lainnya',
+        'PENGAJUAN_LAIN_LAIN',
         'APAKAH_ADA_DP',
         'DOWN_PAYMENT_CUSTOMER',
     ];

@@ -23,8 +23,8 @@ Home
 @if (auth()->user()->level == "Admin")
 <div class="d-flex pb-3">
     <a href="{{ url('partner/create') }}" class="btn btn-success my-2 mx-2">Create New</a>
-    <button type="button" class="btn btn-primary btn-md my-2" style="height: 38px" type="button" data-toggle="modal"
-    data-target="#impormodal">Impor Data</button>
+    {{-- <button type="button" class="btn btn-primary btn-md my-2" style="height: 38px" type="button" data-toggle="modal"
+    data-target="#impormodal">Impor Data</button> --}}
 </div>
 @endif
 {{-- notifikasi sukses --}}

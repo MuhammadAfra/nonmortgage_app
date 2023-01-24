@@ -15,6 +15,10 @@ Detail
 <div class="card">
     <div class="card-body">
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Nama Partner ID</label></div>
+            <div class="col-sm-8">: {{ $deb->partner->NAMA_PERUSAHAAN }}</div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>Nama Perusahaan</label></div>
             <div class="col-sm-8">: {{ $deb->NAMA_PERUSAHAAN }}</div>
         </div>
@@ -288,7 +292,17 @@ Detail
             <div class="col-sm-8">: {{ $deb->Nilai_Jaminan_Lainnya }}</div>
             @endif
         </div>
-
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Pengajuan Lain Lain <br> 
+        </label></div>
+            <div class="col-sm-8">: 
+                @if ($deb->PENGAJUAN_LAIN_LAIN != NULL)
+                    @foreach (json_decode($deb->PENGAJUAN_LAIN_LAIN) as $item)
+                        {{ $item }} | <a href="{{ url('/dw_pll', $item) }}">Download File</a> <br>
+                    @endforeach
+                @endif
+            </div>
+        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Down Payment</label></div>
             <div class="col-sm-8">: {{ $deb->APAKAH_ADA_DP }}</div>

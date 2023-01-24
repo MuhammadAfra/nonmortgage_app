@@ -15,7 +15,7 @@ Detail
 <div class="card">
     <div class="card-body">
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Partner</label></div>
+            <div class="col-sm-4"><label>Nama Partner ID</label></div>
             <div class="col-sm-8">: {{ $debitur->partner->NAMA_PERUSAHAAN }}</div>
         </div>
 
@@ -31,6 +31,26 @@ Detail
         <div class="row pb-3">
             <div class="col-sm-4"><label>No KTP</label></div>
             <div class="col-sm-8">: {{ $debitur->NO_KTP }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Upload KTP <br> 
+                @if ($debitur->UPLOAD_KTP != NULL)
+                <a href="{{ url('/dw_deb_ktp', $debitur->UPLOAD_KTP) }}">Download File</a>
+                @endif
+            </label></div>
+            <div class="col-sm-8">: {{ $debitur->UPLOAD_KTP }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>No NPWP</label></div>
+            <div class="col-sm-8">: {{ $debitur->NO_NPWP }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Upload NPWP <br> 
+            @if ($debitur->UPLOAD_NPWP != NULL)
+            <a href="{{ url('/dw_deb_npwp', $debitur->UPLOAD_NPWP) }}">Download File</a>
+            @endif
+            </label></div>
+            <div class="col-sm-8">: {{ $debitur->UPLOAD_NPWP }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Alamat</label></div>
@@ -204,7 +224,17 @@ Detail
             <div class="col-sm-8">: {{ $debitur->Nilai_Jaminan_Lainnya }}</div>
             @endif
         </div>
-
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Pengajuan Lain Lain <br> 
+        </label></div>
+            <div class="col-sm-8">: 
+                @if ($debitur->PENGAJUAN_LAIN_LAIN != NULL)
+                    @foreach (json_decode($debitur->PENGAJUAN_LAIN_LAIN) as $item)
+                        {{ $item }} | <a href="{{ url('/dw_deb_pll', $item) }}">Download File</a> <br>
+                    @endforeach
+                @endif
+            </div>
+        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Down Payment</label></div>
             <div class="col-sm-8">: {{ $debitur->APAKAH_ADA_DP }}</div>
