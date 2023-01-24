@@ -668,13 +668,25 @@
             <div class="col-sm-4"><label>Jumlah Down Payment</label></div>
             <div class="col-sm-8">
                 @if ($debitur->DOWN_PAYMENT_CUSTOMER != null)
-                    <input type="text" value="{{ number_format($debitur->DOWN_PAYMENT_CUSTOMER) }}" {{ $debitur->APAKAH_ADA_DP == 'TIDAK' ? 'disabled' : '' }}
-                        name="DOWN_PAYMENT_CUSTOMER" class="form-control number-separator" id="dp"
-                        style="width: 300px; height: 30px;">
-                @else
-                    <input type="text" value="{{ $debitur->DOWN_PAYMENT_CUSTOMER }}" {{ $debitur->APAKAH_ADA_DP == 'TIDAK' ? 'disabled' : '' }} id="dp" name="DOWN_PAYMENT_CUSTOMER"
-                        class="form-control number-separator" style="width: 300px; height: 30px;">
-                @endif
+                <div class="input-group" style="width: 300px; height: 38px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Rp</span>
+                    </div>
+                    <input type="text" class="form-control number-separator"
+                        value="{{ number_format($debitur->DOWN_PAYMENT_CUSTOMER) }}" id="dp" name="DOWN_PAYMENT_CUSTOMER" {{ $debitur->DOWN_PAYMENT_CUSTOMER == 'TIDAK' ? 'disabled' : '' }}>
+                </div>
+            @else
+                <div class="input-group" style="width: 300px; height: 38px;">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Rp</span>
+                    </div>
+                    <input type="text" class="form-control number-separator" {{ $debitur->DOWN_PAYMENT_CUSTOMER == 'TIDAK' ? 'disabled' : '' }} id="dp"
+                        name="DOWN_PAYMENT_CUSTOMER">
+                </div>
+            @endif
+                @error('DOWN_PAYMENT_CUSTOMER')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
             </div>
         </div>
 

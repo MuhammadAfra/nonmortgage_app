@@ -47,7 +47,11 @@ Home
                     @if (auth()->user()->level == "Admin")
                     <th>Action</th>
                     @endif
+<<<<<<< HEAD
                     <th>Nama Partner ID</th>
+=======
+                    <th>Nama Perusahaan Partner</th>
+>>>>>>> 4a09b7e619c983e69944d57b49be8cbea6a1b344
                     <th>Nama Perusahaan</th>
                     <th>Alamat Perusahaan</th>
                     <th>Status Bahan Hukum</th>

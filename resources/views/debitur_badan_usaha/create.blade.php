@@ -16,7 +16,11 @@ Add
     @csrf
 
     <div class="row pb-3">
+<<<<<<< HEAD
         <div class="col-sm-4"><label>Nama Partner ID <span class="text-danger">*</span></label></div>
+=======
+        <div class="col-sm-4"><label>Nama Perusahaan Partner <span class="text-danger">*</span></label></div>
+>>>>>>> 4a09b7e619c983e69944d57b49be8cbea6a1b344
         <div class="col-sm-8">
             <select name="PARTNER_ID" class="form-control" style="width: 300px; height: 38px;" required>
                 <option></option>
@@ -151,7 +155,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur Utama </label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur_Utama" placeholder="Nomor Identitas Direktur Utama" class="form-control"
+            <input type="text" name="No_Identitas_Direktur_Utama" placeholder="Nomor Identitas Direktur Utama" class="form-control"
                 style="width: 300px; height: 38px;">
         </div>
     </div>
@@ -164,7 +168,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur 1 </label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur1" class="form-control" placeholder="Nomor Identitas Direktur 1" style="width: 300px; height: 38px;">
+            <input type="text" name="No_Identitas_Direktur1" class="form-control" placeholder="Nomor Identitas Direktur 1" style="width: 300px; height: 38px;">
         </div>
     </div>
     <div class="row pb-3">
@@ -176,7 +180,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur 2 </label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur2" class="form-control" placeholder="Nomor Identitas Direktur 2" style="width: 300px; height: 38px;">
+            <input type="text" name="No_Identitas_Direktur2" class="form-control" placeholder="Nomor Identitas Direktur 2" style="width: 300px; height: 38px;">
         </div>
     </div>
     <div class="row pb-3">

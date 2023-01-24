@@ -68,7 +68,7 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Akta Lain Lain</label></div>   
+        <div class="col-sm-4"><label>Akta Lain-Lain</label></div>   
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
                 <input type="file" class="custom-file-input" name="AKTE_LAIN_LAIN[]" multiple>
@@ -83,7 +83,7 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Detail Product <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Detail Nama Product <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <select class="form-control" name="DETIL_PRODUCT_PROFILE" style="width: 500px; height: 40px;">
                 <option value="{{ $partner->DETIL_PRODUCT_PROFILE }}">{{ $partner->master_product->id_master_product }} - {{ $partner->master_product->nama_product }}</option>
@@ -103,7 +103,7 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>SIUP</label></div>
+        <div class="col-sm-4"><label>SIUP / NIB</label></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
                 <input type="file" class="custom-file-input" name="SIUP">
@@ -138,7 +138,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur Utama</label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur_Utama" value="{{ $partner->No_Identitas_Direktur_Utama }}" class="form-control"
+            <input type="text" name="No_Identitas_Direktur_Utama" value="{{ $partner->No_Identitas_Direktur_Utama }}" class="form-control"
                 style="width: 500px; height: 40px;">
         </div>
     </div>
@@ -151,7 +151,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur 1</label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur1" value="{{ $partner->No_Identitas_Direktur1 }}" class="form-control" style="width: 500px; height: 40px;">
+            <input type="text" name="No_Identitas_Direktur1" value="{{ $partner->No_Identitas_Direktur1 }}" class="form-control" style="width: 500px; height: 40px;">
         </div>
     </div>
     <div class="row pb-3">
@@ -163,7 +163,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur 2</label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur2" value="{{ $partner->No_Identitas_Direktur2 }}" class="form-control" style="width: 500px; height: 40px;">
+            <input type="text" name="No_Identitas_Direktur2" value="{{ $partner->No_Identitas_Direktur2 }}" class="form-control" style="width: 500px; height: 40px;">
         </div>
     </div>
     <div class="row pb-3">
@@ -230,7 +230,7 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Draft Template Agree End User</label></div>
+        <div class="col-sm-4"><label>Draft Template Agreement End User</label></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
                 <input type="file" class="custom-file-input" name="DRAFT_TEMPLATE_AGREEMENT_END_USER">

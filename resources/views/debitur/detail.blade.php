@@ -134,7 +134,7 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Persen Asuransi</label></div>
-            <div class="col-sm-8">: {{ $debitur->Persen_Asuransi }}</div>
+            <div class="col-sm-8">: {{ $debitur->Persen_Asuransi }}%</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Asuransi</label></div>

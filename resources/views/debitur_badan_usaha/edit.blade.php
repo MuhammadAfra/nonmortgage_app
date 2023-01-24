@@ -81,7 +81,7 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Akta Lain Lain</label></div>   
+        <div class="col-sm-4"><label>Akta Lain-Lain</label></div>   
         <div class="col-sm-8">
             <div class="custom-file"  style="width: 300px; height: 30px;">
                 <input type="file" class="custom-file-input" name="AKTE_LAIN_LAIN[]" multiple>
@@ -151,7 +151,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur Utama</label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur_Utama" value="{{ $deb->No_Identitas_Direktur_Utama }}" class="form-control"
+            <input type="text" name="No_Identitas_Direktur_Utama" value="{{ $deb->No_Identitas_Direktur_Utama }}" class="form-control"
                  style="width: 300px; height: 30px;">
         </div>
     </div>
@@ -164,7 +164,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur 1</label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur1" value="{{ $deb->No_Identitas_Direktur1 }}" class="form-control"  style="width: 300px; height: 30px;">
+            <input type="text" name="No_Identitas_Direktur1" value="{{ $deb->No_Identitas_Direktur1 }}" class="form-control"  style="width: 300px; height: 30px;">
         </div>
     </div>
     <div class="row pb-3">
@@ -176,7 +176,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur 2</label></div>
         <div class="col-sm-8">
-            <input type="number" name="No_Identitas_Direktur2" value="{{ $deb->No_Identitas_Direktur2 }}" class="form-control"  style="width: 300px; height: 30px;">
+            <input type="text" name="No_Identitas_Direktur2" value="{{ $deb->No_Identitas_Direktur2 }}" class="form-control"  style="width: 300px; height: 30px;">
         </div>
     </div>
     <div class="row pb-3">
