@@ -38,9 +38,9 @@ Home
                     @if (auth()->user()->level == "Admin")
                     <th>Action</th>
                     @endif
-                    <th>Partner Perusahaan</th>
-                    <th>Nama Debitur</th>
-                    <th>Counter Motor</th>
+                    <th>Partner ID</th>
+                    <th>Debitur ID</th>
+                    <th>Product ID</th>
                     <th>Nilai Kendaraan Motor</th>
                     <th>Merk</th>
                     <th>Type</th>
@@ -70,9 +70,9 @@ Home
                     </td>
                     @include('collateral_utama.motor.delete')
                     @endif
-                    <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
-                    <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
-                    <td>{{ $item->Counter_Motor }}</td>
+                    <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
+                    <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
+                    <td>{{ $item->product->m_product->nama_product }}</td>
                     <td>Rp{{ number_format($item->Nilai_Motor_Vehicle) }}</td>
                     <td>{{ $item->Merk }}</td>
                     <td>{{ $item->Type }}</td>

@@ -15,4 +15,14 @@ class Collateral_Motor_Tambahan extends Model
     {
         return $this->belongsTo(Product::class, 'PRODUCT_ID');
     }
+
+    public function partner()
+    {
+        return $this->belongsTo(Partner::class, 'PARTNER_ID');
+    }
+
+    public function debitur()
+    {
+        return $this->belongsTo(Debitur::class, 'DEBITUR_ID');
+    }
 }

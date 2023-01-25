@@ -157,7 +157,7 @@ Home
                     @endif
                     <td>{{ $item->asuransi->Jenis_Asuransi }}</td>
                     <td>{{ $item->Perusahaan_Asuransi }}</td>
-                    <td>{{ $item->Persen_Asuransi }}</td>
+                    <td>{{ $item->Persen_Asuransi }}%</td>
                     @if ($item->Nilai_Asuransi != null )
                         <td>Rp{{ number_format($item->Nilai_Asuransi) }}</td>
                     @else

@@ -15,26 +15,45 @@ Add
 <form action="{{ url('collateral_corporate') }}" method="POST">
     @csrf
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Debitur & Partner <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Partner ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <select name="PRODUCT_ID" class="form-control py-0" style="width: 325px; height: 30px;">
+            <select name="PARTNER_ID" class="form-control py-0" style="width: 325px; height: 30px;">
                 <option></option>
-                @foreach ($prod as $item)
-                <option value="{{ $item->id }}">{{ $item->debitur->NAMA_DEBITUR }} -
-                    {{ $item->partner->NAMA_PERUSAHAAN }}</option>
+                @foreach ($partner as $item)
+                <option value="{{ $item->id }}">{{ $item->NAMA_PERUSAHAAN }} </option>
                 @endforeach
             </select>
-            @error('PRODUCT_ID')
+            @error('PARTNER_ID')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Counter Corporate Guarantee<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Debitur ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="number" name="Counter_Corporate_Guarantee" class="form-control"
-                style="width: 325px; height: 30px;">
-            @error('Counter_Corporate_Guarantee')
+            <select name="DEBITUR_ID" class="form-control py-0" style="width: 325px; height: 30px;">
+                <option></option>
+                @foreach ($debitur as $item)
+                <option value="{{ $item->id }}">{{ $item->NAMA_DEBITUR }} </option>
+                @endforeach
+            </select>
+            @error('DEBITUR_ID')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+    </div>
+
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Product ID <span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <select name="PRODUCT_ID" class="form-control py-0" style="width: 325px; height: 30px;">
+                <option></option>
+                @foreach ($product as $item)
+                <option value="{{ $item->id }}">{{ $item->m_product->nama_product }} </option>
+                @endforeach
+            </select>
+            @error('PRODUCT_ID')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -47,7 +66,7 @@ Add
                 <div class="input-group-prepend">
                     <span class="input-group-text">Rp</span>
                 </div>
-            <input type="text" class="form-control number-separator" placeholder="Nilai Inventory" name="Nilai_Corporate_Guarantee">
+            <input type="text" class="form-control number-separator" placeholder="Nilai Corporate Guarantee" name="Nilai_Corporate_Guarantee">
             </div>
             @error('Nilai_Corporate_Guarantee')
             <p class="text-danger">{{ $message }}</p>

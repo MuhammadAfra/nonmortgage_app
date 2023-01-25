@@ -15,16 +15,16 @@ Detail
 <div class="card">
     <div class="card-body">
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Partner Perusahaan</label></div>
-            <div class="col-sm-8">: {{ $inven->product->partner->NAMA_PERUSAHAAN }}</div>
+            <div class="col-sm-4"><label>Partner ID</label></div>
+            <div class="col-sm-8">: {{ $inven->partner->NAMA_PERUSAHAAN }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nama Debitur</label></div>
-            <div class="col-sm-8">: {{ $inven->product->debitur->NAMA_DEBITUR }}</div>
+            <div class="col-sm-4"><label>Debitur ID</label></div>
+            <div class="col-sm-8">: {{ $inven->debitur->NAMA_DEBITUR }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Counter Inventory</label></div>
-            <div class="col-sm-8">: {{ $inven->Counter_Inventory }}</div>
+            <div class="col-sm-4"><label>Product ID</label></div>
+            <div class="col-sm-8">: {{ $inven->product->m_product->nama_product }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Inv</label></div>

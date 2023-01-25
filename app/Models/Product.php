@@ -50,4 +50,34 @@ class Product extends Model
     {
         return $this->belongsTo(Master_Product::class, 'M_PRODUCT_ID');
     }
+
+    public function coll_motor()
+    {
+        return $this->hasMany(Collateral_Motor::class);
+    }
+
+    public function coll_mobil()
+    {
+        return $this->hasMany(Collateral_Mobil::class);
+    }
+
+    public function coll_invoice()
+    {
+        return $this->hasMany(Collateral_Invoice::class);
+    }
+
+    public function coll_inventory()
+    {
+        return $this->hasMany(Collateral_Inventory::class);
+    }
+
+    public function coll_rumah()
+    {
+        return $this->hasMany(Collateral_Rumah::class);
+    }
+
+    public function coll_corporate()
+    {
+        return $this->hasMany(Collateral_Corporate::class);
+    }
 }

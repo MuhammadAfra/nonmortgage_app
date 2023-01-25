@@ -15,13 +15,42 @@ Add
 <form action="{{ url('collateral_mobil') }}" method="POST">
     @csrf
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Debitur & Partner <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Partner ID <span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <select name="PARTNER_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option></option>
+                @foreach ($partner as $item)
+                <option value="{{ $item->id }}">{{ $item->NAMA_PERUSAHAAN }} </option>
+                @endforeach
+            </select>
+            @error('PARTNER_ID')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+    </div>
+
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Debitur ID <span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <select name="DEBITUR_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option></option>
+                @foreach ($debitur as $item)
+                <option value="{{ $item->id }}">{{ $item->NAMA_DEBITUR }} </option>
+                @endforeach
+            </select>
+            @error('DEBITUR_ID')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+    </div>
+
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Product ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <select name="PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
                 <option></option>
-                @foreach ($prod as $item)
-                <option value="{{ $item->id }}">{{ $item->debitur->NAMA_DEBITUR }} -
-                    {{ $item->partner->NAMA_PERUSAHAAN }}</option>
+                @foreach ($product as $item)
+                <option value="{{ $item->id }}">{{ $item->m_product->nama_product }} </option>
                 @endforeach
             </select>
             @error('PRODUCT_ID')
@@ -29,15 +58,7 @@ Add
             @enderror
         </div>
     </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Counter Mobil<span class="text-danger">*</span></div>
-        <div class="col-sm-8">
-            <input type="number" name="Counter_Mobil" class="form-control" style="width: 300px; height: 30px;">
-            @error('Counter_Mobil')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
-        </div>
-    </div>
+
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Kendaraan Mobil<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">

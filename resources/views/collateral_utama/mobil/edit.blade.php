@@ -16,27 +16,42 @@ Edit
     @csrf
     @method('PUT')
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Debitur & Partner <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Partner ID</label></div>
         <div class="col-sm-8">
-            <select name="PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                <option value="{{ $mobil->PRODUCT_ID }}">{{ $mobil->product->debitur->NAMA_DEBITUR }} -
-                    {{ $mobil->product->partner->NAMA_PERUSAHAAN }}</option>
-                @foreach ($prod as $item)
-                <option value="{{ $item->id }}">{{ $item->debitur->NAMA_DEBITUR }} -
-                    {{ $item->partner->NAMA_PERUSAHAAN }}</option>
+            <select name="PARTNER_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option value="{{ $mobil->PARTNER_ID }}">{{ $mobil->partner->NAMA_PERUSAHAAN }}</option>
+                @foreach ($partner as $item)
+                    <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->NAMA_PERUSAHAAN }}</option>
                 @endforeach
             </select>
-            @error('PRODUCT_ID')
+        </div>
+    </div>
+
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Debitur ID <span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <select name="DEBITUR_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option value="{{ $mobil->DEBITUR_ID }}">{{ $mobil->debitur->NAMA_DEBITUR }}</option>
+                @foreach ($debitur as $item)
+                    <option value="{{ $item->id }}">{{ $item->NAMA_DEBITUR }}</option>
+                @endforeach
+            </select>
+            @error('DEBITUR_ID')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Counter Mobil<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Product ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="number" name="Counter_Mobil" value="{{ $mobil->Counter_Mobil }}" class="form-control"
-                style="width: 300px; height: 30px;">
-            @error('Counter_Mobil')
+            <select name="PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+                <option value="{{ $mobil->PRODUCT_ID }}">{{ $mobil->product->m_product->nama_product }}</option>
+                @foreach ($product as $item)
+                    <option value="{{ $item->id }}">{{ $item->m_product->nama_product }}</option>
+                @endforeach
+            </select>
+            @error('PRODUCT_ID')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>

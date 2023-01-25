@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Collateral_Corporate;
+use App\Models\Product;
+use App\Models\Partner;
+use App\Models\Debitur;
+use App\Models\Master_Product;
 
 class CollateralCorporateController extends Controller
 {
@@ -26,8 +29,11 @@ class CollateralCorporateController extends Controller
      */
     public function create()
     {
-        $prod = Product::get();
-        return view('collateral_utama.corporate.create', compact('prod'));
+        $product = Product::all();
+        $partner = Partner::all();
+        $debitur = Debitur::all ();
+        $m_product = Master_Product::all();
+        return view('collateral_utama.corporate.create', compact('product', 'partner', 'debitur', 'm_product'));
     }
 
     /**
@@ -39,7 +45,8 @@ class CollateralCorporateController extends Controller
     public function store(Request $request)
     {
        $this->validate($request, [
-            'Counter_Corporate_Guarantee',
+            'PARTNER_ID',
+            'DEBITUR_ID',
             'PRODUCT_ID',
             'Nilai_Corporate_Guarantee',
             'Nama_Pt_Penerima_Corporate_Guarantee',
@@ -49,7 +56,8 @@ class CollateralCorporateController extends Controller
         ]);
 
         Collateral_Corporate::create([
-            'Counter_Corporate_Guarantee' => $request->Counter_Corporate_Guarantee,
+            'PARTNER_ID' => $request->PARTNER_ID,
+            'DEBITUR_ID' => $request->DEBITUR_ID,
             'PRODUCT_ID' => $request->PRODUCT_ID,
             'Nilai_Corporate_Guarantee' => str_replace(',', '', $request->Nilai_Corporate_Guarantee),
             'Nama_Pt_Penerima_Corporate_Guarantee' => $request->Nama_Pt_Penerima_Corporate_Guarantee,
@@ -81,8 +89,11 @@ class CollateralCorporateController extends Controller
     public function edit($id)
     {
         $corporate = Collateral_Corporate::findorfail($id);
-        $prod = Product::get();
-        return view('collateral_utama.corporate.edit', compact('corporate','prod'));
+        $product = Product::all();
+        $partner = Partner::all();
+        $debitur = Debitur::all ();
+        $m_product = Master_Product::all();
+        return view('collateral_utama.corporate.edit', compact('corporate','prouduct','partner', 'debitur', 'm_product'));
     }
 
     /**
@@ -95,7 +106,8 @@ class CollateralCorporateController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'Counter_Corporate_Guarantee',
+            'PARTNER_ID',
+            'DEBITUR_ID',
             'PRODUCT_ID',
             'Nilai_Corporate_Guarantee',
             'Nama_Pt_Penerima_Corporate_Guarantee',
@@ -106,7 +118,8 @@ class CollateralCorporateController extends Controller
 
         $corporate = Collateral_Corporate::findorfail($id);
         $corporate->update([
-            'Counter_Corporate_Guarantee' => $request->Counter_Corporate_Guarantee,
+            'PARTNER_ID' => $request->PARTNER_ID,
+            'DEBITUR_ID' => $request->DEBITUR_ID,
             'PRODUCT_ID' => $request->PRODUCT_ID,
             'Nilai_Corporate_Guarantee' => str_replace(',', '', $request->Nilai_Corporate_Guarantee),
             'Nama_Pt_Penerima_Corporate_Guarantee' => $request->Nama_Pt_Penerima_Corporate_Guarantee,

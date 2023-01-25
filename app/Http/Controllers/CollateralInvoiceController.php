@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Collateral_Invoice;
+use App\Models\Product;
+use App\Models\Partner;
+use App\Models\Debitur;
+use App\Models\Master_Product;
 
 class CollateralInvoiceController extends Controller
 {
@@ -26,8 +29,11 @@ class CollateralInvoiceController extends Controller
      */
     public function create()
     {
-        $prod = Product::get();
-        return view('collateral_utama.invoice.create', compact('prod'));
+        $product = Product::all();
+        $partner = Partner::all();
+        $debitur = Debitur::all ();
+        $m_product = Master_Product::all();
+        return view('collateral_utama.invoice.create', compact('product', 'partner', 'debitur', 'm_product'));
     }
 
     /**
@@ -39,7 +45,8 @@ class CollateralInvoiceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'Counter_Invoice',
+            'PARTNER_ID',
+            'DEBITUR_ID',
             'PRODUCT_ID',
             'Nilai_Invoice',
             'Jenis_Invoice',
@@ -53,7 +60,8 @@ class CollateralInvoiceController extends Controller
         ]);
 
         Collateral_Invoice::create([
-            'Counter_Invoice' => $request->Counter_Invoice,
+            'PARTNER_ID' => $request->PARTNER_ID,
+            'DEBITUR_ID' => $request->DEBITUR_ID,
             'PRODUCT_ID' => $request->PRODUCT_ID,
             'Nilai_Invoice' => str_replace(',', '', $request->Nilai_Invoice),
             'Jenis_Invoice' => $request->Jenis_Invoice,
@@ -89,8 +97,11 @@ class CollateralInvoiceController extends Controller
     public function edit($id)
     {
         $invoice = Collateral_Invoice::findorfail($id);
-        $prod = Product::get();
-        return view('collateral_utama.invoice.edit', compact('invoice','prod'));
+        $product = Product::all();
+        $partner = Partner::all();
+        $debitur = Debitur::all ();
+        $m_product = Master_Product::all();
+        return view('collateral_utama.invoice.edit', compact('invoice','product', 'partner', 'debitur', 'm_product'));
     }
 
     /**
@@ -103,7 +114,8 @@ class CollateralInvoiceController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'Counter_Invoice',
+            'PARTNER_ID',
+            'DEBITUR_ID',
             'PRODUCT_ID',
             'Nilai_Invoice',
             'Jenis_Invoice',
@@ -118,7 +130,8 @@ class CollateralInvoiceController extends Controller
 
         $invoice = Collateral_Invoice::findorfail($id);
         $invoice->update([
-            'Counter_Invoice' => $request->Counter_Invoice,
+            'PARTNER_ID' => $request->PARTNER_ID,
+            'DEBITUR_ID' => $request->DEBITUR_ID,
             'PRODUCT_ID' => $request->PRODUCT_ID,
             'Nilai_Invoice' => str_replace(',', '', $request->Nilai_Invoice),
             'Jenis_Invoice' => $request->Jenis_Invoice,

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Collateral_Inventory_Tambahan;
+use App\Models\Product;
+use App\Models\Partner;
+use App\Models\Debitur;
+use App\Models\Master_Product;
 
 class CollateralInventoryTambahanController extends Controller
 {
@@ -26,8 +29,11 @@ class CollateralInventoryTambahanController extends Controller
      */
     public function create()
     {
-        $prod = Product::get();
-        return view('collateral_tambahan.inventory.create', compact('prod'));
+        $product = Product::all();
+        $partner = Partner::all();
+        $debitur = Debitur::all ();
+        $m_product = Master_Product::all();
+        return view('collateral_tambahan.inventory.create', compact('product', 'partner', 'debitur', 'm_product'));
     }
 
     /**
@@ -39,8 +45,9 @@ class CollateralInventoryTambahanController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'PARTNER_ID',
+            'DEBITUR_ID',
             'PRODUCT_ID',
-            'Counter_Inventory_Tambahan',
             'Nilai_Inv_Tambahan',
             'Nama_Inventory_Tambahan',
             'Besar_Inventory_Tambahan',
@@ -52,8 +59,9 @@ class CollateralInventoryTambahanController extends Controller
         ]);
 
         Collateral_Inventory_Tambahan::create([
-        'PRODUCT_ID' =>$request->PRODUCT_ID,
-        'Counter_Inventory_Tambahan' =>$request->Counter_Inventory_Tambahan,
+        'PARTNER_ID' => $request->PARTNER_ID,
+        'DEBITUR_ID' => $request->DEBITUR_ID,
+        'PRODUCT_ID' => $request->PRODUCT_ID,
         'Nilai_Inv_Tambahan' => str_ireplace(',', '', $request->Nilai_Inv_Tambahan),
         'Nama_Inventory_Tambahan' =>$request->Nama_Inventory_Tambahan,
         'Besar_Inventory_Tambahan' =>$request->Besar_Inventory_Tambahan,
@@ -87,8 +95,11 @@ class CollateralInventoryTambahanController extends Controller
     public function edit($id)
     {
         $inventbh = Collateral_Inventory_Tambahan::findorfail($id);
-        $prod = Product::get();
-        return view('collateral_tambahan.inventory.edit', compact('inventbh','prod'));
+        $product = Product::all();
+        $partner = Partner::all();
+        $debitur = Debitur::all ();
+        $m_product = Master_Product::all();
+        return view('collateral_tambahan.inventory.edit', compact('inventbh','product', 'partner', 'debitur', 'm_product'));
     }
 
     /**
@@ -101,8 +112,9 @@ class CollateralInventoryTambahanController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'PARTNER_ID',
+            'DEBITUR_ID',
             'PRODUCT_ID',
-            'Counter_Inventory_Tambahan',
             'Nilai_Inv_Tambahan',
             'Nama_Inventory_Tambahan',
             'Besar_Inventory_Tambahan',
@@ -114,8 +126,9 @@ class CollateralInventoryTambahanController extends Controller
         ]);
         $inventbh = Collateral_Inventory_Tambahan::findorfail($id);
         $inventbh->update([
-        'PRODUCT_ID' =>$request->PRODUCT_ID,
-        'Counter_Inventory_Tambahan' =>$request->Counter_Inventory_Tambahan,
+        'PARTNER_ID' => $request->PARTNER_ID,
+        'DEBITUR_ID' => $request->DEBITUR_ID,
+        'PRODUCT_ID' => $request->PRODUCT_ID,
         'Nilai_Inv_Tambahan' => str_ireplace(',', '', $request->Nilai_Inv_Tambahan),
         'Nama_Inventory_Tambahan' =>$request->Nama_Inventory_Tambahan,
         'Besar_Inventory_Tambahan' =>$request->Besar_Inventory_Tambahan,

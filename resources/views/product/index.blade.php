@@ -77,7 +77,7 @@ Home
                     @endif
                     <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
-                    <td>{{ $item->m_product->id_master_product }} - {{ $item->m_product->nama_product }}</td>
+                    <td>{{ $item->m_product->nama_product }}</td>
                     <td>Rp{{ number_format($item->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}</td>
                     <td>{{ $item->SUKU_BUNGA_FLAT }}%</td>
                     <td>{{ $item->SUKU_BUNGA_EFFECTIVE }}%</td>

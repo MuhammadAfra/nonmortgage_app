@@ -88,9 +88,8 @@ class ProductController extends Controller
             'BIAYA_ASSURANSI' => str_replace( ',', '', $request->BIAYA_ASSURANSI),
             'BIAYA_PROVISI' => str_replace( ',', '', $request->BIAYA_PROVISI),
             'BIAYA_LAIN_LAIN' => str_replace( ',', '', $request->BIAYA_LAIN_LAIN),
-            'SUKU_BUNGA_FLAT' => $request->SUKU_BUNGA_FLAT,
-            'SUKU_BUNGA_FLAT' => $request->SUKU_BUNGA_FLAT,
-            'SUKU_BUNGA_EFFECTIVE' => $request->SUKU_BUNGA_EFFECTIVE,
+            'SUKU_BUNGA_FLAT' => str_replace( ',', '.', $request->SUKU_BUNGA_FLAT),
+            'SUKU_BUNGA_EFFECTIVE' => str_replace( ',', '.', $request->SUKU_BUNGA_EFFECTIVE),
             'POLA_PEMBAYARAN_ID' => $request->POLA_PEMBAYARAN_ID,
             ]);
         // dd($data);
@@ -166,9 +165,8 @@ class ProductController extends Controller
             'BIAYA_ASSURANSI' => str_replace( ',', '', $request->BIAYA_ASSURANSI),
             'BIAYA_PROVISI' => str_replace( ',', '', $request->BIAYA_PROVISI),
             'BIAYA_LAIN_LAIN' => str_replace( ',', '', $request->BIAYA_LAIN_LAIN),
-            'SUKU_BUNGA_FLAT' => $request->SUKU_BUNGA_FLAT,
-            'SUKU_BUNGA_FLAT' => $request->SUKU_BUNGA_FLAT,
-            'SUKU_BUNGA_EFFECTIVE' => $request->SUKU_BUNGA_EFFECTIVE,
+            'SUKU_BUNGA_FLAT' => str_replace( ',', '.', $request->SUKU_BUNGA_FLAT),
+            'SUKU_BUNGA_EFFECTIVE' => str_replace( ',', '.', $request->SUKU_BUNGA_EFFECTIVE),
             'POLA_PEMBAYARAN_ID' => $request->POLA_PEMBAYARAN_ID,
         ]);
         return redirect('product');
