@@ -17,7 +17,7 @@ Edit
     @method('PUT')
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nama Perusahaan Partner</label></div>
+        <div class="col-sm-4"><label>Nama Partner ID</label></div>
         <div class="col-sm-8">
             <select name="PARTNER_ID" class="form-control py-0" style="width: 300px; height: 30px;">
                 <option value="{{ $deb->PARTNER_ID }}">{{ $deb->partner->NAMA_PERUSAHAAN }}</option>
@@ -627,6 +627,21 @@ Edit
             @error('Nilai_Jaminan_Lainnya')
             <p class="text-danger">{{ $message }}</p>
             @enderror
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Pengajuan Lain Lain</label></div>
+        <div class="col-sm-8">
+            <div class="custom-file"  style="width: 300px; height: 30px;">
+                <input type="file" class="custom-file-input" name="PENGAJUAN_LAIN_LAIN[]" multiple>
+                <label class="custom-file-label">
+                    @if ($deb->PENGAJUAN_LAIN_LAIN != NULL)
+                        @foreach (json_decode($deb->PENGAJUAN_LAIN_LAIN) as $item)
+                            {{ $item }},
+                        @endforeach
+                    @endif
+                </label>
+            </div>
         </div>
     </div>
 

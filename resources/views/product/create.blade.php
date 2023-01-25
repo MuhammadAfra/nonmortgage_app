@@ -15,7 +15,7 @@ Add
 <form action="{{ url('product') }}" method="POST">
     @csrf
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Partner ID <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nama Partner ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <select name="PARTNER_ID" class="form-control py-0" style="width: 300px; height: 30px;">
                 <option></option>

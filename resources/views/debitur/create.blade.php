@@ -12,10 +12,10 @@ Add
 @endsection
 
 @section('content')
-<form action="{{ url('debitur') }}" method="POST">
+<form action="{{ url('debitur') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nama Perusahaan Partner<span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nama Partner ID<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <div style="width: 300px; height: 38px;">
                 <select class="form-control py-0" name="PARTNER_ID" style="width: 300px; height: 30px;" required>
@@ -47,9 +47,27 @@ Add
         </div>
     </div>
     <div class="row pb-3">
+        <div class="col-sm-4"><label>Upload KTP <span class="text-danger">*</span></div>
+        <div class="col-sm-8">
+            <div class="custom-file" style="width: 300px; height: 38px;">
+                <input type="file" class="custom-file-input" required name="UPLOAD_KTP">
+                <label class="custom-file-label">Choose file</label>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-3">
         <div class="col-sm-4"><label>No NPWP</label> <span class="text-danger">*</span></div>
         <div class="col-sm-8"><input type="text" required name="NO_NPWP" placeholder="No NPWP" class="form-control"
                 style="width: 300px; height: 30px;">
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Upload NPWP <span class="text-danger">*</span></div>
+        <div class="col-sm-8">
+            <div class="custom-file" style="width: 300px; height: 38px;">
+                <input type="file" class="custom-file-input" required name="UPLOAD_NPWP">
+                <label class="custom-file-label">Choose file</label>
+            </div>
         </div>
     </div>
     <div class="row pb-3">
@@ -440,7 +458,17 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Down Payment </label></div>
+        <div class="col-sm-4"><label>Pengajuan Lain Lain <span class="text-danger">*</span></div>
+        <div class="col-sm-8">
+            <div class="custom-file" style="width: 300px; height: 38px;">
+                <input type="file" class="custom-file-input" required multiple name="PENGAJUAN_LAIN_LAIN[]">
+                <label class="custom-file-label">Choose file</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Down Payment <span class="text-danger">*</span></label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
                 <input type="radio" value="ADA" style="width: 15px" required name="APAKAH_ADA_DP" class="form-control" onchange="checkDP(this)">

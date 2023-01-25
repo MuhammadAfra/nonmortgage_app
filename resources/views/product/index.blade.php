@@ -23,8 +23,8 @@ Home
 @if (auth()->user()->level == "Admin")                            
 <div class="d-flex pb-3">
     <a href="{{ url('product/create') }}" class="btn btn-success my-2 mx-2">Create New</a>
-    <button type="button" class="btn btn-primary btn-md my-2" style="height: 38px" type="button" data-toggle="modal"
-    data-target="#impormodal">Import Data</button>
+    {{-- <button type="button" class="btn btn-primary btn-md my-2" style="height: 38px" type="button" data-toggle="modal"
+    data-target="#impormodal">Import Data</button> --}}
 </div>
 @endif
 {{-- notifikasi sukses --}}
@@ -47,8 +47,8 @@ Home
                     @if (auth()->user()->level == "Admin")        
                     <th>Action</th>
                     @endif
-                    <th>Partner</th>
-                    <th>Debitur</th>
+                    <th>Nama Partner ID</th>
+                    <th>Nama Debitur ID</th>
                     <th>Nama Product</th>
                     <th>Nilai Pembiayaan/Pokok Maximum </th>
                     <th>Suku Bunga Flat</th>

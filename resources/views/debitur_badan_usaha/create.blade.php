@@ -16,7 +16,7 @@ Add
     @csrf
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nama Perusahaan Partner <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nama Partner ID<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <select name="PARTNER_ID" class="form-control" style="width: 300px; height: 38px;" required>
                 <option></option>
@@ -513,7 +513,15 @@ Add
             </div>
         </div>
     </div>
-
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Pengajuan Lain Lain <span class="text-danger">*</span></div>
+        <div class="col-sm-8">
+            <div class="custom-file" style="width: 300px; height: 38px;">
+                <input type="file" class="custom-file-input" required multiple name="PENGAJUAN_LAIN_LAIN[]">
+                <label class="custom-file-label">Choose file</label>
+            </div>
+        </div>
+    </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Down Payment</label></div>
         <div class="col-sm-4 d-flex">

@@ -146,6 +146,17 @@ class DebiturBadanUsahaController extends Controller
                 $deb->save();   
             }
         }
+
+        if ($request->hasFile('PENGAJUAN_LAIN_LAIN')) 
+        {
+            foreach ($request->file('PENGAJUAN_LAIN_LAIN') as $all) {
+                $pll = 'PLL'.rand(1,99999).'.'.$all->getClientOriginalExtension();
+                $all->move(public_path().'/data_debitur/', $pll);
+                $data_pll[] = $pll;
+                $deb->PENGAJUAN_LAIN_LAIN = json_encode($data_pll);
+                $deb->save();   
+            }
+        }
         
         if($request->hasFile('AKTE_PENDIRIAN'))
         {
@@ -395,7 +406,9 @@ class DebiturBadanUsahaController extends Controller
         if ($request->hasFile('AKTE_LAIN_LAIN')) 
         {
             if ($deb->AKTE_LAIN_LAIN != NULL) {
-                $old = public_path('data_debitur/'.$deb->AKTE_LAIN_LAIN);
+                foreach (json_decode($deb->AKTE_LAIN_LAIN) as $key) {
+                    $old = public_path('data_debitur/'.$key);
+                }
                 if (File::exists($old)) {
                     unlink($old);
                 }
@@ -420,7 +433,9 @@ class DebiturBadanUsahaController extends Controller
         if ($request->hasFile('BANK_STATEMENT_LAST_3_MONTHS')) 
         {
             if ($deb->BANK_STATEMENT_LAST_3_MONTHS != NULL) {
-                $old = public_path('data_debitur/'.$deb->BANK_STATEMENT_LAST_3_MONTHS);
+                foreach (json_decode($deb->BANK_STATEMENT_LAST_3_MONTHS) as $key) {
+                    $old = public_path('data_debitur/'.$key);
+                }
                 if (File::exists($old)) {
                     unlink($old);
                 }
@@ -437,6 +452,33 @@ class DebiturBadanUsahaController extends Controller
                     $bank->move(public_path().'/data_debitur/', $bank_state);
                     $data_bank[] = $bank_state;
                     $deb->BANK_STATEMENT_LAST_3_MONTHS = json_encode($data_bank);
+                    $deb->save();   
+                }
+            }
+        }
+
+        if ($request->hasFile('PENGAJUAN_LAIN_LAIN')) 
+        {
+            if ($deb->PENGAJUAN_LAIN_LAIN != NULL) {
+                foreach (json_decode($deb->PENGAJUAN_LAIN_LAIN) as $key) {
+                    $old = public_path('data_debitur/'.$key);
+                }
+                if (File::exists($old)) {
+                    unlink($old);
+                }
+                    foreach ($request->file('PENGAJUAN_LAIN_LAIN') as $key) {
+                    $pll = 'PLL'.rand(1,99999).'.'.$key->getClientOriginalExtension();
+                    $key->move(public_path().'/data_debitur/', $pll);
+                    $data_pll[] = $pll;
+                    $deb->PENGAJUAN_LAIN_LAIN = json_encode($data_pll);
+                    $deb->save();   
+                }
+            }else{
+                foreach ($request->file('PENGAJUAN_LAIN_LAIN') as $key) {
+                    $pll = 'PLL'.rand(1,99999).'.'.$key->getClientOriginalExtension();
+                    $key->move(public_path().'/data_debitur/', $pll);
+                    $data_pll[] = $pll;
+                    $deb->PENGAJUAN_LAIN_LAIN = json_encode($data_pll);
                     $deb->save();   
                 }
             }
@@ -763,6 +805,16 @@ class DebiturBadanUsahaController extends Controller
                 File::delete('data_debitur/'.$key);
             }
         }
+        if ($deb->BANK_STATEMENT_LAST_3_MONTHS != NULL) {
+            foreach (json_decode($deb->BANK_STATEMENT_LAST_3_MONTHS) as $key) {
+                File::delete('data_debitur/'.$key);
+            }
+        }
+        if ($deb->PENGAJUAN_LAIN_LAIN != NULL) {
+            foreach (json_decode($deb->PENGAJUAN_LAIN_LAIN) as $key) {
+                File::delete('data_debitur/'.$key);
+            }
+        }
         File::delete('data_debitur/'.$deb->SIUP);
         File::delete('data_debitur/'.$deb->TDP);
         File::delete('data_debitur/'.$deb->NPWP);
@@ -770,7 +822,6 @@ class DebiturBadanUsahaController extends Controller
         File::delete('data_debitur/'.$deb->MODAL_PERUBAHAN_TERAKHIR);
         File::delete('data_debitur/'.$deb->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS);
         File::delete('data_debitur/'.$deb->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR);
-        File::delete('data_debitur/'.$deb->BANK_STATEMENT_LAST_3_MONTHS);
         File::delete('data_debitur/'.$deb->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS);
         File::delete('data_debitur/'.$deb->DRAFT_TEMPLATE_AGREEMENT_END_USER);
         File::delete('data_debitur/'.$deb->CONTOH_RISK_ACCEPTANCE_CRITERIA);

@@ -80,6 +80,10 @@ Route::get('/dw_deb_siup/{SIUP}', [DebiturBadanUsahaController::class, 'download
 Route::get('/dw_deb_akte_ad/{AKTE_PERUBAHAN_ANGGARAN_DASAR}', [DebiturBadanUsahaController::class, 'download'])->name('dw_akte_ad');
 Route::get('/dw_deb_mdl_diri/{MODAL_PENDIRIAN}', [DebiturBadanUsahaController::class, 'download'])->name('dw_mdl_diri');
 Route::get('/dw_deb_all/{AKTE_LAIN_LAIN}', [DebiturBadanUsahaController::class, 'download'])->name('dw_deb_all');
+Route::get('/dw_deb_ktp/{UPLOAD_KTP}', [DebiturController::class, 'download'])->name('dw_deb_ktp');
+Route::get('/dw_deb_npwp/{UPLOAD_NPWP}', [DebiturController::class, 'download'])->name('dw_deb_npwp');
+Route::get('/dw_deb_pll/{PENGAJUAN_LAIN_LAIN}', [DebiturController::class, 'download'])->name('dw_deb_pll');
+Route::get('/dw_pll/{PENGAJUAN_LAIN_LAIN}', [DebiturBadanUsahaController::class, 'download'])->name('dw_pll');
 
 Route::group(['middleware' => ['PreventBack']], function(){
     Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
@@ -97,19 +101,19 @@ Route::group(['middleware' => ['PreventBack']], function(){
         Route::resource('master_asuransi', MasterAsuransiController::class);
         // product
         Route::resource('product', ProductController::class);
-        Route::post('/product_import', [ProductController::class, 'import'])->name('product_import');
+        // Route::post('/product_import', [ProductController::class, 'import'])->name('product_import');
 
         // debitur
         Route::resource('debitur', DebiturController::class);
-        Route::post('/debitur_import', [DebiturController::class, 'import'])->name('debitur_import');
+        // Route::post('/debitur_import', [DebiturController::class, 'import'])->name('debitur_import');
 
         // debitur badan usaha
         Route::resource('debitur_badan_usaha', DebiturBadanUsahaController::class);
-        Route::post('/debitur_badan_usaha_import', [DebiturBadanUsahaController::class, 'import'])->name('debitur_badan_usaha_import');
+        // Route::post('/debitur_badan_usaha_import', [DebiturBadanUsahaController::class, 'import'])->name('debitur_badan_usaha_import');
 
         // partner
         Route::resource('partner', PartnerController::class);
-        Route::post('/partner_import', [PartnerController::class, 'import'])->name('partner_import');
+        // Route::post('/partner_import', [PartnerController::class, 'import'])->name('partner_import');
 
         // collateral motor
         Route::resource('collateral_motor', CollateralMotorController::class);

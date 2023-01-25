@@ -12,12 +12,12 @@
 @endsection
 
 @section('content')
-<form action="{{ url('debitur', $debitur->id) }}" method="POST">
+<form action="{{ url('debitur', $debitur->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nama Perusahaan Partner <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nama Partner ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
             <select name="PARTNER_ID" class="form-control py-0" style="width: 300px; height: 30px;" required>
                 <option value="{{ $debitur->PARTNER_ID }}">{{ $debitur->partner->NAMA_PERUSAHAAN }}</option>
@@ -27,7 +27,6 @@
             </select>
         </div>
     </div>
-
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Debitur <span class="text-danger">*</span></label></div>
         <div class="col-sm-8"><input type="text" required value="{{ $debitur->NAMA_DEBITUR }}" name="NAMA_DEBITUR"
@@ -44,13 +43,29 @@
             <div class="col-sm-8"><input type="number" required value="{{ $debitur->NO_KTP }}" name="NO_KTP" class="form-control"
                     style="width: 300px; height: 30px;"></div>
         </div>
-
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Upload KTP <span class="text-danger">*</span></div>
+            <div class="col-sm-8">
+                <div class="custom-file" style="width: 300px; height: 38px;">
+                    <input type="file" class="custom-file-input" name="UPLOAD_KTP" value="{{ $debitur->UPLOAD_KTP }}">
+                    <label class="custom-file-label">{{ $debitur->UPLOAD_KTP }}</label>
+                </div>
+            </div>
+        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>No NPWP</label> <span class="text-danger">*</span></div>
             <div class="col-sm-8"><input type="text" required value="{{ $debitur->NO_NPWP }}" name="NO_NPWP" class="form-control"
                     style="width: 300px; height: 30px;"></div>
         </div>
-
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Upload NPWP <span class="text-danger">*</span></div>
+            <div class="col-sm-8">
+                <div class="custom-file" style="width: 300px; height: 38px;">
+                    <input type="file" class="custom-file-input" name="UPLOAD_NPWP" value="{{ $debitur->UPLOAD_NPWP }}">
+                    <label class="custom-file-label">{{ $debitur->UPLOAD_NPWP }}</label>
+                </div>
+            </div>
+        </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Alamat <span class="text-danger">*</span></div>
             <div class="col-sm-8">
@@ -616,6 +631,22 @@
                 @error('Nilai_Jaminan_Lainnya')
                 <p class="text-danger">{{ $message }}</p>
                 @enderror
+            </div>
+        </div>
+
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Pengajuan Lain Lain</label></div>
+            <div class="col-sm-8">
+                <div class="custom-file"  style="width: 300px; height: 30px;">
+                    <input type="file" class="custom-file-input" name="PENGAJUAN_LAIN_LAIN[]" multiple>
+                    <label class="custom-file-label">
+                        @if ($debitur->PENGAJUAN_LAIN_LAIN != NULL)
+                            @foreach (json_decode($debitur->PENGAJUAN_LAIN_LAIN) as $item)
+                                {{ $item }},
+                            @endforeach
+                        @endif
+                    </label>
+                </div>
             </div>
         </div>
 

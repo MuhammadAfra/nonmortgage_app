@@ -23,8 +23,8 @@ Home
 @if (auth()->user()->level == "Admin")
 <div class="d-flex pb-3">
     <a href="{{ url('debitur_badan_usaha/create') }}" class="btn btn-success my-2 mx-2">Create New</a>
-    <button type="button" class="btn btn-primary btn-md my-2" style="height: 38px" type="button" data-toggle="modal"
-    data-target="#impormodal">Impor Data</button>
+    {{-- <button type="button" class="btn btn-primary btn-md my-2" style="height: 38px" type="button" data-toggle="modal"
+    data-target="#impormodal">Impor Data</button> --}}
 </div>
 @endif
 {{-- notifikasi sukses --}}
@@ -47,7 +47,7 @@ Home
                     @if (auth()->user()->level == "Admin")
                     <th>Action</th>
                     @endif
-                    <th>Nama Perusahaan Partner</th>
+                    <th>Nama Partner ID</th>
                     <th>Nama Perusahaan</th>
                     <th>Alamat Perusahaan</th>
                     <th>Status Bahan Hukum</th>
@@ -92,6 +92,7 @@ Home
                     <th>Nilai Inventory</th>
                     <th>Jaminan Lainnya</th>
                     <th>Nilai Jaminan Lainnya</th>
+                    <th>Pengajuan Lain Lain</th>
                     <th>Down Payment</th>
                     <th>Jumlah Down Payment</th>
                     <th>Status</th>
@@ -200,6 +201,13 @@ Home
                     @else
                         <td><center>-</center></td>
                     @endif
+                    <td>
+                        @if ($item->PENGAJUAN_LAIN_LAIN != NULL)
+                        @foreach (json_decode($item->PENGAJUAN_LAIN_LAIN) as $file)
+                            {{ $file }}
+                        @endforeach
+                        @endif
+                    </td>
                     <td>{{ $item->APAKAH_ADA_DP }}</td>
                     @if ($item->DOWN_PAYMENT_CUSTOMER != null)
                     <td>Rp{{ number_format($item->DOWN_PAYMENT_CUSTOMER) }}</td>
