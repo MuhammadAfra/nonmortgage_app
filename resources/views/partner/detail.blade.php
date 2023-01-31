@@ -55,7 +55,11 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Detail Nama Product</label></div>
-            <div class="col-sm-8">: {{ $partner->master_product->id_master_product }} - {{ $partner->master_product->nama_product }}</div>
+            <div class="col-sm-8">: 
+                @if ($partner->DETIL_PRODUCT_PROFILE != NULL)
+                    {{ $partner->master_product->id_master_product }} - {{ $partner->master_product->nama_product }}
+                @endif
+            </div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Akta Perubahan Anggaran Dasar <br> 
@@ -74,12 +78,20 @@ Detail
             <div class="col-sm-8">: {{ $partner->SIUP }}</div>
         </div>
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Tanggal Masa Berlaku SIUP</label></div>
+            <div class="col-sm-8">: {{ $partner->TGL_BERLAKU_SIUP }}</div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>TDP <br> 
             @if ($partner->TDP != NULL)
             <a href="{{ url('/dw_tdp', $partner->TDP) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->TDP }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Tanggal Masa Berlaku SIUP</label></div>
+            <div class="col-sm-8">: {{ $partner->TGL_BERLAKU_SIUP }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>NPWP <br> 
@@ -136,6 +148,10 @@ Detail
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $partner->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Last Year</label></div>
+            <div class="col-sm-8">: {{ $partner->LAST_YEAR }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>In House Financial Statement Current Year <br> 

@@ -118,6 +118,7 @@ Route::group(['middleware' => ['PreventBack']], function(){
         // collateral motor
         Route::resource('collateral_motor', CollateralMotorController::class);
         Route::resource('collateral_motor_tambahan', CollateralMotorTambahanController::class);
+        Route::get('/colls_motor_utama-test', [CollateralMotorController::class, 'test'])->name('colls_motor_utama-test');
 
         // collateral inventory
         Route::resource('collateral_inven', CollateralInventoryController::class);

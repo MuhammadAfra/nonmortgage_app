@@ -217,6 +217,9 @@ class PartnerController extends Controller
         $partner->No_Identitas_Direktur2 = $request->No_Identitas_Direktur2;
         $partner->Status = $request->Status;
         $partner->PENGGANTI_ASURANSI = $request->PENGGANTI_ASURANSI;
+        $partner->TGL_BERLAKU_SIUP = $request->TGL_BERLAKU_SIUP;
+        $partner->TGL_BERLAKU_TDP = $request->TGL_BERLAKU_TDP;
+        $partner->LAST_YEAR = $request->LAST_YEAR;
         $partner->save();
         // dd($partner);
 
@@ -611,6 +614,9 @@ class PartnerController extends Controller
         $partner->No_Identitas_Direktur2 = $request->No_Identitas_Direktur2;
         $partner->Status = $request->Status;
         $partner->PENGGANTI_ASURANSI = $request->PENGGANTI_ASURANSI;
+        $partner->TGL_BERLAKU_SIUP = $request->TGL_BERLAKU_SIUP;
+        $partner->TGL_BERLAKU_TDP = $request->TGL_BERLAKU_TDP;
+        $partner->LAST_YEAR = $request->LAST_YEAR;
         $partner->save();
 
         return redirect('partner');

@@ -458,7 +458,6 @@ Add
     </div>
 
     <div class="row pb-3">
-<<<<<<< HEAD
         <div class="col-sm-4"><label>Pengajuan Lain Lain <span class="text-danger">*</span></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 300px; height: 38px;">
@@ -470,9 +469,6 @@ Add
 
     <div class="row pb-3">
         <div class="col-sm-4"><label>Down Payment <span class="text-danger">*</span></label></div>
-=======
-        <div class="col-sm-4"><label>Down Payment </label></div>
->>>>>>> 4a09b7e619c983e69944d57b49be8cbea6a1b344
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
                 <input type="radio" value="ADA" style="width: 15px" required name="APAKAH_ADA_DP" class="form-control" onchange="checkDP(this)">

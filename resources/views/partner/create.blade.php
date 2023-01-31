@@ -79,10 +79,10 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Detail Nama Product <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Detail Nama Product</label></div>
         <div class="col-sm-8">
             <div class="input-group" style="width: 500px; height: 38px;">
-                <select class="form-control py-0" required name="DETIL_PRODUCT_PROFILE">
+                <select class="form-control py-0" name="DETIL_PRODUCT_PROFILE">
                     <option></option>
                     @foreach ($prod as $item)
                     <option value="{{ $item->id }}">{{ $item->nama_product }}</option>
@@ -103,19 +103,31 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>SIUP / NIB </label></div>
         <div class="col-sm-8">
-            <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
+            <div class="custom-file" style="width: 500px; height: 38px;">
                 <input type="file" class="custom-file-input" name="SIUP">
                 <label class="custom-file-label">Choose file</label>
             </div>
         </div>
     </div>
     <div class="row pb-3">
+        <div class="col-sm-4"><label>Tanggal Masa Berlaku SIUP </label></div>
+        <div class="col-sm-8">
+            <input type="date" name="TGL_BERLAKU_SIUP" class="form-control" style="width: 500px; height: 38px;">
+        </div>
+    </div>
+    <div class="row pb-3">
         <div class="col-sm-4"><label>TDP </label></div>
         <div class="col-sm-8">
-            <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
+            <div class="custom-file" style="width: 500px; height: 38px;">
                 <input type="file" class="custom-file-input" name="TDP">
                 <label class="custom-file-label">Choose file</label>
             </div>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Tanggal Masa Berlaku TDP </label></div>
+        <div class="col-sm-8">
+            <input type="date" name="TGL_BERLAKU_TDP" class="form-control" style="width: 500px; height: 38px;">
         </div>
     </div>
     <div class="row pb-3">
@@ -190,6 +202,12 @@ Add
                 <input type="file" class="custom-file-input" name="AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS">
                 <label class="custom-file-label">Choose file</label>
             </div>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Last Year </label></div>
+        <div class="col-sm-8">
+            <input type="date" name="LAST_YEAR" class="form-control" style="width: 500px; height: 38px;">
         </div>
     </div>
     <div class="row pb-3">

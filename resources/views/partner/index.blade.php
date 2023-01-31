@@ -55,8 +55,10 @@ Home
                     <th>Akta Lain-Lain</th>
                     <th>Detail Nama Product</th>
                     <th>Akta Perubahan Anggaran Dasar</th>
-                    <th>SIUP / NIB</th>
+                    <th>SIUP</th>
+                    <th>Tanggal Masa Berlaku SIUP</th>
                     <th>TDP</th>
+                    <th>Tanggal Masa Berlaku TDP</th>
                     <th>NPWP</th>
                     <th>Nama Direktur Utama</th>
                     <th>Nomor Identitas Direktur Utama</th>
@@ -67,6 +69,7 @@ Home
                     <th>Modal Pendirian</th>
                     <th>Modal Perubahan Terakhir</th>
                     <th>Audited Financial Statement Last 2 Years</th>
+                    <th>Last Year</th>
                     <th>In House Financial Statement Current Year</th>
                     <th>Bank Statement Last 3 Years</th>
                     <th>Financial Projection For Next 3-5 Years</th>
@@ -104,10 +107,16 @@ Home
                             @endforeach   
                         @endif 
                     </td>
-                    <td>{{ $item->master_product->nama_product }}</td>
+                    <td>
+                        @if ($item->DETIL_PRODUCT_PROFILE != NULL)
+                            {{ $item->master_product->nama_product }}
+                        @endif
+                    </td>
                     <td>{{ $item->AKTE_PERUBAHAN_ANGGARAN_DASAR }}</td>
                     <td>{{ $item->SIUP }}</td>
+                    <td>{{ $item->TGL_BERLAKU_SIUP }}</td>
                     <td>{{ $item->TDP }}</td>
+                    <td>{{ $item->TGL_BERLAKU_TDP }}</td>
                     <td>{{ $item->NPWP }}</td>
                     <td>{{ $item->Nama_Direktur_Utama }}</td>
                     <td>{{ $item->No_Identitas_Direktur_Utama }}</td>
@@ -118,6 +127,7 @@ Home
                     <td>{{ $item->MODAL_PENDIRIAN }}</td>
                     <td>{{ $item->MODAL_PERUBAHAN_TERAKHIR }}</td>
                     <td>{{ $item->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS }}</td>
+                    <td>{{ $item->LAST_YEAR }}</td>
                     <td>{{ $item->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR }}</td>
                     <td>
                         @if ($item->BANK_STATEMENT_LAST_3_MONTHS != NULL)

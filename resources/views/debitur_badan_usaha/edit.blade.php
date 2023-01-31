@@ -17,13 +17,20 @@ Edit
     @method('PUT')
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nama Partner ID</label></div>
+        <div class="col-sm-4"><label>Nama Perusahaan Partner</label></div>
         <div class="col-sm-8">
-            <select name="PARTNER_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                <option value="{{ $deb->PARTNER_ID }}">{{ $deb->partner->NAMA_PERUSAHAAN }}</option>
-                @foreach ($partner as $item)
-                    <option value="{{ $item->id }}"> {{ $item->NAMA_PERUSAHAAN }}</option>
-                @endforeach
+            <select name="PARTNER_ID" class="form-control py-0" style="width: 300px; height: 38px;">
+                @if ($deb->PARTNER_ID != NULL)
+                    <option value="{{ $deb->PARTNER_ID }}">{{ $deb->partner->NAMA_PERUSAHAAN }}</option>
+                    @foreach ($partner as $item)
+                        <option value="{{ $item->id }}"> {{ $item->NAMA_PERUSAHAAN }}</option>
+                    @endforeach
+                @else
+                    <option></option>
+                    @foreach ($partner as $item)
+                        <option value="{{ $item->id }}"> {{ $item->NAMA_PERUSAHAAN }}</option>
+                    @endforeach
+                @endif
             </select>
         </div>
     </div>
@@ -31,7 +38,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Perusahaan</label></div>
         <div class="col-sm-8">
-            <input type="text" name="NAMA_PERUSAHAAN" value="{{ $deb->NAMA_PERUSAHAAN }}" class="form-control"  style="width: 300px; height: 30px;">
+            <input type="text" name="NAMA_PERUSAHAAN" value="{{ $deb->NAMA_PERUSAHAAN }}" class="form-control"  style="width: 300px; height: 38px;">
         </div>
     </div>
     <div class="row pb-3">
@@ -63,9 +70,9 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Akta Pendirian  <span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Akta Pendirian <span class="text-danger">*</span></div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="AKTE_PENDIRIAN">
                 <label class="custom-file-label">{{ $deb->AKTE_PENDIRIAN }}</label>
             </div>
@@ -74,7 +81,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Company Profile</label></div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="COMPANY_PROFILE">
                 <label class="custom-file-label">{{ $deb->COMPANY_PROFILE }}</label>
             </div>
@@ -83,7 +90,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Akta Lain-Lain</label></div>   
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="AKTE_LAIN_LAIN[]" multiple>
                 <label class="custom-file-label">
                     @if ($deb->AKTE_LAIN_LAIN != NULL)
@@ -96,20 +103,27 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Detail Product <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Detail Product </label></div>
         <div class="col-sm-8">
-            <select class="form-control" name="DETIL_PRODUCT_PROFILE"  style="width: 300px; height: 30px;">
-                <option value="{{ $deb->DETIL_PRODUCT_PROFILE }}">{{ $deb->detil_product->id_master_product }} - {{ $deb->detil_product->nama_product }}</option>
-                @foreach ($m_prod as $item)
-                <option value="{{ $item->id }}">{{ $item->id_master_product }} - {{ $item->nama_product }}</option>
-                @endforeach
+            <select class="form-control" name="DETIL_PRODUCT_PROFILE"  style="width: 300px; height: 38px;">
+                @if ($deb->DETIL_PRODUCT_PROFILE != NULL)
+                    <option value="{{ $deb->DETIL_PRODUCT_PROFILE }}">{{ $deb->detil_product->id_master_product }} - {{ $deb->detil_product->nama_product }}</option>
+                    @foreach ($m_prod as $item)
+                    <option value="{{ $item->id }}">{{ $item->id_master_product }} - {{ $item->nama_product }}</option>
+                    @endforeach
+                @else
+                    <option></option>
+                    @foreach ($m_prod as $item)
+                    <option value="{{ $item->id }}">{{ $item->id_master_product }} - {{ $item->nama_product }}</option>
+                    @endforeach
+                @endif
             </select>
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Akta Perubahan Anggaran Dasar</label></div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="AKTE_PERUBAHAN_ANGGARAN_DASAR">
                 <label class="custom-file-label">{{ $deb->AKTE_PERUBAHAN_ANGGARAN_DASAR }}</label>
             </div>
@@ -118,25 +132,37 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>SIUP / NIB</label></div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="SIUP">
                 <label class="custom-file-label">{{ $deb->SIUP }}</label>
             </div>
         </div>
     </div>
     <div class="row pb-3">
+        <div class="col-sm-4"><label>Tanggal Masa Berlaku SIUP </label></div>
+        <div class="col-sm-8">
+            <input type="date" name="TGL_BERLAKU_SIUP" value="{{ $deb->TGL_BERLAKU_SIUP }}" class="form-control" placeholder="Tanggal Masa Berlaku SIUP" style="width: 300px; height: 38px;">
+        </div>
+    </div>
+    <div class="row pb-3">
         <div class="col-sm-4"><label>TDP</label></div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
         <input type="file" class="custom-file-input"  name="TDP">
                 <label class="custom-file-label">{{ $deb->TDP }}</label>
             </div>
         </div>
     </div>
     <div class="row pb-3">
+        <div class="col-sm-4"><label>Tanggal Masa Berlaku TDP </label></div>
+        <div class="col-sm-8">
+            <input type="date" name="TGL_BERLAKU_TDP" value="{{ $deb->TGL_BERLAKU_TDP }}" class="form-control" placeholder="Tanggal Masa Berlaku TDP" style="width: 300px; height: 38px;">
+        </div>
+    </div>
+    <div class="row pb-3">
         <div class="col-sm-4"><label>NPWP</label></div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="NPWP">
                 <label class="custom-file-label">{{ $deb->NPWP }}</label>
             </div>
@@ -145,44 +171,44 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Direktur Utama</label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nama_Direktur_Utama" value="{{ $deb->Nama_Direktur_Utama }}" class="form-control"  style="width: 300px; height: 30px;">
+            <input type="text" name="Nama_Direktur_Utama" value="{{ $deb->Nama_Direktur_Utama }}" class="form-control"  style="width: 300px; height: 38px;">
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur Utama</label></div>
         <div class="col-sm-8">
             <input type="text" name="No_Identitas_Direktur_Utama" value="{{ $deb->No_Identitas_Direktur_Utama }}" class="form-control"
-                 style="width: 300px; height: 30px;">
+                 style="width: 300px; height: 38px;">
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Direktur 1</label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nama_Direktur1" class="form-control" value="{{ $deb->Nama_Direktur1 }}"  style="width: 300px; height: 30px;">
+            <input type="text" name="Nama_Direktur1" class="form-control" value="{{ $deb->Nama_Direktur1 }}"  style="width: 300px; height: 38px;">
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur 1</label></div>
         <div class="col-sm-8">
-            <input type="text" name="No_Identitas_Direktur1" value="{{ $deb->No_Identitas_Direktur1 }}" class="form-control"  style="width: 300px; height: 30px;">
+            <input type="text" name="No_Identitas_Direktur1" value="{{ $deb->No_Identitas_Direktur1 }}" class="form-control"  style="width: 300px; height: 38px;">
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Direktur 2</label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nama_Direktur_2" value="{{ $deb->Nama_Direktur_2 }}" class="form-control"  style="width: 300px; height: 30px;">
+            <input type="text" name="Nama_Direktur_2" value="{{ $deb->Nama_Direktur_2 }}" class="form-control"  style="width: 300px; height: 38px;">
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nomor Identitas Direktur 2</label></div>
         <div class="col-sm-8">
-            <input type="text" name="No_Identitas_Direktur2" value="{{ $deb->No_Identitas_Direktur2 }}" class="form-control"  style="width: 300px; height: 30px;">
+            <input type="text" name="No_Identitas_Direktur2" value="{{ $deb->No_Identitas_Direktur2 }}" class="form-control"  style="width: 300px; height: 38px;">
         </div>
     </div>
     <div class="row pb-3">
         <div class="col-sm-4"><label>Modal Pendirian</label></div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="MODAL_PENDIRIAN">
                 <label class="custom-file-label">{{ $deb->MODAL_PENDIRIAN }}</label>
             </div>
@@ -191,7 +217,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Modal Perubahan Terakhir</label></div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="MODAL_PERUBAHAN_TERAKHIR">
                 <label class="custom-file-label">{{ $deb->MODAL_PERUBAHAN_TERAKHIR }}</label>
             </div>
@@ -201,17 +227,22 @@ Edit
         <div class="col-sm-4"><label>Audited Financial Statement Last 2 Years</label>
         </div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS">
                 <label class="custom-file-label">{{ $deb->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS }}</label>
             </div>
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>In House Financial Statement Current Year <span
-                    class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Last Year </label></div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <input type="date" name="LAST_YEAR" value="{{ $deb->LAST_YEAR }}" class="form-control" style="width: 300px; height: 38px;">
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>In House Financial Statement Current Year</label></div>
+        <div class="col-sm-8">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR">
                 <label class="custom-file-label">{{ $deb->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR }}</label>
             </div>
@@ -220,7 +251,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Bank Statement Last 3 Years</label></div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="BANK_STATEMENT_LAST_3_MONTHS[]" multiple>
                 <label class="custom-file-label">
                     @if ($deb->BANK_STATEMENT_LAST_3_MONTHS != NULL)
@@ -236,7 +267,7 @@ Edit
         <div class="col-sm-4"><label>Financial Projection For Next 3-5 Years</label>
         </div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS">
                 <label class="custom-file-label">{{ $deb->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS }}</label>
             </div>
@@ -245,7 +276,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Draft Template Agree End User</label></div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="DRAFT_TEMPLATE_AGREEMENT_END_USER">
                 <label class="custom-file-label">{{ $deb->DRAFT_TEMPLATE_AGREEMENT_END_USER }}</label>
             </div>
@@ -257,7 +288,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Contoh Risk Acceptance Criteria</label></div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="CONTOH_RISK_ACCEPTANCE_CRITERIA">
                 <label class="custom-file-label">{{ $deb->CONTOH_RISK_ACCEPTANCE_CRITERIA }}</label>
             </div>
@@ -266,25 +297,46 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>NDA Document</label></div>
         <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input"  name="NDA_DOCUMENT">
                 <label class="custom-file-label">{{ $deb->NDA_DOCUMENT }}</label>
             </div>
         </div>
     </div>
 
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Pengajuan Lain Lain</label></div>
+        <div class="col-sm-8">
+            <div class="custom-file"  style="width: 300px; height: 38px;">
+                <input type="file" class="custom-file-input" name="PENGAJUAN_LAIN_LAIN[]" multiple>
+                <label class="custom-file-label">
+                    @if ($deb->PENGAJUAN_LAIN_LAIN != NULL)
+                        @foreach (json_decode($deb->PENGAJUAN_LAIN_LAIN) as $item)
+                            {{ $item }},
+                        @endforeach
+                    @endif
+                </label>
+            </div>
+        </div>
+    </div>
     <h5 class="pb-3">Asuransi</h5>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jenis Asuransi<span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Jenis Asuransi</label></div>
         <div class="col-sm-8">
             <div>
-                <select class="form-control py-0" name="Jenis_Asuransi_Id"  style="width: 300px; height: 30px;">
-                    <option value="{{ $deb->Jenis_Asuransi_Id }}">{{ $deb->asuransi->Jenis_Asuransi }}
-                    </option>
-                    @foreach ($asuransi as $item)
-                        <option value="{{ $item->id }}">{{ $item->Jenis_Asuransi }}</option>
-                    @endforeach
+                <select class="form-control py-0" name="Jenis_Asuransi_Id"  style="width: 300px; height: 38px;">
+                    @if ($deb->Jenis_Asuransi_Id != NULL)
+                        <option value="{{ $deb->Jenis_Asuransi_Id }}">{{ $deb->asuransi->Jenis_Asuransi }}</option>
+                        @foreach ($asuransi as $item)
+                            <option value="{{ $item->id }}">{{ $item->Jenis_Asuransi }}</option>
+                        @endforeach
+                    @else
+                    <option></option>
+                        @foreach ($asuransi as $item)
+                            <option value="{{ $item->id }}">{{ $item->Jenis_Asuransi }}</option>
+                        @endforeach
+                    @endif
                 </select>
             </div>
         </div>
@@ -292,13 +344,13 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Perusahaan Asuransi</label></div>
         <div class="col-sm-8"><input value="{{ $deb->Perusahaan_Asuransi }}" type="text" 
-                name="Perusahaan_Asuransi" class="form-control"  style="width: 300px; height: 30px;"></div>
+                name="Perusahaan_Asuransi" class="form-control"  style="width: 300px; height: 38px;"></div>
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Persen Asuransi<span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Persen Asuransi</label></div>
         <div class="col-sm-8">
-            <div class="input-group"  style="width: 300px; height: 30px;">
+            <div class="input-group"  style="width: 300px; height: 38px;">
                 <input type="text" class="form-control" value="{{ $deb->Persen_Asuransi }}"
                     name="Persen_Asuransi">
                 <div class="input-group-append">
@@ -312,10 +364,10 @@ Edit
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Asuransi<span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nilai Asuransi</label></div>
         <div class="col-sm-8">
             @if ($deb->Nilai_Asuransi != null)
-                <div class="input-group"  style="width: 300px; height: 30px;">
+                <div class="input-group"  style="width: 300px; height: 38px;">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Rp</span>
                     </div>
@@ -324,7 +376,7 @@ Edit
                         name="Nilai_Asuransi">
                 </div>
             @else
-                <div class="input-group"  style="width: 300px; height: 30px;">
+                <div class="input-group"  style="width: 300px; height: 38px;">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Rp</span>
                     </div>
@@ -439,7 +491,7 @@ Edit
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Kendaraan Motor<span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nilai Kendaraan Motor</label></div>
         <div class="col-sm-8">
             @if ($deb->Nilai_Kendaraan_Bermotor_Motor != null)
                 <div class="input-group" style="width: 300px; height: 38px;">
@@ -629,21 +681,6 @@ Edit
             @enderror
         </div>
     </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Pengajuan Lain Lain</label></div>
-        <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 30px;">
-                <input type="file" class="custom-file-input" name="PENGAJUAN_LAIN_LAIN[]" multiple>
-                <label class="custom-file-label">
-                    @if ($deb->PENGAJUAN_LAIN_LAIN != NULL)
-                        @foreach (json_decode($deb->PENGAJUAN_LAIN_LAIN) as $item)
-                            {{ $item }},
-                        @endforeach
-                    @endif
-                </label>
-            </div>
-        </div>
-    </div>
 
     <div class="row pb-3">
         <div class="col-sm-4"><label>Down Payment</label></div>
@@ -685,7 +722,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status</label></div>
         <div class="col-sm-8">
-            <select name="Status" class="form-control py-0"  style="width: 300px; height: 30px;">
+            <select name="Status" class="form-control py-0"  style="width: 300px; height: 38px;">
                 <option value="{{ $deb->Status }}">{{ $deb->Status }}</option>
                     <option value="Pending">Pending</option>
                     <option value="Completed">Completed</option>

@@ -47,11 +47,7 @@ Home
                     @if (auth()->user()->level == "Admin")
                     <th>Action</th>
                     @endif
-<<<<<<< HEAD
-                    <th>Nama Partner ID</th>
-=======
                     <th>Nama Perusahaan Partner</th>
->>>>>>> 4a09b7e619c983e69944d57b49be8cbea6a1b344
                     <th>Nama Perusahaan</th>
                     <th>Alamat Perusahaan</th>
                     <th>Status Bahan Hukum</th>
@@ -61,7 +57,9 @@ Home
                     <th>Detail Company Profile</th>
                     <th>Akta Perubahan Anggaran Dasar</th>
                     <th>SIUP</th>
+                    <th>Tanggal Masa Berlaku SIUP</th>
                     <th>TDP</th>
+                    <th>Tanggal Masa Berlaku TDP</th>
                     <th>NPWP</th>
                     <th>Nama Direktur Utama</th>
                     <th>Nomor Identitas Direktur Utama</th>
@@ -72,6 +70,7 @@ Home
                     <th>Modal Pendirian</th>
                     <th>Modal Perubahan Terakhir</th>
                     <th>Audited Financial Statement Last 2 Years</th>
+                    <th>Last Year</th>
                     <th>In House Financial Statement Current Year</th>
                     <th>Bank Statement Last 3 Years</th>
                     <th>Financial Projection For Next 3-5 Years</th>
@@ -116,7 +115,11 @@ Home
                     </td>
                     @include('debitur_badan_usaha.delete')
                     @endif
-                    <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
+                    <td>
+                        @if ($item->DETIL_PRODUCT_PROFILE != NULL)
+                            {{ $item->partner->NAMA_PERUSAHAAN }}
+                        @endif
+                    </td>
                     <td>{{ $item->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->ALAMAT_PERUSAHAAN }}</td>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                     <td>{{ $item->STATUS_BADAN_HUKUM }}</td>
@@ -129,10 +132,16 @@ Home
                             @endforeach
                         @endif
                     </td>
-                    <td>{{ $item->detil_product->nama_product }}</td>
+                    <td>
+                        @if ($item->PARTNER_ID != NULL)
+                            {{ $item->detil_product->nama_product }}
+                        @endif
+                    </td>
                     <td>{{ $item->AKTE_PERUBAHAN_ANGGARAN_DASAR }}</td>
                     <td>{{ $item->SIUP }}</td>
+                    <td>{{ $item->TGL_BERLAKU_SIUP }}</td>
                     <td>{{ $item->TDP }}</td>
+                    <td>{{ $item->TGL_BERLAKU_TDP }}</td>
                     <td>{{ $item->NPWP }}</td>
                     <td>{{ $item->Nama_Direktur_Utama }}</td>
                     <td>{{ $item->No_Identitas_Direktur_Utama }}</td>
@@ -143,6 +152,7 @@ Home
                     <td>{{ $item->MODAL_PENDIRIAN }}</td>
                     <td>{{ $item->MODAL_PERUBAHAN_TERAKHIR }}</td>
                     <td>{{ $item->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS }}</td>
+                    <td>{{ $item->LAST_YEAR }}</td>
                     <td>{{ $item->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR }}</td>
                     <td>
                         @if ($item->BANK_STATEMENT_LAST_3_MONTHS != NULL)
@@ -155,7 +165,11 @@ Home
                     <td>{{ $item->DRAFT_TEMPLATE_AGREEMENT_END_USER }}</td>
                     <td>{{ $item->CONTOH_RISK_ACCEPTANCE_CRITERIA }}</td>
                     <td>{{ $item->NDA_DOCUMENT }}</td>
-                    <td>{{ $item->asuransi->Jenis_Asuransi }}</td>
+                    <td>
+                        @if ($item->Jenis_Asuransi_Id != NULL)
+                            {{ $item->asuransi->Jenis_Asuransi }}                        
+                        @endif
+                    </td>
                     <td>{{ $item->Perusahaan_Asuransi }}</td>
                     <td>{{ $item->Persen_Asuransi }}</td>
                     @if ($item->Nilai_Asuransi != null )

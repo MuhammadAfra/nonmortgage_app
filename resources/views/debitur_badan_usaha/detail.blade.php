@@ -16,7 +16,11 @@ Detail
     <div class="card-body">
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nama Partner ID</label></div>
-            <div class="col-sm-8">: {{ $deb->partner->NAMA_PERUSAHAAN }}</div>
+            <div class="col-sm-8">: 
+                @if ($deb->PARTNER_ID != NULL)
+                {{ $deb->partner->NAMA_PERUSAHAAN }}
+                @endif
+            </div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nama Perusahaan</label></div>
@@ -59,7 +63,11 @@ Detail
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Detail Product Profile</label></div>
-            <div class="col-sm-8">: {{ $deb->detil_product->id_master_product }} - {{ $deb->detil_product->nama_product }}</div>
+            <div class="col-sm-8">: 
+                @if ($deb->DETIL_PRODUCT_PROFILE != NULL)
+                    {{ $deb->detil_product->id_master_product }} - {{ $deb->detil_product->nama_product }}
+                @endif
+            </div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Akta Perubahan Anggaran Dasar <br> 
@@ -78,12 +86,20 @@ Detail
             <div class="col-sm-8">: {{ $deb->SIUP }}</div>
         </div>
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Tanggal Masa Berlaku SIUP</label></div>
+            <div class="col-sm-8">: {{ $deb->TGL_BERLAKU_SIUP }}</div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>TDP <br> 
             @if ($deb->TDP != NULL)
             <a href="{{ url('/dw_deb_tdp', $deb->TDP) }}">Download File</a>
             @endif
             </label></div>
             <div class="col-sm-8">: {{ $deb->TDP }}</div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Tanggal Masa Berlaku TDP</label></div>
+            <div class="col-sm-8">: {{ $deb->TGL_BERLAKU_TDP }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>NPWP <br> 
@@ -142,6 +158,10 @@ Detail
             <div class="col-sm-8">: {{ $deb->AUDITED_FINANCIAL_STATEMENT_LAST_2_YEARS }}</div>
         </div>
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Last Year</label></div>
+            <div class="col-sm-8">: {{ $deb->LAST_YEAR }}</div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>In House Financial Statement <br> 
             @if ($deb->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR != NULL)
             <a href="{{ url('/dw_deb_in_house', $deb->IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR) }}">Download File</a>
@@ -193,8 +213,23 @@ Detail
             <div class="col-sm-8">: {{ $deb->NDA_DOCUMENT }}</div>
         </div>        
         <div class="row pb-3">
+            <div class="col-sm-4"><label>Pengajuan Lain Lain <br> 
+        </label></div>
+            <div class="col-sm-8">: 
+                @if ($deb->PENGAJUAN_LAIN_LAIN != NULL)
+                    @foreach (json_decode($deb->PENGAJUAN_LAIN_LAIN) as $item)
+                        {{ $item }} | <a href="{{ url('/dw_pll', $item) }}">Download File</a> <br>
+                    @endforeach
+                @endif
+            </div>
+        </div>
+        <div class="row pb-3">
             <div class="col-sm-4"><label>Jenis Asuransi</label></div>
-            <div class="col-sm-8">: {{ $deb->asuransi->Jenis_Asuransi }}</div>
+            <div class="col-sm-8">: 
+                @if ($deb->Jenis_Asuransi_Id != NULL)
+                    {{ $deb->asuransi->Jenis_Asuransi }}
+                @endif
+            </div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Perusahaan Asuransi</label></div>
@@ -291,17 +326,6 @@ Detail
             @else
             <div class="col-sm-8">: {{ $deb->Nilai_Jaminan_Lainnya }}</div>
             @endif
-        </div>
-        <div class="row pb-3">
-            <div class="col-sm-4"><label>Pengajuan Lain Lain <br> 
-        </label></div>
-            <div class="col-sm-8">: 
-                @if ($deb->PENGAJUAN_LAIN_LAIN != NULL)
-                    @foreach (json_decode($deb->PENGAJUAN_LAIN_LAIN) as $item)
-                        {{ $item }} | <a href="{{ url('/dw_pll', $item) }}">Download File</a> <br>
-                    @endforeach
-                @endif
-            </div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Down Payment</label></div>

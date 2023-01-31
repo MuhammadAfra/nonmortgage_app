@@ -7,12 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Collateral_Motor extends Model
 {
+    use HasFactory;
     protected $table = 'collateral_motor';
     protected $guarded = [];
     public $timestamps = false;
+
+    public function partner()
+    {
+        return $this->belongsTo(Partner::class, 'PARTNER_ID');
+    }
 
     public function product()
     {
         return $this->belongsTo(Product::class, 'PRODUCT_ID');
     }
+
+    public function debitur()
+    {
+        return $this->belongsTo(Debitur::class, 'DEBITUR_ID');
+    }
+
 }

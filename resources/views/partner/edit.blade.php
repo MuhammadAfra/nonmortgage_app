@@ -83,13 +83,20 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Detail Nama Product <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Detail Nama Product</label></div>
         <div class="col-sm-8">
             <select class="form-control" name="DETIL_PRODUCT_PROFILE" style="width: 500px; height: 40px;">
-                <option value="{{ $partner->DETIL_PRODUCT_PROFILE }}">{{ $partner->master_product->id_master_product }} - {{ $partner->master_product->nama_product }}</option>
-                @foreach ($m_prod as $item)
-                <option value="{{ $item->id }}">{{ $item->id_master_product }} - {{ $item->nama_product }}</option>
-                @endforeach
+                @if ($partner->DETIL_PRODUCT_PROFILE != NULL)
+                    <option value="{{ $partner->DETIL_PRODUCT_PROFILE }}">{{ $partner->master_product->id_master_product }} - {{ $partner->master_product->nama_product }}</option>
+                    @foreach ($m_prod as $item)
+                    <option value="{{ $item->id }}">{{ $item->id_master_product }} - {{ $item->nama_product }}</option>
+                    @endforeach
+                @else
+                    <option></option>
+                    @foreach ($m_prod as $item)
+                    <option value="{{ $item->id }}">{{ $item->id_master_product }} - {{ $item->nama_product }}</option>
+                    @endforeach
+                @endif
             </select>
         </div>
     </div>
@@ -112,12 +119,24 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
+        <div class="col-sm-4"><label>Tanggal Masa Berlaku SIUP </label></div>
+        <div class="col-sm-8">
+            <input type="date" name="TGL_BERLAKU_SIUP" value="{{ $partner->TGL_BERLAKU_SIUP }}" class="form-control"style="width: 500px; height: 38px;">
+        </div>
+    </div>
+    <div class="row pb-3">
         <div class="col-sm-4"><label>TDP</label></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
         <input type="file" class="custom-file-input"  name="TDP">
                 <label class="custom-file-label">{{ $partner->TDP }}</label>
             </div>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Tanggal Masa Berlaku TDP </label></div>
+        <div class="col-sm-8">
+            <input type="date" name="TGL_BERLAKU_TDP" value="{{ $partner->TGL_BERLAKU_TDP }}" class="form-control" style="width: 500px; height: 38px;">
         </div>
     </div>
     <div class="row pb-3">
@@ -195,8 +214,13 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>In House Financial Statement Current Year <span
-                    class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Last Year </label></div>
+        <div class="col-sm-8">
+            <input type="date" name="LAST_YEAR" value="{{ $partner->LAST_YEAR }}" class="form-control" style="width: 500px; height: 38px;">
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>In House Financial Statement Current Year </label></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
                 <input type="file" class="custom-file-input" name="IN_HOUSE_FINANCIAL_STATEMENT_CURRENT_YEAR">
@@ -276,7 +300,7 @@ Edit
         <div class="col-sm-4"><label>File Pengganti Asuransi </label></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 500px; height: 40px; cursor: pointer;">
-                <input id="pengganti" type="file" class="custom-file-input" name="FILE_PENGGANTI_ASURANSI" {{ $partner->PENGGANTI_ASURANSI == 'TIDAK' ? 'disabled' : '' }}>
+                <input id="pengganti" type="file" class="custom-file-input" name="FILE_PENGGANTI_ASURANSI" {{ $partner->PENGGANTI_ASURANSI == 'ADA' ? 'disabled' : '' }}>
                 <label class="custom-file-label">{{ $partner->FILE_PENGGANTI_ASURANSI }}</label>
             </div>
         </div>
@@ -322,7 +346,7 @@ Edit
     function checkASR(obj) 
     {
         var pengganti = document.getElementById("pengganti");
-        pengganti.disabled = obj.value == "TIDAK";
+        pengganti.disabled = obj.value == "ADA";
     }
 </script>
 @endsection

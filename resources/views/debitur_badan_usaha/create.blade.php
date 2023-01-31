@@ -16,13 +16,9 @@ Add
     @csrf
 
     <div class="row pb-3">
-<<<<<<< HEAD
-        <div class="col-sm-4"><label>Nama Partner ID <span class="text-danger">*</span></label></div>
-=======
-        <div class="col-sm-4"><label>Nama Perusahaan Partner <span class="text-danger">*</span></label></div>
->>>>>>> 4a09b7e619c983e69944d57b49be8cbea6a1b344
+        <div class="col-sm-4"><label>Nama Perusahaan Partner</label></div>
         <div class="col-sm-8">
-            <select name="PARTNER_ID" class="form-control" style="width: 300px; height: 38px;" required>
+            <select name="PARTNER_ID" class="form-control" style="width: 300px; height: 38px;">
                 <option></option>
                 @foreach ($partner as $item)
                 <option value="{{ $item->id }}">{{ $item->NAMA_PERUSAHAAN }}</option>
@@ -71,7 +67,7 @@ Add
         <div class="col-sm-4"><label>Akta Pendirian <span class="text-danger">*</span></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 300px; height: 38px;">
-                <input type="file" class="custom-file-input" name="AKTE_PENDIRIAN">
+                <input type="file" class="custom-file-input" name="AKTE_PENDIRIAN" required>
                 <label class="custom-file-label">Choose file</label>
             </div>
             @error('AKTE_PENDIRIAN')
@@ -98,10 +94,10 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Detail Nama Product <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Detail Nama Product </label></div>
         <div class="col-sm-8">
             <div class="input-group" style="width: 300px; height: 38px;">
-                <select class="form-control py-0" required name="DETIL_PRODUCT_PROFILE" required>
+                <select class="form-control py-0" name="DETIL_PRODUCT_PROFILE">
                     <option></option>
                     @foreach ($prod as $item)
                     <option value="{{ $item->id }}">{{ $item->nama_product }}</option>
@@ -129,12 +125,24 @@ Add
         </div>
     </div>
     <div class="row pb-3">
+        <div class="col-sm-4"><label>Tanggal Masa Berlaku SIUP </label></div>
+        <div class="col-sm-8">
+            <input type="date" name="TGL_BERLAKU_SIUP" class="form-control" placeholder="Tanggal Masa Berlaku SIUP" style="width: 300px; height: 38px;">
+        </div>
+    </div>
+    <div class="row pb-3">
         <div class="col-sm-4"><label>TDP </label></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="TDP">
                 <label class="custom-file-label">Choose file</label>
             </div>
+        </div>
+    </div>
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Tanggal Masa Berlaku TDP </label></div>
+        <div class="col-sm-8">
+            <input type="date" name="TGL_BERLAKU_TDP" class="form-control" placeholder="Tanggal Masa Berlaku TDP" style="width: 300px; height: 38px;">
         </div>
     </div>
     <div class="row pb-3">
@@ -212,6 +220,12 @@ Add
         </div>
     </div>
     <div class="row pb-3">
+        <div class="col-sm-4"><label>Last Year </label></div>
+        <div class="col-sm-8">
+            <input type="date" name="LAST_YEAR" class="form-control" style="width: 300px; height: 38px;">
+        </div>
+    </div>
+    <div class="row pb-3">
         <div class="col-sm-4"><label>In House Financial Statement Current Year</label></div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 300px; height: 38px;">
@@ -267,13 +281,23 @@ Add
         </div>
     </div>
 
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Pengajuan Lain Lain </div>
+        <div class="col-sm-8">
+            <div class="custom-file" style="width: 300px; height: 38px;">
+                <input type="file" class="custom-file-input" multiple name="PENGAJUAN_LAIN_LAIN[]">
+                <label class="custom-file-label">Choose file</label>
+            </div>
+        </div>
+    </div>
+    
     <h5 class="pb-3">Asuransi</h5>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jenis Asuransi <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Jenis Asuransi </label></div>
         <div class="col-sm-8">
             <div style="width: 300px; height: 38px;">
-                <select class="form-control py-0" name="Jenis_Asuransi_Id" required style="width: 300px; height: 38px;">
+                <select class="form-control py-0" name="Jenis_Asuransi_Id" style="width: 300px; height: 38px;">
                     <option></option>
                     @foreach ($asuransi as $item)
                     <option value="{{ $item->id }}">{{ $item->Jenis_Asuransi }}</option>
@@ -289,7 +313,7 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Persen Asuransi<span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Persen Asuransi</label></div>
         <div class="col-sm-8">
             <div class="input-group" style="width: 300px; height: 38px;">
                 <input type="text" class="form-control"
@@ -306,7 +330,7 @@ Add
 
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Asuransi<span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Nilai Asuransi</label></div>
         <div class="col-sm-8">
         <div class="input-group" style="width: 300px; height: 38px;">
                 <div class="input-group-prepend">
@@ -319,19 +343,19 @@ Add
             @enderror
         </div>
     </div>
-
+    
     <h5 class="pb-3">Jaminan</h5>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Sertifikat Tanah</label></div>
+        <div class="col-sm-4"><label>Jaminan Sertifikat Tanah <span class="text-danger">*</span></label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
-                <input type="radio" value="ADA" style="width: 15px" onchange="checkTNH(this)" name="Jaminan_Sertifikat_Tanah"
+                <input type="radio" value="ADA" required style="width: 15px" onchange="checkTNH(this)" name="Jaminan_Sertifikat_Tanah"
                     class="form-control">
                 <p class="my-auto mx-2" style="font-weight: 600">Ya</p>
             </div>
             <div class=" d-flex">
-                <input type="radio" value="TIDAK" style="width: 15px" onchange="checkTNH(this)" name="Jaminan_Sertifikat_Tanah"
+                <input type="radio" value="TIDAK" required style="width: 15px" onchange="checkTNH(this)" name="Jaminan_Sertifikat_Tanah"
                     class="form-control">
                 <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
             </div>
@@ -351,15 +375,15 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Kendaraan Mobil</label></div>
+        <div class="col-sm-4"><label>Jaminan Kendaraan Mobil <span class="text-danger">*</span></label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
-                <input type="radio" value="ADA" style="width: 15px" onchange="checkMBL(this)" name="Jaminan_Kendaraan_Bermotor_Mobil"
+                <input type="radio" value="ADA" required style="width: 15px" onchange="checkMBL(this)" name="Jaminan_Kendaraan_Bermotor_Mobil"
                     class="form-control">
                 <p class="my-auto mx-2" style="font-weight: 600">Ya</p>
             </div>
             <div class=" d-flex">
-                <input type="radio" value="TIDAK" style="width: 15px" onchange="checkMBL(this)" name="Jaminan_Kendaraan_Bermotor_Mobil"
+                <input type="radio" value="TIDAK" required style="width: 15px" onchange="checkMBL(this)" name="Jaminan_Kendaraan_Bermotor_Mobil"
                     class="form-control">
                 <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
             </div>
@@ -380,15 +404,15 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Kendaraan Motor</label></div>
+        <div class="col-sm-4"><label>Jaminan Kendaraan Motor <span class="text-danger">*</span></label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
-                <input type="radio" value="ADA" style="width: 15px" name="Jaminan_Kendaraan_Bermotor_Motor"
+                <input type="radio" value="ADA" required style="width: 15px" name="Jaminan_Kendaraan_Bermotor_Motor"
                     class="form-control" onchange="checkMTR(this)">
                 <p class="my-auto mx-2" style="font-weight: 600">Ya</p>
             </div>
             <div class=" d-flex">
-                <input type="radio" value="TIDAK" style="width: 15px" name="Jaminan_Kendaraan_Bermotor_Motor"
+                <input type="radio" value="TIDAK" required style="width: 15px" name="Jaminan_Kendaraan_Bermotor_Motor"
                     class="form-control" onchange="checkMTR(this)">
                 <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
             </div>
@@ -409,15 +433,15 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Personal Guarantee</label></div>
+        <div class="col-sm-4"><label>Jaminan Personal Guarantee <span class="text-danger">*</span></label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
-                <input type="radio" value="ADA" style="width: 15px" name="Jaminan_Personel_Guarantee"
+                <input type="radio" value="ADA" required style="width: 15px" name="Jaminan_Personel_Guarantee"
                     class="form-control" onchange="checkPG(this)">
                 <p class="my-auto mx-2" style="font-weight: 600">Ya</p>
             </div>
             <div class=" d-flex">
-                <input type="radio" value="TIDAK" style="width: 15px" name="Jaminan_Personel_Guarantee"
+                <input type="radio" value="TIDAK" required style="width: 15px" name="Jaminan_Personel_Guarantee"
                     class="form-control" onchange="checkPG(this)">
                 <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
             </div>
@@ -438,14 +462,14 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Invoice</label></div>
+        <div class="col-sm-4"><label>Jaminan Invoice <span class="text-danger">*</span></label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
-                <input type="radio" value="ADA" style="width: 15px" name="Jaminan_Invoice" class="form-control" onchange="checkIVC(this)">
+                <input type="radio" value="ADA" required style="width: 15px" name="Jaminan_Invoice" class="form-control" onchange="checkIVC(this)">
                 <p class="my-auto mx-2" style="font-weight: 600">Ya</p>
             </div>
             <div class=" d-flex">
-                <input type="radio" value="TIDAK" style="width: 15px" name="Jaminan_Invoice" class="form-control" onchange="checkIVC(this)">
+                <input type="radio" value="TIDAK" required style="width: 15px" name="Jaminan_Invoice" class="form-control" onchange="checkIVC(this)">
                 <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
             </div>
         </div>
@@ -465,14 +489,14 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Inventory</label></div>
+        <div class="col-sm-4"><label>Jaminan Inventory <span class="text-danger">*</span></label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
-                <input type="radio" value="ADA" style="width: 15px" name="Jaminan_Inventory" class="form-control" onchange="checkINVN(this)">
+                <input type="radio" value="ADA" required style="width: 15px" name="Jaminan_Inventory" class="form-control" onchange="checkINVN(this)">
                 <p class="my-auto mx-2" style="font-weight: 600">Ya</p>
             </div>
             <div class=" d-flex">
-                <input type="radio" value="TIDAK" style="width: 15px" name="Jaminan_Inventory" class="form-control" onchange="checkINVN(this)">
+                <input type="radio" value="TIDAK" required style="width: 15px" name="Jaminan_Inventory" class="form-control" onchange="checkINVN(this)">
                 <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
             </div>
         </div>
@@ -492,14 +516,14 @@ Add
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jaminan Lainnya</label></div>
+        <div class="col-sm-4"><label>Jaminan Lainnya <span class="text-danger">*</span></label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
-                <input type="radio" value="ADA" style="width: 15px" name="Jaminan_Lainnya" class="form-control" onchange="checkJL(this)">
+                <input type="radio" value="ADA" required style="width: 15px" name="Jaminan_Lainnya" class="form-control" onchange="checkJL(this)">
                 <p class="my-auto mx-2" style="font-weight: 600">Ya</p>
             </div>
             <div class=" d-flex">
-                <input type="radio" value="TIDAK" style="width: 15px" name="Jaminan_Lainnya" class="form-control" onchange="checkJL(this)">
+                <input type="radio" value="TIDAK" required style="width: 15px" name="Jaminan_Lainnya" class="form-control" onchange="checkJL(this)">
                 <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
             </div>
         </div>
@@ -518,30 +542,21 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Pengajuan Lain Lain <span class="text-danger">*</span></div>
-        <div class="col-sm-8">
-            <div class="custom-file" style="width: 300px; height: 38px;">
-                <input type="file" class="custom-file-input" required multiple name="PENGAJUAN_LAIN_LAIN[]">
-                <label class="custom-file-label">Choose file</label>
-            </div>
-        </div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Down Payment</label></div>
+        <div class="col-sm-4"><label>Down Payment <span class="text-danger">*</span></label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
-                <input type="radio" value="ADA" style="width: 15px" name="APAKAH_ADA_DP" class="form-control" onchange="checkDP(this)">
+                <input type="radio" value="ADA" required style="width: 15px" required name="APAKAH_ADA_DP" class="form-control" onchange="checkDP(this)">
                 <p class="my-auto mx-2" style="font-weight: 600">Ya</p>
             </div>
             <div class=" d-flex">
-                <input type="radio" value="TIDAK" style="width: 15px" name="APAKAH_ADA_DP" class="form-control" onchange="checkDP(this)">
+                <input type="radio" value="TIDAK" required style="width: 15px" required name="APAKAH_ADA_DP" class="form-control" onchange="checkDP(this)">
                 <p class="my-auto mx-2" style="font-weight: 600">Tidak</p>
             </div>
         </div>
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Jumlah Down Payment<span class="text-danger">*</span></label></div>
+        <div class="col-sm-4"><label>Jumlah Down Payment</label></div>
         <div class="col-sm-8">
             <div class="input-group" style="width: 300px; height: 38px;">
                 <div class="input-group-prepend">
