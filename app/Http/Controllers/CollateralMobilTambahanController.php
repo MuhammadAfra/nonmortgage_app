@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Partner;
 use App\Models\Debitur;
 use App\Models\Master_Product;
+use Illuminate\Support\Facades\DB;
 
 class CollateralMobilTambahanController extends Controller
 {
@@ -22,6 +23,18 @@ class CollateralMobilTambahanController extends Controller
         return view('collateral_tambahan.mobil.index', compact('mobil'));
     }
 
+    public function nextCounter(Request $request){
+        $partner_id = $request->partner_id;
+        $debitur_id = $request->debitur_id;
+
+        $counter = DB::table('collateral_mobil_tambahan')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_ID', $debitur_id)
+        ->get();
+
+        return response()->json(['data' => $counter]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,11 +42,9 @@ class CollateralMobilTambahanController extends Controller
      */
     public function create()
     {
-        $product = Product::get();
         $partner = Partner::all();
         $debitur = Debitur::all();
-        $m_product = Master_Product::all();
-        return view('collateral_tambahan.mobil.create', compact('product', 'partner', 'debitur', 'm_product'));
+        return view('collateral_tambahan.mobil.create', compact('partner', 'debitur',));
     }
 
     /**
@@ -47,7 +58,7 @@ class CollateralMobilTambahanController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
-            'PRODUCT_ID',
+            'COLL_COUNTER',
             'Nilai_Mobil_Vehicle_Tambahan',
             'Merk_Tambahan',
             'Type_Tambahan',
@@ -67,7 +78,7 @@ class CollateralMobilTambahanController extends Controller
         Collateral_Mobil_Tambahan::create([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Mobil_Vehicle_Tambahan' => str_replace(',', '' ,$request->Nilai_Mobil_Vehicle_Tambahan),
             'Merk_Tambahan' => $request->Merk_Tambahan,
             'Type_Tambahan' => $request->Type_Tambahan,
@@ -107,11 +118,9 @@ class CollateralMobilTambahanController extends Controller
     public function edit($id)
     {
         $mobil = Collateral_Mobil_Tambahan::findorfail($id);
-        $product = Product::get();
         $partner = Partner::all();
         $debitur = Debitur::all();
-        $m_product = Master_Product::all();
-        return view('collateral_tambahan.mobil.edit', compact('mobil','product','partner', 'debitur', 'm_product'));
+        return view('collateral_tambahan.mobil.edit', compact('mobil','partner', 'debitur'));
     }
 
     /**
@@ -127,7 +136,7 @@ class CollateralMobilTambahanController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
-            'PRODUCT_ID',
+            'COLL_COUNTER',
             'Nilai_Mobil_Vehicle_Tambahan',
             'Merk_Tambahan',
             'Type_Tambahan',
@@ -148,7 +157,7 @@ class CollateralMobilTambahanController extends Controller
         $mobil->update([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Mobil_Vehicle_Tambahan' => str_replace(',', '' ,$request->Nilai_Mobil_Vehicle_Tambahan),
             'Merk_Tambahan' => $request->Merk_Tambahan,
             'Type_Tambahan' => $request->Type_Tambahan,

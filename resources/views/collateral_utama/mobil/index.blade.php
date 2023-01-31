@@ -40,7 +40,7 @@ Home
                     @endif
                     <th>Partner ID</th>
                     <th>Debitur ID</th>
-                    <th>Product ID</th>
+                    <th>Coll ID</th>
                     <th>Nilai Kendaraan Mobil</th>
                     <th>Merk</th>
                     <th>Type</th>
@@ -75,7 +75,7 @@ Home
                     @endif
                     <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
-                    <td>{{ $item->product->m_product->nama_product }}</td>
+                    <td>{{ str_pad($item->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}</td>
                     <td>Rp{{ number_format($item->Nilai_Mobil_Vehicle) }}</td>
                     <td>{{ $item->Merk }}</td>
                     <td>{{ $item->Type }}</td>

@@ -117,27 +117,39 @@ Route::group(['middleware' => ['PreventBack']], function(){
 
         // collateral motor
         Route::resource('collateral_motor', CollateralMotorController::class);
+        Route::get('/collateral_motor_nextCounter', [CollateralMotorController::class, 'nextCounter'])->name('collateral_motor_nextCounter');
         Route::resource('collateral_motor_tambahan', CollateralMotorTambahanController::class);
+        Route::get('/collateral_motor_tambahan_nextCounter', [CollateralMotorTambahanController::class, 'nextCounter'])->name('collateral_motor_tambahan_nextCounter');
 
         // collateral inventory
         Route::resource('collateral_inven', CollateralInventoryController::class);
+        Route::get('/collateral_inven_nextCounter', [CollateralInventoryController::class, 'nextCounter'])->name('collateral_inven_nextCounter');
         Route::resource('collateral_inven_tambahan', CollateralInventoryTambahanController::class);
+        Route::get('/collateral_inven_tambahan_nextCounter', [CollateralInventoryTambahanController::class, 'nextCounter'])->name('collateral_inven_tambahan_nextCounter');
 
         // collateral rumah
         Route::resource('collateral_rumah', CollateralRumahController::class);
+        Route::get('/collateral_rumah_nextCounter', [CollateralRumahController::class, 'nextCounter'])->name('collateral_rumah_nextCounter');
         Route::resource('collateral_rumah_tambahan', CollateralRumahTambahanController::class);
+        Route::get('/collateral_rumah_tambahan_nextCounter', [CollateralRumahTambahanController::class, 'nextCounter'])->name('collateral_rumah_tambahan_nextCounter');
         
         // collateral  mobil
         Route::resource('collateral_mobil', CollateralMobilController::class);
+        Route::get('/collateral_mobil_nextCounter', [CollateralMotorController::class, 'nextCounter'])->name('collateral_mobil_nextCounter');
         Route::resource('collateral_mobil_tambahan', CollateralMobilTambahanController::class);
+        Route::get('/collateral_mobil_tambahan_nextCounter', [CollateralMotorController::class, 'nextCounter'])->name('collateral_mobil_tambahan_nextCounter');
 
         // collateral invoice
         Route::resource('collateral_invoice', CollateralInvoiceController::class);
+        Route::get('/collateral_invoice_nextCounter', [CollateralInvoiceController::class, 'nextCounter'])->name('collateral_invoice_nextCounter');
         Route::resource('collateral_invoice_tambahan', CollateralInvoiceTambahanController::class);
+        Route::get('/collateral_invoice_tambahan_nextCounter', [CollateralInvoiceTambahanController::class, 'nextCounter'])->name('collateral_invoice_tambahan_nextCounter');
 
         // collateral corporate
         Route::resource('collateral_corporate', CollateralCorporateController::class);
+        Route::get('/collateral_corporate_nextCounter', [CollateralCorporateController::class, 'nextCounter'])->name('collateral_corporate_nextCounter');
         Route::resource('collateral_corporate_tambahan', CollateralCorporateTambahanController::class);
+        Route::get('/collateral_corporate_tambahan_nextCounter', [CollateralCorporateTambahanController::class, 'nextCounter'])->name('collateral_corporate_tambahan_nextCounter');
 
         // user management
         Route::resource('users', UserController::class);

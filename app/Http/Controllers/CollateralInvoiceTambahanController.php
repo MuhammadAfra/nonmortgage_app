@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Partner;
 use App\Models\Debitur;
 use App\Models\Master_Product;
+use Illuminate\Support\Facades\DB;
 
 class CollateralInvoiceTambahanController extends Controller
 {
@@ -22,6 +23,18 @@ class CollateralInvoiceTambahanController extends Controller
         return view('collateral_tambahan.invoice.index', compact('invoicetbh'));
     }
 
+    public function nextCounter(Request $request){
+        $partner_id = $request->partner_id;
+        $debitur_id = $request->debitur_id;
+
+        $counter = DB::table('collateral_invoice_tambahan')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_ID', $debitur_id)
+        ->get();
+
+        return response()->json(['data' => $counter]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,11 +42,9 @@ class CollateralInvoiceTambahanController extends Controller
      */
     public function create()
     {
-        $product = Product::all();
         $partner = Partner::all();
         $debitur = Debitur::all ();
-        $m_product = Master_Product::all();
-        return view('collateral_tambahan.invoice.create',  compact('product', 'partner', 'debitur', 'm_product'));
+        return view('collateral_tambahan.invoice.create',  compact('partner', 'debitur'));
     }
 
     /**
@@ -47,7 +58,7 @@ class CollateralInvoiceTambahanController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
-            'PRODUCT_ID',
+            'COLL_COUNTER',
             'Nilai_Invoice_Tambahan',
             'Jenis_Invoice_Tambahan',
             'Atas_Nama_Invoice_Tambahan',
@@ -62,7 +73,7 @@ class CollateralInvoiceTambahanController extends Controller
         Collateral_Invoice_Tambahan::create([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Invoice_Tambahan' => str_replace(',', '', $request->Nilai_Invoice_Tambahan),
             'Jenis_Invoice_Tambahan' => $request->Jenis_Invoice_Tambahan,
             'Atas_Nama_Invoice_Tambahan' => $request->Atas_Nama_Invoice_Tambahan,
@@ -97,11 +108,9 @@ class CollateralInvoiceTambahanController extends Controller
     public function edit($id)
     {
         $invoicetbh = Collateral_Invoice_Tambahan::findorfail($id);
-        $product = Product::all();
         $partner = Partner::all();
         $debitur = Debitur::all ();
-        $m_product = Master_Product::all();
-        return view('collateral_tambahan.invoice.edit', compact('invoicetbh','product','partner', 'debitur', 'm_product'));
+        return view('collateral_tambahan.invoice.edit', compact('invoicetbh','partner', 'debitur'));
     }
 
     /**
@@ -116,7 +125,7 @@ class CollateralInvoiceTambahanController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
-            'PRODUCT_ID',
+            'COLL_COUNTER',
             'Nilai_Invoice_Tambahan',
             'Jenis_Invoice_Tambahan',
             'Atas_Nama_Invoice_Tambahan',
@@ -132,7 +141,7 @@ class CollateralInvoiceTambahanController extends Controller
         $invoicetbh->update([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Invoice_Tambahan' => str_replace(',', '', $request->Nilai_Invoice_Tambahan),
             'Jenis_Invoice_Tambahan' => $request->Jenis_Invoice_Tambahan,
             'Atas_Nama_Invoice_Tambahan' => $request->Atas_Nama_Invoice_Tambahan,

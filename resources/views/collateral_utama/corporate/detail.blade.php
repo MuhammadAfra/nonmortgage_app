@@ -23,8 +23,8 @@ Detail
             <div class="col-sm-8">: {{ $corporate->debitur->NAMA_DEBITUR }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Product ID</label></div>
-            <div class="col-sm-8">: {{ $corporate->product->m_product->nama_product }}</div>
+            <div class="col-sm-4"><label>Coll ID</label></div>
+            <div class="col-sm-8">: {{ str_pad($corporate->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Counter Corporate Guarantee</label></div>

@@ -8,6 +8,7 @@ use App\Models\Debitur;
 use App\Models\Master_Product;
 use Illuminate\Http\Request;
 use App\Models\Collateral_Mobil;
+use Illuminate\Support\Facades\DB;
 
 class CollateralMobilController extends Controller
 {
@@ -22,6 +23,18 @@ class CollateralMobilController extends Controller
         return view('collateral_utama.mobil.index', compact('mobil'));
     }
 
+    public function nextCounter(Request $request){
+        $partner_id = $request->partner_id;
+        $debitur_id = $request->debitur_id;
+
+        $counter = DB::table('collateral_mobil')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_ID', $debitur_id)
+        ->get();
+
+        return response()->json(['data' => $counter]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,11 +42,9 @@ class CollateralMobilController extends Controller
      */
     public function create()
     {
-        $product = Product::get();
         $partner = Partner::all();
         $debitur = Debitur::all();
-        $m_product = Master_Product::all();
-        return view('collateral_utama.mobil.create', compact('product', 'partner', 'debitur', 'm_product'));
+        return view('collateral_utama.mobil.create', compact('partner', 'debitur'));
     }
 
     /**
@@ -47,7 +58,7 @@ class CollateralMobilController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
-            'PRODUCT_ID',
+            'COLL_COUNTER',
             'Nilai_Mobil_Vehicle',
             'Merk',
             'Type',
@@ -67,7 +78,7 @@ class CollateralMobilController extends Controller
         Collateral_Mobil::create([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Mobil_Vehicle' => str_replace(',', '' ,$request->Nilai_Mobil_Vehicle),
             'Merk' => $request->Merk,
             'Type' => $request->Type,
@@ -107,11 +118,9 @@ class CollateralMobilController extends Controller
     public function edit($id)
     {
         $mobil = Collateral_Mobil::findorfail($id);
-        $product = Product::all();
         $partner = Partner::all();
         $debitur = Debitur::all ();
-        $m_product = Master_Product::all();
-        return view('collateral_utama.mobil.edit', compact('mobil','product', 'partner', 'debitur', 'm_product'));
+        return view('collateral_utama.mobil.edit', compact('mobil', 'partner', 'debitur'));
     }
 
     /**
@@ -126,7 +135,7 @@ class CollateralMobilController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
-            'PRODUCT_ID',
+            'COLL_COUNTER',
             'Nilai_Mobil_Vehicle',
             'Counter_Mobil',
             'Merk',
@@ -148,7 +157,7 @@ class CollateralMobilController extends Controller
         $mobil->update([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Mobil_Vehicle' => str_replace(',', '' ,$request->Nilai_Mobil_Vehicle),
             'Counter_Mobil' => $request->Counter_Mobil,
             'Merk' => $request->Merk,

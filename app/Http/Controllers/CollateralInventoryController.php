@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Partner;
 use App\Models\Debitur;
 use App\Models\Master_Product;
+use Illuminate\Support\Facades\DB;
 
 class CollateralInventoryController extends Controller
 {
@@ -22,6 +23,18 @@ class CollateralInventoryController extends Controller
         return view('collateral_utama.inventory.index', compact('inven'));
     }
 
+    public function nextCounter(Request $request){
+        $partner_id = $request->partner_id;
+        $debitur_id = $request->debitur_id;
+
+        $counter = DB::table('collateral_inventory')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_ID', $debitur_id)
+        ->get();
+
+        return response()->json(['data' => $counter]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,11 +42,9 @@ class CollateralInventoryController extends Controller
      */
     public function create()
     {
-        $product = Product::all();
         $partner = Partner::all();
         $debitur = Debitur::all ();
-        $m_product = Master_Product::all();
-        return view('collateral_utama.inventory.create',  compact('product', 'partner', 'debitur', 'm_product'));
+        return view('collateral_utama.inventory.create',  compact('partner', 'debitur'));
     }
 
     /**
@@ -48,7 +59,7 @@ class CollateralInventoryController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
-            'PRODUCT_ID',
+            'COLL_COUNTER',
             'Nilai_Inv',
             'Nama_Inventory',
             'Besar_Inventory',
@@ -62,7 +73,7 @@ class CollateralInventoryController extends Controller
         Collateral_Inventory::create([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Inv' => str_replace(',', '', $request->Nilai_Inv),
             'Nama_Inventory' => $request->Nama_Inventory,
             'Besar_Inventory' => $request->Besar_Inventory,
@@ -96,11 +107,9 @@ class CollateralInventoryController extends Controller
     public function edit($id)
     {
         $inven = Collateral_Inventory::findorfail($id);
-        $product = Product::all();
         $partner = Partner::all();
         $debitur = Debitur::all ();
-        $m_product = Master_Product::all();
-        return view('collateral_utama.invoice.edit', compact('inven','product', 'partner', 'debitur', 'm_product'));
+        return view('collateral_utama.invoice.edit', compact('inven', 'partner', 'debitur'));
     }
 
     /**
@@ -115,7 +124,7 @@ class CollateralInventoryController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
-            'PRODUCT_ID',
+            'COLL_COUNTER',
             'Nilai_Inv',
             'Nama_Inventory',
             'Besar_Inventory',
@@ -129,7 +138,7 @@ class CollateralInventoryController extends Controller
         $inven->update([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Inv' => str_replace(',', '', $request->Nilai_Inv),
             'Nama_Inventory' => $request->Nama_Inventory,
             'Besar_Inventory' => $request->Besar_Inventory,

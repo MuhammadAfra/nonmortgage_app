@@ -147,4 +147,35 @@ Add
         </div>
     </div>
 </form>
+<script type="text/javascript">
+    // function change() {
+    //     var partner_id = document.getElementById('PARTNER_ID').value;
+    //     var debitur_id = document.getElementById('DEBITUR_ID').value;
+    //     if(partner_id != '' ) {
+    //         var NextCounter = CollateralMotorController::test();
+    //         alert("hallow"+NextCounter);
+    //     } else {
+    //         alert("hallow kosong"+partner_id);
+    //     }
+    // }
+
+    $(".collCounterPart").on('change', function(){
+    var partner_id = $('option:selected', this).val();
+    console.log(partner_id);
+    $(".collCounterDebit").on('change', function(){
+    var debitur_id = $('option:selected', this).val();
+    console.log(debitur_id);        
+
+	$.ajax({ 
+         url: "{{ url('collateral_invoice_tambahan_nextCounter') }}",
+         data: {"partner_id": partner_id, 
+                "debitur_id": debitur_id},
+         type: 'get',
+         success: function(result){
+            console.log(result);
+            document.getElementById('counter').value = result['data'][0]['jumlah'];
+         }
+        });
+  });
+});
 @endsection

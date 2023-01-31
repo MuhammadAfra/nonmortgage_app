@@ -178,4 +178,34 @@ class Debitur extends Model
     {
         return $this->hasMany(Collateral_Corporate::class);
     }
+
+    public function coll_motor_tambahan()
+    {
+        return $this->hasMany(Collateral_Motor_Tambahan::class);
+    }
+
+    public function coll_mobil_tambahan()
+    {
+        return $this->hasMany(Collateral_Mobil_Tambahan::class);
+    }
+
+    public function coll_invoice_tambahan()
+    {
+        return $this->hasMany(Collateral_Invoice_Tambahan::class);
+    }
+
+    public function coll_inventory_tambahan()
+    {
+        return $this->hasMany(Collateral_Inventory_Tambahan::class);
+    }
+
+    public function coll_rumah_tambahan()
+    {
+        return $this->hasMany(Collateral_Rumah_Tambahan::class);
+    }
+
+    public function coll_corporate_tambahan()
+    {
+        return $this->hasMany(Collateral_Corporate_Tambahan::class);
+    }
 }

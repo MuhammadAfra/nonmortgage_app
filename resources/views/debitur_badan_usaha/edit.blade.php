@@ -98,7 +98,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Detail Product <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <select class="form-control" name="DETIL_PRODUCT_PROFILE"  style="width: 300px; height: 30px;">
+            <select class="form-control" name="DETIL_PRODUCT_PROFILE"  style="width: 300px; height: 40px;">
                 <option value="{{ $deb->DETIL_PRODUCT_PROFILE }}">{{ $deb->detil_product->id_master_product }} - {{ $deb->detil_product->nama_product }}</option>
                 @foreach ($m_prod as $item)
                 <option value="{{ $item->id }}">{{ $item->id_master_product }} - {{ $item->nama_product }}</option>

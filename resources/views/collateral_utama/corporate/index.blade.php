@@ -40,7 +40,7 @@ Home
                     @endif
                     <th>Partner ID</th>
                     <th>Debitur ID</th>
-                    <th>Product ID</th>
+                    <th>Coll ID</th>
                     <th>Nilai Corporate Guarantee</th>
                     <th>Nama PT Penerima Corporate Guarante</th>
                     <th>Nama PT Pemberi Corporate Guarante</th>
@@ -66,7 +66,7 @@ Home
                     @endif
                     <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
-                    <td>{{ $item->product->m_product->nama_product }}</td>
+                    <td>{{ str_pad($item->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}</td>
                     <td>Rp{{ number_format($item->Nilai_Corporate_Guarantee) }}</td>
                     <td>{{ $item->Nama_Pt_Penerima_Corporate_Guarantee }}</td>
                     <td>{{ $item->Nama_Pt_Pemberi_Corporate_Guarantee }}</td>

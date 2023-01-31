@@ -12,12 +12,13 @@ Add
 @endsection
 
 @section('content')
+
 <form action="{{ url('collateral_motor') }}" method="POST">
     @csrf
-    <div class="row pb-3">
+    <div class="row pb-3" >
         <div class="col-sm-4"><label>Partner ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <select name="PARTNER_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+            <select name="PARTNER_ID" id="PARTNER_ID" class="form-control py-0 collCounterPart" style="width: 300px; height: 30px;">
                 <option></option>
                 @foreach ($partner as $item)
                 <option value="{{ $item->id }}">{{ $item->NAMA_PERUSAHAAN }} </option>
@@ -32,7 +33,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Debitur ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <select name="DEBITUR_ID" class="form-control py-0" style="width: 300px; height: 30px;">
+            <select name="DEBITUR_ID" id="DEBITUR_ID" class="form-control py-0 collCounterDebit" style="width: 300px; height: 30px;">
                 <option></option>
                 @foreach ($debitur as $item)
                 <option value="{{ $item->id }}">{{ $item->NAMA_DEBITUR }} </option>
@@ -47,7 +48,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Coll ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="COLL_COUNTER" class="form-control" disabled style="width: 300px; height: 30px;" value="{{ str_pad($coll_counter, 3, 0, STR_PAD_LEFT) }}" >
+            <input type="text" name="COLL_COUNTER" class="form-control" readonly id="counter" style="width: 300px; height: 30px;" >
             @error('COLL_COUNTER')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -177,7 +178,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <select name="Status" class="form-control py-0" style="width: 300px; height: 30px;">
+            <select name="Status" class="form-control py-0" style="width: 300px; height: 30px;" id="bottom">
                 <option></option>
                 <option value="Pending">Pending</option>
                 <option value="To Be Obtained">To Be Obtained</option>
@@ -193,7 +194,42 @@ Add
         <div class="col-sm-8">
             <button class="btn btn-primary" type="submit">Add</button>
             <a href="{{ url('collateral_motor') }}" class="btn btn-default">Cancel</a>
+            <button class="btn btn-success" name="add" id="add" type="button">Add New Collateral</button>
         </div>
     </div>
 </form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script type="text/javascript">
+    // function change() {
+    //     var partner_id = document.getElementById('PARTNER_ID').value;
+    //     var debitur_id = document.getElementById('DEBITUR_ID').value;
+    //     if(partner_id != '' ) {
+    //         var NextCounter = CollateralMotorController::test();
+    //         alert("hallow"+NextCounter);
+    //     } else {
+    //         alert("hallow kosong"+partner_id);
+    //     }
+    // }
+
+    $(".collCounterPart").on('change', function(){
+    var partner_id = $('option:selected', this).val();
+    console.log(partner_id);
+    $(".collCounterDebit").on('change', function(){
+    var debitur_id = $('option:selected', this).val();
+    console.log(debitur_id);        
+
+	$.ajax({ 
+         url: "{{ url('collateral_motor_nextCounter') }}",
+         data: {"partner_id": partner_id, 
+                "debitur_id": debitur_id},
+         type: 'get',
+         success: function(result){
+            console.log(result);
+            document.getElementById('counter').value = result['data'][0]['jumlah'];
+         }
+        });
+  });
+});
+</script>
 @endsection

@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Collateral_Motor_Tambahan;
+use App\Models\Product;
+use App\Models\Partner;
+use App\Models\Debitur;
+use App\Models\Master_Product;
+use Illuminate\Support\Facades\DB;
 
 class CollateralMotorTambahanController extends Controller
 {
@@ -19,6 +23,18 @@ class CollateralMotorTambahanController extends Controller
         return view('collateral_tambahan.motor.index', compact('motor'));
     }
 
+    public function nextCounter(Request $request){
+        $partner_id = $request->partner_id;
+        $debitur_id = $request->debitur_id;
+
+        $counter = DB::table('collateral_motor_tambahan')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_ID', $debitur_id)
+        ->get();
+
+        return response()->json(['data' => $counter]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -26,8 +42,9 @@ class CollateralMotorTambahanController extends Controller
      */
     public function create()
     {
-        $prod = Product::get();
-        return view('collateral_tambahan.motor.create', compact('prod'));
+        $partner = Partner::all();
+        $debitur = Debitur::all();
+        return view('collateral_tambahan.motor.create', compact('partner', 'debitur'));
     }
 
     /**
@@ -39,7 +56,9 @@ class CollateralMotorTambahanController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'PRODUCT_ID',
+            'PARTNER_ID',
+            'DEBITUR_ID',
+            'COLL_COUNTER',
             'Nilai_Motor_Vehicle_Tambahan',
             'Merk_Tambahan',
             'Type_Tambahan',
@@ -57,7 +76,9 @@ class CollateralMotorTambahanController extends Controller
         ]);
 
         Collateral_Motor_Tambahan::create([
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'PARTNER_ID' => $request->PARTNER_ID,
+            'DEBITUR_ID' => $request->DEBITUR_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Motor_Vehicle_Tambahan' => str_ireplace(',', '', $request->Nilai_Motor_Vehicle_Tambahan),
             'Merk_Tambahan' => $request->Merk_Tambahan,
             'Type_Tambahan' => $request->Type_Tambahan,
@@ -97,8 +118,9 @@ class CollateralMotorTambahanController extends Controller
     public function edit($id)
     {
         $motor = Collateral_Motor_Tambahan::findorfail($id);
-        $prod = Product::get();
-        return view('collateral_tambahan.motor.edit', compact('motor','prod'));
+        $partner = Partner::all();
+        $debitur = Debitur::all ();
+        return view('collateral_tambahan.motor.edit', compact('motor','partner','debitur'));
     }
 
     /**
@@ -112,7 +134,9 @@ class CollateralMotorTambahanController extends Controller
     {
         $this->validate($request, [
             // 'id',
-            'PRODUCT_ID',
+            'PARTNER_ID',
+            'DEBITUR_ID',
+            'COLL_COUNTER',
             'Nilai_Motor_Vehicle_Tambahan',
             'Merk_Tambahan',
             'Type_Tambahan',
@@ -131,7 +155,9 @@ class CollateralMotorTambahanController extends Controller
 
         $motor = Collateral_Motor_Tambahan::findorfail($id);
         $motor->update([
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'PARTNER_ID' => $request->PARTNER_ID,
+            'DEBITUR_ID' => $request->DEBITUR_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Motor_Vehicle_Tambahan' => str_ireplace(',', '', $request->Nilai_Motor_Vehicle_Tambahan),
             'Merk_Tambahan' => $request->Merk_Tambahan,
             'Type_Tambahan' => $request->Type_Tambahan,

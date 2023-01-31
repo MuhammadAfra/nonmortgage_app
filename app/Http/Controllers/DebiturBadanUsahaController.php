@@ -283,7 +283,7 @@ class DebiturBadanUsahaController extends Controller
         $deb->No_Identitas_Direktur2 = $request->No_Identitas_Direktur2;
         $deb->Jenis_Asuransi_Id = $request->Jenis_Asuransi_Id;
         $deb->Perusahaan_Asuransi = $request->Perusahaan_Asuransi;
-        $deb->Persen_Asuransi = $request->Persen_Asuransi;
+        $deb->Persen_Asuransi = str_replace( ',', '.', $request->Persen_Asuransi);
         $deb->Nilai_Asuransi = $asuransi;
         $deb->Jaminan_Sertifikat_Tanah = $request->Jaminan_Sertifikat_Tanah;
         $deb->Nilai_Sertifikat_Tanah = $tanah;
@@ -763,7 +763,7 @@ class DebiturBadanUsahaController extends Controller
         $deb->No_Identitas_Direktur2 = $request->No_Identitas_Direktur2;
         $deb->Jenis_Asuransi_Id = $request->Jenis_Asuransi_Id;
         $deb->Perusahaan_Asuransi = $request->Perusahaan_Asuransi;
-        $deb->Persen_Asuransi = $request->Persen_Asuransi;
+        $deb->Persen_Asuransi = str_replace( ',', '.', $request->Persen_Asuransi);
         $deb->Nilai_Asuransi = $asuransi;
         $deb->Jaminan_Sertifikat_Tanah = $request->Jaminan_Sertifikat_Tanah;
         $deb->Nilai_Sertifikat_Tanah = $tanah;

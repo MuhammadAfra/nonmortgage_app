@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Collateral_Motor;
 use App\Models\Debitur;
 use App\Models\Master_Product;
+use Illuminate\Support\Facades\DB;
+
 
 class CollateralMotorController extends Controller
 {
@@ -27,14 +29,25 @@ class CollateralMotorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function nextCounter(Request $request){
+        $partner_id = $request->partner_id;
+        $debitur_id = $request->debitur_id;
+
+        $counter = DB::table('collateral_motor')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_ID', $debitur_id)
+        ->get();
+
+        return response()->json(['data' => $counter]);
+    }
+
     public function create()
     {
-        $product = Product::all();
+
         $partner = Partner::all();
         $debitur = Debitur::all();
-        $m_product = Master_Product::all();
-        $coll_counter = Collateral_Motor::pluck('COLL_COUNTER')->last() + 1;
-        return view('collateral_utama.motor.create', compact('product', 'partner', 'debitur', 'm_product', 'coll_id'));
+        return view('collateral_utama.motor.create', compact('partner', 'debitur'));
     }
 
     /**
@@ -48,7 +61,7 @@ class CollateralMotorController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
-            'PRODUCT_ID',
+            'COLL_COUNTER',
             'Nilai_Motor_Vehicle',
             'Merk',
             'Type',
@@ -67,7 +80,7 @@ class CollateralMotorController extends Controller
         Collateral_Motor::create([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Motor_Vehicle' => str_replace(',', '', $request->Nilai_Motor_Vehicle),
             'Merk' => $request->Merk,
             'Type' => $request->Type,
@@ -106,11 +119,9 @@ class CollateralMotorController extends Controller
     public function edit($id)
     {
         $motor = Collateral_Motor::findorfail($id);
-        $product = Product::all();
         $partner = Partner::all();
         $debitur = Debitur::all ();
-        $m_product = Master_Product::all();
-        return view('collateral_utama.motor.edit', compact('motor','product', 'partner', 'debitur', 'm_product'));
+        return view('collateral_utama.motor.edit', compact('motor', 'partner', 'debitur'));
     }
 
     /**
@@ -125,7 +136,7 @@ class CollateralMotorController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
-            'PRODUCT_ID',
+            'COLL_COUNTER',
             'Nilai_Motor_Vehicle',
             'Merk',
             'Type',
@@ -145,7 +156,7 @@ class CollateralMotorController extends Controller
         $motor->update([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Motor_Vehicle' => str_replace(',', '', $request->Nilai_Motor_Vehicle),
             'Merk' => $request->Merk,
             'Type' => $request->Type,

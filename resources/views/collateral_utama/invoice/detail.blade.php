@@ -23,8 +23,8 @@ Detail
             <div class="col-sm-8">: {{ $invoice->debitur->NAMA_DEBITUR }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Product ID</label></div>
-            <div class="col-sm-8">: {{ $invoice->product->m_product->nama_product }}</div>
+            <div class="col-sm-4"><label>Coll ID</label></div>
+            <div class="col-sm-8">: {{ str_pad($invoice->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Invoice </label></div>

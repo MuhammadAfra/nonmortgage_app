@@ -12,11 +12,6 @@ class Collateral_Corporate extends Model
     protected $guarded = [];
     public $timestamps = false;
 
-    public function product()
-    {
-        return $this->belongsTo(Product::class, 'PRODUCT_ID');
-    }
-
     public function partner()
     {
         return $this->belongsTo(Partner::class, 'PARTNER_ID');
@@ -26,5 +21,5 @@ class Collateral_Corporate extends Model
     {
         return $this->belongsTo(Debitur::class, 'DEBITUR_ID');
     }
-    
+
 }
