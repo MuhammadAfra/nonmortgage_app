@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Collateral_Invoice;
+use App\Models\Product;
+use App\Models\Partner;
+use App\Models\Debitur;
+use App\Models\Master_Product;
+use Illuminate\Support\Facades\DB;
 
 class CollateralInvoiceController extends Controller
 {
@@ -19,6 +23,18 @@ class CollateralInvoiceController extends Controller
         return view('collateral_utama.invoice.index', compact('invoice'));
     }
 
+    public function nextCounter(Request $request){
+        $partner_id = $request->partner_id;
+        $debitur_id = $request->debitur_id;
+
+        $counter = DB::table('collateral_invoice')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_ID', $debitur_id)
+        ->get();
+
+        return response()->json(['data' => $counter]);
+    }
+
      /**
      * Show the form for creating a new resource.
      *
@@ -26,8 +42,9 @@ class CollateralInvoiceController extends Controller
      */
     public function create()
     {
-        $prod = Product::get();
-        return view('collateral_utama.invoice.create', compact('prod'));
+        $partner = Partner::all();
+        $debitur = Debitur::all ();
+        return view('collateral_utama.invoice.create', compact('partner', 'debitur'));
     }
 
     /**
@@ -39,8 +56,9 @@ class CollateralInvoiceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'Counter_Invoice',
-            'PRODUCT_ID',
+            'PARTNER_ID',
+            'DEBITUR_ID',
+            'COLL_COUNTER',
             'Nilai_Invoice',
             'Jenis_Invoice',
             'Atas_Nama_Invoice',
@@ -53,8 +71,9 @@ class CollateralInvoiceController extends Controller
         ]);
 
         Collateral_Invoice::create([
-            'Counter_Invoice' => $request->Counter_Invoice,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'PARTNER_ID' => $request->PARTNER_ID,
+            'DEBITUR_ID' => $request->DEBITUR_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Invoice' => str_replace(',', '', $request->Nilai_Invoice),
             'Jenis_Invoice' => $request->Jenis_Invoice,
             'Atas_Nama_Invoice' => $request->Atas_Nama_Invoice,
@@ -89,8 +108,9 @@ class CollateralInvoiceController extends Controller
     public function edit($id)
     {
         $invoice = Collateral_Invoice::findorfail($id);
-        $prod = Product::get();
-        return view('collateral_utama.invoice.edit', compact('invoice','prod'));
+        $partner = Partner::all();
+        $debitur = Debitur::all ();
+        return view('collateral_utama.invoice.edit', compact('invoice', 'partner', 'debitur'));
     }
 
     /**
@@ -103,8 +123,9 @@ class CollateralInvoiceController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'Counter_Invoice',
-            'PRODUCT_ID',
+            'PARTNER_ID',
+            'DEBITUR_ID',
+            'COLL_COUNTER',
             'Nilai_Invoice',
             'Jenis_Invoice',
             'Atas_Nama_Invoice',
@@ -118,8 +139,9 @@ class CollateralInvoiceController extends Controller
 
         $invoice = Collateral_Invoice::findorfail($id);
         $invoice->update([
-            'Counter_Invoice' => $request->Counter_Invoice,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'PARTNER_ID' => $request->PARTNER_ID,
+            'DEBITUR_ID' => $request->DEBITUR_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Invoice' => str_replace(',', '', $request->Nilai_Invoice),
             'Jenis_Invoice' => $request->Jenis_Invoice,
             'Atas_Nama_Invoice' => $request->Atas_Nama_Invoice,

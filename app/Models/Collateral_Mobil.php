@@ -12,8 +12,14 @@ class Collateral_Mobil extends Model
     protected $guarded = [];
     public $timestamps = false;
 
-    public function product()
+    public function partner()
     {
-        return $this->belongsTo(Product::class, 'PRODUCT_ID');
+        return $this->belongsTo(Partner::class, 'PARTNER_ID');
     }
+
+    public function debitur()
+    {
+        return $this->belongsTo(Debitur::class, 'DEBITUR_ID');
+    }
+
 }

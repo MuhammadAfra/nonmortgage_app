@@ -15,16 +15,16 @@ Detail
 <div class="card">
     <div class="card-body">
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Partner Perusahaan</label></div>
-            <div class="col-sm-8">: {{ $motor->product->partner->NAMA_PERUSAHAAN }}</div>
+            <div class="col-sm-4"><label>Partner ID</label></div>
+            <div class="col-sm-8">: {{ $rumah->partner->NAMA_PERUSAHAAN }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Nama Debitur</label></div>
-            <div class="col-sm-8">: {{ $motor->product->debitur->NAMA_DEBITUR }}</div>
+            <div class="col-sm-4"><label>Debitur ID</label></div>
+            <div class="col-sm-8">: {{ $rumah->debitur->NAMA_DEBITUR }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Counter Motor</label></div>
-            <div class="col-sm-8">: {{ $motor->Counter_Motor_Tambahan }}</div>
+            <div class="col-sm-4"><label>Coll ID</label></div>
+            <div class="col-sm-8">: {{ str_pad($rumah->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Kendaraan Motor</label></div>

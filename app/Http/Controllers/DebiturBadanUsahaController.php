@@ -122,6 +122,12 @@ class DebiturBadanUsahaController extends Controller
             $dp = NULL;
         }
 
+        if ($request->Persen_Asuransi != NULL) {
+            $persen = str_replace( ',', '.', $request->Persen_Asuransi);
+        }else{
+            $persen = NULL;
+        }
+
 
         $deb = new Debitur_Badan_Usaha();
 
@@ -283,7 +289,7 @@ class DebiturBadanUsahaController extends Controller
         $deb->No_Identitas_Direktur2 = $request->No_Identitas_Direktur2;
         $deb->Jenis_Asuransi_Id = $request->Jenis_Asuransi_Id;
         $deb->Perusahaan_Asuransi = $request->Perusahaan_Asuransi;
-        $deb->Persen_Asuransi = $request->Persen_Asuransi;
+        $deb->Persen_Asuransi = $persen;
         $deb->Nilai_Asuransi = $asuransi;
         $deb->Jaminan_Sertifikat_Tanah = $request->Jaminan_Sertifikat_Tanah;
         $deb->Nilai_Sertifikat_Tanah = $tanah;
@@ -401,6 +407,12 @@ class DebiturBadanUsahaController extends Controller
             $dp = str_replace( ',', '', $request->DOWN_PAYMENT_CUSTOMER);
         }else{
             $dp = NULL;
+        }
+
+        if ($request->Persen_Asuransi != NULL) {
+            $persen = str_replace( ',', '.', $request->Persen_Asuransi);
+        }else{
+            $persen = NULL;
         }
         
         if ($request->hasFile('AKTE_LAIN_LAIN')) 
@@ -763,7 +775,7 @@ class DebiturBadanUsahaController extends Controller
         $deb->No_Identitas_Direktur2 = $request->No_Identitas_Direktur2;
         $deb->Jenis_Asuransi_Id = $request->Jenis_Asuransi_Id;
         $deb->Perusahaan_Asuransi = $request->Perusahaan_Asuransi;
-        $deb->Persen_Asuransi = $request->Persen_Asuransi;
+        $deb->Persen_Asuransi = $persen;
         $deb->Nilai_Asuransi = $asuransi;
         $deb->Jaminan_Sertifikat_Tanah = $request->Jaminan_Sertifikat_Tanah;
         $deb->Nilai_Sertifikat_Tanah = $tanah;

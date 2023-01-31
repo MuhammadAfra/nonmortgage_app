@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Collateral_Rumah;
+use App\Models\Product;
+use App\Models\Partner;
+use App\Models\Debitur;
+use App\Models\Master_Product;
+use Illuminate\Support\Facades\DB;
 
 class CollateralRumahController extends Controller
 {
@@ -18,6 +22,19 @@ class CollateralRumahController extends Controller
         $rumah = Collateral_Rumah::get();
         return view('collateral_utama.rumah.index', compact('rumah'));
     }
+
+    public function nextCounter(Request $request){
+        $partner_id = $request->partner_id;
+        $debitur_id = $request->debitur_id;
+
+        $counter = DB::table('collateral_rumah')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_ID', $debitur_id)
+        ->get();
+
+        return response()->json(['data' => $counter]);
+    }
+
      /**
      * Show the form for creating a new resource.
      *
@@ -25,15 +42,17 @@ class CollateralRumahController extends Controller
      */
     public function create()
     {
-        $prod = Product::get();
-        return view('collateral_utama.rumah.create', compact('prod'));
+        $partner = Partner::all();
+        $debitur = Debitur::all ();
+        return view('collateral_utama.rumah.create', compact('partner', 'debitur'));
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'PRODUCT_ID',
-            'Counter_Rumah_tanah',
+            'PARTNER_ID',
+            'DEBITUR_ID',
+            'COLL_COUNTER',
             'Nilai_Rumah_Tanah',
             'No_Shm_No_Hgb',
             'Luas',
@@ -44,8 +63,9 @@ class CollateralRumahController extends Controller
         ]);
 
         Collateral_Rumah::create([
-            'PRODUCT_ID' => $request->PRODUCT_ID,
-            'Counter_Rumah_tanah' => $request->Counter_Rumah_tanah,
+            'PARTNER_ID' => $request->PARTNER_ID,
+            'DEBITUR_ID' => $request->DEBITUR_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Rumah_Tanah' => str_ireplace(',', '', $request->Nilai_Rumah_Tanah),
             'No_Shm_No_Hgb' => $request->No_Shm_No_Hgb,
             'Luas' => $request->Luas,
@@ -66,15 +86,17 @@ class CollateralRumahController extends Controller
     public function edit($id)
     {
         $rumah = Collateral_Rumah::findorfail($id);
-        $prod = Product::get();
-        return view('collateral_utama.rumah.edit', compact('rumah','prod'));
+        $partner = Partner::all();
+        $debitur = Debitur::all ();
+        return view('collateral_utama.rumah.edit', compact('rumah', 'partner', 'debitur'));
     }
 
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'PRODUCT_ID',
-            'Counter_Rumah_tanah',
+            'PARTNER_ID',
+            'DEBITUR_ID',
+            'COLL_COUNTER',
             'Nilai_Rumah_Tanah',
             'No_Shm_No_Hgb',
             'Luas',
@@ -86,8 +108,9 @@ class CollateralRumahController extends Controller
 
         $rumah = Collateral_Rumah::findorfail($id);
         $rumah->update([
-            'PRODUCT_ID' => $request->PRODUCT_ID,
-            'Counter_Rumah_tanah' => $request->Counter_Rumah_tanah,
+            'PARTNER_ID' => $request->PARTNER_ID,
+            'DEBITUR_ID' => $request->DEBITUR_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Rumah_Tanah' => str_ireplace(',', '', $request->Nilai_Rumah_Tanah),
             'No_Shm_No_Hgb' => $request->No_Shm_No_Hgb,
             'Luas' => $request->Luas,

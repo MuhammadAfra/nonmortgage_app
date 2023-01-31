@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Collateral_Corporate_Tambahan;
+use App\Models\Product;
+use App\Models\Partner;
+use App\Models\Debitur;
+use App\Models\Master_Product;
+use Illuminate\Support\Facades\DB;
 
 class CollateralCorporateTambahanController extends Controller
 {
@@ -19,6 +23,18 @@ class CollateralCorporateTambahanController extends Controller
         return view('collateral_tambahan.corporate.index', compact('corporatetbh'));
     }
 
+    public function nextCounter(Request $request){
+        $partner_id = $request->partner_id;
+        $debitur_id = $request->debitur_id;
+
+        $counter = DB::table('collateral_corporate_tambahan')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_ID', $debitur_id)
+        ->get();
+
+        return response()->json(['data' => $counter]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -26,8 +42,9 @@ class CollateralCorporateTambahanController extends Controller
      */
     public function create()
     {
-        $prod = Product::get();
-        return view('collateral_tambahan.corporate.create', compact('prod'));
+        $partner = Partner::all();
+        $debitur = Debitur::all ();
+        return view('collateral_tambahan.corporate.create', compact('partner', 'debitur'));
     }
 
     /**
@@ -39,8 +56,9 @@ class CollateralCorporateTambahanController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'Counter_Corporate_Guarantee_Tambahan',
-            'PRODUCT_ID',
+            'PARTNER_ID',
+            'DEBITUR_ID',
+            'COLL_COUNTER',
             'Nilai_Corporate_Guarantee_Tambahan',
             'Nama_Pt_Penerima_Corporate_Guarantee_Tambahan',
             'Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan',
@@ -49,8 +67,9 @@ class CollateralCorporateTambahanController extends Controller
         ]);
 
         Collateral_Corporate_Tambahan::create([
-            'Counter_Corporate_Guarantee_Tambahan' => $request->Counter_Corporate_Guarantee_Tambahan,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'PARTNER_ID' => $request->PARTNER_ID,
+            'DEBITUR_ID' => $request->DEBITUR_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Corporate_Guarantee_Tambahan' => str_ireplace(',', '', $request->Nilai_Corporate_Guarantee_Tambahan), 
             'Nama_Pt_Penerima_Corporate_Guarantee_Tambahan' => $request->Nama_Pt_Penerima_Corporate_Guarantee_Tambahan,
             'Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan' => $request->Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan,
@@ -81,8 +100,9 @@ class CollateralCorporateTambahanController extends Controller
     public function edit($id)
     {
         $corporatetbh = Collateral_Corporate_Tambahan::findorfail($id);
-        $prod = Product::get();
-        return view('collateral_tambahan.corporate.edit', compact('corporatetbh','prod'));
+        $partner = Partner::all();
+        $debitur = Debitur::all ();
+        return view('collateral_tambahan.corporate.edit', compact('corporatetbh','partner','debitur'));
     }
 
     /**
@@ -95,8 +115,9 @@ class CollateralCorporateTambahanController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'Counter_Corporate_Guarantee_Tambahan',
-            'PRODUCT_ID',
+            'PARTNER_ID',
+            'DEBITUR_ID',
+            'COLL_COUNTER',
             'Nilai_Corporate_Guarantee_Tambahan',
             'Nama_Pt_Penerima_Corporate_Guarantee_Tambahan',
             'Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan',
@@ -106,8 +127,9 @@ class CollateralCorporateTambahanController extends Controller
 
         $corporatetbh = Collateral_Corporate_Tambahan::findorfail($id);
         $corporatetbh->update([
-            'Counter_Corporate_Guarantee_Tambahan' => $request->Counter_Corporate_Guarantee_Tambahan,
-            'PRODUCT_ID' => $request->PRODUCT_ID,
+            'PARTNER_ID' => $request->PARTNER_ID,
+            'DEBITUR_ID' => $request->DEBITUR_ID,
+            'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Corporate_Guarantee_Tambahan' => str_ireplace(',', '', $request->Nilai_Corporate_Guarantee_Tambahan), 
             'Nama_Pt_Penerima_Corporate_Guarantee_Tambahan' => $request->Nama_Pt_Penerima_Corporate_Guarantee_Tambahan,
             'Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan' => $request->Nama_Pt_Pemberi_Corporate_Guarantee_Tambahan,

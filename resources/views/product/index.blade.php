@@ -47,8 +47,8 @@ Home
                     @if (auth()->user()->level == "Admin")        
                     <th>Action</th>
                     @endif
-                    <th>Partner</th>
-                    <th>Debitur</th>
+                    <th>Nama Partner ID</th>
+                    <th>Nama Debitur ID</th>
                     <th>Nama Product</th>
                     <th>Nilai Pembiayaan/Pokok Maximum </th>
                     <th>Suku Bunga Flat</th>
@@ -77,7 +77,7 @@ Home
                     @endif
                     <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
-                    <td>{{ $item->m_product->id_master_product }} - {{ $item->m_product->nama_product }}</td>
+                    <td>{{ $item->m_product->nama_product }}</td>
                     <td>Rp{{ number_format($item->NILAI_PEMBIAYAAN_POKOK_MAXIMUM) }}</td>
                     <td>{{ $item->SUKU_BUNGA_FLAT }}%</td>
                     <td>{{ $item->SUKU_BUNGA_EFFECTIVE }}%</td>

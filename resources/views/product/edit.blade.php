@@ -16,7 +16,7 @@
         @csrf
         @method('PUT')
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Partner ID</label></div>
+            <div class="col-sm-4"><label>Nama Partner ID</label></div>
             <div class="col-sm-8">
                 <select name="PARTNER_ID" class="form-control py-0" style="width: 300px; height: 30px;">
                     <option value="{{ $dataproduct->PARTNER_ID }}">{{ $dataproduct->partner->id }} - {{ $dataproduct->partner->NAMA_PERUSAHAAN }}</option>
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Debitur ID</label></div>
+            <div class="col-sm-4"><label>Nama Debitur ID</label></div>
             <div class="col-sm-8">
                 <select name="DEBITUR_ID" class="form-control py-0" style="width: 300px; height: 30px;">
                     <option value="{{ $dataproduct->DEBITUR_ID }}">{{ $dataproduct->debitur->id }} - {{ $dataproduct->debitur->NAMA_DEBITUR }}</option>

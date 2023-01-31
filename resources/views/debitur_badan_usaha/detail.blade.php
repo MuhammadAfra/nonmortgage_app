@@ -181,39 +181,7 @@ Detail
             </div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Financial Projection <br> 
-            @if ($deb->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS != NULL)
-            <a href="{{ url('/dw_deb_finance_projection', $deb->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS) }}">Download File</a>
-            @endif
-            </label></div>
-            <div class="col-sm-8">: {{ $deb->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS }}</div>
-        </div>
-        <div class="row pb-3">
-            <div class="col-sm-4"><label>Draft Template <br> 
-            @if ($deb->DRAFT_TEMPLATE_AGREEMENT_END_USER != NULL)
-            <a href="{{ url('/dw_deb_draft', $deb->DRAFT_TEMPLATE_AGREEMENT_END_USER) }}">Download File</a>
-            @endif
-            </label></div>
-            <div class="col-sm-8">: {{ $deb->DRAFT_TEMPLATE_AGREEMENT_END_USER }}</div>
-        </div>
-        <div class="row pb-3">
-            <div class="col-sm-4"><label>Risk Acceptance Criteria <br> 
-            @if ($deb->CONTOH_RISK_ACCEPTANCE_CRITERIA != NULL)
-            <a href="{{ url('/dw_deb_risk_acc', $deb->CONTOH_RISK_ACCEPTANCE_CRITERIA) }}">Download File</a>
-            @endif
-            </label></div>
-            <div class="col-sm-8">: {{ $deb->CONTOH_RISK_ACCEPTANCE_CRITERIA }}</div>
-        </div>
-        <div class="row pb-3">
-            <div class="col-sm-4"><label>NDA Document <br> 
-            @if ($deb->NDA_DOCUMENT != NULL)
-                <a href="{{ url('/dw_deb_nda', $deb->NDA_DOCUMENT) }}">Download File</a>
-            @endif
-            </label></div>
-            <div class="col-sm-8">: {{ $deb->NDA_DOCUMENT }}</div>
-        </div>        
-        <div class="row pb-3">
-            <div class="col-sm-4"><label>Pengajuan Lain Lain <br> 
+            <div class="col-sm-4"><label>Dokumen Pengajuan Lain Lain <br> 
         </label></div>
             <div class="col-sm-8">: 
                 @if ($deb->PENGAJUAN_LAIN_LAIN != NULL)
@@ -332,7 +300,7 @@ Detail
             <div class="col-sm-8">: {{ $deb->APAKAH_ADA_DP }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Jumlah Dwon Payment</label></div>
+            <div class="col-sm-4"><label>Jumlah Down Payment</label></div>
             @if ($deb->DOWN_PAYMENT_CUSTOMER != NULL)
             <div class="col-sm-8">: Rp{{ number_format($deb->DOWN_PAYMENT_CUSTOMER) }}</div>
             @else

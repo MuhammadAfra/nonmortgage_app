@@ -38,8 +38,9 @@ Home
                     @if (auth()->user()->level == "Admin")
                     <th>Action</th>
                     @endif
-                    <th>Partner Perusahaan</th>
-                    <th>Nama Debitur</th>
+                    <th>Partner ID</th>
+                    <th>Debitur ID</th>
+                    <th>Coll ID</th>
                     <th>Nilai Rumah / Tanah</th>
                     <th>No SHM / No HGB</th>
                     <th>Luas</th>
@@ -63,8 +64,9 @@ Home
                     </td>
                     @include('collateral_utama.rumah.delete')
                     @endif
-                    <td>{{ $item->product->partner->NAMA_PERUSAHAAN }}</td>
-                    <td>{{ $item->product->debitur->NAMA_DEBITUR }}</td>
+                    <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
+                    <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
+                    <td>{{ str_pad($item->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}</td>
                     <td>Rp{{ number_format($item->Nilai_Rumah_Tanah) }}</td>
                     <td>{{ $item->No_Shm_No_Hgb }}</td>
                     <td>{{ $item->Luas }} M<sup>2</sup></td>

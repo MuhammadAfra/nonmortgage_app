@@ -15,28 +15,41 @@ Edit
 <form action="{{ url('collateral_invoice_tambahan', $invoicetbh->id) }}" method="POST">
     @csrf
     @method('PUT')
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Debitur & Partner <span class="text-danger">*</span></label></div>
+    <div class="row pb-3" >
+        <div class="col-sm-4"><label>Partner ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <select name="PRODUCT_ID" class="form-control py-0" style="width: 300px; height: 30px;">
-                <option value="{{ $invoicetbh->PRODUCT_ID }}">{{ $invoicetbh->product->debitur->NAMA_DEBITUR }} -
-                    {{ $invoicetbh->product->partner->NAMA_PERUSAHAAN }}</option>
-                @foreach ($prod as $item)
-                <option value="{{ $item->id }}">{{ $item->debitur->NAMA_DEBITUR }} -
-                    {{ $item->partner->NAMA_PERUSAHAAN }}</option>
+            <select name="PARTNER_ID" id="PARTNER_ID" class="form-control py-0 collCounterPart" style="width: 300px; height: 30px;">
+                <option value="{{ $invoicetbh->PARTNER_ID }}">{{ $invoicetbh->partner->NAMA_PERUSAHAAN }}</option>
+                @foreach ($partner as $item)
+                <option value="{{ $item->id }}">{{ $item->NAMA_PERUSAHAAN }} </option>
                 @endforeach
             </select>
-            @error('PRODUCT_ID')
+            @error('PARTNER_ID')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
     </div>
+
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Counter Invoice<span class="text-danger">*</span></div>
+        <div class="col-sm-4"><label>Debitur ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="number" name="Counter_Invoice_Tambahan" value="{{ $invoicetbh->Counter_Invoice_Tambahan }}" class="form-control"
-                style="width: 300px; height: 30px;">
-            @error('Counter_Invoice_Tambahan')
+            <select name="DEBITUR_ID" id="DEBITUR_ID" class="form-control py-0 collCounterDebit" style="width: 300px; height: 30px;">
+                <option value="{{ $invoicetbh->DEBITUR_ID }}">{{ $invoicetbh->debitur->NAMA_DEBITUR }}</option>
+                @foreach ($debitur as $item)
+                <option value="{{ $item->id }}">{{ $item->NAMA_DEBITUR }} </option>
+                @endforeach
+            </select>
+            @error('DEBITUR_ID')
+            <p class="text-danger">{{ $message }}</p>
+            @enderror
+        </div>
+    </div>
+
+    <div class="row pb-3">
+        <div class="col-sm-4"><label>Coll ID <span class="text-danger">*</span></label></div>
+        <div class="col-sm-8">
+            <input type="text" name="COLL_COUNTER" class="form-control" readonly id="counter" style="width: 300px; height: 30px;" >
+            @error('COLL_COUNTER')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>

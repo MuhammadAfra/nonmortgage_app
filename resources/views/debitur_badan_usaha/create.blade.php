@@ -244,45 +244,7 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Financial Projection For Next 3-5 Years </label>
-        </div>
-        <div class="col-sm-8">
-            <div class="custom-file" style="width: 300px; height: 38px;">
-                <input type="file" class="custom-file-input" name="FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS">
-                <label class="custom-file-label">Choose file</label>
-            </div>
-        </div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Draft Template Agreement End User </label></div>
-        <div class="col-sm-8">
-            <div class="custom-file" style="width: 300px; height: 38px;">
-                <input type="file" class="custom-file-input" name="DRAFT_TEMPLATE_AGREEMENT_END_USER">
-                <label class="custom-file-label">Choose file</label>
-            </div>
-        </div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Contoh Risk Acceptance Criteria </label></div>
-        <div class="col-sm-8">
-            <div class="custom-file" style="width: 300px; height: 38px;">
-                <input type="file" class="custom-file-input" name="CONTOH_RISK_ACCEPTANCE_CRITERIA">
-                <label class="custom-file-label">Choose file</label>
-            </div>
-        </div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>NDA Document </label></div>
-        <div class="col-sm-8">
-            <div class="custom-file" style="width: 300px; height: 38px;">
-                <input type="file" class="custom-file-input" name="NDA_DOCUMENT">
-                <label class="custom-file-label">Choose file</label>
-            </div>
-        </div>
-    </div>
-
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Pengajuan Lain Lain </div>
+        <div class="col-sm-4"><label>Dokumen Pengajuan Lain Lain </div>
         <div class="col-sm-8">
             <div class="custom-file" style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" multiple name="PENGAJUAN_LAIN_LAIN[]">

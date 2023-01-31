@@ -15,11 +15,11 @@ Detail
 <div class="card">
     <div class="card-body">
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Partner</label></div>
+            <div class="col-sm-4"><label>Nama Partner ID</label></div>
             <div class="col-sm-8">: {{ $dataproduct->partner->NAMA_PERUSAHAAN }}</div>
         </div>
         <div class="row pb-3">
-            <div class="col-sm-4"><label>Debitur</label></div>
+            <div class="col-sm-4"><label>Nama Debitur ID</label></div>
             <div class="col-sm-8">: {{ $dataproduct->debitur->NAMA_DEBITUR }}</div>
         </div>
         <div class="row pb-3">

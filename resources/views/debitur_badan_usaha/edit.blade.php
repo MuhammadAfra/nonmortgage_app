@@ -262,50 +262,8 @@ Edit
                 </label>
             </div>
         </div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Financial Projection For Next 3-5 Years</label>
-        </div>
-        <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 38px;">
-                <input type="file" class="custom-file-input" name="FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS">
-                <label class="custom-file-label">{{ $deb->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS }}</label>
-            </div>
-        </div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Draft Template Agree End User</label></div>
-        <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 38px;">
-                <input type="file" class="custom-file-input" name="DRAFT_TEMPLATE_AGREEMENT_END_USER">
-                <label class="custom-file-label">{{ $deb->DRAFT_TEMPLATE_AGREEMENT_END_USER }}</label>
-            </div>
-            @error('DRAFT_TEMPLATE_AGREEMENT_END_USER')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
-        </div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Contoh Risk Acceptance Criteria</label></div>
-        <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 38px;">
-                <input type="file" class="custom-file-input" name="CONTOH_RISK_ACCEPTANCE_CRITERIA">
-                <label class="custom-file-label">{{ $deb->CONTOH_RISK_ACCEPTANCE_CRITERIA }}</label>
-            </div>
-        </div>
-    </div>
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>NDA Document</label></div>
-        <div class="col-sm-8">
-            <div class="custom-file"  style="width: 300px; height: 38px;">
-                <input type="file" class="custom-file-input"  name="NDA_DOCUMENT">
-                <label class="custom-file-label">{{ $deb->NDA_DOCUMENT }}</label>
-            </div>
-        </div>
-    </div>
-
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Pengajuan Lain Lain</label></div>
+    </div><div class="row pb-3">
+        <div class="col-sm-4"><label>Dokumen Pengajuan Lain Lain</label></div>
         <div class="col-sm-8">
             <div class="custom-file"  style="width: 300px; height: 38px;">
                 <input type="file" class="custom-file-input" name="PENGAJUAN_LAIN_LAIN[]" multiple>

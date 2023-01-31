@@ -73,10 +73,7 @@ Home
                     <th>Last Year</th>
                     <th>In House Financial Statement Current Year</th>
                     <th>Bank Statement Last 3 Years</th>
-                    <th>Financial Projection For Next 3-5 Years</th>
-                    <th>Draft Template Agree End User</th>
-                    <th>Contoh Risk Acceptance Criteria</th>
-                    <th>NDA Document</th>
+					<th>Dokumen Pengajuan Lain Lain</th>
                     <th>Jenis Asuransi</th>
                     <th>Perusahaan Asuransi</th>
                     <th>Persen Asuransi</th>
@@ -95,7 +92,6 @@ Home
                     <th>Nilai Inventory</th>
                     <th>Jaminan Lainnya</th>
                     <th>Nilai Jaminan Lainnya</th>
-                    <th>Pengajuan Lain Lain</th>
                     <th>Down Payment</th>
                     <th>Jumlah Down Payment</th>
                     <th>Status</th>
@@ -161,17 +157,20 @@ Home
                             @endforeach
                         @endif
                     </td>
-                    <td>{{ $item->FINANCIAL_PROJECTION_FOR_NEXT_3_5_YEARS }}</td>
-                    <td>{{ $item->DRAFT_TEMPLATE_AGREEMENT_END_USER }}</td>
-                    <td>{{ $item->CONTOH_RISK_ACCEPTANCE_CRITERIA }}</td>
-                    <td>{{ $item->NDA_DOCUMENT }}</td>
+					<td>
+                        @if ($item->PENGAJUAN_LAIN_LAIN != NULL)
+                        @foreach (json_decode($item->PENGAJUAN_LAIN_LAIN) as $file)
+                            {{ $file }}
+                        @endforeach
+                        @endif
+                    </td>
                     <td>
                         @if ($item->Jenis_Asuransi_Id != NULL)
                             {{ $item->asuransi->Jenis_Asuransi }}                        
                         @endif
                     </td>
                     <td>{{ $item->Perusahaan_Asuransi }}</td>
-                    <td>{{ $item->Persen_Asuransi }}</td>
+                    <td>{{ $item->Persen_Asuransi }}%</td>
                     @if ($item->Nilai_Asuransi != null )
                         <td>Rp{{ number_format($item->Nilai_Asuransi) }}</td>
                     @else
@@ -219,13 +218,6 @@ Home
                     @else
                         <td><center>-</center></td>
                     @endif
-                    <td>
-                        @if ($item->PENGAJUAN_LAIN_LAIN != NULL)
-                        @foreach (json_decode($item->PENGAJUAN_LAIN_LAIN) as $file)
-                            {{ $file }}
-                        @endforeach
-                        @endif
-                    </td>
                     <td>{{ $item->APAKAH_ADA_DP }}</td>
                     @if ($item->DOWN_PAYMENT_CUSTOMER != null)
                     <td>Rp{{ number_format($item->DOWN_PAYMENT_CUSTOMER) }}</td>
