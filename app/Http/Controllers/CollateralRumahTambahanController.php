@@ -27,7 +27,7 @@ class CollateralRumahTambahanController extends Controller
         $partner_id = $request->partner_id;
         $debitur_id = $request->debitur_id;
 
-        $counter = DB::table('collateral_rumah_tambahan')->select(DB::raw('count(id) + 1 as jumlah'))
+        $counter = DB::table('collateral_rumah_tanah_tambahan')->select(DB::raw('count(id) + 1 as jumlah'))
         ->where('PARTNER_ID', $partner_id)
         ->where('DEBITUR_ID', $debitur_id)
         ->get();
@@ -59,7 +59,6 @@ class CollateralRumahTambahanController extends Controller
             'PARTNER_ID',
             'DEBITUR_ID',
             'COLL_COUNTER',
-            'Counter_Rumah_Tanah_Tambahan',
             'Nilai_Rumah_Tanah_Tambahan',
             'No_Shm_No_Hgb_Tambahan',
             'Luas_Tambahan',
@@ -73,7 +72,6 @@ class CollateralRumahTambahanController extends Controller
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
             'COLL_COUNTER' => $request->COLL_COUNTER,
-            'Counter_Rumah_Tanah_Tambahan' => $request->Counter_Rumah_Tanah_Tambahan,
             'Nilai_Rumah_Tanah_Tambahan' => str_ireplace(',', '', $request->Nilai_Rumah_Tanah_Tambahan),
             'No_Shm_No_Hgb_Tambahan' => $request->No_Shm_No_Hgb_Tambahan,
             'Luas_Tambahan' => $request->Luas_Tambahan,
@@ -124,7 +122,6 @@ class CollateralRumahTambahanController extends Controller
             'PARTNER_ID',
             'DEBITUR_ID',
             'COLL_COUNTER',
-            'Counter_Rumah_Tanah_Tambahan',
             'Nilai_Rumah_Tanah_Tambahan',
             'No_Shm_No_Hgb_Tambahan',
             'Luas_Tambahan',
@@ -138,7 +135,6 @@ class CollateralRumahTambahanController extends Controller
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
             'COLL_COUNTER' => $request->COLL_COUNTER,
-            'Counter_Rumah_Tanah_Tambahan' => $request->Counter_Rumah_Tanah_Tambahan,
             'Nilai_Rumah_Tanah_Tambahan' => str_ireplace(',', '', $request->Nilai_Rumah_Tanah_Tambahan),
             'No_Shm_No_Hgb_Tambahan' => $request->No_Shm_No_Hgb_Tambahan,
             'Luas_Tambahan' => $request->Luas_Tambahan,

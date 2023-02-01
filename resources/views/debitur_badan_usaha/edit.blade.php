@@ -103,23 +103,68 @@ Edit
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Detail Product </label></div>
+        <div class="col-sm-4"><label>Detail Nama Product </label></div>
         <div class="col-sm-8">
-            <select class="form-control" name="DETIL_PRODUCT_PROFILE"  style="width: 300px; height: 38px;">
+            <select class="form-control" name="DETIL_PRODUCT_PROFILE" style="width: 300px; height: 38px;" onchange="namaProduct()" id="detail">
                 @if ($deb->DETIL_PRODUCT_PROFILE != NULL)
-                    <option value="{{ $deb->DETIL_PRODUCT_PROFILE }}">{{ $deb->detil_product->id_master_product }} - {{ $deb->detil_product->nama_product }}</option>
+                    <option value="{{ $deb->DETIL_PRODUCT_PROFILE }}">{{ $deb->detil_product->nama_product }}</option>
                     @foreach ($m_prod as $item)
-                    <option value="{{ $item->id }}">{{ $item->id_master_product }} - {{ $item->nama_product }}</option>
+                    <option value="{{ $item->id }}">{{ $item->nama_product }}</option>
                     @endforeach
                 @else
                     <option></option>
                     @foreach ($m_prod as $item)
-                    <option value="{{ $item->id }}">{{ $item->id_master_product }} - {{ $item->nama_product }}</option>
+                    <option value="{{ $item->id }}">{{ $item->nama_product }}</option>
                     @endforeach
                 @endif
             </select>
         </div>
     </div>
+    @if ($deb->DETIL_PRODUCT_PROFILE != NULL)  
+    @if ($deb->detil_product->nama_product == "Invoice Financing")    
+    <div class="row pb-3 pl-2" id="borrower" style="display: block;">
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nama Borrower </label></div>
+            <div class="col-sm-8" style="padding-left: 4.5px">
+                <input type="text" id="borrow" name="NAMA_BORROWER" value="{{ $deb->NAMA_BORROWER }}" class="form-control" placeholder="Nama Borrower" style="width: 300px; height: 38px;">
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Tanggal Jatuh Tempo </label></div>
+            <div class="col-sm-8" style="padding-left: 4.5px">
+                <input type="date" id="tgl" name="TGL_JATUH_TEMPO" value="{{ $deb->TGL_JATUH_TEMPO }}" class="form-control" placeholder="Tanggal Jatuh Tempo" style="width: 300px; height: 38px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><label>Nilai Invoice Financing </label></div>
+            <div class="col-sm-8" style="padding-left: 4.5px">
+                <input type="text" id="invoice" name="NILAI_INVOICE_FINANCING" value="{{ number_format($deb->NILAI_INVOICE_FINANCING) }}" class="form-control number-separator" placeholder="Nilai Invoice Financing" style="width: 300px; height: 38px;">
+            </div>
+        </div>
+    </div>
+    @else
+    <div class="row pb-3 pl-2" id="borrower" style="display: none;">
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nama Borrower </label></div>
+            <div class="col-sm-8" style="padding-left: 4.5px">
+                <input type="text" name="NAMA_BORROWER" class="form-control" placeholder="Nama Borrower" style="width: 300px; height: 38px;">
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Tanggal Jatuh Tempo </label></div>
+            <div class="col-sm-8" style="padding-left: 4.5px">
+                <input type="date" name="TGL_JATUH_TEMPO" class="form-control" placeholder="Tanggal Jatuh Tempo" style="width: 300px; height: 38px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><label>Nilai Invoice Financing </label></div>
+            <div class="col-sm-8" style="padding-left: 4.5px">
+                <input type="text" name="NILAI_INVOICE_FINANCING" class="form-control number-separator" placeholder="Nilai Invoice Financing" style="width: 300px; height: 38px;">
+            </div>
+        </div>
+    </div>
+    @endif
+    @endif
     <div class="row pb-3">
         <div class="col-sm-4"><label>Akta Perubahan Anggaran Dasar</label></div>
         <div class="col-sm-8">
@@ -762,6 +807,22 @@ Edit
         var tanah = document.getElementById("tanah");
         tanah.disabled = obj.value == "TIDAK";
     }
-
+    
+    function namaProduct() {
+        var namaProduct = document.getElementById("detail");
+        var detail = namaProduct.options[namaProduct.selectedIndex].text;
+        // detail.find(":selected").text();
+        console.log(detail);
+        if (detail == "Invoice Financing") {
+            // document.getElementById("borrower").style.visibility = 'visible';
+            document.getElementById("borrower").style.display = 'block';
+        }else{
+            // document.getElementById("borrower").style.visibility = 'hidden';
+            document.getElementById("borrower").style.display = 'none';
+            document.getElementById("borrow").value = '';
+            document.getElementById("tgl").value = '';
+            document.getElementById("invoice").value = '';
+        }
+    }
 </script>
 @endsection

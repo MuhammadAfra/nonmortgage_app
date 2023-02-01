@@ -41,7 +41,6 @@ Home
                     <th>Partner ID</th>
                     <th>Debitur ID</th>
                     <th>Coll ID</th>
-                    <th>Nilai Inv</th>
                     <th>Nama Inventory</th>
                     <th>Besar Inventory</th>
                     <th>Nilai Inventory</th>
@@ -68,7 +67,6 @@ Home
                     <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
                     <td>{{ str_pad($item->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}</td>
-                    <td>{{ number_format($item->Nilai_Inv) }}</td>
                     <td>{{ $item->Nama_Inventory }}</td>
                     <td>{{ $item->Besar_Inventory }}</td>
                     <td>Rp{{ number_format($item->Nilai_Inventory) }}</td>

@@ -122,6 +122,12 @@ class DebiturBadanUsahaController extends Controller
             $dp = NULL;
         }
 
+        if ($request->NILAI_INVOICE_FINANCING != NULL) {
+            $inv = str_replace( ',', '', $request->NILAI_INVOICE_FINANCING);
+        }else{
+            $inv = NULL;
+        }
+
         if ($request->Persen_Asuransi != NULL) {
             $persen = str_replace( ',', '.', $request->Persen_Asuransi);
         }else{
@@ -281,6 +287,9 @@ class DebiturBadanUsahaController extends Controller
         $deb->ALAMAT_PERUSAHAAN = $request->ALAMAT_PERUSAHAAN;
         $deb->STATUS_BADAN_HUKUM = $request->STATUS_BADAN_HUKUM;
         $deb->DETIL_PRODUCT_PROFILE = $request->DETIL_PRODUCT_PROFILE;
+        $deb->NAMA_BORROWER = $request->NAMA_BORROWER;
+        $deb->TGL_JATUH_TEMPO = $request->TGL_JATUH_TEMPO;
+        $deb->NILAI_INVOICE_FINANCING = $inv;
         $deb->Nama_Direktur_Utama = $request->Nama_Direktur_Utama;
         $deb->No_Identitas_Direktur_Utama = $request->No_Identitas_Direktur_Utama;
         $deb->Nama_Direktur1 = $request->Nama_Direktur1;
@@ -354,6 +363,12 @@ class DebiturBadanUsahaController extends Controller
     public function update(Request $request, $id)
     {
         $deb = Debitur_Badan_Usaha::findorfail($id);
+
+        if ($request->NILAI_INVOICE_FINANCING != NULL) {
+            $inv = str_replace( ',', '', $request->NILAI_INVOICE_FINANCING);
+        }else{
+            $inv = NULL;
+        }
 
         if ($request->Nilai_Asuransi != NULL) {
             $asuransi = str_replace( ',', '', $request->Nilai_Asuransi);
@@ -767,6 +782,9 @@ class DebiturBadanUsahaController extends Controller
         $deb->ALAMAT_PERUSAHAAN = $request->ALAMAT_PERUSAHAAN;
         $deb->STATUS_BADAN_HUKUM = $request->STATUS_BADAN_HUKUM;
         $deb->DETIL_PRODUCT_PROFILE = $request->DETIL_PRODUCT_PROFILE;
+        $deb->NAMA_BORROWER = $request->NAMA_BORROWER;
+        $deb->TGL_JATUH_TEMPO = $request->TGL_JATUH_TEMPO;
+        $deb->NILAI_INVOICE_FINANCING = $inv;
         $deb->Nama_Direktur_Utama = $request->Nama_Direktur_Utama;
         $deb->No_Identitas_Direktur_Utama = $request->No_Identitas_Direktur_Utama;
         $deb->Nama_Direktur1 = $request->Nama_Direktur1;

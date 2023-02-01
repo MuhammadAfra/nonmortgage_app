@@ -65,10 +65,32 @@ Detail
             <div class="col-sm-4"><label>Detail Product Profile</label></div>
             <div class="col-sm-8">: 
                 @if ($deb->DETIL_PRODUCT_PROFILE != NULL)
-                    {{ $deb->detil_product->id_master_product }} - {{ $deb->detil_product->nama_product }}
+                    {{ $deb->detil_product->nama_product }}
                 @endif
             </div>
         </div>
+        @if ($deb->DETIL_PRODUCT_PROFILE != NULL)
+            @if ($deb->detil_product->nama_product == "Invoice Financing")
+            <div class="row pb-3">
+                <div class="col-sm-4"><label>Nama Borrower</label></div>
+                <div class="col-sm-8">: 
+                    {{ $deb->NAMA_BORROWER }}
+                </div>
+            </div>
+            <div class="row pb-3">
+                <div class="col-sm-4"><label>Tanggal Jatuh Tempo</label></div>
+                <div class="col-sm-8">: 
+                    {{ $deb->TGL_JATUH_TEMPO }}
+                </div>
+            </div>
+            <div class="row pb-3">
+                <div class="col-sm-4"><label>Nila Invoice Financing</label></div>
+                <div class="col-sm-8">: 
+                    Rp{{ number_format($deb->NILAI_INVOICE_FINANCING) }}
+                </div>
+            </div>
+            @endif
+        @endif
         <div class="row pb-3">
             <div class="col-sm-4"><label>Akta Perubahan Anggaran Dasar <br> 
             @if ($deb->AKTE_PERUBAHAN_ANGGARAN_DASAR != NULL)

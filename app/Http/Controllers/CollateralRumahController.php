@@ -27,7 +27,7 @@ class CollateralRumahController extends Controller
         $partner_id = $request->partner_id;
         $debitur_id = $request->debitur_id;
 
-        $counter = DB::table('collateral_rumah')->select(DB::raw('count(id) + 1 as jumlah'))
+        $counter = DB::table('collateral_rumah_tanah')->select(DB::raw('count(id) + 1 as jumlah'))
         ->where('PARTNER_ID', $partner_id)
         ->where('DEBITUR_ID', $debitur_id)
         ->get();

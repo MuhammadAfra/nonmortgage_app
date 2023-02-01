@@ -57,10 +57,32 @@ Detail
             <div class="col-sm-4"><label>Detail Nama Product</label></div>
             <div class="col-sm-8">: 
                 @if ($partner->DETIL_PRODUCT_PROFILE != NULL)
-                    {{ $partner->master_product->id_master_product }} - {{ $partner->master_product->nama_product }}
+                    {{ $partner->master_product->nama_product }}
                 @endif
             </div>
         </div>
+        @if ($partner->DETIL_PRODUCT_PROFILE != NULL)
+            @if ($partner->master_product->nama_product == "Invoice Financing")
+            <div class="row pb-3">
+                <div class="col-sm-4"><label>Nama Borrower</label></div>
+                <div class="col-sm-8">: 
+                    {{ $partner->NAMA_BORROWER }}
+                </div>
+            </div>
+            <div class="row pb-3">
+                <div class="col-sm-4"><label>Tanggal Jatuh Tempo</label></div>
+                <div class="col-sm-8">: 
+                    {{ $partner->TGL_JATUH_TEMPO }}
+                </div>
+            </div>
+            <div class="row pb-3">
+                <div class="col-sm-4"><label>Nila Invoice Financing</label></div>
+                <div class="col-sm-8">: 
+                    Rp{{ number_format($partner->NILAI_INVOICE_FINANCING) }}
+                </div>
+            </div>
+            @endif
+        @endif
         <div class="row pb-3">
             <div class="col-sm-4"><label>Akta Perubahan Anggaran Dasar <br> 
             @if ($partner->AKTE_PERUBAHAN_ANGGARAN_DASAR != NULL)

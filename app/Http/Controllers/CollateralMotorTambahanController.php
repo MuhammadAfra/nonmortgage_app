@@ -65,8 +65,7 @@ class CollateralMotorTambahanController extends Controller
             'Model_Tambahan',
             'Jenis_Motor_Sport_Listrik_Tambahan',
             'Nama_Di_Bpkb_Tambahan',
-            'Counter_Motor_Tambahan',
-            'No_Frame_Tambahan',
+            'Counter_Motor_Tambahan',            'No_Frame_Tambahan',
             'No_Engine_Tambahan',
             'No_Polisi_Tambahan',
             'Colour_Tambahan',
@@ -85,7 +84,6 @@ class CollateralMotorTambahanController extends Controller
             'Model_Tambahan' => $request->Model_Tambahan,
             'Jenis_Motor_Sport_Listrik_Tambahan' => $request->Jenis_Motor_Sport_Listrik_Tambahan,
             'Nama_Di_Bpkb_Tambahan' => $request->Nama_Di_Bpkb_Tambahan,
-            'Counter_Motor_Tambahan' => $request->Counter_Motor_Tambahan,
             'No_Frame_Tambahan' => $request->No_Frame_Tambahan,
             'No_Engine_Tambahan' => $request->No_Engine_Tambahan,
             'No_Polisi_Tambahan' => $request->No_Polisi_Tambahan,
@@ -133,7 +131,6 @@ class CollateralMotorTambahanController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            // 'id',
             'PARTNER_ID',
             'DEBITUR_ID',
             'COLL_COUNTER',
@@ -143,7 +140,6 @@ class CollateralMotorTambahanController extends Controller
             'Model_Tambahan',
             'Jenis_Motor_Sport_Listrik_Tambahan',
             'Nama_Di_Bpkb_Tambahan',
-            'Counter_Motor_Tambahan',
             'No_Frame_Tambahan',
             'No_Engine_Tambahan',
             'No_Polisi_Tambahan',
@@ -164,7 +160,6 @@ class CollateralMotorTambahanController extends Controller
             'Model_Tambahan' => $request->Model_Tambahan,
             'Jenis_Motor_Sport_Listrik_Tambahan' => $request->Jenis_Motor_Sport_Listrik_Tambahan,
             'Nama_Di_Bpkb_Tambahan' => $request->Nama_Di_Bpkb_Tambahan,
-            'Counter_Motor_Tambahan' => $request->Counter_Motor_Tambahan,
             'No_Frame_Tambahan' => $request->No_Frame_Tambahan,
             'No_Engine_Tambahan' => $request->No_Engine_Tambahan,
             'No_Polisi_Tambahan' => $request->No_Polisi_Tambahan,

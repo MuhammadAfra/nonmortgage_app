@@ -53,22 +53,6 @@ Add
             @enderror
         </div>
     </div>
-
-    <div class="row pb-3">
-        <div class="col-sm-4"><label>Nilai Inv<span class="text-danger">*</span></label></div>
-        <div class="col-sm-8">
-        <div class="input-group" style="width: 300px; height: 38px;">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Rp</span>
-                </div>
-            <input type="text" class="form-control number-separator" placeholder="Nilai Inv" name="Nilai_Inv">
-            </div>
-            @error('Nilai_Inv')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
-        </div>
-    </div>
-
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Inventory<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
@@ -156,17 +140,6 @@ Add
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script type="text/javascript">
-    // function change() {
-    //     var partner_id = document.getElementById('PARTNER_ID').value;
-    //     var debitur_id = document.getElementById('DEBITUR_ID').value;
-    //     if(partner_id != '' ) {
-    //         var NextCounter = CollateralMotorController::test();
-    //         alert("hallow"+NextCounter);
-    //     } else {
-    //         alert("hallow kosong"+partner_id);
-    //     }
-    // }
-
     $(".collCounterPart").on('change', function(){
     var partner_id = $('option:selected', this).val();
     console.log(partner_id);
@@ -180,8 +153,16 @@ Add
                 "debitur_id": debitur_id},
          type: 'get',
          success: function(result){
+            var finalResult = "";
             console.log(result);
-            document.getElementById('counter').value = result['data'][0]['jumlah'];
+            console.log(result['data'][0]['jumlah']);
+            if (result['data'][0]['jumlah'].toString().length == 1) {
+                finalResult = "00"+result['data'][0]['jumlah'];
+            }
+            if (result['data'][0]['jumlah'].toString().length == 2) {
+                finalResult = "0"+result['data'][0]['jumlah'];
+            }
+            document.getElementById('counter').value = finalResult;
          }
         });
   });

@@ -19,7 +19,7 @@ class CollateralInventoryController extends Controller
      */
     public function index()
     {
-        $inven = Collateral_Inventory::get();
+        $inven = Collateral_Inventory::orderBy('id', 'desc')->get();
         return view('collateral_utama.inventory.index', compact('inven'));
     }
 
@@ -60,7 +60,6 @@ class CollateralInventoryController extends Controller
             'PARTNER_ID',
             'DEBITUR_ID',
             'COLL_COUNTER',
-            'Nilai_Inv',
             'Nama_Inventory',
             'Besar_Inventory',
             'Nilai_Inventory',
@@ -74,7 +73,6 @@ class CollateralInventoryController extends Controller
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
             'COLL_COUNTER' => $request->COLL_COUNTER,
-            'Nilai_Inv' => str_replace(',', '', $request->Nilai_Inv),
             'Nama_Inventory' => $request->Nama_Inventory,
             'Besar_Inventory' => $request->Besar_Inventory,
             'Nilai_Inventory' => str_replace(',', '', $request->Nilai_Inventory),
@@ -109,7 +107,7 @@ class CollateralInventoryController extends Controller
         $inven = Collateral_Inventory::findorfail($id);
         $partner = Partner::all();
         $debitur = Debitur::all ();
-        return view('collateral_utama.invoice.edit', compact('inven', 'partner', 'debitur'));
+        return view('collateral_utama.inventory.edit', compact('inven', 'partner', 'debitur'));
     }
 
     /**
@@ -125,7 +123,6 @@ class CollateralInventoryController extends Controller
             'PARTNER_ID',
             'DEBITUR_ID',
             'COLL_COUNTER',
-            'Nilai_Inv',
             'Nama_Inventory',
             'Besar_Inventory',
             'Nilai_Inventory',
@@ -139,7 +136,6 @@ class CollateralInventoryController extends Controller
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
             'COLL_COUNTER' => $request->COLL_COUNTER,
-            'Nilai_Inv' => str_replace(',', '', $request->Nilai_Inv),
             'Nama_Inventory' => $request->Nama_Inventory,
             'Besar_Inventory' => $request->Besar_Inventory,
             'Nilai_Inventory' => str_replace(',', '', $request->Nilai_Inventory),

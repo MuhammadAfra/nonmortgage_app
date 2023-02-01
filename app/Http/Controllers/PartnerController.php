@@ -205,6 +205,12 @@ class PartnerController extends Controller
             $partner->save();
         }
 
+        if ($request->NILAI_INVOICE_FINANCING != NULL) {
+            $inv = str_replace( ',', '', $request->NILAI_INVOICE_FINANCING);
+        }else{
+            $inv = NULL;
+        }
+
         $partner->NAMA_PERUSAHAAN = $request->NAMA_PERUSAHAAN;
         $partner->ALAMAT_PERUSAHAAN = $request->ALAMAT_PERUSAHAAN;
         $partner->STATUS_BADAN_HUKUM = $request->STATUS_BADAN_HUKUM;
@@ -220,6 +226,9 @@ class PartnerController extends Controller
         $partner->TGL_BERLAKU_SIUP = $request->TGL_BERLAKU_SIUP;
         $partner->TGL_BERLAKU_TDP = $request->TGL_BERLAKU_TDP;
         $partner->LAST_YEAR = $request->LAST_YEAR;
+        $partner->NAMA_BORROWER = $request->NAMA_BORROWER;
+        $partner->TGL_JATUH_TEMPO = $request->TGL_JATUH_TEMPO;
+        $partner->NILAI_INVOICE_FINANCING = $inv;
         $partner->save();
         // dd($partner);
 
@@ -602,6 +611,12 @@ class PartnerController extends Controller
             }
         }
 
+        if ($request->NILAI_INVOICE_FINANCING != NULL) {
+            $inv = str_replace( ',', '', $request->NILAI_INVOICE_FINANCING);
+        }else{
+            $inv = NULL;
+        }
+
         $partner->NAMA_PERUSAHAAN = $request->NAMA_PERUSAHAAN;
         $partner->ALAMAT_PERUSAHAAN = $request->ALAMAT_PERUSAHAAN;
         $partner->STATUS_BADAN_HUKUM = $request->STATUS_BADAN_HUKUM;
@@ -617,6 +632,9 @@ class PartnerController extends Controller
         $partner->TGL_BERLAKU_SIUP = $request->TGL_BERLAKU_SIUP;
         $partner->TGL_BERLAKU_TDP = $request->TGL_BERLAKU_TDP;
         $partner->LAST_YEAR = $request->LAST_YEAR;
+        $partner->NAMA_BORROWER = $request->NAMA_BORROWER;
+        $partner->TGL_JATUH_TEMPO = $request->TGL_JATUH_TEMPO;
+        $partner->NILAI_INVOICE_FINANCING = $inv;
         $partner->save();
 
         return redirect('partner');

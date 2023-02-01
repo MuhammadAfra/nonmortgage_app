@@ -165,17 +165,6 @@ Add
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script type="text/javascript">
-    // function change() {
-    //     var partner_id = document.getElementById('PARTNER_ID').value;
-    //     var debitur_id = document.getElementById('DEBITUR_ID').value;
-    //     if(partner_id != '' ) {
-    //         var NextCounter = CollateralMotorController::test();
-    //         alert("hallow"+NextCounter);
-    //     } else {
-    //         alert("hallow kosong"+partner_id);
-    //     }
-    // }
-
     $(".collCounterPart").on('change', function(){
     var partner_id = $('option:selected', this).val();
     console.log(partner_id);
@@ -184,13 +173,21 @@ Add
     console.log(debitur_id);        
 
 	$.ajax({ 
-         url: "{{ url('collateral_motor_nextCounter') }}",
+         url: "{{ url('collateral_invoice_nextCounter') }}",
          data: {"partner_id": partner_id, 
                 "debitur_id": debitur_id},
          type: 'get',
          success: function(result){
+            var finalResult = "";
             console.log(result);
-            document.getElementById('counter').value = result['data'][0]['jumlah'];
+            console.log(result['data'][0]['jumlah']);
+            if (result['data'][0]['jumlah'].toString().length == 1) {
+                finalResult = "00"+result['data'][0]['jumlah'];
+            }
+            if (result['data'][0]['jumlah'].toString().length == 2) {
+                finalResult = "0"+result['data'][0]['jumlah'];
+            }
+            document.getElementById('counter').value = finalResult;
          }
         });
   });

@@ -27,7 +27,7 @@ class CollateralCorporateController extends Controller
         $partner_id = $request->partner_id;
         $debitur_id = $request->debitur_id;
 
-        $counter = DB::table('collateral_corporate')->select(DB::raw('count(id) + 1 as jumlah'))
+        $counter = DB::table('collateral_corporate_guarantee')->select(DB::raw('count(id) + 1 as jumlah'))
         ->where('PARTNER_ID', $partner_id)
         ->where('DEBITUR_ID', $debitur_id)
         ->get();

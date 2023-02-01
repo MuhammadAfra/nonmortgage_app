@@ -18,11 +18,11 @@ Edit
     <div class="row pb-3" >
         <div class="col-sm-4"><label>Partner ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <select name="PARTNER_ID" id="PARTNER_ID" class="form-control py-0 collCounterPart" style="width: 300px; height: 30px;">
+            <select readonly name="PARTNER_ID" id="PARTNER_ID" class="form-control py-0 collCounterPart" style="width: 300px; height: 30px;">
                 <option value="{{ $inventbh->PARTNER_ID }}">{{ $inventbh->partner->NAMA_PERUSAHAAN }}</option>
-                @foreach ($partner as $item)
+                {{-- @foreach ($partner as $item)
                 <option value="{{ $item->id }}">{{ $item->NAMA_PERUSAHAAN }} </option>
-                @endforeach
+                @endforeach --}}
             </select>
             @error('PARTNER_ID')
             <p class="text-danger">{{ $message }}</p>
@@ -33,11 +33,11 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Debitur ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <select name="DEBITUR_ID" id="DEBITUR_ID" class="form-control py-0 collCounterDebit" style="width: 300px; height: 30px;">
+            <select readonly name="DEBITUR_ID" id="DEBITUR_ID" class="form-control py-0 collCounterDebit" style="width: 300px; height: 30px;">
                 <option value="{{ $inventbh->DEBITUR_ID }}">{{ $inventbh->debitur->NAMA_DEBITUR }}</option>
-                @foreach ($debitur as $item)
+                {{-- @foreach ($debitur as $item)
                 <option value="{{ $item->id }}">{{ $item->NAMA_DEBITUR }} </option>
-                @endforeach
+                @endforeach --}}
             </select>
             @error('DEBITUR_ID')
             <p class="text-danger">{{ $message }}</p>
@@ -48,7 +48,7 @@ Edit
     <div class="row pb-3">
         <div class="col-sm-4"><label>Coll ID <span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="COLL_COUNTER" class="form-control" readonly id="counter" style="width: 300px; height: 30px;" >
+            <input type="text" name="COLL_COUNTER" value="{{ str_pad($inventbh->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}" class="form-control" readonly id="counter" style="width: 300px; height: 30px;" >
             @error('COLL_COUNTER')
             <p class="text-danger">{{ $message }}</p>
             @enderror

@@ -79,15 +79,35 @@ Add
         </div>
     </div>
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Detail Nama Product</label></div>
+        <div class="col-sm-4"><label>Detail Nama Product </label></div>
         <div class="col-sm-8">
             <div class="input-group" style="width: 500px; height: 38px;">
-                <select class="form-control py-0" name="DETIL_PRODUCT_PROFILE">
+                <select class="form-control py-0" id="detail" name="DETIL_PRODUCT_PROFILE" onchange="namaProduct()">
                     <option></option>
                     @foreach ($prod as $item)
                     <option value="{{ $item->id }}">{{ $item->nama_product }}</option>
                     @endforeach
                 </select>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-3 pl-2" id="borrower" style="display: none;">
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Nama Borrower </label></div>
+            <div class="col-sm-8" style="padding-left: 4.5px">
+                <input type="text" name="NAMA_BORROWER" class="form-control" placeholder="Nama Borrower" style="width: 500px; height: 38px;">
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-4"><label>Tanggal Jatuh Tempo </label></div>
+            <div class="col-sm-8" style="padding-left: 4.5px">
+                <input type="date" name="TGL_JATUH_TEMPO" class="form-control" placeholder="Tanggal Jatuh Tempo" style="width: 500px; height: 38px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"><label>Nilai Invoice Financing </label></div>
+            <div class="col-sm-8" style="padding-left: 4.5px">
+                <input type="text" name="NILAI_INVOICE_FINANCING" class="form-control number-separator" placeholder="Nilai Invoice Financing" style="width: 500px; height: 38px;">
             </div>
         </div>
     </div>
@@ -269,7 +289,7 @@ Add
         <div class="col-sm-4"><label>Pengganti Asuransi <span class="text-danger">*</span></label></div>
         <div class="col-sm-4 d-flex">
             <div class="d-flex">
-                <input type="radio" value="ADA" style="width: 15px" checked required name="PENGGANTI_ASURANSI" class="form-control" onchange="checkASR(this)">
+                <input type="radio" value="ADA" style="width: 15px" required name="PENGGANTI_ASURANSI" class="form-control" onchange="checkASR(this)">
                 <p class="my-auto mx-2" style="font-weight: 600">Ada</p>
             </div>
             <div class=" d-flex">
@@ -330,6 +350,20 @@ Add
     {
         var pengganti = document.getElementById("pengganti");
         pengganti.disabled = obj.value == "ADA";
+    }
+
+    function namaProduct() {
+        var namaProduct = document.getElementById("detail");
+        var detail = namaProduct.options[namaProduct.selectedIndex].text;
+        // nama.find(":selected").text();
+        console.log(detail);
+        if (detail == "Invoice Financing") {
+            // document.getElementById("borrower").style.visibility = 'visible';
+            document.getElementById("borrower").style.display = 'block';
+        }else{
+            // document.getElementById("borrower").style.visibility = 'hidden';
+            document.getElementById("borrower").style.display = 'none';
+        }
     }
 </script>
 @endsection

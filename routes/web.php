@@ -135,9 +135,9 @@ Route::group(['middleware' => ['PreventBack']], function(){
         
         // collateral  mobil
         Route::resource('collateral_mobil', CollateralMobilController::class);
-        Route::get('/collateral_mobil_nextCounter', [CollateralMotorController::class, 'nextCounter'])->name('collateral_mobil_nextCounter');
+        Route::get('/collateral_mobil_nextCounter', [CollateralMobilController::class, 'nextCounter'])->name('collateral_mobil_nextCounter');
         Route::resource('collateral_mobil_tambahan', CollateralMobilTambahanController::class);
-        Route::get('/collateral_mobil_tambahan_nextCounter', [CollateralMotorController::class, 'nextCounter'])->name('collateral_mobil_tambahan_nextCounter');
+        Route::get('/collateral_mobil_tambahan_nextCounter', [CollateralMobilController::class, 'nextCounter'])->name('collateral_mobil_tambahan_nextCounter');
 
         // collateral invoice
         Route::resource('collateral_invoice', CollateralInvoiceController::class);

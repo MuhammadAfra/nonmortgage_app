@@ -55,6 +55,15 @@ Home
                     <th>Company Profile</th>
                     <th>Akta Lain Lain</th>
                     <th>Detail Company Profile</th>
+                    {{-- @foreach ($deb as $detil)    
+                        @if ($detil->DETIL_PRODUCT_PROFILE != null)
+                            @if ($detil->detil_product->nama_product == "Invoice Financing")
+                                <th>Nama Borrower</th>
+                                <th>Tanggal Jatuh Tempo</th>
+                                <th>Nilai Invoice Financing</th>
+                            @endif
+                        @endif
+                    @endforeach --}}
                     <th>Akta Perubahan Anggaran Dasar</th>
                     <th>SIUP</th>
                     <th>Tanggal Masa Berlaku SIUP</th>
@@ -112,7 +121,7 @@ Home
                     @include('debitur_badan_usaha.delete')
                     @endif
                     <td>
-                        @if ($item->DETIL_PRODUCT_PROFILE != NULL)
+                        @if ($item->PARTNER_ID != NULL)
                             {{ $item->partner->NAMA_PERUSAHAAN }}
                         @endif
                     </td>
@@ -129,10 +138,15 @@ Home
                         @endif
                     </td>
                     <td>
-                        @if ($item->PARTNER_ID != NULL)
+                        @if ($item->DETIL_PRODUCT_PROFILE != NULL)
                             {{ $item->detil_product->nama_product }}
                         @endif
                     </td>
+                    {{-- @if ($item->detil_product->nama_product == "Invoice Financing")
+                        <td>{{ $item->NAMA_BORROWER }}</td>
+                        <td>{{ $item->TGL_JATUH_TEMPO }}</td>
+                        <td>{{ $item->NILAI_INVOICE_FINANCING }}</td>
+                    @endif --}}
                     <td>{{ $item->AKTE_PERUBAHAN_ANGGARAN_DASAR }}</td>
                     <td>{{ $item->SIUP }}</td>
                     <td>{{ $item->TGL_BERLAKU_SIUP }}</td>
