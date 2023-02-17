@@ -18,10 +18,22 @@ Detail
             <div class="col-sm-4"><label>Partner ID</label></div>
             <div class="col-sm-8">: {{ $rumah->partner->NAMA_PERUSAHAAN }}</div>
         </div>
-        <div class="row pb-3">
-            <div class="col-sm-4"><label>Debitur ID</label></div>
-            <div class="col-sm-8">: {{ $rumah->debitur->NAMA_DEBITUR }}</div>
-        </div>
+        @if ($rumah->DEBITUR_ID != NULL)
+            @if ($rumah->jenisDeb == 'PERORANGAN')
+                <div class="row pb-3">
+                    <div class="col-sm-4"><label>Debitur Perorangan ID</label></div>
+                    <div class="col-sm-8">: {{ $rumah->debitur->NAMA_DEBITUR }}</div>
+                </div>
+            @endif
+        @endif
+        @if ($rumah->DEBITUR_BADAN_USAHA_ID != NULL)
+            @if ($rumah->jenisDeb == 'BADAN_USAHA')
+                <div class="row pb-3">
+                    <div class="col-sm-4"><label>Debitur Badan Usaha ID</label></div>
+                    <div class="col-sm-8">: {{ $rumah->debitur_badan_usaha->NAMA_PERUSAHAAN }}</div>
+                </div>
+            @endif
+        @endif
         <div class="row pb-3">
             <div class="col-sm-4"><label>Coll ID</label></div>
             <div class="col-sm-8">: {{ str_pad($rumah->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}</div>

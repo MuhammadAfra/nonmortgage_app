@@ -7,6 +7,7 @@ use App\Models\Collateral_Rumah_Tambahan;
 use App\Models\Product;
 use App\Models\Partner;
 use App\Models\Debitur;
+use App\Models\Debitur_Badan_Usaha;
 use App\Models\Master_Product;
 use Illuminate\Support\Facades\DB;
 
@@ -35,6 +36,18 @@ class CollateralRumahTambahanController extends Controller
         return response()->json(['data' => $counter]);
     }
 
+    public function nextCounter_2(Request $request){
+        $partner_id = $request->partner_id;
+        $debus_id = $request->debus_id;
+
+        $counter_2 = DB::table('collateral_rumah_tanah_tambahan')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_BADAN_USAHA_ID', $debus_id)
+        ->get();
+
+        return response()->json(['data' => $counter_2]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -43,8 +56,9 @@ class CollateralRumahTambahanController extends Controller
     public function create()
     {
         $partner = Partner::all();
-        $debitur = Debitur::all ();
-        return view('collateral_tambahan.rumah.create', compact('partner', 'debitur'));
+        $debitur = Debitur::all();
+        $dbu = Debitur_Badan_Usaha::all();
+        return view('collateral_tambahan.rumah.create', compact('partner', 'debitur', 'dbu'));
     }
 
     /**
@@ -58,6 +72,8 @@ class CollateralRumahTambahanController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
+            'debitur',
+            'DEBITUR_BADAN_USAHA_ID',
             'COLL_COUNTER',
             'Nilai_Rumah_Tanah_Tambahan',
             'No_Shm_No_Hgb_Tambahan',
@@ -71,6 +87,8 @@ class CollateralRumahTambahanController extends Controller
         Collateral_Rumah_Tambahan::create([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
+            'jenisDeb' => $request->debitur,
+            'DEBITUR_BADAN_USAHA_ID' => $request->DEBITUR_BADAN_USAHA_ID,
             'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Rumah_Tanah_Tambahan' => str_ireplace(',', '', $request->Nilai_Rumah_Tanah_Tambahan),
             'No_Shm_No_Hgb_Tambahan' => $request->No_Shm_No_Hgb_Tambahan,
@@ -105,8 +123,9 @@ class CollateralRumahTambahanController extends Controller
     {
         $rumahtbh = Collateral_Rumah_Tambahan::findorfail($id);
         $partner = Partner::all();
-        $debitur = Debitur::all ();
-        return view('collateral_tambahan.rumah.edit', compact('rumahtbh','partner','debitur'));
+        $debitur = Debitur::all();
+        $dbu = Debitur_Badan_Usaha::all();
+        return view('collateral_tambahan.rumah.edit', compact('rumahtbh','partner','debitur', 'dbu'));
     }
 
     /**

@@ -12,6 +12,7 @@ Add
 @endsection
 
 @section('content')
+
 <form action="{{ url('collateral_motor_tambahan') }}" method="POST">
     @csrf
     <div class="row pb-3" >
@@ -28,19 +29,53 @@ Add
             @enderror
         </div>
     </div>
-
+    
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Debitur ID <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8">
-            <select name="DEBITUR_ID" id="DEBITUR_ID" class="form-control py-0 collCounterDebit" style="width: 300px; height: 30px;">
-                <option></option>
-                @foreach ($debitur as $item)
-                <option value="{{ $item->id }}">{{ $item->NAMA_DEBITUR }} </option>
-                @endforeach
-            </select>
-            @error('DEBITUR_ID')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
+        <div class="col-sm-4"><label>Debitur <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4 d-flex">
+            <div class="d-flex">
+                <input type="radio" value="PERORANGAN" style="width: 15px" name="debitur" required class="form-control">
+                <p class="my-auto mx-2" style="font-weight: 600">PERORANGAN</p>
+            </div>
+            <div class=" d-flex">
+                <input type="radio" value="BADAN_USAHA" style="width: 15px" name="debitur" required class="form-control">
+                <p class="my-auto mx-2" style="font-weight: 600">BADAN USAHA</p>
+            </div>
+            <button type="button" class="btn btn-sm btn-default" onclick="jenisDeb()">Pilih</button>
+        </div>
+    </div>
+
+    <div style="display: none;" id="perorangan"">
+        <div class="row pb-3" >
+            <div class="col-sm-4"><label>Debitur Perorangan ID <span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+                <select name="DEBITUR_ID" id="DEBITUR_ID" class="form-control py-0 collCounterDebit" style="width: 300px; height: 30px;">
+                    <option></option>
+                    @foreach ($debitur as $item)
+                        <option value="{{ $item->id }}">{{ $item->NAMA_DEBITUR }} </option>
+                    @endforeach
+                </select>
+                @error('DEBITUR_ID')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+        </div>
+    </div>
+
+    <div style="display: none;" id="usaha"">
+        <div class="row pb-3" >
+            <div class="col-sm-4"><label>Debitur Badan Usaha ID <span class="text-danger">*</span></label></div>
+            <div class="col-sm-8">
+                <select name="DEBITUR_BADAN_USAHA_ID" id="DEBITUR_BADAN_USAHA_ID" class="form-control py-0 collCounterDebus" style="width: 300px; height: 30px;">
+                    <option></option>
+                    @foreach ($dbu as $item)
+                        <option value="{{ $item->id }}">{{ $item->NAMA_PERUSAHAAN }} </option>
+                    @endforeach
+                </select>
+                @error('DEBITUR_BADAN_USAHA_ID')
+                <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
         </div>
     </div>
 
@@ -57,13 +92,14 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nilai Kendaraan Motor<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-        <div class="input-group" style="width: 300px; height: 38px;">
+            <div class="input-group" style="width: 300px; height: 38px;">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Rp</span>
                 </div>
-            <input type="text" class="form-control number-separator" placeholder="Nilai Kendaraan Motor" name="Nilai_Motor_Vehicle_Tambahan">
+                <input type="text" class="form-control number-separator" placeholder="Nilai Kendaraan Motor"
+                    name="Nilai_Motor_Vehicle_Tambahan">
             </div>
-            @error('Nilai_Motor_Vehicle_Tambahan')
+            @error('Nilai_Motor_Vehicle')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -90,7 +126,8 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Model<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Model_Tambahan" class="form-control" placeholder="Model" placeholder="Type" style="width: 300px; height: 30px;">
+            <input type="text" name="Model_Tambahan" class="form-control" placeholder="Model"
+                style="width: 300px; height: 30px;">
             @error('Model')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -99,7 +136,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Jenis Motor<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Jenis_Motor_Sport_Listrik_Tambahan" class="form-control" placeholder="Jenis Motor"
+            <input type="text" name="Jenis_Motor_Sport_Listrik_Tambahan" placeholder="Jenis Motor" class="form-control"
                 style="width: 300px; height: 30px;">
             @error('Jenis_Motor_Sport_Listrik')
             <p class="text-danger">{{ $message }}</p>
@@ -109,7 +146,8 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Nama Di BPKB<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Nama_Di_Bpkb_Tambahan" class="form-control" placeholder="Nama Di BPKB" style="width: 300px; height: 30px;">
+            <input type="text" name="Nama_Di_Bpkb_Tambahan" class="form-control" placeholder="Nama Di BPKB"
+                style="width: 300px; height: 30px;">
             @error('Nama_Di_Bpkb')
             <p class="text-danger">{{ $message }}</p>
             @enderror
@@ -148,7 +186,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Colour<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Colour_Tambahan" class="form-control"  placeholder="Colour"
+            <input type="text" name="Colour_Tambahan" class="form-control" placeholder="Colour"
                 style="width: 300px; height: 30px;">
             @error('Colour')
             <p class="text-danger">{{ $message }}</p>
@@ -158,7 +196,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Tahun<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="number" name="Tahun_Tambahan" class="form-control"  placeholder="Tahun"
+            <input type="number" name="Tahun_Tambahan" class="form-control" placeholder="Tahun"
                 style="width: 300px; height: 30px;">
             @error('Tahun')
             <p class="text-danger">{{ $message }}</p>
@@ -168,7 +206,7 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Silinder<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <input type="text" name="Silinder_Tambahan" class="form-control"  placeholder="Silinder"
+            <input type="text" name="Silinder_Tambahan" class="form-control" placeholder="Silinder"
                 style="width: 300px; height: 30px;">
             @error('Silinder')
             <p class="text-danger">{{ $message }}</p>
@@ -178,13 +216,13 @@ Add
     <div class="row pb-3">
         <div class="col-sm-4"><label>Status<span class="text-danger">*</span></label></div>
         <div class="col-sm-8">
-            <select name="Status_Tambahan" class="form-control py-0" style="width: 300px; height: 30px;">
+            <select name="Status_Tambahan" class="form-control py-0" style="width: 300px; height: 30px;" id="bottom">
                 <option></option>
                 <option value="Pending">Pending</option>
                 <option value="To Be Obtained">To Be Obtained</option>
                 <option value="Diterima">Diterima</option>
             </select>
-            @error('Status_Tambahan')
+            @error('Status')
             <p class="text-danger">{{ $message }}</p>
             @enderror
         </div>
@@ -198,33 +236,80 @@ Add
     </div>
 </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script type="text/javascript">
+    
+    function jenisDeb() {
+
+        var deb = document.querySelector('input[name="debitur"]:checked').value;
+        console.log(deb);
+
+        if (deb == "PERORANGAN") {
+            document.getElementById("perorangan").style.display = 'block';
+        }else{
+            document.getElementById("perorangan").style.display = 'none';
+        }
+
+        if (deb == "BADAN_USAHA") {
+            document.getElementById("usaha").style.display = 'block';
+        }else{
+            document.getElementById("usaha").style.display = 'none';
+        }
+        
+    }
+
+    // coll counter debitur perorangan
     $(".collCounterPart").on('change', function(){
     var partner_id = $('option:selected', this).val();
     console.log(partner_id);
-    $(".collCounterDebit").on('change', function(){
-    var debitur_id = $('option:selected', this).val();
-    console.log(debitur_id);        
 
-	$.ajax({ 
-         url: "{{ url('collateral_motor_tambahan_nextCounter') }}",
-         data: {"partner_id": partner_id, 
-                "debitur_id": debitur_id},
-         type: 'get',
-         success: function(result){
-            var finalResult = "";
-            console.log(result);
-            console.log(result['data'][0]['jumlah']);
-            if (result['data'][0]['jumlah'].toString().length == 1) {
-                finalResult = "00"+result['data'][0]['jumlah'];
+        $(".collCounterDebit").on('change', function(){
+        var debitur_id = $('option:selected', this).val();
+        console.log(debitur_id);         
+
+        $.ajax({ 
+            url: "{{ url('collateral_motor_tambahan_nextCounter') }}",
+            data: {"partner_id": partner_id, 
+                    "debitur_id": debitur_id},
+            type: 'get',
+            success: function(result){
+                var finalResult = "";
+                console.log(result);
+                console.log(result['data'][0]['jumlah']);
+                if (result['data'][0]['jumlah'].toString().length == 1) {
+                    finalResult = "00"+result['data'][0]['jumlah'];
+                }
+                if (result['data'][0]['jumlah'].toString().length == 2) {
+                    finalResult = "0"+result['data'][0]['jumlah'];
+                }
+                document.getElementById('counter').value = finalResult;
             }
-            if (result['data'][0]['jumlah'].toString().length == 2) {
-                finalResult = "0"+result['data'][0]['jumlah'];
-            }
-            document.getElementById('counter').value = finalResult;
-         }
         });
-  });
+    });
+
+        $(".collCounterDebus").on('change', function(){
+        var debus_id = $('option:selected', this).val();
+        console.log(debus_id); 
+
+        $.ajax({ 
+            url: "{{ url('collateral_motor_tambahan_nextCounter_2') }}",
+            data: {"partner_id": partner_id, 
+                    "debus_id": debus_id},
+            type: 'get',
+            success: function(result_2){
+                var finalResult_2 = "";
+                console.log(result_2);
+                console.log(result_2['data'][0]['jumlah']);
+                if (result_2['data'][0]['jumlah'].toString().length == 1) {
+                    finalResult_2 = "00"+result_2['data'][0]['jumlah'];
+                }
+                if (result_2['data'][0]['jumlah'].toString().length == 2) {
+                    finalResult_2 = "0"+result_2['data'][0]['jumlah'];
+                }
+                document.getElementById('counter').value = finalResult_2;
+            }
+        });
+    });
 });
 </script>
 @endsection

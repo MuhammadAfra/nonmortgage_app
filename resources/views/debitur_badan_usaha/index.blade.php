@@ -120,6 +120,11 @@ Home
                     </td>
                     @include('debitur_badan_usaha.delete')
                     @endif
+                    @if (auth()->user()->level == "User")
+                    <td class="d-flex" style="justify-content: center">
+                        <div><a href="{{ url('detail_badus/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
+                    </td>
+                    @endif
                     <td>
                         @if ($item->PARTNER_ID != NULL)
                             {{ $item->partner->NAMA_PERUSAHAAN }}
@@ -128,7 +133,7 @@ Home
                     <td>{{ $item->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->ALAMAT_PERUSAHAAN }}</td>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
                     <td>{{ $item->STATUS_BADAN_HUKUM }}</td>
-                    <td>{{ $item->AKTE_PENDIRIAN }}</td>
+                    <td>{{ $item->AKTE_PENDIRIAN  }}</td>
                     <td>{{ $item->COMPANY_PROFILE }}</td>
                     <td>
                         @if ($item->AKTE_LAIN_LAIN != NULL)
@@ -142,11 +147,6 @@ Home
                             {{ $item->detil_product->nama_product }}
                         @endif
                     </td>
-                    {{-- @if ($item->detil_product->nama_product == "Invoice Financing")
-                        <td>{{ $item->NAMA_BORROWER }}</td>
-                        <td>{{ $item->TGL_JATUH_TEMPO }}</td>
-                        <td>{{ $item->NILAI_INVOICE_FINANCING }}</td>
-                    @endif --}}
                     <td>{{ $item->AKTE_PERUBAHAN_ANGGARAN_DASAR }}</td>
                     <td>{{ $item->SIUP }}</td>
                     <td>{{ $item->TGL_BERLAKU_SIUP }}</td>

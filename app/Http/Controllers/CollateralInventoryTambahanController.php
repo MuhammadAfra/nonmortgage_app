@@ -7,6 +7,7 @@ use App\Models\Collateral_Inventory_Tambahan;
 use App\Models\Product;
 use App\Models\Partner;
 use App\Models\Debitur;
+use App\Models\Debitur_Badan_Usaha;
 use App\Models\Master_Product;
 use Illuminate\Support\Facades\DB;
 
@@ -35,6 +36,18 @@ class CollateralInventoryTambahanController extends Controller
         return response()->json(['data' => $counter]);
     }
 
+    public function nextCounter_2(Request $request){
+        $partner_id = $request->partner_id;
+        $debus_id = $request->debus_id;
+
+        $counter_2 = DB::table('collateral_inventory_tambahan')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_BADAN_USAHA_ID', $debus_id)
+        ->get();
+
+        return response()->json(['data' => $counter_2]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -44,7 +57,8 @@ class CollateralInventoryTambahanController extends Controller
     {
         $partner = Partner::all();
         $debitur = Debitur::all ();
-        return view('collateral_tambahan.inventory.create', compact('partner', 'debitur'));
+        $dbu = Debitur_Badan_Usaha::all();
+        return view('collateral_tambahan.inventory.create', compact('partner', 'debitur', 'dbu'));
     }
 
     /**
@@ -59,6 +73,8 @@ class CollateralInventoryTambahanController extends Controller
             'PARTNER_ID',
             'DEBITUR_ID',
             'COLL_COUNTER',
+            'DEBITUR_BADAN_USAHA_ID',
+            'debitur',
             'Nilai_Inv_Tambahan',
             'Nama_Inventory_Tambahan',
             'Besar_Inventory_Tambahan',
@@ -73,6 +89,8 @@ class CollateralInventoryTambahanController extends Controller
         'PARTNER_ID' => $request->PARTNER_ID,
         'DEBITUR_ID' => $request->DEBITUR_ID,
         'COLL_COUNTER' => $request->COLL_COUNTER,
+        'jenisDeb' => $request->debitur,
+        'DEBITUR_BADAN_USAHA_ID' => $request->DEBITUR_BADAN_USAHA_ID,
         'Nilai_Inv_Tambahan' => str_ireplace(',', '', $request->Nilai_Inv_Tambahan),
         'Nama_Inventory_Tambahan' =>$request->Nama_Inventory_Tambahan,
         'Besar_Inventory_Tambahan' =>$request->Besar_Inventory_Tambahan,
@@ -123,7 +141,11 @@ class CollateralInventoryTambahanController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
+            'DEBITUR_BADAN_USAHA_ID',
+            'debitur',
             'COLL_COUNTER',
+            'DEBITUR_BADAN_USAHA_ID',
+            'debitur',
             'Nilai_Inv_Tambahan',
             'Nama_Inventory_Tambahan',
             'Besar_Inventory_Tambahan',
@@ -133,10 +155,15 @@ class CollateralInventoryTambahanController extends Controller
             'Alamat_Atas_Nama_Inventory_Tambahan',
             'Status_Tambahan',
         ]);
+        
         $inventbh = Collateral_Inventory_Tambahan::findorfail($id);
         $inventbh->update([
         'PARTNER_ID' => $request->PARTNER_ID,
         'DEBITUR_ID' => $request->DEBITUR_ID,
+        'jenisDeb' => $request->debitur,
+        'jenisDeb' => $request->debitur,
+        'DEBITUR_BADAN_USAHA_ID' => $request->DEBITUR_BADAN_USAHA_ID,
+        'DEBITUR_BADAN_USAHA_ID' => $request->DEBITUR_BADAN_USAHA_ID,
         'COLL_COUNTER' => $request->COLL_COUNTER,
         'Nilai_Inv_Tambahan' => str_ireplace(',', '', $request->Nilai_Inv_Tambahan),
         'Nama_Inventory_Tambahan' =>$request->Nama_Inventory_Tambahan,

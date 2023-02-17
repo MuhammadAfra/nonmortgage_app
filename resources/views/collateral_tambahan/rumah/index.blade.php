@@ -65,7 +65,13 @@ Home
                     @include('collateral_tambahan.rumah.delete')
                     @endif
                     <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
-                    <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
+                    <td>
+                        @if ($item->DEBITUR_ID != NULL)
+                            {{ $item->debitur->NAMA_DEBITUR }}
+                        @elseif($item->DEBITUR_BADAN_USAHA_ID != NULL)
+                            {{ $item->debitur_badan_usaha->NAMA_PERUSAHAAN }}
+                        @endif
+                    </td>
                     <td>{{ str_pad($item->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}</td>
                     <td>Rp{{ number_format($item->Nilai_Rumah_Tanah_Tambahan) }}</td>
                     <td>{{ $item->No_Shm_No_Hgb_Tambahan }}</td>

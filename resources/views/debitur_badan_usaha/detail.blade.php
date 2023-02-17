@@ -7,9 +7,15 @@ Debitur Badan Usaha
 Detail
 @endsection
 
-@section('page')
-<a href="{{ url('debitur_badan_usaha') }}">Debitur Badan Usaha</a>
-@endsection
+@if (auth()->user()->level == "Admin")
+    @section('page')
+        <a href="{{ url('debitur_badan_usaha') }}">Debitur Badan Usaha</a>
+    @endsection
+@elseif(auth()->user()->level == "User")
+    @section('page')
+    <a href="{{ url('/index_debitur_badan_usaha') }}">Debitur Badan Usaha</a>
+    @endsection
+@endif
 
 @section('content')
 <div class="card">
@@ -329,13 +335,22 @@ Detail
             <div class="col-sm-8">: {{ $deb->DOWN_PAYMENT_CUSTOMER }}</div>
             @endif
         </div>
-        <div class="row pb-3">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-8">
-                <a href="{{ url('debitur_badan_usaha/'.$deb->id.'/edit') }}" class="btn btn-warning text-white" type="submit">Edit</a>
-                <a href="{{ url('debitur_badan_usaha') }}" class="btn btn-default">Cancel</a>
+        @if (auth()->user()->level == "Admin")
+            <div class="row pb-3">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-8">
+                    <a href="{{ url('debitur_badan_usaha/'.$deb->id.'/edit') }}" class="btn btn-warning text-white" type="submit">Edit</a>
+                    <a href="{{ url('debitur_badan_usaha') }}" class="btn btn-default">Cancel</a>
+                </div>
             </div>
-        </div>
+        @elseif(auth()->user()->level == "User")
+            <div class="row pb-3">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-8">
+                    <a href="{{ url('index_debitur_badan_usaha') }}" class="btn btn-default">Back</a>
+                </div>
+            </div>
+        @endif
     </div>
 </div>
 @endsection

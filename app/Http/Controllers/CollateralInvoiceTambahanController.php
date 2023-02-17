@@ -7,6 +7,7 @@ use App\Models\Collateral_Invoice_Tambahan;
 use App\Models\Product;
 use App\Models\Partner;
 use App\Models\Debitur;
+use App\Models\Debitur_Badan_Usaha;
 use App\Models\Master_Product;
 use Illuminate\Support\Facades\DB;
 
@@ -35,6 +36,18 @@ class CollateralInvoiceTambahanController extends Controller
         return response()->json(['data' => $counter]);
     }
 
+    public function nextCounter_2(Request $request){
+        $partner_id = $request->partner_id;
+        $debus_id = $request->debus_id;
+
+        $counter_2 = DB::table('collateral_invoice_tambahan')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_BADAN_USAHA_ID', $debus_id)
+        ->get();
+
+        return response()->json(['data' => $counter_2]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -43,8 +56,9 @@ class CollateralInvoiceTambahanController extends Controller
     public function create()
     {
         $partner = Partner::all();
-        $debitur = Debitur::all ();
-        return view('collateral_tambahan.invoice.create',  compact('partner', 'debitur'));
+        $debitur = Debitur::all();
+        $dbu = Debitur_Badan_Usaha::all();
+        return view('collateral_tambahan.invoice.create',  compact('partner', 'debitur', 'dbu'));
     }
 
     /**
@@ -59,6 +73,8 @@ class CollateralInvoiceTambahanController extends Controller
             'PARTNER_ID',
             'DEBITUR_ID',
             'COLL_COUNTER',
+            'DEBITUR_BADAN_USAHA_ID',
+            'debitur',
             'Nilai_Invoice_Tambahan',
             'Jenis_Invoice_Tambahan',
             'Atas_Nama_Invoice_Tambahan',
@@ -74,6 +90,8 @@ class CollateralInvoiceTambahanController extends Controller
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
             'COLL_COUNTER' => $request->COLL_COUNTER,
+            'jenisDeb' => $request->debitur,
+            'DEBITUR_BADAN_USAHA_ID' => $request->DEBITUR_BADAN_USAHA_ID,
             'Nilai_Invoice_Tambahan' => str_replace(',', '', $request->Nilai_Invoice_Tambahan),
             'Jenis_Invoice_Tambahan' => $request->Jenis_Invoice_Tambahan,
             'Atas_Nama_Invoice_Tambahan' => $request->Atas_Nama_Invoice_Tambahan,
@@ -109,8 +127,9 @@ class CollateralInvoiceTambahanController extends Controller
     {
         $invoicetbh = Collateral_Invoice_Tambahan::findorfail($id);
         $partner = Partner::all();
-        $debitur = Debitur::all ();
-        return view('collateral_tambahan.invoice.edit', compact('invoicetbh','partner', 'debitur'));
+        $debitur = Debitur::all();
+        $dbu = Debitur_Badan_Usaha::all();
+        return view('collateral_tambahan.invoice.edit', compact('invoicetbh','partner', 'debitur', 'dbu'));
     }
 
     /**
@@ -126,6 +145,8 @@ class CollateralInvoiceTambahanController extends Controller
             'PARTNER_ID',
             'DEBITUR_ID',
             'COLL_COUNTER',
+            'DEBITUR_BADAN_USAHA_ID',
+            'debitur',
             'Nilai_Invoice_Tambahan',
             'Jenis_Invoice_Tambahan',
             'Atas_Nama_Invoice_Tambahan',
@@ -134,7 +155,7 @@ class CollateralInvoiceTambahanController extends Controller
             'Nilai_Fiducia_Tambahan',
             'Tgl_Fiducia_Tambahan',
             'Tgl_Jatuh_Tempo_Tambahan',
-            'Status_Tambahan',       
+            'Status_Tambahan',      
         ]);
 
         $invoicetbh = Collateral_Invoice_Tambahan::findorfail($id);
@@ -142,6 +163,8 @@ class CollateralInvoiceTambahanController extends Controller
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
             'COLL_COUNTER' => $request->COLL_COUNTER,
+            'jenisDeb' => $request->debitur,
+            'DEBITUR_BADAN_USAHA_ID' => $request->DEBITUR_BADAN_USAHA_ID,
             'Nilai_Invoice_Tambahan' => str_replace(',', '', $request->Nilai_Invoice_Tambahan),
             'Jenis_Invoice_Tambahan' => $request->Jenis_Invoice_Tambahan,
             'Atas_Nama_Invoice_Tambahan' => $request->Atas_Nama_Invoice_Tambahan,

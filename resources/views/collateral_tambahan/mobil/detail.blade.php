@@ -11,20 +11,32 @@ Detail
 <a href="{{ url('collateral_mobil_tambahan') }}">Collateral Tambahan - Mobil</a>
 @endsection
 
-@section('content')_Tambahan
+@section('content')
 <div class="card">
     <div class="card-body">
         <div class="row pb-3">
             <div class="col-sm-4"><label>Partner ID</label></div>
-            <div class="col-sm-8">: {{ $rumah->partner->NAMA_PERUSAHAAN }}</div>
+            <div class="col-sm-8">: {{ $mobil->partner->NAMA_PERUSAHAAN }}</div>
         </div>
-        <div class="row pb-3">
-            <div class="col-sm-4"><label>Debitur ID</label></div>
-            <div class="col-sm-8">: {{ $rumah->debitur->NAMA_DEBITUR }}</div>
-        </div>
+        @if ($mobil->DEBITUR_ID != NULL)
+            @if ($mobil->jenisDeb == 'PERORANGAN')
+                <div class="row pb-3">
+                    <div class="col-sm-4"><label>Debitur Perorangan ID</label></div>
+                    <div class="col-sm-8">: {{ $mobil->debitur->NAMA_DEBITUR }}</div>
+                </div>
+            @endif
+        @endif
+        @if ($mobil->DEBITUR_BADAN_USAHA_ID != NULL)
+            @if ($mobil->jenisDeb == 'BADAN_USAHA')
+                <div class="row pb-3">
+                    <div class="col-sm-4"><label>Debitur Badan Usaha ID</label></div>
+                    <div class="col-sm-8">: {{ $mobil->debitur_badan_usaha->NAMA_PERUSAHAAN }}</div>
+                </div>
+            @endif
+        @endif
         <div class="row pb-3">
             <div class="col-sm-4"><label>Coll ID</label></div>
-            <div class="col-sm-8">: {{ str_pad($rumah->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}</div>
+            <div class="col-sm-8">: {{ str_pad($mobil->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}</div>
         </div>
         <div class="row pb-3">
             <div class="col-sm-4"><label>Nilai Kendaraan Bermobil</label></div>

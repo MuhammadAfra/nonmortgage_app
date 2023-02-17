@@ -7,6 +7,7 @@ use App\Models\Collateral_Mobil_Tambahan;
 use App\Models\Product;
 use App\Models\Partner;
 use App\Models\Debitur;
+use App\Models\Debitur_Badan_Usaha;
 use App\Models\Master_Product;
 use Illuminate\Support\Facades\DB;
 
@@ -35,6 +36,18 @@ class CollateralMobilTambahanController extends Controller
         return response()->json(['data' => $counter]);
     }
 
+    public function nextCounter_2(Request $request){
+        $partner_id = $request->partner_id;
+        $debus_id = $request->debus_id;
+
+        $counter = DB::table('collateral_mobil_tambahan')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_ID', $debus_id)
+        ->get();
+
+        return response()->json(['data' => $counter]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -44,7 +57,8 @@ class CollateralMobilTambahanController extends Controller
     {
         $partner = Partner::all();
         $debitur = Debitur::all();
-        return view('collateral_tambahan.mobil.create', compact('partner', 'debitur',));
+        $dbu = Debitur_Badan_Usaha::all();
+        return view('collateral_tambahan.mobil.create', compact('partner', 'debitur', 'dbu'));
     }
 
     /**
@@ -59,6 +73,8 @@ class CollateralMobilTambahanController extends Controller
             'PARTNER_ID',
             'DEBITUR_ID',
             'COLL_COUNTER',
+            'DEBITUR_BADAN_USAHA_ID',
+            'debitur',
             'Nilai_Mobil_Vehicle_Tambahan',
             'Merk_Tambahan',
             'Type_Tambahan',
@@ -79,6 +95,8 @@ class CollateralMobilTambahanController extends Controller
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
             'COLL_COUNTER' => $request->COLL_COUNTER,
+            'jenisDeb' => $request->debitur,
+            'DEBITUR_BADAN_USAHA_ID' => $request->DEBITUR_BADAN_USAHA_ID,
             'Nilai_Mobil_Vehicle_Tambahan' => str_replace(',', '' ,$request->Nilai_Mobil_Vehicle_Tambahan),
             'Merk_Tambahan' => $request->Merk_Tambahan,
             'Type_Tambahan' => $request->Type_Tambahan,
@@ -137,6 +155,8 @@ class CollateralMobilTambahanController extends Controller
             'PARTNER_ID',
             'DEBITUR_ID',
             'COLL_COUNTER',
+            'DEBITUR_BADAN_USAHA_ID',
+            'debitur',
             'Nilai_Mobil_Vehicle_Tambahan',
             'Merk_Tambahan',
             'Type_Tambahan',
@@ -158,6 +178,8 @@ class CollateralMobilTambahanController extends Controller
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
             'COLL_COUNTER' => $request->COLL_COUNTER,
+            'jenisDeb' => $request->debitur,
+            'DEBITUR_BADAN_USAHA_ID' => $request->DEBITUR_BADAN_USAHA_ID,
             'Nilai_Mobil_Vehicle_Tambahan' => str_replace(',', '' ,$request->Nilai_Mobil_Vehicle_Tambahan),
             'Merk_Tambahan' => $request->Merk_Tambahan,
             'Type_Tambahan' => $request->Type_Tambahan,

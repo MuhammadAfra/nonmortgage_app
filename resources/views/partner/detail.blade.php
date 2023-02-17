@@ -8,7 +8,15 @@ Detail
 @endsection
 
 @section('page')
-<a href="{{ url('partner') }}">Partner</a>
+@if (auth()->user()->level == "Admin")
+    @section('page')
+        <a href="{{ url('partner') }}">Partner</a>
+    @endsection
+@elseif(auth()->user()->level == "User")
+    @section('page')
+    <a href="{{ url('/index_partner') }}">Partner</a>
+    @endsection
+@endif
 @endsection
 
 @section('content')
@@ -242,13 +250,22 @@ Detail
             <div class="col-sm-4"><label>Status</label></div>
             <div class="col-sm-8">: {{ $partner->Status }}</div>
         </div>
-        <div class="row pb-3">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-8">
-                <a href="{{ url('partner/'.$partner->id.'/edit') }}" class="btn btn-warning text-white" type="submit">Edit</a>
-                <a href="{{ url('partner') }}" class="btn btn-default">Cancel</a>
+        @if (auth()->user()->level == "Admin")
+            <div class="row pb-3">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-8">
+                    <a href="{{ url('partner/'.$partner->id.'/edit') }}" class="btn btn-warning text-white" type="submit">Edit</a>
+                    <a href="{{ url('partner') }}" class="btn btn-default">Cancel</a>
+                </div>
             </div>
-        </div>
+        @elseif(auth()->user()->level == "User")
+            <div class="row pb-3">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-8">
+                    <a href="{{ url('index_partner') }}" class="btn btn-default">Back</a>
+                </div>
+            </div>
+        @endif
     </div>
 </div>
 @endsection

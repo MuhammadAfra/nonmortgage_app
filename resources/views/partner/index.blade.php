@@ -95,6 +95,11 @@ Home
                     </td>
                     @include('partner.delete')
                     @endif
+                    @if (auth()->user()->level == "User")
+                    <td class="d-flex" style="justify-content: center">
+                        <div><a href="{{ url('detail_partner/'.$item->id) }}" class="btn btn-info btn-sm text-white mr-1"><i class="fas fa-eye"></i></a></div>
+                    </td>
+                    @endif
                     <td>{{ $item->NAMA_PERUSAHAAN }}</td>
                     <td>{{ $item->ALAMAT_PERUSAHAAN }}</td>
                     <td>{{ $item->STATUS_BADAN_HUKUM }}</td>

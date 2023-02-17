@@ -21,4 +21,9 @@ class Collateral_Mobil_Tambahan extends Model
     {
         return $this->belongsTo(Debitur::class, 'DEBITUR_ID');
     }
+
+    public function debitur_badan_usaha()
+    {
+        return $this->belongsTo(Debitur_Badan_Usaha::class, 'DEBITUR_BADAN_USAHA_ID');
+    }
 }

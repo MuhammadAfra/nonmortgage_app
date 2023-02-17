@@ -7,6 +7,7 @@ use App\Models\Partner;
 use Illuminate\Http\Request;
 use App\Models\Collateral_Motor;
 use App\Models\Debitur;
+use App\Models\Debitur_Badan_Usaha;
 use App\Models\Master_Product;
 use Illuminate\Support\Facades\DB;
 
@@ -42,12 +43,25 @@ class CollateralMotorController extends Controller
         return response()->json(['data' => $counter]);
     }
 
+    public function nextCounter_2(Request $request){
+        $partner_id = $request->partner_id;
+        $debus_id = $request->debus_id;
+
+        $counter_2 = DB::table('collateral_motor')->select(DB::raw('count(id) + 1 as jumlah'))
+        ->where('PARTNER_ID', $partner_id)
+        ->where('DEBITUR_BADAN_USAHA_ID', $debus_id)
+        ->get();
+
+        return response()->json(['data' => $counter_2]);
+    }
+
     public function create()
     {
 
         $partner = Partner::all();
         $debitur = Debitur::all();
-        return view('collateral_utama.motor.create', compact('partner', 'debitur'));
+        $dbu = Debitur_Badan_Usaha::all();
+        return view('collateral_utama.motor.create', compact('partner', 'debitur', 'dbu'));
     }
 
     /**
@@ -61,6 +75,8 @@ class CollateralMotorController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
+            'debitur',
+            'DEBITUR_BADAN_USAHA_ID',
             'COLL_COUNTER',
             'Nilai_Motor_Vehicle',
             'Merk',
@@ -80,6 +96,8 @@ class CollateralMotorController extends Controller
         Collateral_Motor::create([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
+            'jenisDeb' => $request->debitur,
+            'DEBITUR_BADAN_USAHA_ID' => $request->DEBITUR_BADAN_USAHA_ID,
             'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Motor_Vehicle' => str_replace(',', '', $request->Nilai_Motor_Vehicle),
             'Merk' => $request->Merk,
@@ -121,7 +139,8 @@ class CollateralMotorController extends Controller
         $motor = Collateral_Motor::findorfail($id);
         $partner = Partner::all();
         $debitur = Debitur::all ();
-        return view('collateral_utama.motor.edit', compact('motor', 'partner', 'debitur'));
+        $dbu = Debitur_Badan_Usaha::all();
+        return view('collateral_utama.motor.edit', compact('motor', 'partner', 'debitur', 'dbu'));
     }
 
     /**
@@ -136,6 +155,8 @@ class CollateralMotorController extends Controller
         $this->validate($request, [
             'PARTNER_ID',
             'DEBITUR_ID',
+            'debitur',
+            'DEBITUR_BADAN_USAHA_ID',
             'COLL_COUNTER',
             'Nilai_Motor_Vehicle',
             'Merk',
@@ -156,6 +177,8 @@ class CollateralMotorController extends Controller
         $motor->update([
             'PARTNER_ID' => $request->PARTNER_ID,
             'DEBITUR_ID' => $request->DEBITUR_ID,
+            'jenisDeb' => $request->debitur,
+            'DEBITUR_BADAN_USAHA_ID' => $request->DEBITUR_BADAN_USAHA_ID,
             'COLL_COUNTER' => $request->COLL_COUNTER,
             'Nilai_Motor_Vehicle' => str_replace(',', '', $request->Nilai_Motor_Vehicle),
             'Merk' => $request->Merk,

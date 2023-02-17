@@ -20,9 +20,6 @@ Edit
         <div class="col-sm-8">
             <select readonly name="PARTNER_ID" id="PARTNER_ID" class="form-control py-0 collCounterPart" style="width: 300px; height: 30px;">
                 <option value="{{ $inventbh->PARTNER_ID }}">{{ $inventbh->partner->NAMA_PERUSAHAAN }}</option>
-                {{-- @foreach ($partner as $item)
-                <option value="{{ $item->id }}">{{ $item->NAMA_PERUSAHAAN }} </option>
-                @endforeach --}}
             </select>
             @error('PARTNER_ID')
             <p class="text-danger">{{ $message }}</p>
@@ -31,19 +28,54 @@ Edit
     </div>
 
     <div class="row pb-3">
-        <div class="col-sm-4"><label>Debitur ID <span class="text-danger">*</span></label></div>
-        <div class="col-sm-8">
-            <select readonly name="DEBITUR_ID" id="DEBITUR_ID" class="form-control py-0 collCounterDebit" style="width: 300px; height: 30px;">
-                <option value="{{ $inventbh->DEBITUR_ID }}">{{ $inventbh->debitur->NAMA_DEBITUR }}</option>
-                {{-- @foreach ($debitur as $item)
-                <option value="{{ $item->id }}">{{ $item->NAMA_DEBITUR }} </option>
-                @endforeach --}}
-            </select>
-            @error('DEBITUR_ID')
-            <p class="text-danger">{{ $message }}</p>
-            @enderror
+        <div class="col-sm-4"><label>Debitur <span class="text-danger">*</span></label></div>
+        <div class="col-sm-4 d-flex">
+            <div class="d-flex">
+                <input type="radio" readonly value="PERORANGAN" style="width: 15px" name="debitur" {{ $inventbh->jenisDeb == 'PERORANGAN' ? 'checked' : '' }} required class="form-control">
+                <p class="my-auto mx-2" style="font-weight: 600">PERORANGAN</p>
+            </div>
+            <div class=" d-flex">
+                <input type="radio" readonly value="BADAN_USAHA" style="width: 15px" name="debitur" {{ $inventbh->jenisDeb == 'BADAN_USAHA' ? 'checked' : '' }} required class="form-control">
+                <p class="my-auto mx-2" style="font-weight: 600">BADAN USAHA</p>
+            </div>
+            <button type="button" class="btn btn-sm btn-default" disabled onclick="jenisDeb()">Pilih</button>
         </div>
     </div>
+    @if ($inventbh->DEBITUR_ID != NULL)
+        @if ($inventbh->jenisDeb == 'PERORANGAN')
+            <div style="display: block;" id="perorangan"">
+                <div class="row pb-3" >
+                    <div class="col-sm-4"><label>Debitur Perorangan ID <span class="text-danger">*</span></label></div>
+                    <div class="col-sm-8">
+                        <select name="DEBITUR_ID" readonly id="DEBITUR_ID" class="form-control py-0 collCounterDebit" style="width: 300px; height: 30px;">
+                            <option value="{{ $inventbh->DEBITUR_ID }}">{{ $inventbh->debitur->NAMA_DEBITUR }}</option>
+                        </select>
+                        @error('DEBITUR_ID')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+        @endif
+    @endif
+
+    @if ($inventbh->DEBITUR_BADAN_USAHA_ID != NULL)
+        @if ($inventbh->jenisDeb == 'BADAN_USAHA')
+            <div style="display: block;" id="usaha"">
+                <div class="row pb-3" >
+                    <div class="col-sm-4"><label>Debitur Badan Usaha ID <span class="text-danger">*</span></label></div>
+                    <div class="col-sm-8">
+                        <select readonly name="DEBITUR_BADAN_USAHA_ID" id="DEBITUR_BADAN_USAHA_ID" class="form-control py-0 collCounterDebus" style="width: 300px; height: 30px;">
+                            <option value="{{ $inventbh->DEBITUR_BADAN_USAHA_ID }}">{{ $inventbh->debitur_badan_usaha->NAMA_PERUSAHAAN }}</option>
+                        </select>
+                        @error('DEBITUR_BADAN_USAHA_ID')
+                        <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+            </div>
+        @endif
+    @endif
 
     <div class="row pb-3">
         <div class="col-sm-4"><label>Coll ID <span class="text-danger">*</span></label></div>

@@ -18,10 +18,22 @@ Detail
             <div class="col-sm-4"><label>Partner ID</label></div>
             <div class="col-sm-8">: {{ $invoice->partner->NAMA_PERUSAHAAN }}</div>
         </div>
-        <div class="row pb-3">
-            <div class="col-sm-4"><label>Debitur ID</label></div>
-            <div class="col-sm-8">: {{ $invoice->debitur->NAMA_DEBITUR }}</div>
-        </div>
+        @if ($invoice->DEBITUR_ID != NULL)
+            @if ($invoice->jenisDeb == 'PERORANGAN')
+                <div class="row pb-3">
+                    <div class="col-sm-4"><label>Debitur Perorangan ID</label></div>
+                    <div class="col-sm-8">: {{ $invoice->debitur->NAMA_DEBITUR }}</div>
+                </div>
+            @endif
+        @endif
+        @if ($invoice->DEBITUR_BADAN_USAHA_ID != NULL)
+            @if ($invoice->jenisDeb == 'BADAN_USAHA')
+                <div class="row pb-3">
+                    <div class="col-sm-4"><label>Debitur Badan Usaha ID</label></div>
+                    <div class="col-sm-8">: {{ $invoice->debitur_badan_usaha->NAMA_PERUSAHAAN }}</div>
+                </div>
+            @endif
+        @endif
         <div class="row pb-3">
             <div class="col-sm-4"><label>Coll ID</label></div>
             <div class="col-sm-8">: {{ str_pad($invoice->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}</div>

@@ -45,7 +45,7 @@ Home
                     <th>Merk</th>
                     <th>Type</th>
                     <th>Model</th>
-                    <th>Jenis Motor</th>
+                    <th>Jenis Motor Sport/Listrik</th>
                     <th>Nama di BKPB</th>
                     <th>No Frame</th>
                     <th>No Engine</th>
@@ -68,10 +68,16 @@ Home
                         <button type="button" data-toggle="modal" data-target="#exampleModalCenter{{ $item->id }}" class="btn btn-danger btn-sm text-white"><i class="fas fa-trash"></i></button>
                         </div>
                     </td>
-                    @include('collateral_tambahan.motor.delete')
+                    @include('collateral_utama.motor.delete')
                     @endif
                     <td>{{ $item->partner->NAMA_PERUSAHAAN }}</td>
-                    <td>{{ $item->debitur->NAMA_DEBITUR }}</td>
+                    <td>
+                        @if ($item->DEBITUR_ID != NULL)
+                        {{ $item->debitur->NAMA_DEBITUR }}
+                        @elseif($item->DEBITUR_BADAN_USAHA_ID != NULL)
+                        {{ $item->debitur_badan_usaha->NAMA_PERUSAHAAN }}
+                        @endif
+                    </td>
                     <td>{{ str_pad($item->COLL_COUNTER, 3, 0, STR_PAD_LEFT) }}</td>
                     <td>Rp{{ number_format($item->Nilai_Motor_Vehicle_Tambahan) }}</td>
                     <td>{{ $item->Merk_Tambahan }}</td>
@@ -92,5 +98,5 @@ Home
         </table>
     </div>
     <!-- /.card-body -->
-</div>
+</div
 @endsection

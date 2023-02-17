@@ -230,7 +230,7 @@ class DebiturController extends Controller
         $debitur = Debitur::findorfail($id);
         $asuransi = Master_Asuransi::get();
         $sektor = Master_Sektor_Ekonomi::get();
-        $partner = Master_Sektor_Ekonomi::get();
+        $partner = Partner::get();
         return view('debitur.edit', compact('debitur','asuransi','sektor', 'partner'));
     }
 

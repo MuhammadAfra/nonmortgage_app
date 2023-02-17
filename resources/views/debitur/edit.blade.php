@@ -22,7 +22,7 @@
             <select name="PARTNER_ID" class="form-control py-0" style="width: 300px; height: 30px;" required>
                 <option value="{{ $debitur->PARTNER_ID }}">{{ $debitur->partner->NAMA_PERUSAHAAN }}</option>
                 @foreach ($partner as $item)
-                    <option value="{{ $item->id }}">{{ $item->id }} - {{ $item->NAMA_PERUSAHAAN }}</option>
+                    <option value="{{ $item->id }}">{{ $item->NAMA_PERUSAHAAN }}</option>
                 @endforeach
             </select>
         </div>
